@@ -43,7 +43,30 @@ import Reveal from '../../components/ui/Reveal.astro';
         {projects.map((project, idx) => (
           <Reveal delay={idx * 80}>
             <div class="rounded-2xl border border-border-strong bg-surface p-6 sm:p-8 flex flex-col justify-between space-y-6 hover:border-text transition-all duration-200 group h-full shadow-xs">
-              <div class="space-y-4">
+              <div class="space-y-5">
+                <!-- Project Preview Image with Browser Bar -->
+                <div class="rounded-xl overflow-hidden border border-border bg-bg/90 group-hover:border-border-strong transition-colors shadow-2xs">
+                  <div class="flex items-center justify-between px-3 py-1.5 border-b border-border bg-surface-2/70 text-[10px] font-mono text-text-faint">
+                    <div class="flex items-center gap-1.5" aria-hidden="true">
+                      <span class="w-2 h-2 rounded-full bg-border-strong"></span>
+                      <span class="w-2 h-2 rounded-full bg-border-strong"></span>
+                      <span class="w-2 h-2 rounded-full bg-border-strong"></span>
+                    </div>
+                    <span class="truncate max-w-[180px] text-text-muted">{project.liveUrl ? project.liveUrl.replace('https://', '') : `${project.slug}.internal`}</span>
+                    <span class="text-status">{project.status === 'live' ? '● LIVE' : '● ACTIVE'}</span>
+                  </div>
+                  <a href={`/work/${project.slug}`} class="block overflow-hidden aspect-[16/9] bg-surface-2">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-300"
+                      loading="lazy"
+                      width="1280"
+                      height="720"
+                    />
+                  </a>
+                </div>
+
                 <!-- Top Meta Bar -->
                 <div class="flex items-center justify-between pb-3 border-b border-border text-xs font-mono">
                   <span class="text-text-faint uppercase tracking-wider">

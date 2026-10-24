@@ -74,9 +74,34 @@ const nextProject = projects[(currentIndex + 1) % projects.length];
         </div>
       </div>
 
+      <!-- High-Fidelity Platform Architecture Screenshot -->
+      <Reveal delay={60}>
+        <div class="rounded-2xl overflow-hidden border border-border-strong bg-surface shadow-md">
+          <div class="flex items-center justify-between px-4 py-2.5 border-b border-border bg-surface-2 text-xs font-mono text-text-faint">
+            <div class="flex items-center gap-2" aria-hidden="true">
+              <span class="w-3 h-3 rounded-full bg-border-strong"></span>
+              <span class="w-3 h-3 rounded-full bg-border-strong"></span>
+              <span class="w-3 h-3 rounded-full bg-border-strong"></span>
+            </div>
+            <span class="text-xs text-text-muted font-mono">{project.liveUrl ? project.liveUrl.replace('https://', '') : `${project.slug}.internal/telemetry`}</span>
+            <span class="text-status text-xs font-medium">{project.status === 'live' ? '● PRODUCTION LIVE' : '● RESEARCH RUNNING'}</span>
+          </div>
+          <div class="aspect-[16/9] w-full overflow-hidden bg-surface-2">
+            <img
+              src={project.image}
+              alt={`${project.title} Preview Screenshot`}
+              class="w-full h-full object-cover object-top"
+              loading="eager"
+              width="1280"
+              height="720"
+            />
+          </div>
+        </div>
+      </Reveal>
+
       <!-- Key Metrics Strip -->
       {project.metrics && project.metrics.length > 0 && (
-        <Reveal delay={80}>
+        <Reveal delay={100}>
           <div class="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border border border-border rounded-xl bg-surface/60 overflow-hidden font-mono">
             {project.metrics.map((m) => (
               <div class="p-5 space-y-1">

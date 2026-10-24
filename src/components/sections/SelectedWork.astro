@@ -83,7 +83,6 @@ const clientProjects = projects.filter((p) => !p.featured);
               </ul>
             </div>
 
-            <!-- Bottom Stack & Action -->
             <div class="pt-4 border-t border-border flex flex-wrap items-center justify-between gap-4">
               <TagList size="sm" tags={tassiliProject.stack} />
               <Button href="/work" variant="ghost" size="sm">
@@ -97,29 +96,29 @@ const clientProjects = projects.filter((p) => !p.featured);
             <div class="space-y-4 font-mono text-xs">
               <div class="flex items-center justify-between pb-3 border-b border-border/70 text-text-faint">
                 <span class="text-[11px]">// SYSTEM TELEMETRY</span>
-                <span class="text-[10px] px-2 py-0.5 rounded bg-bg text-status border border-border">● EVAL RUNNING</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-bg text-status border border-border font-bold">● EVAL ACTIVE</span>
               </div>
 
-              <!-- Architecture Pipeline Flow -->
-              <div class="space-y-2 bg-bg/90 p-4 rounded-xl border border-border">
-                <div class="text-[10px] text-text-faint uppercase tracking-wider">PIPELINE ARCHITECTURE</div>
-                <div class="space-y-1.5 text-[11px]">
-                  <div class="flex items-center gap-2 text-text">
-                    <span class="text-text-faint">01</span>
-                    <span>Multi-dialect Algerian Corpus Ingestion</span>
+              <!-- High-Fidelity Platform UI Preview -->
+              <div class="rounded-xl overflow-hidden border border-border bg-bg shadow-sm group/preview">
+                <div class="flex items-center justify-between px-3 py-2 border-b border-border/70 bg-surface/70 text-[10px] text-text-faint">
+                  <div class="flex items-center gap-1.5" aria-hidden="true">
+                    <span class="w-2 h-2 rounded-full bg-border-strong"></span>
+                    <span class="w-2 h-2 rounded-full bg-border-strong"></span>
+                    <span class="w-2 h-2 rounded-full bg-border-strong"></span>
                   </div>
-                  <div class="flex items-center gap-2 text-text">
-                    <span class="text-text-faint">02</span>
-                    <span>Subword Tokenization &amp; Script Normalization</span>
-                  </div>
-                  <div class="flex items-center gap-2 text-text font-bold">
-                    <span class="text-status">03</span>
-                    <span>Instruction Fine-Tuning &amp; LoRA Adapters</span>
-                  </div>
-                  <div class="flex items-center gap-2 text-text-muted">
-                    <span class="text-text-faint">04</span>
-                    <span>Evaluation Benchmarks (BLEU, Perplexity)</span>
-                  </div>
+                  <span class="text-[10px] text-text-muted">tassili-ai.internal/finetune</span>
+                  <span class="text-[9px] text-status font-bold">Llama-3-FT</span>
+                </div>
+                <div class="aspect-[16/10] overflow-hidden bg-surface-2">
+                  <img
+                    src={tassiliProject.image}
+                    alt="Tassili AI Fine-Tuning Dashboard"
+                    class="w-full h-full object-cover group-hover/preview:scale-[1.02] transition-transform duration-300"
+                    loading="lazy"
+                    width="1280"
+                    height="720"
+                  />
                 </div>
               </div>
 
@@ -127,7 +126,7 @@ const clientProjects = projects.filter((p) => !p.featured);
               <div class="p-3.5 rounded-xl border border-border bg-bg/60 space-y-2">
                 <div class="text-[10px] text-text-faint uppercase tracking-wider">REGIONAL ACCURACY TARGET</div>
                 <div class="flex items-baseline justify-between">
-                  <span class="text-2xl font-bold text-text font-sans">High-Context</span>
+                  <span class="text-xl font-bold text-text font-sans">High-Context</span>
                   <span class="text-xs font-mono text-status font-semibold">Native Darija</span>
                 </div>
                 <p class="text-[11px] text-text-muted font-sans leading-normal">
@@ -151,18 +150,30 @@ const clientProjects = projects.filter((p) => !p.featured);
       {secondaryProjects.map((project, idx) => (
         <Reveal delay={120 + idx * 80}>
           <div class="rounded-2xl border border-border bg-surface p-6 sm:p-8 flex flex-col justify-between space-y-6 hover:border-border-strong transition-all duration-200 group h-full shadow-xs">
-            <div class="space-y-4">
-              <!-- Header Bar with Browser Mockup Dots -->
-              <div class="flex items-center justify-between pb-3 border-b border-border text-xs font-mono text-text-faint">
-                <div class="flex items-center gap-1.5" aria-hidden="true">
-                  <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block"></span>
+            <div class="space-y-5">
+              <!-- Browser Mockup Window with Image Preview -->
+              <div class="rounded-xl overflow-hidden border border-border bg-bg/90 group-hover:border-border-strong transition-colors shadow-2xs">
+                <div class="flex items-center justify-between px-3.5 py-2 border-b border-border bg-surface-2/70 text-xs font-mono text-text-faint">
+                  <div class="flex items-center gap-1.5" aria-hidden="true">
+                    <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block"></span>
+                  </div>
+                  <span class="truncate max-w-[180px] text-[10px] text-text-muted font-mono">{project.liveUrl?.replace('https://', '')}</span>
+                  {project.status === 'live' && (
+                    <span class="text-status text-[10px] font-medium">● LIVE</span>
+                  )}
                 </div>
-                <span class="truncate max-w-[160px] text-[11px]">{project.liveUrl?.replace('https://', '')}</span>
-                {project.status === 'live' && (
-                  <span class="text-status text-[10px]">● LIVE</span>
-                )}
+                <a href={project.liveUrl || `/work/${project.slug}`} class="block overflow-hidden aspect-[16/10] bg-surface-2">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-300"
+                    loading="lazy"
+                    width="1280"
+                    height="720"
+                  />
+                </a>
               </div>
 
               <!-- Title & Category -->
@@ -223,10 +234,20 @@ const clientProjects = projects.filter((p) => !p.featured);
 
         <div class="border border-border rounded-xl divide-y divide-border bg-surface/40 overflow-hidden text-xs font-mono">
           {clientProjects.map((p) => (
-            <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-surface transition-colors">
-              <div class="space-y-0.5">
-                <div class="text-sm font-bold text-text font-sans">{p.title}</div>
-                <div class="text-[11px] text-text-muted">{p.category} · {p.role} ({p.year})</div>
+            <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-surface transition-colors group/row">
+              <div class="flex items-center gap-4 min-w-0">
+                <div class="w-16 h-11 rounded-lg overflow-hidden border border-border bg-surface-2 shrink-0 hidden sm:block">
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    class="w-full h-full object-cover group-hover/row:scale-105 transition-transform duration-200"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="space-y-0.5 min-w-0">
+                  <div class="text-sm font-bold text-text font-sans truncate">{p.title}</div>
+                  <div class="text-[11px] text-text-muted truncate">{p.category} · {p.role} ({p.year})</div>
+                </div>
               </div>
 
               <div class="flex items-center gap-3">

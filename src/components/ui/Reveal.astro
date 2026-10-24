@@ -61,14 +61,21 @@ const { delay = 0, class: className } = Astro.props;
         });
       },
       {
-        threshold: 0.1,
-        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.05,
+        rootMargin: '0px 0px 80px 0px',
       }
     );
 
     document.querySelectorAll('[data-reveal]:not(.is-revealed)').forEach((el) => {
       observer.observe(el);
     });
+
+    // Safety fallback so content is never stuck invisible
+    setTimeout(() => {
+      document.querySelectorAll('[data-reveal]:not(.is-revealed)').forEach((el) => {
+        el.classList.add('is-revealed');
+      });
+    }, 2000);
   }
 
   initReveals();

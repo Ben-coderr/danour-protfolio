@@ -11,6 +11,7 @@ export interface Project {
   year: string;
   type: 'platform' | 'client' | 'ai' | 'web';
   featured: boolean;
+  image: string;
   liveUrl?: string;
   repoUrl?: string;
   stack: string[];
@@ -39,6 +40,7 @@ export const projects: Project[] = [
     year: '2025 — 2026',
     type: 'ai',
     featured: true,
+    image: '/brand/tassili-ai.jpg',
     stack: ['Python', 'LLMs', 'PyTorch', 'Hugging Face', 'Data Science', 'FastAPI'],
     bullets: [
       'Contribute to data pipelines and tokenization strategies for Algerian Darija corpora.',
@@ -67,6 +69,7 @@ export const projects: Project[] = [
     year: '2025',
     type: 'platform',
     featured: true,
+    image: '/brand/virexa.jpg',
     liveUrl: 'https://virexa-eta.vercel.app',
     stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Node.js'],
     bullets: [
@@ -96,6 +99,7 @@ export const projects: Project[] = [
     year: '2025',
     type: 'client',
     featured: true,
+    image: '/brand/fiikra-studio.jpg',
     liveUrl: 'https://fiikra-studio.vercel.app',
     stack: ['React', 'Next.js', 'Tailwind CSS', 'Figma', 'UI/UX'],
     bullets: [
@@ -125,6 +129,7 @@ export const projects: Project[] = [
     year: '2026',
     type: 'platform',
     featured: true,
+    image: '/brand/everest-genai.jpg',
     stack: ['React', 'Python', 'FastAPI', 'ChromaDB', 'Tailwind CSS'],
     bullets: [
       'Engineered interactive prompt experimentation workbench for 20+ students.',
@@ -150,6 +155,7 @@ export const projects: Project[] = [
     year: '2025',
     type: 'client',
     featured: false,
+    image: '/brand/jg-supply-net.jpg',
     liveUrl: 'https://jgsupplynet.com',
     stack: ['React', 'Node.js', 'Tailwind CSS', 'Static Generation'],
     bullets: [
@@ -176,6 +182,7 @@ export const projects: Project[] = [
     year: '2025',
     type: 'client',
     featured: false,
+    image: '/brand/perfecto-brew-crew.jpg',
     stack: ['UI/UX Design', 'React', 'Tailwind CSS', 'Mobile First'],
     bullets: [
       'Designed appetizing, mobile-first layouts featuring menus, hours, and booking inquiries.',
