@@ -5,14 +5,15 @@ import Tag from './Tag.astro';
 interface Props {
   tags?: string[];
   size?: 'sm' | 'md';
+  showIcon?: boolean;
   class?: string;
 }
 
-const { tags = [], size = 'sm', class: className } = Astro.props;
+const { tags = [], size = 'sm', showIcon = true, class: className } = Astro.props;
 ---
 
 <div class={clsx('flex flex-wrap items-center gap-1.5', className)}>
   {tags.length > 0
-    ? tags.map((t) => <Tag text={t} size={size} />)
+    ? tags.map((t) => <Tag text={t} size={size} showIcon={showIcon} />)
     : <slot />}
 </div>

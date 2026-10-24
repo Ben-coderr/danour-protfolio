@@ -7,7 +7,7 @@ The following items are placeholders or need confirmation from Abdenour. As spec
 3. **Sonatrach Internship:** Dates read "June 3 – June 30, 2026". Confirm it is completed and can be named publicly.
 4. **Tassili AI Details:** Is it OK to publicly name Tassili AI and describe the role? Exact title? Any non-confidential highlights to mention?
 5. **"Build with AI" Course Details:** Real syllabus by week, student count, student outcomes/projects, and start/completion dates.
-6. **Portrait & Action Shots:** A high-res portrait photo (B&W-friendly, neutral background) + 2–3 action shots of teaching/workshops.
+6. **Portrait & Action Shots:** Portrait photo provided and integrated (`DANOUR-PIC.JPG` -> `src/assets/portrait/abdenour.jpg`). Action shots of teaching/workshops still welcome when available.
 7. **Contact Preference:** Preferred public contact channels (Email only? WhatsApp / Telegram link?). Phone number stays off the site by default.
 8. **Custom Domain:** Desired domain (e.g., `bencoder.dev`, `abdenour.dev`, `benkorich.com`).
 9. **Languages:** Any plans for Arabic / French versions? (Default is English-only at launch, architecture prepared for i18n).

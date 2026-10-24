@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import abdenourPortrait from '../../assets/portrait/abdenour.jpg';
 import SectionLabel from '../ui/SectionLabel.astro';
 import Card from '../ui/Card.astro';
 import Reveal from '../ui/Reveal.astro';
@@ -43,34 +45,28 @@ const principles = [
       <div class="lg:col-span-5 space-y-6">
         <!-- Portrait Frame / Visual Representation -->
         <Reveal delay={0}>
-          <Card padding="none" class="overflow-hidden border-border-strong">
-            <div class="aspect-4/3 sm:aspect-square bg-surface-2 p-8 flex flex-col justify-between relative">
-              <!-- Grid overlay for technical editorial feel -->
-              <div class="absolute inset-0 bg-dot-grid opacity-60 pointer-events-none"></div>
-
-              <!-- Top mark and badge -->
-              <div class="relative z-10 flex items-center justify-between">
-                <span class="font-mono text-xs text-text-faint uppercase tracking-wider">PORTRAIT // IDENTITY</span>
-                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface border border-border text-text">
+          <Card padding="none" class="overflow-hidden border-border-strong group">
+            <div class="relative aspect-4/5 sm:aspect-square overflow-hidden bg-surface-2">
+              <Image
+                src={abdenourPortrait}
+                alt="Abdenour Benkorich - AI Instructor & Full-Stack Engineer"
+                class="w-full h-full object-cover object-center grayscale contrast-[1.08] brightness-[0.92] group-hover:scale-[1.02] transition-transform duration-500"
+                width={800}
+                height={800}
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 bg-linear-to-t from-bg via-transparent to-transparent opacity-60"></div>
+              
+              <!-- Bottom identity bar overlay -->
+              <div class="absolute bottom-0 inset-x-0 p-4 sm:p-5 bg-gradient-to-t from-bg/95 to-transparent flex items-end justify-between">
+                <div>
+                  <div class="text-base font-bold text-text">Abdenour Benkorich</div>
+                  <div class="text-xs font-mono text-text-muted">BenCoder · AI Instructor</div>
+                </div>
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface/90 border border-border text-text backdrop-blur-xs">
                   Mostaganem, DZ
                 </span>
-              </div>
-
-              <!-- Center Monogram Silhouette / Graphic Placeholder -->
-              <div class="relative z-10 flex flex-col items-center justify-center py-6 text-center space-y-3">
-                <div class="w-24 h-24 rounded-full border border-border bg-surface flex items-center justify-center p-4 shadow-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1367 914" class="w-full h-full fill-current text-text">
-                    <g transform="translate(0,914) scale(0.1,-0.1)"><path d="M6520 9133 c0 -4 182 -359 403 -788 l403 -780 245 -6 c134 -3 865 -7 1624 -8 l1380 -1 105 -24 c212 -48 386 -123 537 -229 551 -391 644 -1082 200 -1493 -193 -179 -466 -289 -827 -334 -159 -20 -758 -23 -1205 -6 -418 16 -846 19 -981 7 l-70 -6 362 -749 c199 -411 367 -753 373 -759 13 -13 327 -15 931 -7 371 4 457 0 645 -36 425 -81 816 -319 1061 -648 156 -208 261 -464 300 -728 22 -150 15 -448 -14 -589 -89 -429 -339 -786 -775 -1105 -158 -116 -301 -201 -532 -314 -369 -182 -741 -313 -1234 -435 -102 -25 -186 -47 -189 -50 -2 -2 -2 -11 1 -18 4 -12 30 -15 124 -15 65 0 240 -3 388 -7 291 -7 722 6 1000 30 1643 145 2562 776 2819 1935 44 199 57 317 63 545 9 381 -44 696 -171 1012 -110 274 -239 474 -441 682 -204 211 -459 376 -725 471 -36 13 -69 26 -73 30 -13 11 42 50 224 156 192 112 274 172 392 289 376 372 553 862 534 1475 -28 862 -372 1519 -1022 1951 -147 98 -435 242 -610 304 -313 112 -588 175 -1001 227 l-179 22 -2032 4 c-1118 1 -2033 -1 -2033 -5z"/><path d="M4785 9104 c-83 -18 -199 -63 -273 -106 -77 -44 -190 -136 -238 -194 -26 -32 -482 -900 -1292 -2462 -689 -1327 -1252 -2415 -1252 -2417 0 -11 235 -4 355 10 351 41 647 131 990 300 364 179 689 423 940 705 274 308 445 594 618 1040 191 490 231 588 292 717 63 136 85 168 103 148 13 -14 1483 -3547 1478 -3552 -2 -2 -62 1 -132 7 -344 30 -968 28 -1339 -5 -2214 -196 -3973 -1215 -4833 -2800 -77 -143 -195 -395 -188 -402 2 -3 40 20 83 50 421 294 1057 611 1723 860 1502 563 2917 773 3984 592 452 -76 877 -236 1196 -448 269 -180 533 -441 666 -659 28 -45 75 -123 105 -172 128 -210 271 -296 493 -296 300 0 659 173 846 408 187 236 278 543 250 842 -21 221 99 -33 -1795 3809 -959 1945 -1763 3570 -1787 3611 -51 88 -170 217 -251 272 -74 51 -184 102 -272 129 -95 29 -365 36 -470 13z"/></g>
-                  </svg>
-                </div>
-                <div class="text-sm font-bold text-text">Abdenour Benkorich</div>
-                <div class="text-xs font-mono text-text-muted">AI Instructor · Full-Stack Engineer</div>
-              </div>
-
-              <!-- Bottom caption -->
-              <div class="relative z-10 pt-2 border-t border-border/70 flex items-center justify-between text-[11px] font-mono text-text-faint">
-                <span>Abdelhamid Ben Badis Univ.</span>
-                <span>Data Science</span>
               </div>
             </div>
           </Card>
