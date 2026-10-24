@@ -5,9 +5,9 @@ import TagList from '../ui/TagList.astro';
 import Button from '../ui/Button.astro';
 import Reveal from '../ui/Reveal.astro';
 
-const tassiliProject = projects.find((p) => p.slug === 'tassili-ai') || projects[2];
-const secondaryProjects = projects.filter((p) => p.slug === 'virexa' || p.slug === 'fiikra-studio');
-const clientProjects = projects.filter((p) => !p.featured);
+const flagshipProject = projects.find((p) => p.slug === 'jg-supply-net') || projects[0];
+const secondaryProjects = projects.filter((p) => p.slug === 'udemy-python-arabic' || p.slug === 'virexa' || p.slug === 'everest-genai' || p.slug === 'fiikra-studio');
+const clientProjects = projects.filter((p) => !p.featured || p.slug === 'perfecto-brew-crew');
 ---
 
 <section id="work" class="py-20 md:py-28 scroll-mt-20 relative">
@@ -20,7 +20,7 @@ const clientProjects = projects.filter((p) => !p.featured);
           Featured Projects &amp; <span class="font-accent">Architectures</span>
         </h2>
         <p class="text-text-muted text-base max-w-xl leading-relaxed">
-          National AI initiatives, production startup platforms, and high-conversion client engineering shipped for real users.
+          Algeria's digital B2B procurement platform, published Udemy video course (300+ students), healthcare SaaS, and intensive AI formations.
         </p>
       </div>
 
@@ -29,7 +29,7 @@ const clientProjects = projects.filter((p) => !p.featured);
       </Button>
     </div>
 
-    <!-- Featured Project #1: Full-Bleed Cinematic Feature (Tassili AI) -->
+    <!-- Featured Project #1: Full-Bleed Cinematic Feature (JG SupplyNet - Latest Work) -->
     <Reveal delay={0}>
       <div class="rounded-2xl border border-border-strong bg-surface overflow-hidden shadow-md group">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
@@ -38,9 +38,9 @@ const clientProjects = projects.filter((p) => !p.featured);
             <div class="space-y-4">
               <div class="flex flex-wrap items-center justify-between gap-3">
                 <div class="flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-status"></span>
+                  <span class="w-2 h-2 rounded-full bg-status animate-pulse"></span>
                   <span class="font-mono text-xs uppercase tracking-wider text-text font-bold">
-                    FLAGSHIP AI INITIATIVE // NATIONAL LLM
+                    LATEST PRODUCTION WORK // B2B MARKETPLACE
                   </span>
                 </div>
                 <span class="text-xs font-mono text-text px-2 py-0.5 rounded bg-surface-2 border border-border">
@@ -49,32 +49,32 @@ const clientProjects = projects.filter((p) => !p.featured);
               </div>
 
               <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-text tracking-tight font-sans">
-                {tassiliProject.title}
+                {flagshipProject.title}
               </h3>
 
               <p class="text-sm sm:text-base text-text-muted leading-relaxed">
-                Contributing to Algeria's sovereign artificial intelligence initiative. Fine-tuning autoregressive language models to natively understand the linguistic complexity, colloquial nuances, and script variations (Arabic &amp; Latin Arabizi) of Algerian Darija.
+                Architected Algeria's modern digital B2B procurement platform for Jamael Group. Enables institutions, commercial buyers, and verified suppliers to publish purchase requests, explore technical catalogs, and streamline quotation pipelines.
               </p>
 
               <!-- Technical HUD Readouts -->
               <div class="grid grid-cols-3 gap-3 py-3 border-y border-border/70 text-xs font-mono">
                 <div>
-                  <div class="text-[10px] text-text-faint uppercase">Base Engine</div>
-                  <div class="text-text font-bold mt-0.5">Llama-3 Fine-tune</div>
+                  <div class="text-[10px] text-text-faint uppercase">Platform Model</div>
+                  <div class="text-text font-bold mt-0.5">B2B Sourcing Hub</div>
                 </div>
                 <div>
-                  <div class="text-[10px] text-text-faint uppercase">Domain Focus</div>
-                  <div class="text-text font-bold mt-0.5">Algerian Darija</div>
+                  <div class="text-[10px] text-text-faint uppercase">Localization</div>
+                  <div class="text-text font-bold mt-0.5">EN · FR · AR</div>
                 </div>
                 <div>
                   <div class="text-[10px] text-text-faint uppercase">Role</div>
-                  <div class="text-status font-bold mt-0.5">AI Team Member</div>
+                  <div class="text-status font-bold mt-0.5">Lead Full-Stack</div>
                 </div>
               </div>
 
               <!-- Outcomes -->
               <ul class="space-y-1.5 text-xs sm:text-sm text-text-muted font-mono pt-1">
-                {tassiliProject.bullets.map((bullet) => (
+                {flagshipProject.bullets.map((bullet) => (
                   <li class="flex items-start gap-2">
                     <span class="text-status font-bold select-none">›</span>
                     <span class="leading-relaxed">{bullet}</span>
@@ -84,22 +84,34 @@ const clientProjects = projects.filter((p) => !p.featured);
             </div>
 
             <div class="pt-4 border-t border-border flex flex-wrap items-center justify-between gap-4">
-              <TagList size="sm" tags={tassiliProject.stack} />
-              <Button href="/work" variant="ghost" size="sm">
-                Case study breakdown →
-              </Button>
+              <TagList size="sm" tags={flagshipProject.stack} />
+              <div class="flex items-center gap-3">
+                {flagshipProject.liveUrl && (
+                  <a
+                    href={flagshipProject.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-xs font-mono text-text font-bold hover:underline inline-flex items-center gap-1"
+                  >
+                    Visit Live Site ↗
+                  </a>
+                )}
+                <Button href={`/work/${flagshipProject.slug}`} variant="ghost" size="sm">
+                  Case study →
+                </Button>
+              </div>
             </div>
           </div>
 
-          <!-- Right: Interactive Terminal / Architecture HUD Preview -->
+          <!-- Right: Live Platform Screen Preview & Telemetry -->
           <div class="lg:col-span-5 bg-surface-2 p-6 sm:p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-border relative">
             <div class="space-y-4 font-mono text-xs">
               <div class="flex items-center justify-between pb-3 border-b border-border/70 text-text-faint">
-                <span class="text-[11px]">// SYSTEM TELEMETRY</span>
-                <span class="text-[10px] px-2 py-0.5 rounded bg-bg text-status border border-border font-bold">● EVAL ACTIVE</span>
+                <span class="text-[11px]">// B2B SOURCING ENGINE</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-bg text-status border border-border font-bold">● PRODUCTION LIVE</span>
               </div>
 
-              <!-- High-Fidelity Platform UI Preview -->
+              <!-- Real Platform Screenshot Preview in Browser Mockup Frame -->
               <div class="rounded-xl overflow-hidden border border-border bg-bg shadow-sm group/preview">
                 <div class="flex items-center justify-between px-3 py-2 border-b border-border/70 bg-surface/70 text-[10px] text-text-faint">
                   <div class="flex items-center gap-1.5" aria-hidden="true">
@@ -107,37 +119,37 @@ const clientProjects = projects.filter((p) => !p.featured);
                     <span class="w-2 h-2 rounded-full bg-border-strong"></span>
                     <span class="w-2 h-2 rounded-full bg-border-strong"></span>
                   </div>
-                  <span class="text-[10px] text-text-muted">tassili-ai.internal/finetune</span>
-                  <span class="text-[9px] text-status font-bold">Llama-3-FT</span>
+                  <span class="text-[10px] text-text-muted">jgsupplynet.com/en</span>
+                  <span class="text-[9px] text-status font-bold">LIVE VERCEL</span>
                 </div>
-                <div class="aspect-[16/10] overflow-hidden bg-surface-2">
+                <a href={flagshipProject.liveUrl} target="_blank" rel="noopener noreferrer" class="block aspect-[16/10] overflow-hidden bg-surface-2">
                   <img
-                    src={tassiliProject.image}
-                    alt="Tassili AI Fine-Tuning Dashboard"
+                    src={flagshipProject.image}
+                    alt="JG SupplyNet Live Platform"
                     class="w-full h-full object-cover group-hover/preview:scale-[1.02] transition-transform duration-300"
-                    loading="lazy"
+                    loading="eager"
                     width="1280"
                     height="720"
                   />
-                </div>
+                </a>
               </div>
 
-              <!-- Benchmark Preview -->
+              <!-- Key Value Proposition Preview -->
               <div class="p-3.5 rounded-xl border border-border bg-bg/60 space-y-2">
-                <div class="text-[10px] text-text-faint uppercase tracking-wider">REGIONAL ACCURACY TARGET</div>
+                <div class="text-[10px] text-text-faint uppercase tracking-wider">PLATFORM SCOPE</div>
                 <div class="flex items-baseline justify-between">
-                  <span class="text-xl font-bold text-text font-sans">High-Context</span>
-                  <span class="text-xs font-mono text-status font-semibold">Native Darija</span>
+                  <span class="text-lg font-bold text-text font-sans">Connecting Organizations</span>
+                  <span class="text-xs font-mono text-status font-semibold">with Trusted Suppliers</span>
                 </div>
                 <p class="text-[11px] text-text-muted font-sans leading-normal">
-                  Culturally accurate responses without European-centric or Standard Arabic translation distortion.
+                  One platform to manage procurement, discover qualified suppliers, and streamline B2B sourcing across Algeria.
                 </p>
               </div>
             </div>
 
             <div class="pt-4 text-center">
               <span class="text-[11px] font-mono text-text-faint">
-                Developed in collaboration with Tassili AI Core Team
+                Developed for Jamael Group · Shipped 2025/2026
               </span>
             </div>
           </div>

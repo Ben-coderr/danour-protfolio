@@ -10,16 +10,17 @@ interface SkillItem {
 
 const allSkills: SkillItem[] = [
   // AI & Data
-  { name: 'Generative AI & LLMs', category: 'ai', level: 'Production', context: 'Tassili AI & Everest Academy', iconType: 'brain' },
-  { name: 'Prompt Engineering', category: 'ai', level: 'Instruction', context: 'Curriculum & Workshops', iconType: 'sparkles' },
+  { name: 'Generative AI & LLMs', category: 'ai', level: 'Production', context: 'Everest Academy & AI Formation', iconType: 'brain' },
+  { name: 'Prompt Engineering', category: 'ai', level: 'Instruction', context: 'Advanced prompting & context engineering', iconType: 'sparkles' },
+  { name: 'Vibe Coding & AI Tools', category: 'ai', level: 'Mastery', context: 'Rapid AI-assisted full-stack development', iconType: 'cpu' },
+  { name: 'AI Video & Graphic Design', category: 'ai', level: 'Instruction', context: 'Runway, Kling, Midjourney, FLUX.1', iconType: 'sparkles' },
+  { name: 'Python', category: 'ai', level: 'Core Stack', context: 'Data pipelines & Udemy 300+ students', iconType: 'python' },
   { name: 'RAG & Vector DBs', category: 'ai', level: 'Core Stack', context: 'ChromaDB, Pinecone retrieval', iconType: 'database' },
-  { name: 'Fine-Tuning', category: 'ai', level: 'Research', context: 'Llama-3 on Algerian Darija', iconType: 'cpu' },
-  { name: 'Python', category: 'ai', level: 'Core Stack', context: 'Data pipelines & ML models', iconType: 'python' },
   { name: 'Machine Learning', category: 'ai', level: 'Academic', context: 'Univ. Mostaganem Data Science', iconType: 'network' },
   { name: 'Data Security', category: 'ai', level: 'Production', context: 'Enterprise IT & Sonatrach', iconType: 'shield' },
 
   // Frontend
-  { name: 'Next.js 15 (App Router)', category: 'frontend', level: 'Core Stack', context: 'Production Web Platforms', iconType: 'next' },
+  { name: 'Next.js 15 (App Router)', category: 'frontend', level: 'Core Stack', context: 'Production Web Platforms (JG SupplyNet)', iconType: 'next' },
   { name: 'React', category: 'frontend', level: 'Core Stack', context: 'SPAs & Streaming AI interfaces', iconType: 'react' },
   { name: 'TypeScript', category: 'frontend', level: 'Core Stack', context: 'End-to-end type safety', iconType: 'typescript' },
   { name: 'Tailwind CSS', category: 'frontend', level: 'Core Stack', context: 'Design systems & responsive UI', iconType: 'tailwind' },
@@ -33,6 +34,7 @@ const allSkills: SkillItem[] = [
   { name: 'FastAPI', category: 'backend', level: 'Production', context: 'High-speed Python AI APIs', iconType: 'api' },
 
   // Tools & Systems
+  { name: 'Robotics & Hardware', category: 'tools', level: 'Instruction', context: 'Arduino & Raspberry Pi with DZDuino', iconType: 'cpu' },
   { name: 'Git & GitHub', category: 'tools', level: 'Workflow', context: 'CI/CD & team version control', iconType: 'git' },
   { name: 'Linux / POSIX', category: 'tools', level: 'System', context: 'Server administration & bash', iconType: 'linux' },
   { name: 'Docker', category: 'tools', level: 'DevOps', context: 'Containerized deployments', iconType: 'docker' },
@@ -40,10 +42,11 @@ const allSkills: SkillItem[] = [
   { name: 'Windows Server', category: 'tools', level: 'Enterprise', context: 'Sonatrach enterprise infrastructure', iconType: 'server' },
 
   // Teaching & Communication
-  { name: 'AI Instruction', category: 'teaching', level: 'Lead Instructor', context: 'Everest Academy flagship course', iconType: 'teach' },
+  { name: 'AI Instruction', category: 'teaching', level: 'Lead Instructor', context: 'Everest Academy flagship formation', iconType: 'teach' },
+  { name: 'Online Teaching (Udemy)', category: 'teaching', level: 'Instructor', context: 'Python for Beginners (300+ students)', iconType: 'book' },
   { name: 'Content Creation (102K+)', category: 'teaching', level: 'BenCoder', context: 'Global developer audience', iconType: 'video' },
-  { name: 'Public Speaking', category: 'teaching', level: 'Workshops', context: 'Tlemcen & national events', iconType: 'mic' },
-  { name: 'Curriculum Design', category: 'teaching', level: 'EdTech', context: 'Hands-on project-based syllabi', iconType: 'book' },
+  { name: 'Public Speaking & Workshops', category: 'teaching', level: 'Speaker', context: 'Tlemcen, Algiers & Oran sessions', iconType: 'mic' },
+  { name: '1-on-1 Mentorship', category: 'teaching', level: 'Mentor', context: '3-Month Web Dev Intensive & Robotics', iconType: 'teach' },
 ];
 
 const categories = [
