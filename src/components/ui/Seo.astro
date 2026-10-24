@@ -1,0 +1,98 @@
+---
+import { siteConfig } from '../../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
+  type?: 'website' | 'article' | 'profile';
+}
+
+const {
+  title = `${siteConfig.name} — AI Instructor & Full-Stack Engineer`,
+  description = siteConfig.description,
+  ogImage = '/brand/logo-black.png',
+  canonicalUrl = Astro.url.href,
+  type = 'website',
+} = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://bencoder.netlify.app';
+const fullOgImageUrl = new URL(ogImage, siteUrl).href;
+
+const jsonLdPerson = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: siteConfig.name,
+  alternateName: siteConfig.brandName,
+  url: siteUrl,
+  jobTitle: ['AI Instructor', 'Full-Stack Engineer', 'Content Creator'],
+  sameAs: [
+    siteConfig.socials.github,
+    siteConfig.socials.linkedin,
+    siteConfig.socials.site,
+  ],
+  knowsAbout: [
+    'Artificial Intelligence',
+    'Generative AI',
+    'Large Language Models',
+    'Full-Stack Web Development',
+    'React',
+    'Next.js',
+    'Python',
+    'Data Science',
+  ],
+  alumniOf: {
+    '@type': 'EducationalOrganization',
+    name: 'Abdelhamid Ben Badis University',
+    location: 'Mostaganem, Algeria',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Mostaganem',
+    addressCountry: 'Algeria',
+  },
+};
+
+const jsonLdWebsite = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: `${siteConfig.name} Portfolio`,
+  url: siteUrl,
+  description: siteConfig.description,
+};
+---
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Theme Color -->
+<meta name="theme-color" content="#0A0A0A" id="meta-theme-color" />
+<meta name="color-scheme" content="dark light" />
+
+<!-- Favicons & Manifest -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={fullOgImageUrl} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalUrl} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={fullOgImageUrl} />
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLdPerson)} />
+<script type="application/ld+json" set:html={JSON.stringify(jsonLdWebsite)} />

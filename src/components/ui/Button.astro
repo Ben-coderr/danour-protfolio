@@ -1,0 +1,68 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import clsx from 'clsx';
+
+type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'link';
+type ButtonSize = 'sm' | 'md' | 'lg';
+
+interface BaseProps {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  class?: string;
+  target?: string;
+  rel?: string;
+}
+
+type Props = BaseProps &
+  (
+    | ({ href: string } & HTMLAttributes<'a'>)
+    | ({ href?: never } & HTMLAttributes<'button'>)
+  );
+
+const {
+  variant = 'primary',
+  size = 'md',
+  class: className,
+  href,
+  ...rest
+} = Astro.props;
+
+const baseStyles =
+  'inline-flex items-center justify-center font-medium transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-text focus-visible:outline-offset-2 disabled:opacity-50 disabled:cursor-not-allowed select-none';
+
+const variantStyles: Record<ButtonVariant, string> = {
+  primary:
+    'bg-invert-bg text-invert-text hover:opacity-90 border border-invert-bg active:scale-[0.98]',
+  secondary:
+    'bg-surface text-text border border-border hover:border-border-strong hover:bg-surface-2 active:scale-[0.98]',
+  ghost:
+    'bg-transparent text-text hover:bg-surface hover:border-border border border-transparent active:scale-[0.98]',
+  link:
+    'bg-transparent text-text hover:text-text-muted p-0 underline-offset-4 hover:underline border-none',
+};
+
+const sizeStyles: Record<ButtonSize, string> = {
+  sm: 'text-xs px-3 py-1.5 rounded-lg gap-1.5',
+  md: 'text-sm px-4 py-2 rounded-lg gap-2',
+  lg: 'text-base px-5 py-2.5 rounded-xl gap-2.5',
+};
+
+const classes = clsx(
+  baseStyles,
+  variantStyles[variant],
+  variant !== 'link' && sizeStyles[size],
+  className
+);
+---
+
+{
+  href ? (
+    <a href={href} class={classes} {...(rest as HTMLAttributes<'a'>)}>
+      <slot />
+    </a>
+  ) : (
+    <button class={classes} {...(rest as HTMLAttributes<'button'>)}>
+      <slot />
+    </button>
+  )
+}

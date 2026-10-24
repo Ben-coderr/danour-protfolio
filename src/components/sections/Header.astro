@@ -1,0 +1,180 @@
+---
+import { siteConfig } from '../../data/site';
+import { ThemeToggle } from '../islands/ThemeToggle';
+import Button from '../ui/Button.astro';
+
+const navItems = [
+  { label: 'Work', href: '/#work' },
+  { label: 'Teaching', href: '/#teaching' },
+  { label: 'About', href: '/#about' },
+  { label: 'Experience', href: '/#experience' },
+];
+---
+
+<header class="sticky top-0 z-40 w-full border-b border-border/60 bg-bg/85 backdrop-blur-md transition-colors duration-200">
+  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <!-- Brand / Logo -->
+    <a
+      href="/"
+      class="flex items-center gap-3 text-text group focus-visible:outline-2 focus-visible:outline-text focus-visible:outline-offset-2 rounded-lg"
+      aria-label={`${siteConfig.name} - Home`}
+    >
+      <div class="w-8 h-8 flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1367 914"
+          class="w-full h-full fill-current text-text"
+          aria-hidden="true"
+        >
+          <g transform="translate(0.000000,914.000000) scale(0.100000,-0.100000)" stroke="none">
+            <path d="M6520 9133 c0 -4 182 -359 403 -788 l403 -780 245 -6 c134 -3 865 -7 1624 -8 l1380 -1 105 -24 c212 -48 386 -123 537 -229 551 -391 644 -1082 200 -1493 -193 -179 -466 -289 -827 -334 -159 -20 -758 -23 -1205 -6 -418 16 -846 19 -981 7 l-70 -6 362 -749 c199 -411 367 -753 373 -759 13 -13 327 -15 931 -7 371 4 457 0 645 -36 425 -81 816 -319 1061 -648 156 -208 261 -464 300 -728 22 -150 15 -448 -14 -589 -89 -429 -339 -786 -775 -1105 -158 -116 -301 -201 -532 -314 -369 -182 -741 -313 -1234 -435 -102 -25 -186 -47 -189 -50 -2 -2 -2 -11 1 -18 4 -12 30 -15 124 -15 65 0 240 -3 388 -7 291 -7 722 6 1000 30 1643 145 2562 776 2819 1935 44 199 57 317 63 545 9 381 -44 696 -171 1012 -110 274 -239 474 -441 682 -204 211 -459 376 -725 471 -36 13 -69 26 -73 30 -13 11 42 50 224 156 192 112 274 172 392 289 376 372 553 862 534 1475 -28 862 -372 1519 -1022 1951 -147 98 -435 242 -610 304 -313 112 -588 175 -1001 227 l-179 22 -2032 4 c-1118 1 -2033 -1 -2033 -5z" />
+            <path d="M4785 9104 c-83 -18 -199 -63 -273 -106 -77 -44 -190 -136 -238 -194 -26 -32 -482 -900 -1292 -2462 -689 -1327 -1252 -2415 -1252 -2417 0 -11 235 -4 355 10 351 41 647 131 990 300 364 179 689 423 940 705 274 308 445 594 618 1040 191 490 231 588 292 717 63 136 85 168 103 148 13 -14 1483 -3547 1478 -3552 -2 -2 -62 1 -132 7 -344 30 -968 28 -1339 -5 -2214 -196 -3973 -1215 -4833 -2800 -77 -143 -195 -395 -188 -402 2 -3 40 20 83 50 421 294 1057 611 1723 860 1502 563 2917 773 3984 592 452 -76 877 -236 1196 -448 269 -180 533 -441 666 -659 28 -45 75 -123 105 -172 128 -210 271 -296 493 -296 300 0 659 173 846 408 187 236 278 543 250 842 -21 221 99 -33 -1795 3809 -959 1945 -1763 3570 -1787 3611 -51 88 -170 217 -251 272 -74 51 -184 102 -272 129 -95 29 -365 36 -470 13z" />
+          </g>
+        </svg>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-sm font-semibold tracking-tight text-text">Abdenour</span>
+        <span class="text-[10px] font-mono uppercase tracking-wider text-text-faint -mt-0.5">BenCoder</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-7" aria-label="Main Navigation">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="text-sm font-medium text-text-muted hover:text-text transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-text focus-visible:outline-offset-2 rounded"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="flex items-center gap-3">
+      <ThemeToggle client:load />
+
+      <Button href="/#contact" variant="primary" size="sm" class="hidden sm:inline-flex">
+        Let's talk
+      </Button>
+
+      <!-- Mobile Hamburger Button -->
+      <button
+        id="mobile-menu-trigger"
+        type="button"
+        class="md:hidden p-2 rounded-lg border border-border bg-surface text-text-muted hover:text-text hover:border-border-strong transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-text"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-drawer"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hamburger-icon">
+          <line x1="4" y1="6" x2="20" y2="6"></line>
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="18" x2="20" y2="18"></line>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="close-icon hidden">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div
+    id="mobile-drawer"
+    class="fixed inset-x-0 top-16 bottom-0 bg-bg/95 backdrop-blur-xl border-b border-border p-6 flex flex-col justify-between hidden md:hidden z-30 transition-all duration-300"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Mobile Navigation"
+  >
+    <nav class="flex flex-col gap-4 pt-4" aria-label="Mobile Links">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="mobile-nav-link text-xl font-medium text-text hover:text-text-muted transition-colors py-2 border-b border-border/40"
+        >
+          {item.label}
+        </a>
+      ))}
+      <a
+        href="/#contact"
+        class="mobile-nav-link text-xl font-medium text-text hover:text-text-muted transition-colors py-2 border-b border-border/40"
+      >
+        Let's talk
+      </a>
+    </nav>
+
+    <div class="flex flex-col gap-4 pb-8">
+      <Button href="/#contact" variant="primary" size="lg" class="w-full text-center">
+        Get in touch
+      </Button>
+      <a
+        href="/Abdenour_Benkorich_CV.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-xs font-mono text-center text-text-faint hover:text-text transition-colors py-2"
+      >
+        Download CV (PDF) ↗
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  function setupMobileMenu() {
+    const trigger = document.getElementById('mobile-menu-trigger');
+    const drawer = document.getElementById('mobile-drawer');
+
+    if (!trigger || !drawer) return;
+
+    const currentTrigger = trigger;
+    const currentDrawer = drawer;
+    const hamburgerIcon = currentTrigger.querySelector('.hamburger-icon');
+    const closeIcon = currentTrigger.querySelector('.close-icon');
+    const links = currentDrawer.querySelectorAll('.mobile-nav-link');
+
+    let isOpen = false;
+
+    function toggleMenu(open?: boolean) {
+      isOpen = typeof open === 'boolean' ? open : !isOpen;
+      currentTrigger.setAttribute('aria-expanded', isOpen.toString());
+      
+      if (isOpen) {
+        currentDrawer.classList.remove('hidden');
+        hamburgerIcon?.classList.add('hidden');
+        closeIcon?.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      } else {
+        currentDrawer.classList.add('hidden');
+        hamburgerIcon?.classList.remove('hidden');
+        closeIcon?.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    trigger.addEventListener('click', () => toggleMenu());
+
+    links?.forEach((link) => {
+      link.addEventListener('click', () => toggleMenu(false));
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        toggleMenu(false);
+        trigger.focus();
+      }
+    });
+
+    // Close on resize to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768 && isOpen) {
+        toggleMenu(false);
+      }
+    });
+  }
+
+  setupMobileMenu();
+  document.addEventListener('astro:page-load', setupMobileMenu);
+</script>

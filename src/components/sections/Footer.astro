@@ -1,0 +1,122 @@
+---
+import { siteConfig } from '../../data/site';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="w-full border-t border-border bg-bg text-text pt-16 pb-12 mt-24">
+  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-border">
+      <!-- Col 1: Brand & Bio -->
+      <div class="md:col-span-5 space-y-4">
+        <a href="/" class="inline-flex items-center gap-3 text-text group" aria-label="BenCoder Home">
+          <div class="w-10 h-7 text-text transition-transform duration-200 group-hover:scale-105">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1367 914"
+              class="w-full h-full fill-current"
+              aria-hidden="true"
+            >
+              <g transform="translate(0.000000,914.000000) scale(0.100000,-0.100000)" stroke="none">
+                <path d="M6520 9133 c0 -4 182 -359 403 -788 l403 -780 245 -6 c134 -3 865 -7 1624 -8 l1380 -1 105 -24 c212 -48 386 -123 537 -229 551 -391 644 -1082 200 -1493 -193 -179 -466 -289 -827 -334 -159 -20 -758 -23 -1205 -6 -418 16 -846 19 -981 7 l-70 -6 362 -749 c199 -411 367 -753 373 -759 13 -13 327 -15 931 -7 371 4 457 0 645 -36 425 -81 816 -319 1061 -648 156 -208 261 -464 300 -728 22 -150 15 -448 -14 -589 -89 -429 -339 -786 -775 -1105 -158 -116 -301 -201 -532 -314 -369 -182 -741 -313 -1234 -435 -102 -25 -186 -47 -189 -50 -2 -2 -2 -11 1 -18 4 -12 30 -15 124 -15 65 0 240 -3 388 -7 291 -7 722 6 1000 30 1643 145 2562 776 2819 1935 44 199 57 317 63 545 9 381 -44 696 -171 1012 -110 274 -239 474 -441 682 -204 211 -459 376 -725 471 -36 13 -69 26 -73 30 -13 11 42 50 224 156 192 112 274 172 392 289 376 372 553 862 534 1475 -28 862 -372 1519 -1022 1951 -147 98 -435 242 -610 304 -313 112 -588 175 -1001 227 l-179 22 -2032 4 c-1118 1 -2033 -1 -2033 -5z" />
+                <path d="M4785 9104 c-83 -18 -199 -63 -273 -106 -77 -44 -190 -136 -238 -194 -26 -32 -482 -900 -1292 -2462 -689 -1327 -1252 -2415 -1252 -2417 0 -11 235 -4 355 10 351 41 647 131 990 300 364 179 689 423 940 705 274 308 445 594 618 1040 191 490 231 588 292 717 63 136 85 168 103 148 13 -14 1483 -3547 1478 -3552 -2 -2 -62 1 -132 7 -344 30 -968 28 -1339 -5 -2214 -196 -3973 -1215 -4833 -2800 -77 -143 -195 -395 -188 -402 2 -3 40 20 83 50 421 294 1057 611 1723 860 1502 563 2917 773 3984 592 452 -76 877 -236 1196 -448 269 -180 533 -441 666 -659 28 -45 75 -123 105 -172 128 -210 271 -296 493 -296 300 0 659 173 846 408 187 236 278 543 250 842 -21 221 99 -33 -1795 3809 -959 1945 -1763 3570 -1787 3611 -51 88 -170 217 -251 272 -74 51 -184 102 -272 129 -95 29 -365 36 -470 13z" />
+              </g>
+            </svg>
+          </div>
+          <span class="text-base font-semibold tracking-tight">{siteConfig.name}</span>
+        </a>
+        <p class="text-sm text-text-muted leading-relaxed max-w-sm">
+          AI Instructor, Full-Stack Engineer, and Creator behind BenCoder. Building with AI, teaching it, and shipping products in Mostaganem, Algeria.
+        </p>
+      </div>
+
+      <!-- Col 2: Navigation -->
+      <div class="md:col-span-3 space-y-3">
+        <div class="font-mono text-xs uppercase tracking-wider text-text-faint">Navigation</div>
+        <ul class="space-y-2 text-sm">
+          {siteConfig.nav.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class="text-text-muted hover:text-text transition-colors duration-150 inline-block py-0.5"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Col 3: Social & Links -->
+      <div class="md:col-span-4 space-y-3">
+        <div class="font-mono text-xs uppercase tracking-wider text-text-faint">Connect</div>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a
+              href={siteConfig.socials.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-text-muted hover:text-text transition-colors duration-150 inline-flex items-center gap-1.5"
+            >
+              <span>GitHub</span>
+              <span class="text-xs text-text-faint font-mono">↗</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href={siteConfig.socials.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-text-muted hover:text-text transition-colors duration-150 inline-flex items-center gap-1.5"
+            >
+              <span>LinkedIn</span>
+              <span class="text-xs text-text-faint font-mono">↗</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="/Abdenour_Benkorich_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-text-muted hover:text-text transition-colors duration-150 inline-flex items-center gap-1.5"
+            >
+              <span>Download CV (PDF)</span>
+              <span class="text-xs text-text-faint font-mono">↗</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-text-faint">
+      <div>
+        &copy; {currentYear} {siteConfig.name}. Strictly monochrome.
+      </div>
+
+      <button
+        id="back-to-top"
+        type="button"
+        class="inline-flex items-center gap-1.5 text-text-muted hover:text-text transition-colors cursor-pointer select-none py-1 px-2 rounded hover:bg-surface"
+        aria-label="Scroll back to top of page"
+      >
+        <span>Back to top</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m18 15-6-6-6 6"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setupBackToTop() {
+    const btn = document.getElementById('back-to-top');
+    btn?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  setupBackToTop();
+  document.addEventListener('astro:page-load', setupBackToTop);
+</script>

@@ -1,0 +1,53 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import clsx from 'clsx';
+
+interface BaseProps {
+  interactive?: boolean;
+  class?: string;
+  padding?: 'none' | 'sm' | 'md' | 'lg';
+}
+
+type Props = BaseProps &
+  (
+    | ({ href: string } & HTMLAttributes<'a'>)
+    | ({ href?: never } & HTMLAttributes<'div'>)
+  );
+
+const {
+  interactive = false,
+  padding = 'md',
+  class: className,
+  href,
+  ...rest
+} = Astro.props;
+
+const paddingStyles = {
+  none: '',
+  sm: 'p-4 sm:p-5',
+  md: 'p-6 sm:p-7',
+  lg: 'p-8 sm:p-10',
+};
+
+const baseClasses = clsx(
+  'relative rounded-[14px] border border-border bg-surface text-text overflow-hidden',
+  // Subtle top highlight in dark mode
+  'before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-linear-to-r before:from-transparent before:via-white/10 before:to-transparent',
+  interactive &&
+    'transition-all duration-200 hover:-translate-y-0.5 hover:border-border-strong hover:shadow-xs cursor-pointer',
+  paddingStyles[padding],
+  className
+);
+---
+
+{
+  href ? (
+    <a href={href} class={baseClasses} {...(rest as HTMLAttributes<'a'>)}>
+      <slot />
+    </a>
+  ) : (
+    <div class={baseClasses} {...(rest as HTMLAttributes<'div'>)}>
+      <slot />
+    </div>
+  )
+}

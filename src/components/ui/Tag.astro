@@ -1,0 +1,26 @@
+---
+import clsx from 'clsx';
+
+interface Props {
+  text?: string;
+  size?: 'sm' | 'md';
+  class?: string;
+}
+
+const { text, size = 'sm', class: className } = Astro.props;
+
+const sizeStyles = {
+  sm: 'text-[11px] px-2.5 py-1 rounded-md',
+  md: 'text-xs px-3 py-1.5 rounded-md',
+};
+---
+
+<span
+  class={clsx(
+    'inline-flex items-center font-mono border border-border bg-surface text-text-muted hover:text-text transition-colors duration-150 select-none',
+    sizeStyles[size],
+    className
+  )}
+>
+  {text ? text : <slot />}
+</span>

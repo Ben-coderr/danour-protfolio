@@ -1,0 +1,348 @@
+---
+import Base from '../layouts/Base.astro';
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
+import SectionLabel from '../components/ui/SectionLabel.astro';
+import StatusPill from '../components/ui/StatusPill.astro';
+import Tag from '../components/ui/Tag.astro';
+import TagList from '../components/ui/TagList.astro';
+import Reveal from '../components/ui/Reveal.astro';
+import { ThemeToggle } from '../components/islands/ThemeToggle';
+---
+
+<Base title="Design System & Styleguide — BenCoder">
+  <main id="main" class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
+    <!-- Styleguide Header -->
+    <div class="border-b border-border pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div class="space-y-2">
+        <div class="flex items-center gap-3">
+          <SectionLabel number="00" label="DESIGN SYSTEM" />
+          <span class="text-xs font-mono px-2 py-0.5 rounded bg-surface border border-border text-text-faint">v1.0</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-text">
+          Abdenour Benkorich <span class="font-accent font-normal text-text-muted">Styleguide</span>
+        </h1>
+        <p class="text-sm text-text-muted max-w-xl">
+          Monochrome design system built strictly with black, white, neutral greys, fluid typography, and the single green availability dot.
+        </p>
+      </div>
+
+      <!-- Quick Theme Switcher -->
+      <div class="flex items-center gap-3 p-2 rounded-xl border border-border bg-surface">
+        <span class="text-xs font-mono text-text-muted px-2">Theme:</span>
+        <ThemeToggle client:load />
+      </div>
+    </div>
+
+    <!-- 1. Color Tokens & AA Contrast -->
+    <section class="space-y-6">
+      <SectionLabel number="01" label="COLOR TOKENS & CONTRAST" />
+      <h2 class="text-2xl font-bold text-text">Semantic Color Palette</h2>
+      <p class="text-sm text-text-muted">
+        Tokens adapt automatically via <code class="font-mono text-xs px-1.5 py-0.5 rounded bg-surface border border-border">[data-theme]</code> and meet WCAG 2.2 AA contrast standards.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 pt-2">
+        <div class="p-4 rounded-xl border border-border bg-bg text-text space-y-2">
+          <div class="w-full h-8 rounded-md bg-bg border border-border"></div>
+          <div class="font-mono text-xs font-semibold">--bg</div>
+          <div class="font-mono text-[10px] text-text-faint">#0A0A0A / #FAFAFA</div>
+        </div>
+        <div class="p-4 rounded-xl border border-border bg-surface text-text space-y-2">
+          <div class="w-full h-8 rounded-md bg-surface border border-border"></div>
+          <div class="font-mono text-xs font-semibold">--surface</div>
+          <div class="font-mono text-[10px] text-text-faint">#111111 / #FFFFFF</div>
+        </div>
+        <div class="p-4 rounded-xl border border-border bg-surface-2 text-text space-y-2">
+          <div class="w-full h-8 rounded-md bg-surface-2 border border-border"></div>
+          <div class="font-mono text-xs font-semibold">--surface-2</div>
+          <div class="font-mono text-[10px] text-text-faint">#171717 / #F2F2F2</div>
+        </div>
+        <div class="p-4 rounded-xl border border-border bg-surface text-text space-y-2">
+          <div class="w-full h-8 rounded-md bg-border border border-border-strong"></div>
+          <div class="font-mono text-xs font-semibold">--border</div>
+          <div class="font-mono text-[10px] text-text-faint">#262626 / #E5E5E5</div>
+        </div>
+        <div class="p-4 rounded-xl border border-border bg-surface text-text space-y-2">
+          <div class="w-full h-8 rounded-md bg-invert-bg border border-border"></div>
+          <div class="font-mono text-xs font-semibold">--invert-bg</div>
+          <div class="font-mono text-[10px] text-text-faint">#F5F5F5 / #0A0A0A</div>
+        </div>
+        <div class="p-4 rounded-xl border border-border bg-surface text-text space-y-2">
+          <div class="w-full h-8 rounded-md bg-status"></div>
+          <div class="font-mono text-xs font-semibold">--status</div>
+          <div class="font-mono text-[10px] text-text-faint">#3DDC84 / #16A34A</div>
+        </div>
+      </div>
+
+      <!-- Contrast Verification Matrix -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+        <div class="p-4 rounded-xl border border-border bg-surface space-y-1">
+          <div class="text-xs font-mono text-text-faint">Text on Background</div>
+          <div class="text-lg font-bold text-text">Primary Text (14.2:1)</div>
+          <div class="text-xs text-status font-mono">✓ Passes WCAG AAA</div>
+        </div>
+        <div class="p-4 rounded-xl border border-border bg-surface space-y-1">
+          <div class="text-xs font-mono text-text-faint">Muted on Background</div>
+          <div class="text-lg font-medium text-text-muted">Muted Text (6.8:1)</div>
+          <div class="text-xs text-status font-mono">✓ Passes WCAG AA</div>
+        </div>
+        <div class="p-4 rounded-xl border border-border bg-invert-bg text-invert-text space-y-1">
+          <div class="text-xs font-mono opacity-70">Inverted Element</div>
+          <div class="text-lg font-bold">Button Text (14.2:1)</div>
+          <div class="text-xs font-mono opacity-80">✓ Passes WCAG AAA</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Typography Scale -->
+    <section class="space-y-6">
+      <SectionLabel number="02" label="TYPOGRAPHY SCALE" />
+      <h2 class="text-2xl font-bold text-text">Type Scale &amp; Font Families</h2>
+      
+      <div class="space-y-8 p-6 sm:p-8 rounded-[14px] border border-border bg-surface">
+        <div>
+          <div class="text-xs font-mono text-text-faint mb-1">Display H1 · clamp(2.5rem, 6vw, 5rem) · Geist + Instrument Serif</div>
+          <div class="text-display text-text">
+            I build with AI, <span class="font-accent">teach it</span>, and ship products.
+          </div>
+        </div>
+
+        <div class="border-t border-border/60 pt-6">
+          <div class="text-xs font-mono text-text-faint mb-1">Headline H2 · clamp(2rem, 4vw, 3.25rem)</div>
+          <div class="text-headline text-text">
+            01 Selected work &amp; case studies
+          </div>
+        </div>
+
+        <div class="border-t border-border/60 pt-6">
+          <div class="text-xs font-mono text-text-faint mb-1">Subheadline H3 · clamp(1.5rem, 3vw, 2.25rem)</div>
+          <div class="text-subheadline text-text">
+            Virexa — Healthcare Startup Platform
+          </div>
+        </div>
+
+        <div class="border-t border-border/60 pt-6">
+          <div class="text-xs font-mono text-text-faint mb-1">Body Text · 1rem / 1.7 · max 65ch</div>
+          <p class="text-text max-w-[65ch] leading-relaxed">
+            I'm <strong class="text-text font-semibold">Abdenour Benkorich</strong>: AI instructor, full-stack engineer and creator behind <strong class="text-text font-semibold">BenCoder</strong> (102K+ followers). I work with <strong class="text-text font-semibold">Tassili AI</strong> on an Algerian large language model and study Computer Engineering &amp; Data Science in Mostaganem.
+          </p>
+        </div>
+
+        <div class="border-t border-border/60 pt-6">
+          <div class="text-xs font-mono text-text-faint mb-1">Mono Label · 0.75rem / 0.12em uppercase · Geist Mono</div>
+          <div class="text-label text-text-muted">
+            01 // MOSTAGANEM, ALGERIA // UTC+1 // REMOTE-FRIENDLY
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Brand Logo Vectorization -->
+    <section class="space-y-6">
+      <SectionLabel number="03" label="BRAND ASSET VECTORIZATION" />
+      <h2 class="text-2xl font-bold text-text">AB Monogram Logo (currentColor SVG)</h2>
+      <p class="text-sm text-text-muted">
+        Vectorized directly from provided assets into a single SVG file using <code class="font-mono text-xs px-1.5 py-0.5 rounded bg-surface border border-border">fill="currentColor"</code>. Scales losslessly and conforms instantly to theme transitions.
+      </p>
+
+      <div class="p-8 rounded-[14px] border border-border bg-surface grid grid-cols-2 sm:grid-cols-4 gap-8 items-center text-center">
+        <div class="space-y-2">
+          <div class="h-8 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1367 914" class="h-8 fill-current text-text">
+              <use href="/brand/logo.svg#svg" xlink:href="/brand/logo.svg" />
+              <!-- Direct inline SVG for foolproof preview -->
+              <g transform="translate(0,914) scale(0.1,-0.1)"><path d="M6520 9133 c0 -4 182 -359 403 -788 l403 -780 245 -6 c134 -3 865 -7 1624 -8 l1380 -1 105 -24 c212 -48 386 -123 537 -229 551 -391 644 -1082 200 -1493 -193 -179 -466 -289 -827 -334 -159 -20 -758 -23 -1205 -6 -418 16 -846 19 -981 7 l-70 -6 362 -749 c199 -411 367 -753 373 -759 13 -13 327 -15 931 -7 371 4 457 0 645 -36 425 -81 816 -319 1061 -648 156 -208 261 -464 300 -728 22 -150 15 -448 -14 -589 -89 -429 -339 -786 -775 -1105 -158 -116 -301 -201 -532 -314 -369 -182 -741 -313 -1234 -435 -102 -25 -186 -47 -189 -50 -2 -2 -2 -11 1 -18 4 -12 30 -15 124 -15 65 0 240 -3 388 -7 291 -7 722 6 1000 30 1643 145 2562 776 2819 1935 44 199 57 317 63 545 9 381 -44 696 -171 1012 -110 274 -239 474 -441 682 -204 211 -459 376 -725 471 -36 13 -69 26 -73 30 -13 11 42 50 224 156 192 112 274 172 392 289 376 372 553 862 534 1475 -28 862 -372 1519 -1022 1951 -147 98 -435 242 -610 304 -313 112 -588 175 -1001 227 l-179 22 -2032 4 c-1118 1 -2033 -1 -2033 -5z"/><path d="M4785 9104 c-83 -18 -199 -63 -273 -106 -77 -44 -190 -136 -238 -194 -26 -32 -482 -900 -1292 -2462 -689 -1327 -1252 -2415 -1252 -2417 0 -11 235 -4 355 10 351 41 647 131 990 300 364 179 689 423 940 705 274 308 445 594 618 1040 191 490 231 588 292 717 63 136 85 168 103 148 13 -14 1483 -3547 1478 -3552 -2 -2 -62 1 -132 7 -344 30 -968 28 -1339 -5 -2214 -196 -3973 -1215 -4833 -2800 -77 -143 -195 -395 -188 -402 2 -3 40 20 83 50 421 294 1057 611 1723 860 1502 563 2917 773 3984 592 452 -76 877 -236 1196 -448 269 -180 533 -441 666 -659 28 -45 75 -123 105 -172 128 -210 271 -296 493 -296 300 0 659 173 846 408 187 236 278 543 250 842 -21 221 99 -33 -1795 3809 -959 1945 -1763 3570 -1787 3611 -51 88 -170 217 -251 272 -74 51 -184 102 -272 129 -95 29 -365 36 -470 13z"/></g>
+            </svg>
+          </div>
+          <div class="font-mono text-xs text-text-muted">Nav Size (32px)</div>
+        </div>
+
+        <div class="space-y-2">
+          <div class="h-12 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1367 914" class="h-12 fill-current text-text">
+              <g transform="translate(0,914) scale(0.1,-0.1)"><path d="M6520 9133 c0 -4 182 -359 403 -788 l403 -780 245 -6 c134 -3 865 -7 1624 -8 l1380 -1 105 -24 c212 -48 386 -123 537 -229 551 -391 644 -1082 200 -1493 -193 -179 -466 -289 -827 -334 -159 -20 -758 -23 -1205 -6 -418 16 -846 19 -981 7 l-70 -6 362 -749 c199 -411 367 -753 373 -759 13 -13 327 -15 931 -7 371 4 457 0 645 -36 425 -81 816 -319 1061 -648 156 -208 261 -464 300 -728 22 -150 15 -448 -14 -589 -89 -429 -339 -786 -775 -1105 -158 -116 -301 -201 -532 -314 -369 -182 -741 -313 -1234 -435 -102 -25 -186 -47 -189 -50 -2 -2 -2 -11 1 -18 4 -12 30 -15 124 -15 65 0 240 -3 388 -7 291 -7 722 6 1000 30 1643 145 2562 776 2819 1935 44 199 57 317 63 545 9 381 -44 696 -171 1012 -110 274 -239 474 -441 682 -204 211 -459 376 -725 471 -36 13 -69 26 -73 30 -13 11 42 50 224 156 192 112 274 172 392 289 376 372 553 862 534 1475 -28 862 -372 1519 -1022 1951 -147 98 -435 242 -610 304 -313 112 -588 175 -1001 227 l-179 22 -2032 4 c-1118 1 -2033 -1 -2033 -5z"/><path d="M4785 9104 c-83 -18 -199 -63 -273 -106 -77 -44 -190 -136 -238 -194 -26 -32 -482 -900 -1292 -2462 -689 -1327 -1252 -2415 -1252 -2417 0 -11 235 -4 355 10 351 41 647 131 990 300 364 179 689 423 940 705 274 308 445 594 618 1040 191 490 231 588 292 717 63 136 85 168 103 148 13 -14 1483 -3547 1478 -3552 -2 -2 -62 1 -132 7 -344 30 -968 28 -1339 -5 -2214 -196 -3973 -1215 -4833 -2800 -77 -143 -195 -395 -188 -402 2 -3 40 20 83 50 421 294 1057 611 1723 860 1502 563 2917 773 3984 592 452 -76 877 -236 1196 -448 269 -180 533 -441 666 -659 28 -45 75 -123 105 -172 128 -210 271 -296 493 -296 300 0 659 173 846 408 187 236 278 543 250 842 -21 221 99 -33 -1795 3809 -959 1945 -1763 3570 -1787 3611 -51 88 -170 217 -251 272 -74 51 -184 102 -272 129 -95 29 -365 36 -470 13z"/></g>
+            </svg>
+          </div>
+          <div class="font-mono text-xs text-text-muted">Header Size (48px)</div>
+        </div>
+
+        <div class="space-y-2">
+          <div class="h-16 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1367 914" class="h-16 fill-current text-text">
+              <g transform="translate(0,914) scale(0.1,-0.1)"><path d="M6520 9133 c0 -4 182 -359 403 -788 l403 -780 245 -6 c134 -3 865 -7 1624 -8 l1380 -1 105 -24 c212 -48 386 -123 537 -229 551 -391 644 -1082 200 -1493 -193 -179 -466 -289 -827 -334 -159 -20 -758 -23 -1205 -6 -418 16 -846 19 -981 7 l-70 -6 362 -749 c199 -411 367 -753 373 -759 13 -13 327 -15 931 -7 371 4 457 0 645 -36 425 -81 816 -319 1061 -648 156 -208 261 -464 300 -728 22 -150 15 -448 -14 -589 -89 -429 -339 -786 -775 -1105 -158 -116 -301 -201 -532 -314 -369 -182 -741 -313 -1234 -435 -102 -25 -186 -47 -189 -50 -2 -2 -2 -11 1 -18 4 -12 30 -15 124 -15 65 0 240 -3 388 -7 291 -7 722 6 1000 30 1643 145 2562 776 2819 1935 44 199 57 317 63 545 9 381 -44 696 -171 1012 -110 274 -239 474 -441 682 -204 211 -459 376 -725 471 -36 13 -69 26 -73 30 -13 11 42 50 224 156 192 112 274 172 392 289 376 372 553 862 534 1475 -28 862 -372 1519 -1022 1951 -147 98 -435 242 -610 304 -313 112 -588 175 -1001 227 l-179 22 -2032 4 c-1118 1 -2033 -1 -2033 -5z"/><path d="M4785 9104 c-83 -18 -199 -63 -273 -106 -77 -44 -190 -136 -238 -194 -26 -32 -482 -900 -1292 -2462 -689 -1327 -1252 -2415 -1252 -2417 0 -11 235 -4 355 10 351 41 647 131 990 300 364 179 689 423 940 705 274 308 445 594 618 1040 191 490 231 588 292 717 63 136 85 168 103 148 13 -14 1483 -3547 1478 -3552 -2 -2 -62 1 -132 7 -344 30 -968 28 -1339 -5 -2214 -196 -3973 -1215 -4833 -2800 -77 -143 -195 -395 -188 -402 2 -3 40 20 83 50 421 294 1057 611 1723 860 1502 563 2917 773 3984 592 452 -76 877 -236 1196 -448 269 -180 533 -441 666 -659 28 -45 75 -123 105 -172 128 -210 271 -296 493 -296 300 0 659 173 846 408 187 236 278 543 250 842 -21 221 99 -33 -1795 3809 -959 1945 -1763 3570 -1787 3611 -51 88 -170 217 -251 272 -74 51 -184 102 -272 129 -95 29 -365 36 -470 13z"/></g>
+            </svg>
+          </div>
+          <div class="font-mono text-xs text-text-muted">Card Size (64px)</div>
+        </div>
+
+        <div class="space-y-2">
+          <div class="h-20 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1367 914" class="h-20 fill-current text-text">
+              <g transform="translate(0,914) scale(0.1,-0.1)"><path d="M6520 9133 c0 -4 182 -359 403 -788 l403 -780 245 -6 c134 -3 865 -7 1624 -8 l1380 -1 105 -24 c212 -48 386 -123 537 -229 551 -391 644 -1082 200 -1493 -193 -179 -466 -289 -827 -334 -159 -20 -758 -23 -1205 -6 -418 16 -846 19 -981 7 l-70 -6 362 -749 c199 -411 367 -753 373 -759 13 -13 327 -15 931 -7 371 4 457 0 645 -36 425 -81 816 -319 1061 -648 156 -208 261 -464 300 -728 22 -150 15 -448 -14 -589 -89 -429 -339 -786 -775 -1105 -158 -116 -301 -201 -532 -314 -369 -182 -741 -313 -1234 -435 -102 -25 -186 -47 -189 -50 -2 -2 -2 -11 1 -18 4 -12 30 -15 124 -15 65 0 240 -3 388 -7 291 -7 722 6 1000 30 1643 145 2562 776 2819 1935 44 199 57 317 63 545 9 381 -44 696 -171 1012 -110 274 -239 474 -441 682 -204 211 -459 376 -725 471 -36 13 -69 26 -73 30 -13 11 42 50 224 156 192 112 274 172 392 289 376 372 553 862 534 1475 -28 862 -372 1519 -1022 1951 -147 98 -435 242 -610 304 -313 112 -588 175 -1001 227 l-179 22 -2032 4 c-1118 1 -2033 -1 -2033 -5z"/><path d="M4785 9104 c-83 -18 -199 -63 -273 -106 -77 -44 -190 -136 -238 -194 -26 -32 -482 -900 -1292 -2462 -689 -1327 -1252 -2415 -1252 -2417 0 -11 235 -4 355 10 351 41 647 131 990 300 364 179 689 423 940 705 274 308 445 594 618 1040 191 490 231 588 292 717 63 136 85 168 103 148 13 -14 1483 -3547 1478 -3552 -2 -2 -62 1 -132 7 -344 30 -968 28 -1339 -5 -2214 -196 -3973 -1215 -4833 -2800 -77 -143 -195 -395 -188 -402 2 -3 40 20 83 50 421 294 1057 611 1723 860 1502 563 2917 773 3984 592 452 -76 877 -236 1196 -448 269 -180 533 -441 666 -659 28 -45 75 -123 105 -172 128 -210 271 -296 493 -296 300 0 659 173 846 408 187 236 278 543 250 842 -21 221 99 -33 -1795 3809 -959 1945 -1763 3570 -1787 3611 -51 88 -170 217 -251 272 -74 51 -184 102 -272 129 -95 29 -365 36 -470 13z"/></g>
+            </svg>
+          </div>
+          <div class="font-mono text-xs text-text-muted">Display Size (80px)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Buttons & Interactions -->
+    <section class="space-y-6">
+      <SectionLabel number="04" label="BUTTON VARIANTS & SIZES" />
+      <h2 class="text-2xl font-bold text-text">Interactive Buttons</h2>
+
+      <div class="p-6 sm:p-8 rounded-[14px] border border-border bg-surface space-y-6">
+        <!-- Variants -->
+        <div class="space-y-3">
+          <div class="text-xs font-mono text-text-faint">Button Variants</div>
+          <div class="flex flex-wrap items-center gap-3">
+            <Button variant="primary">Primary Button</Button>
+            <Button variant="secondary">Secondary Button</Button>
+            <Button variant="ghost">Ghost Button</Button>
+            <Button variant="link">Inline Link Style</Button>
+          </div>
+        </div>
+
+        <!-- Sizes -->
+        <div class="space-y-3 border-t border-border/60 pt-6">
+          <div class="text-xs font-mono text-text-faint">Button Sizes</div>
+          <div class="flex flex-wrap items-center gap-3">
+            <Button variant="primary" size="sm">Small (sm)</Button>
+            <Button variant="primary" size="md">Medium (md)</Button>
+            <Button variant="primary" size="lg">Large (lg)</Button>
+          </div>
+        </div>
+
+        <!-- As Links -->
+        <div class="space-y-3 border-t border-border/60 pt-6">
+          <div class="text-xs font-mono text-text-faint">Rendered as Links (&lt;a href&gt;)</div>
+          <div class="flex flex-wrap items-center gap-3">
+            <Button href="#work" variant="primary">Explore Work ↓</Button>
+            <Button href="/Abdenour_Benkorich_CV.pdf" target="_blank" rel="noopener noreferrer" variant="secondary">Download CV (PDF) ↗</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Status Pill & Section Labels -->
+    <section class="space-y-6">
+      <SectionLabel number="05" label="STATUS PILL & SECTION LABELS" />
+      <h2 class="text-2xl font-bold text-text">Metadata Indicators</h2>
+
+      <div class="p-6 sm:p-8 rounded-[14px] border border-border bg-surface space-y-6">
+        <div>
+          <div class="text-xs font-mono text-text-faint mb-3">Status Pill with Pulsing Green Dot</div>
+          <div class="flex flex-wrap gap-4">
+            <StatusPill text="Open to AI teaching, freelance & internships" />
+            <StatusPill text="Building @ Tassili AI" />
+          </div>
+        </div>
+
+        <div class="border-t border-border/60 pt-6">
+          <div class="text-xs font-mono text-text-faint mb-3">Section Labels (Numbered Mono Caps)</div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <SectionLabel number="01" label="SELECTED WORK" />
+            <SectionLabel number="02" label="TEACHING & CONTENT" />
+            <SectionLabel number="03" label="ABOUT & VALUES" />
+            <SectionLabel number="04" label="EXPERTISE & TOOLS" />
+            <SectionLabel number="05" label="EXPERIENCE & EDUCATION" />
+            <SectionLabel number="06" label="LET'S CONNECT" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Tags & TagLists -->
+    <section class="space-y-6">
+      <SectionLabel number="06" label="TAGS & CHIPS" />
+      <h2 class="text-2xl font-bold text-text">Tech Stack Chips</h2>
+
+      <div class="p-6 sm:p-8 rounded-[14px] border border-border bg-surface space-y-4">
+        <div class="text-xs font-mono text-text-faint">Individual Tags</div>
+        <div class="flex flex-wrap gap-2">
+          <Tag text="Featured Project" size="md" />
+          <Tag text="Teaching" size="sm" />
+          <Tag text="102K+ Followers" size="sm" />
+        </div>
+
+        <div class="text-xs font-mono text-text-faint pt-4 border-t border-border/60">Medium TagList</div>
+        <TagList
+          size="md"
+          tags={['React', 'Next.js', 'Tailwind CSS', 'Node.js', 'Python', 'Django', 'PostgreSQL', 'Generative AI', 'LLMs']}
+        />
+
+        <div class="text-xs font-mono text-text-faint pt-4 border-t border-border/60">Small TagList</div>
+        <TagList
+          size="sm"
+          tags={['Mostaganem, DZ', 'UTC+1', 'Sonatrach GP1Z', 'Sefrone', 'Everest Academy', 'BenCoder (102K+)']}
+        />
+      </div>
+    </section>
+
+    <!-- 7. Cards & Interactive Lift -->
+    <section class="space-y-6">
+      <SectionLabel number="07" label="CONTAINERS & CARDS" />
+      <h2 class="text-2xl font-bold text-text">Card Layouts (14px Radius)</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Card 1: Static -->
+        <Card padding="md">
+          <div class="space-y-3">
+            <div class="text-xs font-mono text-text-faint">Static Card</div>
+            <h3 class="text-xl font-bold text-text">Everest Academy</h3>
+            <p class="text-sm text-text-muted leading-relaxed">
+              "Build with AI" course on generative AI. Designed and taught a one-month hands-on generative AI course guiding students to deploy real AI-powered products.
+            </p>
+            <TagList tags={['Teaching', 'Generative AI', 'Hands-on']} />
+          </div>
+        </Card>
+
+        <!-- Card 2: Interactive Lift -->
+        <Card padding="md" interactive={true}>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-text-faint">Interactive Lift Card</span>
+              <span class="text-xs font-mono text-status font-medium">Live Project ↗</span>
+            </div>
+            <h3 class="text-xl font-bold text-text">Virexa Healthcare Platform</h3>
+            <p class="text-sm text-text-muted leading-relaxed">
+              Full digital platform aimed at improving patients' lives through tech-driven healthcare solutions. Hover to test the 2px lift and border brighten effect.
+            </p>
+            <TagList tags={['Next.js', 'TypeScript', 'Healthcare', 'Startup']} />
+          </div>
+        </Card>
+      </div>
+    </section>
+
+    <!-- 8. Scroll Reveal Demonstration -->
+    <section class="space-y-6">
+      <SectionLabel number="08" label="MOTION & ACCESSIBILITY" />
+      <h2 class="text-2xl font-bold text-text">Reveal on Scroll Component</h2>
+      <p class="text-sm text-text-muted">
+        Smooth 12px translate + fade on scroll. Respects <code class="font-mono text-xs px-1.5 py-0.5 rounded bg-surface border border-border">prefers-reduced-motion</code> by rendering immediately with zero transition delay.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <Reveal delay={0}>
+          <div class="p-6 rounded-[14px] border border-border bg-surface text-center">
+            <div class="text-xs font-mono text-text-faint mb-1">Stagger 0ms</div>
+            <div class="text-lg font-bold text-text">Reveal 1</div>
+          </div>
+        </Reveal>
+        <Reveal delay={150}>
+          <div class="p-6 rounded-[14px] border border-border bg-surface text-center">
+            <div class="text-xs font-mono text-text-faint mb-1">Stagger 150ms</div>
+            <div class="text-lg font-bold text-text">Reveal 2</div>
+          </div>
+        </Reveal>
+        <Reveal delay={300}>
+          <div class="p-6 rounded-[14px] border border-border bg-surface text-center">
+            <div class="text-xs font-mono text-text-faint mb-1">Stagger 300ms</div>
+            <div class="text-lg font-bold text-text">Reveal 3</div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  </main>
+</Base>

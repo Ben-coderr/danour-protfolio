@@ -1,0 +1,18 @@
+---
+import clsx from 'clsx';
+import Tag from './Tag.astro';
+
+interface Props {
+  tags?: string[];
+  size?: 'sm' | 'md';
+  class?: string;
+}
+
+const { tags = [], size = 'sm', class: className } = Astro.props;
+---
+
+<div class={clsx('flex flex-wrap items-center gap-1.5', className)}>
+  {tags.length > 0
+    ? tags.map((t) => <Tag text={t} size={size} />)
+    : <slot />}
+</div>

@@ -1,0 +1,23 @@
+---
+import clsx from 'clsx';
+
+interface Props {
+  number?: string;
+  label: string;
+  class?: string;
+}
+
+const { number, label, class: className } = Astro.props;
+---
+
+<div
+  class={clsx(
+    'inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-text-muted',
+    className
+  )}
+>
+  {number && (
+    <span class="text-text-faint font-medium">[{number}]</span>
+  )}
+  <span class="font-semibold tracking-[0.16em] text-text">{label}</span>
+</div>
