@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from '../../data/site';
+import { ThemeToggle } from '../islands/ThemeToggle';
 
 const currentYear = new Date().getFullYear();
 ---
@@ -94,17 +95,21 @@ const currentYear = new Date().getFullYear();
         &copy; {currentYear} {siteConfig.name}. Strictly monochrome.
       </div>
 
-      <button
-        id="back-to-top"
-        type="button"
-        class="inline-flex items-center gap-1.5 text-text-muted hover:text-text transition-colors cursor-pointer select-none py-1 px-2 rounded hover:bg-surface"
-        aria-label="Scroll back to top of page"
-      >
-        <span>Back to top</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="m18 15-6-6-6 6"></path>
-        </svg>
-      </button>
+      <div class="flex items-center gap-3">
+        <ThemeToggle client:load showLabel={true} />
+
+        <button
+          id="back-to-top"
+          type="button"
+          class="inline-flex items-center gap-1.5 text-text-muted hover:text-text transition-colors cursor-pointer select-none py-1.5 px-2.5 rounded-lg border border-border bg-surface hover:border-border-strong"
+          aria-label="Scroll back to top of page"
+        >
+          <span>Back to top</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 15-6-6-6 6"></path>
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </footer>

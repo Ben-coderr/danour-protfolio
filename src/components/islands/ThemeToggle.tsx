@@ -1,15 +1,36 @@
 import { useEffect, useState } from 'react';
 
-export function ThemeToggle({ className = '' }: { className?: string }) {
+export function ThemeToggle({
+  className = '',
+  showLabel = false,
+}: {
+  className?: string;
+  showLabel?: boolean;
+}) {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    const currentTheme =
-      (document.documentElement.getAttribute('data-theme') as 'dark' | 'light') ||
-      (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-    setTheme(currentTheme);
+    const syncTheme = () => {
+      const currentTheme =
+        (document.documentElement.getAttribute('data-theme') as 'dark' | 'light') ||
+        (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      setTheme(currentTheme);
+    };
+
+    syncTheme();
+
+    const handleCustomChange = (e: Event) => {
+      const customEvent = e as CustomEvent<'dark' | 'light'>;
+      if (customEvent.detail) {
+        setTheme(customEvent.detail);
+      } else {
+        syncTheme();
+      }
+    };
+
+    window.addEventListener('theme-change', handleCustomChange);
 
     // Sync across tabs
     const handleStorage = (e: StorageEvent) => {
@@ -20,7 +41,10 @@ export function ThemeToggle({ className = '' }: { className?: string }) {
       }
     };
     window.addEventListener('storage', handleStorage);
-    return () => window.removeEventListener('storage', handleStorage);
+    return () => {
+      window.removeEventListener('theme-change', handleCustomChange);
+      window.removeEventListener('storage', handleStorage);
+    };
   }, []);
 
   const toggleTheme = () => {
@@ -34,6 +58,8 @@ export function ThemeToggle({ className = '' }: { className?: string }) {
       // Ignore if localStorage unavailable
     }
 
+    window.dispatchEvent(new CustomEvent('theme-change', { detail: nextTheme }));
+
     const metaTheme = document.getElementById('meta-theme-color');
     if (metaTheme) {
       metaTheme.setAttribute('content', nextTheme === 'dark' ? '#0A0A0A' : '#FAFAFA');
@@ -46,7 +72,9 @@ export function ThemeToggle({ className = '' }: { className?: string }) {
       onClick={toggleTheme}
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
       title={`Current mode: ${theme}`}
-      className={`relative inline-flex items-center justify-center p-2 rounded-lg border border-border bg-surface text-text-muted hover:text-text hover:border-border-strong transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-text focus-visible:outline-offset-2 select-none ${className}`}
+      className={`relative inline-flex items-center justify-center rounded-lg border border-border bg-surface text-text-muted hover:text-text hover:border-border-strong transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-text focus-visible:outline-offset-2 select-none ${
+        showLabel ? 'px-3 py-1.5 gap-2 text-xs font-mono' : 'p-2'
+      } ${className}`}
     >
       <span className="sr-only">Toggle theme</span>
       
@@ -91,6 +119,12 @@ export function ThemeToggle({ className = '' }: { className?: string }) {
       >
         <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
       </svg>
+
+      {showLabel && (
+        <span className="capitalize text-text font-medium">
+          {mounted ? (theme === 'dark' ? 'Dark' : 'Light') : 'Theme'}
+        </span>
+      )}
     </button>
   );
 }
