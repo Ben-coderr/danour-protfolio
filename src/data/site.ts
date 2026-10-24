@@ -21,9 +21,9 @@ export const siteConfig = {
     { value: 'Mostaganem, DZ', label: 'Based in', sub: 'UTC+1 · remote-friendly' },
   ],
   nav: [
-    { label: 'Work', href: '/#work' },
-    { label: 'Teaching', href: '/#teaching' },
-    { label: 'About', href: '/#about' },
+    { label: 'Work', href: '/work' },
+    { label: 'Teaching', href: '/teaching' },
+    { label: 'About', href: '/about' },
     { label: 'Experience', href: '/#experience' },
     { label: "Let's talk", href: '/#contact' },
   ],

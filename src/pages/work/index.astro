@@ -1,0 +1,142 @@
+---
+import Base from '../../layouts/Base.astro';
+import { projects } from '../../data/projects';
+import TagList from '../../components/ui/TagList.astro';
+import Button from '../../components/ui/Button.astro';
+import SectionLabel from '../../components/ui/SectionLabel.astro';
+import Reveal from '../../components/ui/Reveal.astro';
+---
+
+<Base
+  title="Selected Work & Case Studies — Abdenour Benkorich"
+  description="Explore production AI models, full-stack web platforms, client solutions, and open-source tooling built and shipped by Abdenour Benkorich."
+>
+  <main id="main" class="py-16 sm:py-24 space-y-16">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <!-- Page Header -->
+      <div class="border-b border-border pb-10 space-y-4">
+        <div class="flex items-center gap-2">
+          <SectionLabel number="01" label="ARCHIVE &amp; CASE STUDIES" />
+          <span class="text-xs font-mono text-text-faint">·</span>
+          <span class="text-xs font-mono text-status font-medium">● 06 Shipped Systems</span>
+        </div>
+        <h1 class="text-display text-text">
+          Selected Work &amp; <span class="font-accent">Architectures</span>
+        </h1>
+        <p class="text-base sm:text-lg text-text-muted max-w-2xl leading-relaxed">
+          From sovereign national AI fine-tuning to production web platforms and high-conversion client engineering. Every project built with strict performance budgets and production reliability.
+        </p>
+
+        <!-- Breadcrumb back link -->
+        <div class="pt-2">
+          <a
+            href="/"
+            class="text-xs font-mono text-text-muted hover:text-text inline-flex items-center gap-1.5 transition-colors"
+          >
+            ← Return to Homepage Overview
+          </a>
+        </div>
+      </div>
+
+      <!-- Projects Catalog Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        {projects.map((project, idx) => (
+          <Reveal delay={idx * 80}>
+            <div class="rounded-2xl border border-border-strong bg-surface p-6 sm:p-8 flex flex-col justify-between space-y-6 hover:border-text transition-all duration-200 group h-full shadow-xs">
+              <div class="space-y-4">
+                <!-- Top Meta Bar -->
+                <div class="flex items-center justify-between pb-3 border-b border-border text-xs font-mono">
+                  <span class="text-text-faint uppercase tracking-wider">
+                    {project.category} // {project.year}
+                  </span>
+                  <span class="text-xs font-mono px-2 py-0.5 rounded bg-surface-2 border border-border text-text">
+                    {project.status === 'live' ? '● Live' : 'Research'}
+                  </span>
+                </div>
+
+                <!-- Title & Role -->
+                <div>
+                  <div class="text-xs font-mono text-text-muted uppercase tracking-wider">
+                    Role: {project.role}
+                  </div>
+                  <h2 class="text-2xl font-bold text-text tracking-tight font-sans mt-0.5 group-hover:underline">
+                    <a href={`/work/${project.slug}`}>
+                      {project.title}
+                    </a>
+                  </h2>
+                </div>
+
+                <p class="text-sm text-text-muted leading-relaxed">
+                  {project.summary}
+                </p>
+
+                <!-- Metrics if available -->
+                {project.metrics && (
+                  <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 py-3 border-y border-border/60 text-xs font-mono">
+                    {project.metrics.slice(0, 2).map((m) => (
+                      <div>
+                        <div class="text-[10px] text-text-faint uppercase">{m.label}</div>
+                        <div class="text-text font-bold text-xs mt-0.5 truncate">{m.value}</div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                <!-- Bullets -->
+                <ul class="space-y-1.5 text-xs text-text-muted font-mono pt-1">
+                  {project.bullets.slice(0, 2).map((b) => (
+                    <li class="flex items-start gap-2">
+                      <span class="text-status font-bold">›</span>
+                      <span class="leading-relaxed">{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- Footer with Stack & Action Links -->
+              <div class="pt-4 border-t border-border flex flex-wrap items-center justify-between gap-3">
+                <TagList size="sm" tags={project.stack.slice(0, 3)} />
+
+                <div class="flex items-center gap-3 text-xs font-mono">
+                  <a
+                    href={`/work/${project.slug}`}
+                    class="text-text font-bold hover:underline inline-flex items-center gap-1"
+                  >
+                    Deep Dive →
+                  </a>
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-text-muted hover:text-text underline-offset-4 hover:underline"
+                    >
+                      Visit ↗
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+
+      <!-- Bottom Inbound Work CTA -->
+      <div class="border-t border-border pt-12">
+        <div class="p-8 rounded-2xl border border-border-strong bg-surface-2 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div class="space-y-2">
+            <h3 class="text-2xl font-bold text-text">
+              Have a product or architecture to build?
+            </h3>
+            <p class="text-sm text-text-muted max-w-xl">
+              I partner with founders, engineering teams, and institutions on full-stack web platforms and generative AI integrations.
+            </p>
+          </div>
+          <Button href="/#contact" variant="primary" size="lg" class="shrink-0">
+            Let's discuss your project →
+          </Button>
+        </div>
+      </div>
+    </div>
+  </main>
+</Base>

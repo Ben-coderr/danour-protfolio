@@ -1,0 +1,159 @@
+---
+import Base from '../../layouts/Base.astro';
+import { Image } from 'astro:assets';
+import abdenourPortrait from '../../assets/portrait/abdenour.jpg';
+import SectionLabel from '../../components/ui/SectionLabel.astro';
+import Button from '../../components/ui/Button.astro';
+
+const toolsAndSetup = [
+  {
+    category: 'Hardware & Workstation',
+    items: [
+      'Apple Silicon Mac (M-Series) for primary engineering',
+      'Dual high-resolution displays calibrated for typography & code',
+      'Custom mechanical keyboard with tactile switches',
+      'Shure MV7 microphone for BenCoder video tutorial audio',
+    ],
+  },
+  {
+    category: 'Software & Environment',
+    items: [
+      'VS Code & Neovim configured with strict TypeScript & Python linting',
+      'Ghostty & iTerm2 with zsh, tmux, and custom dotfiles',
+      'Docker for local database containers and microservice testing',
+      'TablePlus for PostgreSQL inspection and schema queries',
+    ],
+  },
+  {
+    category: 'AI & Machine Learning Toolchain',
+    items: [
+      'Hugging Face Transformers & Datasets for local tokenization',
+      'PyTorch with MPS / CUDA acceleration for fine-tuning loops',
+      'ChromaDB & pgvector for local vector similarity benchmarking',
+      'Ollama for local LLM inference testing and privacy-first prototyping',
+    ],
+  },
+];
+---
+
+<Base
+  title="About & Engineering Philosophy — Abdenour Benkorich"
+  description="Learn about Abdenour Benkorich (BenCoder): background, journey into artificial intelligence, software engineering philosophy, and workstation setup."
+>
+  <main id="main" class="py-16 sm:py-24 space-y-20">
+    <div class="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <!-- Breadcrumb navigation -->
+      <div class="flex items-center gap-2 text-xs font-mono text-text-muted">
+        <a href="/" class="hover:text-text transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-text font-bold">About</span>
+      </div>
+
+      <!-- Header -->
+      <div class="border-b border-border pb-10 space-y-4">
+        <div class="flex items-center gap-2">
+          <SectionLabel number="03" label="BIOGRAPHY &amp; CODEX" />
+          <span class="text-xs font-mono text-text-faint">·</span>
+          <span class="text-xs font-mono text-status font-medium">● Mostaganem, Algeria</span>
+        </div>
+        <h1 class="text-display text-text">
+          Engineering with rigor, <span class="font-accent">teaching</span> with clarity
+        </h1>
+        <p class="text-base sm:text-lg text-text-muted max-w-2xl leading-relaxed">
+          The backstory, technical convictions, and daily workstation of an AI instructor, full-stack engineer, and developer educator.
+        </p>
+      </div>
+
+      <!-- Section: Portrait & Long-Form Bio -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+        <!-- Natural Color Portrait with Corner Crosshairs -->
+        <div class="md:col-span-5 relative group">
+          <span class="absolute -top-2 -left-2 text-text font-mono text-sm select-none z-20" aria-hidden="true">+</span>
+          <span class="absolute -top-2 -right-2 text-text font-mono text-sm select-none z-20" aria-hidden="true">+</span>
+          <span class="absolute -bottom-2 -left-2 text-text font-mono text-sm select-none z-20" aria-hidden="true">+</span>
+          <span class="absolute -bottom-2 -right-2 text-text font-mono text-sm select-none z-20" aria-hidden="true">+</span>
+
+          <div class="aspect-3/4 rounded-2xl overflow-hidden border border-border-strong bg-surface-2 shadow-md">
+            <Image
+              src={abdenourPortrait}
+              alt="Abdenour Benkorich"
+              class="w-full h-full object-cover"
+              style="object-position: 42% 28%;"
+              width={900}
+              height={1200}
+            />
+          </div>
+
+          <div class="p-4 rounded-xl border border-border bg-surface-2/60 mt-4 font-mono text-xs text-text-muted space-y-1">
+            <div class="font-bold text-text">Abdenour Benkorich</div>
+            <div>B.Sc. Data Science &amp; Computer Engineering</div>
+            <div class="text-[11px] text-text-faint">Univ. Abdelhamid Ben Badis (2024–2028)</div>
+          </div>
+        </div>
+
+        <!-- Long-Form Narrative -->
+        <div class="md:col-span-7 space-y-6 text-base text-text-muted leading-relaxed font-sans">
+          <p>
+            My journey into computer science began with algorithmic curiosity: how does code translate into measurable utility for people? Studying Computer Engineering and Data Science in Mostaganem, Algeria, I quickly discovered that the traditional boundary between academic research and production software engineering is often unnecessarily wide.
+          </p>
+          <p>
+            Too much AI discourse is paralyzed by superficial prompt magic or inaccessible math papers. As a core contributor to <strong class="text-text font-semibold">Tassili AI</strong>, I work on making state-of-the-art language models genuinely speak and understand our local culture — tackling the complex challenge of Algerian Darija dialects, Arabic subwords, and mixed scripts.
+          </p>
+          <p>
+            In parallel, I discovered my love for technical education. At <strong class="text-text font-semibold">Everest Academy</strong>, I lead the intensive "Build with AI" curriculum, teaching students how to move from first principles to functional, production-ready AI applications.
+          </p>
+          <p>
+            Through <strong class="text-text font-semibold">BenCoder</strong>, I produce English-language programming breakdowns for an audience of over 102,000 developers worldwide. Teaching forces me to simplify architectures down to their core truths — and shipping production code ensures I never teach theoretical nonsense.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section: Workstation & Tooling -->
+      <section class="space-y-8 border-t border-border pt-12">
+        <div class="space-y-1">
+          <span class="text-xs font-mono text-text-faint uppercase tracking-wider">
+            THE WORKSTATION // TOOLS OF THE TRADE
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-text">
+            Hardware, Software &amp; AI Stack
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {toolsAndSetup.map((sec) => (
+            <div class="p-6 rounded-2xl border border-border bg-surface space-y-4">
+              <h3 class="text-sm font-bold font-mono text-text uppercase tracking-wider border-b border-border pb-2">
+                {sec.category}
+              </h3>
+              <ul class="space-y-2 text-xs font-mono text-text-muted">
+                {sec.items.map((it) => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-status font-bold">›</span>
+                    <span class="leading-relaxed">{it}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Section: Collaboration CTA -->
+      <div class="border-t border-border pt-12">
+        <div class="p-8 rounded-2xl border border-border-strong bg-surface flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm">
+          <div class="space-y-2">
+            <h3 class="text-2xl font-bold text-text font-sans">
+              Let's build something enduring together
+            </h3>
+            <p class="text-sm text-text-muted max-w-xl">
+              Available for generative AI curriculums, technical workshops, advisory, and full-stack software development.
+            </p>
+          </div>
+          <Button href="/#contact" variant="primary" size="lg" class="shrink-0">
+            Get in touch →
+          </Button>
+        </div>
+      </div>
+    </div>
+  </main>
+</Base>

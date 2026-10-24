@@ -1,178 +1,259 @@
 ---
 import { projects } from '../../data/projects';
 import SectionLabel from '../ui/SectionLabel.astro';
-import Card from '../ui/Card.astro';
 import TagList from '../ui/TagList.astro';
 import Button from '../ui/Button.astro';
 import Reveal from '../ui/Reveal.astro';
 
-const featuredProjects = projects.filter((p) => p.featured);
-const moreProjects = projects.filter((p) => !p.featured);
+const tassiliProject = projects.find((p) => p.slug === 'tassili-ai') || projects[2];
+const secondaryProjects = projects.filter((p) => p.slug === 'virexa' || p.slug === 'fiikra-studio');
+const clientProjects = projects.filter((p) => !p.featured);
 ---
 
-<section id="work" class="py-20 md:py-28 scroll-mt-20">
-  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+<section id="work" class="py-20 md:py-28 scroll-mt-20 relative">
+  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
     <!-- Section Header -->
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-border pb-8">
       <div class="space-y-3">
         <SectionLabel number="01" label="SELECTED WORK" />
-        <h2 class="text-headline text-text">Featured Projects &amp; Products</h2>
+        <h2 class="text-headline text-text">
+          Featured Projects &amp; <span class="font-accent">Architectures</span>
+        </h2>
         <p class="text-text-muted text-base max-w-xl leading-relaxed">
-          Full-stack platforms, client agency sites, and machine learning contributions shipped for real users.
+          National AI initiatives, production startup platforms, and high-conversion client engineering shipped for real users.
         </p>
       </div>
 
       <Button href="/work" variant="secondary" size="md">
-        View all projects →
+        View all projects archive →
       </Button>
     </div>
 
-    <!-- Featured Projects Grid -->
-    <div class="space-y-8">
-      {featuredProjects.map((project, idx) => (
-        <Reveal delay={idx * 120}>
-          <Card padding="none" interactive={true} class="group border-border hover:border-border-strong transition-all">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
-              <!-- Visual Mockup Frame / Banner Preview -->
-              <div class="lg:col-span-5 bg-surface-2 p-6 sm:p-8 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-border relative overflow-hidden">
-                <!-- Browser Bar Mockup -->
-                <div class="w-full flex items-center justify-between pb-4 border-b border-border/70 text-[11px] font-mono text-text-faint">
-                  <div class="flex items-center gap-1.5">
-                    <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block"></span>
-                    <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block"></span>
-                    <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block"></span>
-                  </div>
-                  <span class="truncate max-w-[180px]">{project.liveUrl ? project.liveUrl.replace('https://', '') : project.slug}</span>
-                  <span class="text-text-faint">SSL</span>
+    <!-- Featured Project #1: Full-Bleed Cinematic Feature (Tassili AI) -->
+    <Reveal delay={0}>
+      <div class="rounded-2xl border border-border-strong bg-surface overflow-hidden shadow-md group">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+          <!-- Left: Narrative & Engineering Highlights -->
+          <div class="lg:col-span-7 p-6 sm:p-8 lg:p-10 flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-status"></span>
+                  <span class="font-mono text-xs uppercase tracking-wider text-text font-bold">
+                    FLAGSHIP AI INITIATIVE // NATIONAL LLM
+                  </span>
                 </div>
+                <span class="text-xs font-mono text-text px-2 py-0.5 rounded bg-surface-2 border border-border">
+                  2025 — 2026
+                </span>
+              </div>
 
-                <!-- Banner graphic mockup in monochrome -->
-                <div class="my-8 py-10 px-4 rounded-xl border border-border/80 bg-surface flex flex-col items-center justify-center text-center space-y-3 group-hover:scale-[1.01] transition-transform duration-300">
-                  <div class="font-mono text-xs text-text-faint uppercase tracking-wider">{project.category}</div>
-                  <div class="text-2xl font-bold tracking-tight text-text">{project.title.split('—')[0]}</div>
-                  <div class="text-xs font-mono text-text-muted">{project.role} · {project.year}</div>
+              <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-text tracking-tight font-sans">
+                {tassiliProject.title}
+              </h3>
+
+              <p class="text-sm sm:text-base text-text-muted leading-relaxed">
+                Contributing to Algeria's sovereign artificial intelligence initiative. Fine-tuning autoregressive language models to natively understand the linguistic complexity, colloquial nuances, and script variations (Arabic &amp; Latin Arabizi) of Algerian Darija.
+              </p>
+
+              <!-- Technical HUD Readouts -->
+              <div class="grid grid-cols-3 gap-3 py-3 border-y border-border/70 text-xs font-mono">
+                <div>
+                  <div class="text-[10px] text-text-faint uppercase">Base Engine</div>
+                  <div class="text-text font-bold mt-0.5">Llama-3 Fine-tune</div>
                 </div>
-
-                <!-- Card footer link -->
-                <div class="pt-2 flex items-center justify-between text-xs font-mono text-text-muted">
-                  <span class="capitalize">{project.type} Case Study</span>
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-text hover:underline inline-flex items-center gap-1"
-                    >
-                      <span>Visit Live</span>
-                      <span>↗</span>
-                    </a>
-                  )}
+                <div>
+                  <div class="text-[10px] text-text-faint uppercase">Domain Focus</div>
+                  <div class="text-text font-bold mt-0.5">Algerian Darija</div>
+                </div>
+                <div>
+                  <div class="text-[10px] text-text-faint uppercase">Role</div>
+                  <div class="text-status font-bold mt-0.5">AI Team Member</div>
                 </div>
               </div>
 
-              <!-- Project Narrative & Highlights -->
-              <div class="lg:col-span-7 p-6 sm:p-8 lg:p-10 flex flex-col justify-between space-y-6">
-                <div class="space-y-4">
-                  <div class="flex flex-wrap items-center justify-between gap-3">
-                    <span class="font-mono text-xs uppercase tracking-wider text-text-faint">
-                      {project.role} // {project.year}
-                    </span>
-                    <span class="inline-flex items-center gap-1 text-xs font-mono text-text-faint px-2 py-0.5 rounded border border-border bg-surface-2 capitalize">
-                      {project.status === 'live' ? '● Live' : 'Confidential'}
-                    </span>
+              <!-- Outcomes -->
+              <ul class="space-y-1.5 text-xs sm:text-sm text-text-muted font-mono pt-1">
+                {tassiliProject.bullets.map((bullet) => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-status font-bold select-none">›</span>
+                    <span class="leading-relaxed">{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Bottom Stack & Action -->
+            <div class="pt-4 border-t border-border flex flex-wrap items-center justify-between gap-4">
+              <TagList size="sm" tags={tassiliProject.stack} />
+              <Button href="/work" variant="ghost" size="sm">
+                Case study breakdown →
+              </Button>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Terminal / Architecture HUD Preview -->
+          <div class="lg:col-span-5 bg-surface-2 p-6 sm:p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-border relative">
+            <div class="space-y-4 font-mono text-xs">
+              <div class="flex items-center justify-between pb-3 border-b border-border/70 text-text-faint">
+                <span class="text-[11px]">// SYSTEM TELEMETRY</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-bg text-status border border-border">● EVAL RUNNING</span>
+              </div>
+
+              <!-- Architecture Pipeline Flow -->
+              <div class="space-y-2 bg-bg/90 p-4 rounded-xl border border-border">
+                <div class="text-[10px] text-text-faint uppercase tracking-wider">PIPELINE ARCHITECTURE</div>
+                <div class="space-y-1.5 text-[11px]">
+                  <div class="flex items-center gap-2 text-text">
+                    <span class="text-text-faint">01</span>
+                    <span>Multi-dialect Algerian Corpus Ingestion</span>
                   </div>
-
-                  <h3 class="text-2xl sm:text-3xl font-bold text-text tracking-tight">
-                    {project.title}
-                  </h3>
-
-                  <p class="text-sm sm:text-base text-text-muted leading-relaxed">
-                    {project.summary}
-                  </p>
-
-                  <!-- 3 Outcome Bullets -->
-                  <div class="space-y-2 pt-2 border-t border-border/60">
-                    <div class="font-mono text-xs uppercase tracking-wider text-text-faint mb-1">Key Outcomes &amp; Contributions:</div>
-                    <ul class="space-y-1.5 text-sm text-text-muted">
-                      {project.bullets.map((bullet) => (
-                        <li class="flex items-start gap-2">
-                          <span class="text-text font-bold select-none">•</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <div class="flex items-center gap-2 text-text">
+                    <span class="text-text-faint">02</span>
+                    <span>Subword Tokenization &amp; Script Normalization</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-text font-bold">
+                    <span class="text-status">03</span>
+                    <span>Instruction Fine-Tuning &amp; LoRA Adapters</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-text-muted">
+                    <span class="text-text-faint">04</span>
+                    <span>Evaluation Benchmarks (BLEU, Perplexity)</span>
                   </div>
                 </div>
+              </div>
 
-                <!-- Tech Tags & Action Row -->
-                <div class="pt-4 border-t border-border/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <TagList size="sm" tags={project.stack} />
-
-                  <div class="flex items-center gap-3">
-                    <Button href={`/work/${project.slug}`} variant="ghost" size="sm">
-                      Read details →
-                    </Button>
-                    {project.liveUrl && (
-                      <Button href={project.liveUrl} target="_blank" rel="noopener noreferrer" variant="primary" size="sm">
-                        Live site ↗
-                      </Button>
-                    )}
-                  </div>
+              <!-- Benchmark Preview -->
+              <div class="p-3.5 rounded-xl border border-border bg-bg/60 space-y-2">
+                <div class="text-[10px] text-text-faint uppercase tracking-wider">REGIONAL ACCURACY TARGET</div>
+                <div class="flex items-baseline justify-between">
+                  <span class="text-2xl font-bold text-text font-sans">High-Context</span>
+                  <span class="text-xs font-mono text-status font-semibold">Native Darija</span>
                 </div>
+                <p class="text-[11px] text-text-muted font-sans leading-normal">
+                  Culturally accurate responses without European-centric or Standard Arabic translation distortion.
+                </p>
               </div>
             </div>
-          </Card>
+
+            <div class="pt-4 text-center">
+              <span class="text-[11px] font-mono text-text-faint">
+                Developed in collaboration with Tassili AI Core Team
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Reveal>
+
+    <!-- 2-Column Paired Featured Projects (Virexa & Fiikra) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {secondaryProjects.map((project, idx) => (
+        <Reveal delay={120 + idx * 80}>
+          <div class="rounded-2xl border border-border bg-surface p-6 sm:p-8 flex flex-col justify-between space-y-6 hover:border-border-strong transition-all duration-200 group h-full shadow-xs">
+            <div class="space-y-4">
+              <!-- Header Bar with Browser Mockup Dots -->
+              <div class="flex items-center justify-between pb-3 border-b border-border text-xs font-mono text-text-faint">
+                <div class="flex items-center gap-1.5" aria-hidden="true">
+                  <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block"></span>
+                </div>
+                <span class="truncate max-w-[160px] text-[11px]">{project.liveUrl?.replace('https://', '')}</span>
+                {project.status === 'live' && (
+                  <span class="text-status text-[10px]">● LIVE</span>
+                )}
+              </div>
+
+              <!-- Title & Category -->
+              <div>
+                <span class="text-[11px] font-mono uppercase tracking-wider text-text-faint">
+                  {project.role} // {project.year}
+                </span>
+                <h3 class="text-xl sm:text-2xl font-bold text-text tracking-tight font-sans mt-0.5 group-hover:text-text transition-colors">
+                  {project.title}
+                </h3>
+              </div>
+
+              <p class="text-sm text-text-muted leading-relaxed">
+                {project.summary}
+              </p>
+
+              <!-- Bullets -->
+              <ul class="space-y-1.5 text-xs text-text-muted font-mono pt-1">
+                {project.bullets.map((b) => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-text font-bold">›</span>
+                    <span class="leading-relaxed">{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Footer Stack & Visit Link -->
+            <div class="pt-4 border-t border-border flex flex-wrap items-center justify-between gap-3">
+              <TagList size="sm" tags={project.stack} />
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-xs font-mono text-text font-bold hover:underline inline-flex items-center gap-1"
+                >
+                  Visit Live Site ↗
+                </a>
+              )}
+            </div>
+          </div>
         </Reveal>
       ))}
     </div>
 
-    <!-- More Projects (Compact Numbered Rows) -->
-    <div class="pt-10 space-y-6">
-      <div class="flex items-center justify-between border-b border-border pb-3">
-        <h4 class="font-mono text-xs uppercase tracking-wider text-text-muted">
-          Additional Commercial Work
-        </h4>
-        <span class="font-mono text-xs text-text-faint">Verified Deliveries</span>
-      </div>
+    <!-- Commercial & Client Deployments Data Strip (No Boxy Cards) -->
+    <Reveal delay={240}>
+      <div class="border-t border-border pt-10 space-y-6">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-xs uppercase tracking-wider text-text-faint">
+            // MORE COMMERCIAL &amp; CLIENT DEPLOYMENTS
+          </span>
+          <a href="/work" class="text-xs font-mono text-text hover:underline">
+            Browse complete catalog →
+          </a>
+        </div>
 
-      <div class="divide-y divide-border border-y border-border">
-        {moreProjects.map((project, idx) => (
-          <Reveal delay={idx * 80}>
-            <div class="py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 group hover:bg-surface-2/40 px-2 rounded-lg transition-colors">
-              <div class="space-y-1">
-                <div class="flex items-center gap-3">
-                  <span class="font-mono text-xs text-text-faint">0{idx + 4}</span>
-                  <span class="font-bold text-text text-base sm:text-lg group-hover:text-text transition-colors">
-                    {project.title}
-                  </span>
-                  <span class="hidden sm:inline-block font-mono text-xs text-text-faint">
-                    ({project.category})
-                  </span>
-                </div>
-                <p class="text-xs text-text-muted max-w-xl pl-7 sm:pl-8">
-                  {project.summary}
-                </p>
+        <div class="border border-border rounded-xl divide-y divide-border bg-surface/40 overflow-hidden text-xs font-mono">
+          {clientProjects.map((p) => (
+            <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-surface transition-colors">
+              <div class="space-y-0.5">
+                <div class="text-sm font-bold text-text font-sans">{p.title}</div>
+                <div class="text-[11px] text-text-muted">{p.category} · {p.role} ({p.year})</div>
               </div>
 
-              <div class="flex items-center gap-3 pl-7 sm:pl-0">
-                <TagList size="sm" tags={project.stack.slice(0, 3)} />
-                {project.liveUrl ? (
+              <div class="flex items-center gap-3">
+                <div class="hidden md:flex items-center gap-1.5">
+                  {p.stack.slice(0, 3).map((st) => (
+                    <span class="text-[10px] px-2 py-0.5 rounded bg-surface-2 border border-border text-text-muted">
+                      {st}
+                    </span>
+                  ))}
+                </div>
+                {p.liveUrl ? (
                   <a
-                    href={project.liveUrl}
+                    href={p.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="font-mono text-xs text-text hover:underline ml-2"
+                    class="text-text font-bold hover:underline shrink-0 text-xs inline-flex items-center gap-1"
                   >
                     Visit ↗
                   </a>
                 ) : (
-                  <span class="font-mono text-xs text-text-faint ml-2">Delivered</span>
+                  <span class="text-text-faint text-[11px]">Private Client</span>
                 )}
               </div>
             </div>
-          </Reveal>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </Reveal>
   </div>
 </section>

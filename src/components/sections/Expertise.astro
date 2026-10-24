@@ -1,56 +1,32 @@
 ---
-import { skillGroups } from '../../data/skills';
 import SectionLabel from '../ui/SectionLabel.astro';
-import TagList from '../ui/TagList.astro';
-import Card from '../ui/Card.astro';
 import Reveal from '../ui/Reveal.astro';
-import { Icon } from 'astro-icon/components';
+import { SkillsMatrix } from '../islands/SkillsMatrix';
 ---
 
-<section id="expertise" class="py-20 md:py-28 bg-surface/30 border-y border-border scroll-mt-20">
-  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+<section id="expertise" class="py-20 md:py-28 bg-surface/20 border-y border-border scroll-mt-20">
+  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
     <!-- Header -->
-    <div class="border-b border-border pb-8">
-      <SectionLabel number="04" label="EXPERTISE & TOOLS" />
-      <h2 class="text-headline text-text mt-3">
-        Where tools sit <span class="font-accent">in a product</span>
-      </h2>
-      <p class="text-text-muted text-base max-w-xl mt-2 leading-relaxed">
-        Structured by architectural role with official monochrome icons, not an arbitrary keyword cloud. Every skill verified from production delivery and instruction.
-      </p>
+    <div class="border-b border-border pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div class="space-y-3">
+        <SectionLabel number="04" label="EXPERTISE &amp; TOOLS" />
+        <h2 class="text-headline text-text mt-3">
+          Where tools sit <span class="font-accent">in production</span>
+        </h2>
+        <p class="text-text-muted text-base max-w-xl leading-relaxed">
+          Structured by architectural role with domain filters. Every skill verified through production software delivery, open-source work, or hands-on academy instruction.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 font-mono text-xs text-text-faint">
+        <span class="w-2 h-2 rounded-full bg-status"></span>
+        <span>28 Verified Capabilities</span>
+      </div>
     </div>
 
-    <!-- 6 Skill Groups Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {skillGroups.map((group, idx) => (
-        <Reveal delay={idx * 75}>
-          <Card padding="md" class="h-full flex flex-col justify-between space-y-5 hover:border-border-strong transition-all">
-            <div class="space-y-3">
-              <div class="flex items-center justify-between">
-                <span class="font-mono text-xs text-text-faint uppercase tracking-wider">
-                  0{idx + 1} // DOMAIN
-                </span>
-                <div class="w-7 h-7 rounded-lg border border-border bg-surface-2 flex items-center justify-center text-text-muted">
-                  <Icon name={group.icon} is:inline class="w-3.5 h-3.5" aria-hidden="true" />
-                </div>
-              </div>
-              <h3 class="text-lg font-bold text-text">
-                {group.name}
-              </h3>
-              <p class="text-xs text-text-muted leading-relaxed">
-                {group.description}
-              </p>
-            </div>
-
-            <div class="pt-3 border-t border-border/60">
-              <TagList
-                size="sm"
-                tags={group.skills.map((s) => s.name)}
-              />
-            </div>
-          </Card>
-        </Reveal>
-      ))}
-    </div>
+    <!-- Dynamic Filterable Skills Matrix -->
+    <Reveal delay={100}>
+      <SkillsMatrix client:visible />
+    </Reveal>
   </div>
 </section>

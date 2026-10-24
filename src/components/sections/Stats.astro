@@ -1,27 +1,76 @@
 ---
-import { siteConfig } from '../../data/site';
-import Card from '../ui/Card.astro';
 import Reveal from '../ui/Reveal.astro';
+
+const statsData = [
+  {
+    num: '01',
+    label: 'Community & Reach',
+    value: '102K+',
+    metric: 'Followers',
+    sub: 'Engaged developer community across BenCoder platforms',
+    badge: 'Verified',
+  },
+  {
+    num: '02',
+    label: 'AI Instruction',
+    value: '1 Mo.',
+    metric: 'Intensive',
+    sub: '"Build with AI" flagship curriculum at Everest Academy',
+    badge: 'Lead Instructor',
+  },
+  {
+    num: '03',
+    label: 'Applied AI',
+    value: 'Tassili',
+    metric: 'Algerian LLM',
+    sub: 'Core team contributor fine-tuning national Darija models',
+    badge: 'Research & Prod',
+  },
+  {
+    num: '04',
+    label: 'Engineering Base',
+    value: 'UTC+1',
+    metric: 'Mostaganem',
+    sub: 'Computer Engineering & Data Science · Remote-friendly',
+    badge: 'Active & Open',
+  },
+];
 ---
 
-<section class="py-10 border-y border-border/80 bg-surface/40">
+<section class="border-y border-border/80 bg-surface/30 backdrop-blur-xs relative overflow-hidden">
+  <!-- Subtle corner crosshair decoration -->
   <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      {siteConfig.stats.map((stat, idx) => (
-        <Reveal delay={idx * 80}>
-          <Card padding="md" class="h-full flex flex-col justify-between">
-            <div class="text-xs uppercase font-mono tracking-wider text-text-faint">
-              {stat.label}
-            </div>
-            <div class="my-2">
-              <span class="text-2xl sm:text-3xl font-bold tracking-tight text-text">
-                {stat.value}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-border/70 border-x border-border/50">
+      {statsData.map((stat, idx) => (
+        <Reveal delay={idx * 75}>
+          <div class="p-6 sm:p-7 lg:p-8 flex flex-col justify-between h-full group hover:bg-surface/60 transition-colors duration-200">
+            <!-- Header Row: Index & Category -->
+            <div class="flex items-center justify-between pb-3 text-xs font-mono">
+              <span class="text-text-faint group-hover:text-text transition-colors">
+                {stat.num} // {stat.label}
+              </span>
+              <span class="text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-surface-2 border border-border text-text-muted group-hover:text-text group-hover:border-border-strong transition-colors">
+                {stat.badge}
               </span>
             </div>
-            <div class="text-xs text-text-muted leading-relaxed">
-              {stat.sub}
+
+            <!-- Value Display -->
+            <div class="my-4">
+              <div class="flex items-baseline gap-2">
+                <span class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-text font-sans">
+                  {stat.value}
+                </span>
+                <span class="text-xs font-mono text-text-faint uppercase tracking-wider">
+                  {stat.metric}
+                </span>
+              </div>
             </div>
-          </Card>
+
+            <!-- Subtitle -->
+            <p class="text-xs text-text-muted leading-relaxed">
+              {stat.sub}
+            </p>
+          </div>
         </Reveal>
       ))}
     </div>

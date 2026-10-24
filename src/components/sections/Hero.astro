@@ -2,15 +2,14 @@
 import { siteConfig } from '../../data/site';
 import StatusPill from '../ui/StatusPill.astro';
 import Button from '../ui/Button.astro';
-import TagList from '../ui/TagList.astro';
-import Card from '../ui/Card.astro';
 import Reveal from '../ui/Reveal.astro';
+import { HeroConsole } from '../islands/HeroConsole';
 ---
 
-<section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-dot-grid">
+<section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden overflow-x-clip bg-dot-grid">
   <!-- Subtle Oversized AB Monogram Background (3-5% opacity) -->
   <div
-    class="pointer-events-none absolute -right-20 -top-24 w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] lg:w-[900px] lg:h-[900px] text-text opacity-[0.035] select-none z-0"
+    class="pointer-events-none absolute right-0 -top-12 w-[280px] h-[280px] sm:-right-16 sm:-top-20 sm:w-[600px] sm:h-[600px] lg:w-[850px] lg:h-[850px] text-text opacity-[0.035] select-none z-0 overflow-hidden"
     aria-hidden="true"
   >
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1367 914" class="w-full h-full fill-current">
@@ -26,17 +25,17 @@ import Reveal from '../ui/Reveal.astro';
       <!-- Left Column: Copy & Actions -->
       <div class="lg:col-span-7 space-y-6 sm:space-y-8">
         <Reveal delay={0}>
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-3 max-w-full min-w-0">
             <div class="relative w-8 h-8 rounded-full overflow-hidden border border-border bg-surface shrink-0 shadow-xs">
               <img
                 src="/brand/avatar.jpg"
                 alt="Abdenour Benkorich"
-                class="w-full h-full object-cover grayscale contrast-105"
+                class="w-full h-full object-cover"
                 width="32"
                 height="32"
               />
             </div>
-            <StatusPill text={siteConfig.availability} />
+            <StatusPill text={siteConfig.availability} class="min-w-0" />
           </div>
         </Reveal>
 
@@ -72,55 +71,10 @@ import Reveal from '../ui/Reveal.astro';
         </Reveal>
       </div>
 
-      <!-- Right Column: "What I do" Stack Card -->
+      <!-- Right Column: Interactive 4-Pillar Console -->
       <div class="lg:col-span-5">
         <Reveal delay={250}>
-          <Card padding="md" class="space-y-5 border-border-strong shadow-xs">
-            <div class="flex items-center justify-between pb-3 border-b border-border">
-              <span class="font-mono text-xs uppercase tracking-wider text-text-faint">WHAT I DO // 04 PILLARS</span>
-              <span class="text-xs font-mono text-status font-medium">Active</span>
-            </div>
-
-            <!-- Layer 1: Teach -->
-            <div class="space-y-2 pb-4 border-b border-border/50">
-              <div class="flex items-center justify-between">
-                <span class="font-bold text-text text-base">01 // Teach</span>
-                <span class="text-xs font-mono text-text-muted">Everest Academy</span>
-              </div>
-              <p class="text-xs text-text-muted">Generative AI courses, programming curriculums &amp; hands-on workshops</p>
-              <TagList size="sm" tags={['GenAI Courses', 'Workshops', 'Syllabus']} />
-            </div>
-
-            <!-- Layer 2: Create -->
-            <div class="space-y-2 pb-4 border-b border-border/50">
-              <div class="flex items-center justify-between">
-                <span class="font-bold text-text text-base">02 // Create</span>
-                <span class="text-xs font-mono text-text-muted">BenCoder · 102K+</span>
-              </div>
-              <p class="text-xs text-text-muted">Practical English programming tutorials and engineering insights</p>
-              <TagList size="sm" tags={['Tutorials', '102K+ Community', 'EdTech']} />
-            </div>
-
-            <!-- Layer 3: Build -->
-            <div class="space-y-2 pb-4 border-b border-border/50">
-              <div class="flex items-center justify-between">
-                <span class="font-bold text-text text-base">03 // Build</span>
-                <span class="text-xs font-mono text-text-muted">Full-Stack</span>
-              </div>
-              <p class="text-xs text-text-muted">Modern web applications, APIs, and scalable user interfaces</p>
-              <TagList size="sm" tags={['React / Next.js', 'Node.js', 'Python / Django']} />
-            </div>
-
-            <!-- Layer 4: Apply AI -->
-            <div class="space-y-2">
-              <div class="flex items-center justify-between">
-                <span class="font-bold text-text text-base">04 // Apply AI</span>
-                <span class="text-xs font-mono text-text-muted">Tassili AI</span>
-              </div>
-              <p class="text-xs text-text-muted">Large language models, applied machine learning &amp; data analysis</p>
-              <TagList size="sm" tags={['LLMs', 'Data Science', 'Algerian AI']} />
-            </div>
-          </Card>
+          <HeroConsole client:load />
         </Reveal>
       </div>
     </div>

@@ -1,0 +1,210 @@
+---
+import Base from '../../layouts/Base.astro';
+import SectionLabel from '../../components/ui/SectionLabel.astro';
+import Button from '../../components/ui/Button.astro';
+import TagList from '../../components/ui/TagList.astro';
+import { CurriculumAccordion } from '../../components/islands/CurriculumAccordion';
+
+const workshopTopics = [
+  {
+    title: 'Generative AI from Zero to Production',
+    duration: '2 to 4 Days Bootcamp',
+    audience: 'Software Engineers & Students',
+    desc: 'Intensive immersion into LLM APIs, function calling, vector embeddings, and building real AI web apps with streaming frontends.',
+    tags: ['Next.js 15', 'FastAPI', 'LangChain', 'Prompt Engineering'],
+  },
+  {
+    title: 'Building Enterprise RAG Systems',
+    duration: 'Full-Day Deep Dive',
+    audience: 'Backend & Data Teams',
+    desc: 'Architecting high-accuracy knowledge retrieval pipelines over private documents with chunking strategies, vector databases, and re-ranking.',
+    tags: ['ChromaDB', 'PostgreSQL pgvector', 'Python', 'Embeddings'],
+  },
+  {
+    title: 'Autonomous AI Agents & Tool Calling',
+    duration: '1-Day Advanced Lab',
+    audience: 'Senior Developers',
+    desc: 'Moving beyond simple prompts to autonomous ReAct decision loops, tool schemas, deterministic execution, and stateful multi-agent systems.',
+    tags: ['Tool Use', 'Function Calling', 'Pydantic', 'AsyncIO'],
+  },
+];
+---
+
+<Base
+  title="Teaching, Curriculums & Workshops — Abdenour Benkorich"
+  description="Explore the 'Build with AI' generative AI curriculum, in-person engineering workshops, and the 102K+ BenCoder developer education community."
+>
+  <main id="main" class="py-16 sm:py-24 space-y-20">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <!-- Page Hero Header -->
+      <div class="border-b border-border pb-10 space-y-4">
+        <div class="flex items-center gap-2">
+          <SectionLabel number="02" label="AI EDUCATION &amp; CONTENT" />
+          <span class="text-xs font-mono text-text-faint">·</span>
+          <span class="text-xs font-mono text-status font-medium">● 102K+ Community</span>
+        </div>
+        <h1 class="text-display text-text">
+          Making AI <span class="font-accent">practical</span>, accessible &amp; production-ready
+        </h1>
+        <p class="text-base sm:text-lg text-text-muted max-w-2xl leading-relaxed">
+          I design hands-on curricula, conduct intensive bootcamps, and create practical software engineering tutorials for over 102,000 developers worldwide.
+        </p>
+
+        <!-- Breadcrumb link -->
+        <div class="pt-2">
+          <a
+            href="/"
+            class="text-xs font-mono text-text-muted hover:text-text inline-flex items-center gap-1.5 transition-colors"
+          >
+            ← Return to Homepage Overview
+          </a>
+        </div>
+      </div>
+
+      <!-- Section 1: Everest Academy Flagship "Build with AI" -->
+      <section class="space-y-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border pb-6">
+          <div class="space-y-1">
+            <span class="text-xs font-mono text-text-faint uppercase tracking-wider">
+              FLAGSHIP COURSE // EVEREST ACADEMY
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-text">
+              "Build with AI" — 1-Month Intensive Curriculum
+            </h2>
+          </div>
+          <span class="text-xs font-mono px-3 py-1 rounded bg-surface-2 border border-border text-text">
+            Lead Instructor &amp; Course Architect
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <!-- Left: Narrative & Methodology -->
+          <div class="lg:col-span-5 space-y-6">
+            <p class="text-base text-text-muted leading-relaxed">
+              Most AI courses either dwell in theoretical mathematics without shipping code, or stay at surface-level prompt gimmicks. <strong class="text-text font-semibold">"Build with AI"</strong> was designed to bridge that void.
+            </p>
+            <p class="text-sm text-text-muted leading-relaxed">
+              Students progress through real architectural challenges: understanding how token prediction really works, handling context window economics, creating semantic vector embeddings, and wiring Python backend services into streaming Next.js interfaces.
+            </p>
+
+            <div class="p-5 rounded-xl border border-border bg-surface-2 space-y-3 font-mono text-xs">
+              <div class="text-[11px] text-text-faint uppercase font-bold">COURSE AT A GLANCE:</div>
+              <div class="divide-y divide-border/60">
+                <div class="py-2 flex justify-between">
+                  <span class="text-text-muted">Duration:</span>
+                  <span class="text-text font-bold">4 Weeks (60+ Hours)</span>
+                </div>
+                <div class="py-2 flex justify-between">
+                  <span class="text-text-muted">Location:</span>
+                  <span class="text-text">Mostaganem, Algeria</span>
+                </div>
+                <div class="py-2 flex justify-between">
+                  <span class="text-text-muted">Format:</span>
+                  <span class="text-text">In-Person Labs + Code Reviews</span>
+                </div>
+                <div class="py-2 flex justify-between">
+                  <span class="text-text-muted">Graduation Rate:</span>
+                  <span class="text-status font-bold">100% Shipped Live Demos</span>
+                </div>
+              </div>
+            </div>
+
+            <Button href="#booking" variant="primary" size="md" class="w-full text-center">
+              Book this curriculum for your institution →
+            </Button>
+          </div>
+
+          <!-- Right: Interactive Accordion -->
+          <div class="lg:col-span-7">
+            <CurriculumAccordion client:load />
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: BenCoder Creator Platform (102K+) -->
+      <section class="space-y-8 border-t border-border pt-12">
+        <div class="space-y-1">
+          <span class="text-xs font-mono text-text-faint uppercase tracking-wider">
+            GLOBAL CONTENT PLATFORM // BENCODER
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-text">
+            102,000+ Developers Learning in English
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 rounded-2xl border border-border bg-surface space-y-2">
+            <div class="text-4xl font-extrabold text-text font-sans">102K+</div>
+            <div class="text-xs font-mono text-text-muted uppercase tracking-wider">Community Members</div>
+            <p class="text-xs text-text-muted pt-2 leading-relaxed">
+              Global audience across technical networks seeking clear, actionable software engineering breakdowns.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl border border-border bg-surface space-y-2">
+            <div class="text-4xl font-extrabold text-text font-sans">45+</div>
+            <div class="text-xs font-mono text-text-muted uppercase tracking-wider">Produced Tutorials</div>
+            <p class="text-xs text-text-muted pt-2 leading-relaxed">
+              Covering Next.js 15, Python architectures, LLM tokenization, and modern full-stack workflows.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl border border-border bg-surface space-y-2">
+            <div class="text-4xl font-extrabold text-text font-sans">100%</div>
+            <div class="text-xs font-mono text-text-muted uppercase tracking-wider">Practical Focus</div>
+            <p class="text-xs text-text-muted pt-2 leading-relaxed">
+              Zero clickbait, zero superficial theory. Only real code and production architectures.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Available Workshops Catalog -->
+      <section id="booking" class="space-y-8 border-t border-border pt-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div class="space-y-1">
+            <span class="text-xs font-mono text-text-faint uppercase tracking-wider">
+              ON-SITE &amp; REMOTE SESSIONS
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-text">
+              Available Bootcamps &amp; Intensive Workshops
+            </h2>
+          </div>
+          <p class="text-xs font-mono text-text-muted">
+            Customizable for universities, academies &amp; enterprise engineering teams
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {workshopTopics.map((ws) => (
+            <div class="p-6 sm:p-7 rounded-2xl border border-border-strong bg-surface flex flex-col justify-between space-y-6 shadow-xs">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between text-xs font-mono">
+                  <span class="text-text-faint uppercase">{ws.duration}</span>
+                  <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-text-muted">
+                    {ws.audience}
+                  </span>
+                </div>
+
+                <h3 class="text-xl font-bold text-text font-sans">
+                  {ws.title}
+                </h3>
+
+                <p class="text-xs sm:text-sm text-text-muted leading-relaxed">
+                  {ws.desc}
+                </p>
+              </div>
+
+              <div class="space-y-4 pt-4 border-t border-border">
+                <TagList size="sm" tags={ws.tags} />
+                <Button href="/#contact" variant="secondary" size="sm" class="w-full text-center">
+                  Request session booking →
+                </Button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  </main>
+</Base>

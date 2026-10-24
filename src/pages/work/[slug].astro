@@ -1,0 +1,194 @@
+---
+import Base from '../../layouts/Base.astro';
+import { projects, type Project } from '../../data/projects';
+import TagList from '../../components/ui/TagList.astro';
+import Button from '../../components/ui/Button.astro';
+import Reveal from '../../components/ui/Reveal.astro';
+
+export async function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+
+// Find next project for footer navigation
+const currentIndex = projects.findIndex((p) => p.slug === project.slug);
+const nextProject = projects[(currentIndex + 1) % projects.length];
+---
+
+<Base
+  title={`${project.title} — Case Study | Abdenour Benkorich`}
+  description={project.summary}
+>
+  <main id="main" class="py-16 sm:py-24 space-y-16">
+    <div class="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+      <!-- Breadcrumb navigation -->
+      <div class="flex items-center gap-2 text-xs font-mono text-text-muted">
+        <a href="/" class="hover:text-text transition-colors">Home</a>
+        <span>/</span>
+        <a href="/work" class="hover:text-text transition-colors">Work</a>
+        <span>/</span>
+        <span class="text-text font-bold truncate">{project.title.split('—')[0].trim()}</span>
+      </div>
+
+      <!-- Case Study Hero Header -->
+      <div class="space-y-6 border-b border-border pb-10">
+        <div class="flex flex-wrap items-center gap-3 text-xs font-mono">
+          <span class="px-2.5 py-1 rounded bg-surface-2 border border-border text-text font-bold">
+            {project.category}
+          </span>
+          <span class="text-text-faint">·</span>
+          <span class="text-text-muted">Role: <strong class="text-text">{project.role}</strong></span>
+          <span class="text-text-faint">·</span>
+          <span class="text-text-faint">{project.year}</span>
+          <span class="ml-auto text-xs font-mono text-status font-medium">
+            {project.status === 'live' ? '● Production Live' : '● Core Initiative'}
+          </span>
+        </div>
+
+        <h1 class="text-display text-text font-sans">
+          {project.title}
+        </h1>
+
+        <p class="text-lg sm:text-xl text-text-muted leading-relaxed font-sans">
+          {project.summary}
+        </p>
+
+        <!-- Live Links and Repository -->
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          {project.liveUrl && (
+            <Button href={project.liveUrl} variant="primary" size="md">
+              Visit Live Platform ↗
+            </Button>
+          )}
+          <Button href="/#contact" variant="secondary" size="md">
+            Inquire about this architecture
+          </Button>
+        </div>
+      </div>
+
+      <!-- Key Metrics Strip -->
+      {project.metrics && project.metrics.length > 0 && (
+        <Reveal delay={80}>
+          <div class="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border border border-border rounded-xl bg-surface/60 overflow-hidden font-mono">
+            {project.metrics.map((m) => (
+              <div class="p-5 space-y-1">
+                <div class="text-[10px] uppercase tracking-wider text-text-faint">
+                  {m.label}
+                </div>
+                <div class="text-2xl font-bold text-text font-sans tracking-tight">
+                  {m.value}
+                </div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      )}
+
+      <!-- Detailed Case Study Narrative -->
+      <article class="space-y-12 text-text">
+        <!-- Overview & Full Description -->
+        {project.fullDescription && (
+          <Reveal delay={120}>
+            <section class="space-y-4">
+              <h2 class="text-2xl font-bold tracking-tight text-text font-sans border-b border-border pb-3">
+                01 // Context &amp; Purpose
+              </h2>
+              <p class="text-base sm:text-lg text-text-muted leading-relaxed">
+                {project.fullDescription}
+              </p>
+            </section>
+          </Reveal>
+        )}
+
+        <!-- The Engineering Challenge -->
+        {project.challenge && (
+          <Reveal delay={160}>
+            <section class="space-y-4">
+              <h2 class="text-2xl font-bold tracking-tight text-text font-sans border-b border-border pb-3">
+                02 // The Engineering Challenge
+              </h2>
+              <div class="p-6 rounded-xl border border-border bg-surface-2/60 space-y-2">
+                <p class="text-base text-text-muted leading-relaxed">
+                  {project.challenge}
+                </p>
+              </div>
+            </section>
+          </Reveal>
+        )}
+
+        <!-- Architectural Solution -->
+        {project.solution && (
+          <Reveal delay={200}>
+            <section class="space-y-4">
+              <h2 class="text-2xl font-bold tracking-tight text-text font-sans border-b border-border pb-3">
+                03 // Architecture &amp; Implementation
+              </h2>
+              <p class="text-base sm:text-lg text-text-muted leading-relaxed">
+                {project.solution}
+              </p>
+
+              <!-- Deliverable Bullet Highlights -->
+              <div class="p-6 rounded-xl border border-border bg-surface space-y-3 font-mono text-xs">
+                <div class="text-[11px] text-text-faint uppercase tracking-wider font-bold">
+                  Key Technical Deliverables:
+                </div>
+                <ul class="space-y-2 text-text-muted">
+                  {project.bullets.map((b) => (
+                    <li class="flex items-start gap-2.5">
+                      <span class="text-status font-bold select-none">✓</span>
+                      <span class="leading-relaxed font-sans text-sm">{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+          </Reveal>
+        )}
+
+        <!-- Technology Stack Deep-Dive -->
+        <Reveal delay={240}>
+          <section class="space-y-4">
+            <h2 class="text-2xl font-bold tracking-tight text-text font-sans border-b border-border pb-3">
+              04 // Technologies Deployed
+            </h2>
+            <div class="p-6 rounded-xl border border-border bg-surface-2/40 space-y-4">
+              <p class="text-sm text-text-muted">
+                Each technology was selected based on strict performance constraints, team ergonomics, and production reliability.
+              </p>
+              <TagList size="md" tags={project.stack} />
+            </div>
+          </section>
+        </Reveal>
+      </article>
+
+      <!-- Next Project & Return Strip -->
+      <div class="border-t border-border pt-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <a
+          href="/work"
+          class="text-xs font-mono text-text-muted hover:text-text inline-flex items-center gap-1.5 transition-colors"
+        >
+          ← Return to All Projects
+        </a>
+
+        <a
+          href={`/work/${nextProject.slug}`}
+          class="p-4 rounded-xl border border-border bg-surface hover:border-text transition-all group flex items-center gap-4 text-right"
+        >
+          <div>
+            <div class="text-[10px] font-mono uppercase tracking-wider text-text-faint">Next Case Study</div>
+            <div class="text-sm font-bold text-text group-hover:underline">{nextProject.title.split('—')[0]}</div>
+          </div>
+          <span class="text-lg text-text group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+      </div>
+    </div>
+  </main>
+</Base>

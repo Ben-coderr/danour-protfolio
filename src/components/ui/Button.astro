@@ -1,6 +1,7 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'link';
 type ButtonSize = 'sm' | 'md' | 'lg';
@@ -47,11 +48,13 @@ const sizeStyles: Record<ButtonSize, string> = {
   lg: 'text-base px-5 py-2.5 rounded-xl gap-2.5',
 };
 
-const classes = clsx(
-  baseStyles,
-  variantStyles[variant],
-  variant !== 'link' && sizeStyles[size],
-  className
+const classes = twMerge(
+  clsx(
+    baseStyles,
+    variantStyles[variant],
+    variant !== 'link' && sizeStyles[size],
+    className
+  )
 );
 ---
 

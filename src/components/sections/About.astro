@@ -2,134 +2,177 @@
 import { Image } from 'astro:assets';
 import abdenourPortrait from '../../assets/portrait/abdenour.jpg';
 import SectionLabel from '../ui/SectionLabel.astro';
-import Card from '../ui/Card.astro';
+import Button from '../ui/Button.astro';
 import Reveal from '../ui/Reveal.astro';
 
-const principles = [
+const manifesto = [
   {
     num: '01',
-    title: 'Practical over theoretical',
-    desc: 'Start with the user outcome; select models, frameworks, and architectures that operate efficiently and reliably in real-world environments.',
+    title: 'Practical Utility Over Speculative Hype',
+    desc: 'The best AI system is one that reliably performs real work at low latency and reasonable cost. I prioritize production-tested models, strict structured outputs, and observable pipelines over theoretical benchmarks.',
   },
   {
     num: '02',
-    title: 'Teach what I build',
-    desc: 'Every curriculum and tutorial stems from real code shipped into production, rather than abstract, untethered theory.',
+    title: 'Teach What You Ship, Ship What You Teach',
+    desc: 'Every tutorial on BenCoder and every syllabus module at Everest Academy stems directly from code written and debugged in production environments. Teaching forces absolute architectural clarity.',
   },
   {
     num: '03',
-    title: 'Local relevance',
-    desc: 'Dedicated to AI models, datasets, and linguistic applications that genuinely serve Algerian users and local industry demands.',
+    title: 'Sovereign & Culturally Relevant AI',
+    desc: 'Dedicated to building datasets, language models, and tools that natively comprehend Algerian Darija, North African Arabic dialects, and regional economic constraints through initiatives like Tassili AI.',
   },
   {
     num: '04',
-    title: 'Ship small, ship often',
-    desc: 'Frequent feedback loops beat speculative planning. Build modularly, test rigorously, and iterate continuously.',
+    title: 'Tight Feedback Loops & High Cadence',
+    desc: 'Frequent deployments beat speculative roadmaps. Ship small, instrument thoroughly, gather user feedback, and iterate without ceremony.',
   },
 ];
 ---
 
-<section id="about" class="py-20 md:py-28 scroll-mt-20">
-  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
-    <!-- Header -->
-    <div class="border-b border-border pb-8">
-      <SectionLabel number="03" label="ABOUT &amp; VALUES" />
-      <h2 class="text-headline text-text mt-3">
-        Bridging the gap between <span class="font-accent">research</span> and production
-      </h2>
+<section id="about" class="py-20 md:py-28 scroll-mt-20 relative">
+  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <!-- Section Header -->
+    <div class="border-b border-border pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div class="space-y-3">
+        <SectionLabel number="03" label="ABOUT &amp; VALUES" />
+        <h2 class="text-headline text-text mt-3">
+          Bridging the gap between <span class="font-accent">research</span> and production
+        </h2>
+      </div>
+      <Button href="/about" variant="secondary" size="md">
+        Read full biography &amp; story →
+      </Button>
     </div>
 
-    <!-- Main Content -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-      <!-- Left Column: Portrait & Facts -->
+    <!-- Main Editorial Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
+      <!-- Left Column: Architectural Portrait Frame -->
       <div class="lg:col-span-5 space-y-6">
-        <!-- Portrait Frame / Visual Representation -->
         <Reveal delay={0}>
-          <Card padding="none" class="overflow-hidden border-border-strong group">
-            <div class="relative aspect-3/4 sm:aspect-4/5 overflow-hidden bg-surface-2">
+          <!-- Portrait Container with Technical Corner Crosshairs -->
+          <div class="relative group">
+            {/* Technical corner crosshairs */}
+            <span class="absolute -top-2 -left-2 text-text font-mono text-sm select-none z-20" aria-hidden="true">+</span>
+            <span class="absolute -top-2 -right-2 text-text font-mono text-sm select-none z-20" aria-hidden="true">+</span>
+            <span class="absolute -bottom-2 -left-2 text-text font-mono text-sm select-none z-20" aria-hidden="true">+</span>
+            <span class="absolute -bottom-2 -right-2 text-text font-mono text-sm select-none z-20" aria-hidden="true">+</span>
+
+            <div class="relative aspect-3/4 sm:aspect-4/5 rounded-2xl overflow-hidden border border-border-strong bg-surface-2 shadow-md">
               <Image
                 src={abdenourPortrait}
                 alt="Abdenour Benkorich - AI Instructor & Full-Stack Engineer"
-                class="w-full h-full object-cover grayscale contrast-[1.06] brightness-[0.96] group-hover:scale-[1.02] transition-transform duration-500"
+                class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
                 style="object-position: 42% 28%;"
                 width={900}
                 height={1200}
                 loading="lazy"
                 decoding="async"
               />
-              <div class="absolute inset-0 bg-linear-to-t from-bg via-transparent to-transparent opacity-60"></div>
+              <div class="absolute bottom-0 inset-x-0 h-36 bg-linear-to-t from-bg/95 via-bg/40 to-transparent"></div>
               
               <!-- Bottom identity bar overlay -->
-              <div class="absolute bottom-0 inset-x-0 p-4 sm:p-5 bg-gradient-to-t from-bg/95 to-transparent flex items-end justify-between">
+              <div class="absolute bottom-0 inset-x-0 p-5 flex items-end justify-between">
                 <div>
-                  <div class="text-base font-bold text-text">Abdenour Benkorich</div>
-                  <div class="text-xs font-mono text-text-muted">BenCoder · AI Instructor</div>
+                  <div class="text-lg font-bold text-text">Abdenour Benkorich</div>
+                  <div class="text-xs font-mono text-text-muted mt-0.5">BenCoder · AI Instructor</div>
                 </div>
-                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface/90 border border-border text-text backdrop-blur-xs">
-                  Mostaganem, DZ
-                </span>
+                <div class="flex flex-col items-end gap-1">
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface/90 border border-border text-text backdrop-blur-xs flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-status"></span>
+                    Mostaganem, DZ
+                  </span>
+                  <span class="text-[10px] font-mono text-text-faint">UTC+1 · Active</span>
+                </div>
               </div>
             </div>
-          </Card>
+          </div>
         </Reveal>
 
-        <!-- Quick Facts Summary -->
+        <!-- Fast Specs Strip (Horizontal Hairline, No Big Cards) -->
         <Reveal delay={100}>
-          <div class="p-6 rounded-[14px] border border-border bg-surface space-y-3">
-            <div class="font-mono text-xs uppercase tracking-wider text-text-faint">Fast Facts</div>
-            <div class="divide-y divide-border/60 text-xs font-mono">
-              <div class="py-2 flex justify-between">
-                <span class="text-text-muted">Education</span>
-                <span class="text-text font-medium">B.Sc. Data Science (2024–2028)</span>
-              </div>
-              <div class="py-2 flex justify-between">
-                <span class="text-text-muted">University</span>
-                <span class="text-text font-medium">Univ. of Mostaganem</span>
-              </div>
-              <div class="py-2 flex justify-between">
-                <span class="text-text-muted">Brand</span>
-                <span class="text-text font-medium">BenCoder (102K+ Followers)</span>
-              </div>
-              <div class="py-2 flex justify-between">
-                <span class="text-text-muted">Languages</span>
-                <span class="text-text font-medium">Arabic (Native), English, French</span>
-              </div>
-              <div class="py-2 flex justify-between">
-                <span class="text-text-muted">Current Focus</span>
-                <span class="text-status font-medium">Tassili AI (Algerian LLM)</span>
-              </div>
+          <div class="border-y border-border divide-y divide-border/60 text-xs font-mono">
+            <div class="py-2.5 flex items-center justify-between">
+              <span class="text-text-muted">Academic Track</span>
+              <span class="text-text font-medium">B.Sc. Data Science &amp; Engineering</span>
+            </div>
+            <div class="py-2.5 flex items-center justify-between">
+              <span class="text-text-muted">Institution</span>
+              <span class="text-text font-medium">Univ. Abdelhamid Ben Badis</span>
+            </div>
+            <div class="py-2.5 flex items-center justify-between">
+              <span class="text-text-muted">Community Platform</span>
+              <span class="text-text font-medium">BenCoder (102,000+ Followers)</span>
+            </div>
+            <div class="py-2.5 flex items-center justify-between">
+              <span class="text-text-muted">Primary Languages</span>
+              <span class="text-text font-medium">Arabic (Native), English, French</span>
             </div>
           </div>
         </Reveal>
       </div>
 
-      <!-- Right Column: Story & Principles -->
-      <div class="lg:col-span-7 space-y-8">
+      <!-- Right Column: Narrative & Operating Manifesto -->
+      <div class="lg:col-span-7 space-y-10">
+        <!-- Editorial Bio -->
         <Reveal delay={120}>
-          <div class="space-y-4 text-base sm:text-lg text-text-muted leading-relaxed">
+          <div class="space-y-5 text-base sm:text-lg text-text-muted leading-relaxed">
             <p>
-              I am a Computer Engineering &amp; Data Science student and full-stack developer who believes the real power of modern AI lies in <strong class="text-text font-semibold">tangible utility</strong> rather than hype. Operating from Mostaganem, Algeria, I contribute to the <strong class="text-text font-semibold">Tassili AI</strong> initiative building an Algerian LLM, while engineering full-stack platforms for startups and commercial clients.
+              I am a Computer Engineering &amp; Data Science practitioner and instructor based in <strong class="text-text font-semibold">Mostaganem, Algeria</strong>. My work sits directly at the intersection of production software engineering and applied artificial intelligence.
             </p>
             <p>
-              Through Everest Academy's <em class="text-text font-normal">"Build with AI"</em> curriculum and my creator platform <strong class="text-text font-semibold">BenCoder</strong>, I teach over 102,000 developers how to move from first principles to functional, deployed software. The best software engineers teach what they ship, and the best instructors continuously test their ideas against production constraints.
+              As a core contributor to <strong class="text-text font-semibold">Tassili AI</strong>, I help research, tokenize, and fine-tune large language models specifically adapted for the linguistic and cultural realities of Algerian Darija and North Africa. In parallel, as Lead AI Instructor at <strong class="text-text font-semibold">Everest Academy</strong> and creator of <strong class="text-text font-semibold">BenCoder</strong>, I have trained dozens of engineers in-person and built an international audience of over 102,000 developers.
             </p>
           </div>
         </Reveal>
 
-        <!-- 4 Numbered Principles Grid -->
-        <Reveal delay={200}>
-          <div class="space-y-4 pt-4 border-t border-border">
-            <div class="font-mono text-xs uppercase tracking-wider text-text-faint">Guiding Engineering Principles:</div>
+        <!-- Operating Manifesto: Linear List with Monospace Numbers (No Boxes!) -->
+        <Reveal delay={180}>
+          <div class="space-y-6 pt-4 border-t border-border">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs uppercase tracking-wider text-text-faint">
+                // OPERATING MANIFESTO
+              </span>
+              <span class="text-xs font-mono text-text-muted">04 Core Tenets</span>
+            </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {principles.map((p) => (
-                <div class="p-5 rounded-xl border border-border bg-surface space-y-2 hover:border-border-strong transition-colors">
-                  <div class="font-mono text-xs text-text-faint font-semibold">{p.num} //</div>
-                  <h4 class="font-bold text-text text-base">{p.title}</h4>
-                  <p class="text-xs text-text-muted leading-relaxed">{p.desc}</p>
+            <div class="divide-y divide-border/70 border-y border-border/70">
+              {manifesto.map((item) => (
+                <div class="py-6 space-y-2 group hover:bg-surface/40 transition-colors px-2 -mx-2 rounded-lg">
+                  <div class="flex items-baseline gap-3">
+                    <span class="font-mono text-sm font-bold text-text-faint group-hover:text-status transition-colors">
+                      {item.num}/
+                    </span>
+                    <h3 class="text-base sm:text-lg font-bold text-text font-sans tracking-tight">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <p class="text-xs sm:text-sm text-text-muted leading-relaxed pl-7">
+                    {item.desc}
+                  </p>
                 </div>
               ))}
             </div>
+          </div>
+        </Reveal>
+
+        <!-- "Now" Living Status Callout -->
+        <Reveal delay={220}>
+          <div class="p-5 rounded-xl border border-border bg-surface-2/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-xs">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="relative flex h-2 w-2" aria-hidden="true">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-status opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-status"></span>
+                </span>
+                <span class="font-bold text-text uppercase tracking-wider">CURRENTLY IN PRODUCTION</span>
+              </div>
+              <p class="text-text-muted text-[11px] font-sans">
+                Tassili AI Darija LLM fine-tuning · Preparing Everest Academy Cohort 2 · Recording BenCoder Next.js 15 tutorials
+              </p>
+            </div>
+            <Button href="#contact" variant="ghost" size="sm" class="shrink-0">
+              Get in touch →
+            </Button>
           </div>
         </Reveal>
       </div>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 export function ThemeToggle({
   className = '',
@@ -73,9 +74,11 @@ export function ThemeToggle({
       onClick={toggleTheme}
       aria-label="Toggle color theme"
       title="Toggle color theme"
-      className={`relative inline-flex items-center justify-center rounded-lg border border-border bg-surface text-text-muted hover:text-text hover:border-border-strong transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-text focus-visible:outline-offset-2 select-none ${
-        showLabel ? 'px-3 py-1.5 gap-2 text-xs font-mono' : 'p-2'
-      } ${className}`}
+      className={twMerge(
+        'relative inline-flex items-center justify-center rounded-lg border border-border bg-surface text-text-muted hover:text-text hover:border-border-strong transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-text focus-visible:outline-offset-2 select-none shrink-0',
+        showLabel ? 'p-2 sm:px-3 sm:py-1.5 sm:gap-2 text-xs font-mono' : 'p-2',
+        className
+      )}
     >
       <span className="sr-only">Toggle theme</span>
 
@@ -119,7 +122,7 @@ export function ThemeToggle({
       </span>
 
       {showLabel && (
-        <span className="capitalize text-text font-medium">
+        <span className="hidden sm:inline capitalize text-text font-medium">
           {theme === 'dark' ? 'Dark' : 'Light'}
         </span>
       )}

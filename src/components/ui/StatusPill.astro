@@ -14,13 +14,13 @@ const {
 
 <div
   class={clsx(
-    'inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-border bg-surface/90 backdrop-blur-sm text-xs font-mono tracking-wide text-text-muted shadow-2xs transition-colors hover:border-border-strong',
+    'inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-border bg-surface/90 backdrop-blur-sm text-xs font-mono tracking-wide text-text-muted shadow-2xs transition-colors hover:border-border-strong max-w-full min-w-0',
     className
   )}
 >
-  <span class="relative flex h-2 w-2" aria-hidden="true">
+  <span class="relative flex h-2 w-2 shrink-0" aria-hidden="true">
     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-status opacity-75"></span>
     <span class="relative inline-flex rounded-full h-2 w-2 bg-status"></span>
   </span>
-  <span class="truncate">{text}</span>
+  <span class="truncate min-w-0">{text}</span>
 </div>

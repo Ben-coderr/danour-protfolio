@@ -47,6 +47,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   body {
@@ -55,6 +57,8 @@
     min-height: 100vh;
     font-size: 1rem;
     line-height: 1.7;
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   /* Focus visible accessibility */
