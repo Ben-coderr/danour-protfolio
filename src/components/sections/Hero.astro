@@ -1,0 +1,117 @@
+---
+import { siteConfig } from '../../data/site';
+import StatusPill from '../ui/StatusPill.astro';
+import Button from '../ui/Button.astro';
+import TagList from '../ui/TagList.astro';
+import Card from '../ui/Card.astro';
+import Reveal from '../ui/Reveal.astro';
+---
+
+<section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-dot-grid">
+  <!-- Subtle Oversized AB Monogram Background (3-5% opacity) -->
+  <div
+    class="pointer-events-none absolute -right-20 -top-24 w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] lg:w-[900px] lg:h-[900px] text-text opacity-[0.035] select-none z-0"
+    aria-hidden="true"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1367 914" class="w-full h-full fill-current">
+      <g transform="translate(0.000000,914.000000) scale(0.100000,-0.100000)" stroke="none">
+        <path d="M6520 9133 c0 -4 182 -359 403 -788 l403 -780 245 -6 c134 -3 865 -7 1624 -8 l1380 -1 105 -24 c212 -48 386 -123 537 -229 551 -391 644 -1082 200 -1493 -193 -179 -466 -289 -827 -334 -159 -20 -758 -23 -1205 -6 -418 16 -846 19 -981 7 l-70 -6 362 -749 c199 -411 367 -753 373 -759 13 -13 327 -15 931 -7 371 4 457 0 645 -36 425 -81 816 -319 1061 -648 156 -208 261 -464 300 -728 22 -150 15 -448 -14 -589 -89 -429 -339 -786 -775 -1105 -158 -116 -301 -201 -532 -314 -369 -182 -741 -313 -1234 -435 -102 -25 -186 -47 -189 -50 -2 -2 -2 -11 1 -18 4 -12 30 -15 124 -15 65 0 240 -3 388 -7 291 -7 722 6 1000 30 1643 145 2562 776 2819 1935 44 199 57 317 63 545 9 381 -44 696 -171 1012 -110 274 -239 474 -441 682 -204 211 -459 376 -725 471 -36 13 -69 26 -73 30 -13 11 42 50 224 156 192 112 274 172 392 289 376 372 553 862 534 1475 -28 862 -372 1519 -1022 1951 -147 98 -435 242 -610 304 -313 112 -588 175 -1001 227 l-179 22 -2032 4 c-1118 1 -2033 -1 -2033 -5z" />
+        <path d="M4785 9104 c-83 -18 -199 -63 -273 -106 -77 -44 -190 -136 -238 -194 -26 -32 -482 -900 -1292 -2462 -689 -1327 -1252 -2415 -1252 -2417 0 -11 235 -4 355 10 351 41 647 131 990 300 364 179 689 423 940 705 274 308 445 594 618 1040 191 490 231 588 292 717 63 136 85 168 103 148 13 -14 1483 -3547 1478 -3552 -2 -2 -62 1 -132 7 -344 30 -968 28 -1339 -5 -2214 -196 -3973 -1215 -4833 -2800 -77 -143 -195 -395 -188 -402 2 -3 40 20 83 50 421 294 1057 611 1723 860 1502 563 2917 773 3984 592 452 -76 877 -236 1196 -448 269 -180 533 -441 666 -659 28 -45 75 -123 105 -172 128 -210 271 -296 493 -296 300 0 659 173 846 408 187 236 278 543 250 842 -21 221 99 -33 -1795 3809 -959 1945 -1763 3570 -1787 3611 -51 88 -170 217 -251 272 -74 51 -184 102 -272 129 -95 29 -365 36 -470 13z" />
+      </g>
+    </svg>
+  </div>
+
+  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <!-- Left Column: Copy & Actions -->
+      <div class="lg:col-span-7 space-y-6 sm:space-y-8">
+        <Reveal delay={0}>
+          <StatusPill text={siteConfig.availability} />
+        </Reveal>
+
+        <Reveal delay={100}>
+          <h1 class="text-display text-text">
+            I build with AI, <span class="font-accent">teach it</span>, and ship the products around it.
+          </h1>
+        </Reveal>
+
+        <Reveal delay={200}>
+          <p class="text-base sm:text-lg text-text-muted max-w-2xl leading-relaxed">
+            I'm <strong class="text-text font-semibold">{siteConfig.name}</strong>: AI instructor, full-stack engineer and creator behind <strong class="text-text font-semibold">{siteConfig.brandName}</strong> (102K+ followers). I work with <strong class="text-text font-semibold">Tassili AI</strong> on an Algerian large language model and study Computer Engineering &amp; Data Science in Mostaganem.
+          </p>
+        </Reveal>
+
+        <Reveal delay={300}>
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <Button href="#work" variant="primary" size="lg">
+              View selected work ↓
+            </Button>
+            <Button href="#contact" variant="secondary" size="lg">
+              Get in touch
+            </Button>
+            <a
+              href="/Abdenour_Benkorich_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-xs font-mono text-text-muted hover:text-text transition-colors py-2 px-3 underline-offset-4 hover:underline"
+            >
+              Download CV (PDF) ↗
+            </a>
+          </div>
+        </Reveal>
+      </div>
+
+      <!-- Right Column: "What I do" Stack Card -->
+      <div class="lg:col-span-5">
+        <Reveal delay={250}>
+          <Card padding="md" class="space-y-5 border-border-strong shadow-xs">
+            <div class="flex items-center justify-between pb-3 border-b border-border">
+              <span class="font-mono text-xs uppercase tracking-wider text-text-faint">WHAT I DO // 04 PILLARS</span>
+              <span class="text-xs font-mono text-status font-medium">Active</span>
+            </div>
+
+            <!-- Layer 1: Teach -->
+            <div class="space-y-2 pb-4 border-b border-border/50">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-text text-base">01 // Teach</span>
+                <span class="text-xs font-mono text-text-muted">Everest Academy</span>
+              </div>
+              <p class="text-xs text-text-muted">Generative AI courses, programming curriculums &amp; hands-on workshops</p>
+              <TagList size="sm" tags={['GenAI Courses', 'Workshops', 'Syllabus']} />
+            </div>
+
+            <!-- Layer 2: Create -->
+            <div class="space-y-2 pb-4 border-b border-border/50">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-text text-base">02 // Create</span>
+                <span class="text-xs font-mono text-text-muted">BenCoder · 102K+</span>
+              </div>
+              <p class="text-xs text-text-muted">Practical English programming tutorials and engineering insights</p>
+              <TagList size="sm" tags={['Tutorials', '102K+ Community', 'EdTech']} />
+            </div>
+
+            <!-- Layer 3: Build -->
+            <div class="space-y-2 pb-4 border-b border-border/50">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-text text-base">03 // Build</span>
+                <span class="text-xs font-mono text-text-muted">Full-Stack</span>
+              </div>
+              <p class="text-xs text-text-muted">Modern web applications, APIs, and scalable user interfaces</p>
+              <TagList size="sm" tags={['React / Next.js', 'Node.js', 'Python / Django']} />
+            </div>
+
+            <!-- Layer 4: Apply AI -->
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-text text-base">04 // Apply AI</span>
+                <span class="text-xs font-mono text-text-muted">Tassili AI</span>
+              </div>
+              <p class="text-xs text-text-muted">Large language models, applied machine learning &amp; data analysis</p>
+              <TagList size="sm" tags={['LLMs', 'Data Science', 'Algerian AI']} />
+            </div>
+          </Card>
+        </Reveal>
+      </div>
+    </div>
+  </div>
+</section>

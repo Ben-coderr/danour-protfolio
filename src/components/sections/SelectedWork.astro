@@ -1,0 +1,178 @@
+---
+import { projects } from '../../data/projects';
+import SectionLabel from '../ui/SectionLabel.astro';
+import Card from '../ui/Card.astro';
+import TagList from '../ui/TagList.astro';
+import Button from '../ui/Button.astro';
+import Reveal from '../ui/Reveal.astro';
+
+const featuredProjects = projects.filter((p) => p.featured);
+const moreProjects = projects.filter((p) => !p.featured);
+---
+
+<section id="work" class="py-20 md:py-28 scroll-mt-20">
+  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-border pb-8">
+      <div class="space-y-3">
+        <SectionLabel number="01" label="SELECTED WORK" />
+        <h2 class="text-headline text-text">Featured Projects &amp; Products</h2>
+        <p class="text-text-muted text-base max-w-xl leading-relaxed">
+          Full-stack platforms, client agency sites, and machine learning contributions shipped for real users.
+        </p>
+      </div>
+
+      <Button href="/work" variant="secondary" size="md">
+        View all projects →
+      </Button>
+    </div>
+
+    <!-- Featured Projects Grid -->
+    <div class="space-y-8">
+      {featuredProjects.map((project, idx) => (
+        <Reveal delay={idx * 120}>
+          <Card padding="none" interactive={true} class="group border-border hover:border-border-strong transition-all">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+              <!-- Visual Mockup Frame / Banner Preview -->
+              <div class="lg:col-span-5 bg-surface-2 p-6 sm:p-8 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-border relative overflow-hidden">
+                <!-- Browser Bar Mockup -->
+                <div class="w-full flex items-center justify-between pb-4 border-b border-border/70 text-[11px] font-mono text-text-faint">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block"></span>
+                  </div>
+                  <span class="truncate max-w-[180px]">{project.liveUrl ? project.liveUrl.replace('https://', '') : project.slug}</span>
+                  <span class="text-text-faint">SSL</span>
+                </div>
+
+                <!-- Banner graphic mockup in monochrome -->
+                <div class="my-8 py-10 px-4 rounded-xl border border-border/80 bg-surface flex flex-col items-center justify-center text-center space-y-3 group-hover:scale-[1.01] transition-transform duration-300">
+                  <div class="font-mono text-xs text-text-faint uppercase tracking-wider">{project.category}</div>
+                  <div class="text-2xl font-bold tracking-tight text-text">{project.title.split('—')[0]}</div>
+                  <div class="text-xs font-mono text-text-muted">{project.role} · {project.year}</div>
+                </div>
+
+                <!-- Card footer link -->
+                <div class="pt-2 flex items-center justify-between text-xs font-mono text-text-muted">
+                  <span class="capitalize">{project.type} Case Study</span>
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-text hover:underline inline-flex items-center gap-1"
+                    >
+                      <span>Visit Live</span>
+                      <span>↗</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              <!-- Project Narrative & Highlights -->
+              <div class="lg:col-span-7 p-6 sm:p-8 lg:p-10 flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                  <div class="flex flex-wrap items-center justify-between gap-3">
+                    <span class="font-mono text-xs uppercase tracking-wider text-text-faint">
+                      {project.role} // {project.year}
+                    </span>
+                    <span class="inline-flex items-center gap-1 text-xs font-mono text-text-faint px-2 py-0.5 rounded border border-border bg-surface-2 capitalize">
+                      {project.status === 'live' ? '● Live' : 'Confidential'}
+                    </span>
+                  </div>
+
+                  <h3 class="text-2xl sm:text-3xl font-bold text-text tracking-tight">
+                    {project.title}
+                  </h3>
+
+                  <p class="text-sm sm:text-base text-text-muted leading-relaxed">
+                    {project.summary}
+                  </p>
+
+                  <!-- 3 Outcome Bullets -->
+                  <div class="space-y-2 pt-2 border-t border-border/60">
+                    <div class="font-mono text-xs uppercase tracking-wider text-text-faint mb-1">Key Outcomes &amp; Contributions:</div>
+                    <ul class="space-y-1.5 text-sm text-text-muted">
+                      {project.bullets.map((bullet) => (
+                        <li class="flex items-start gap-2">
+                          <span class="text-text font-bold select-none">•</span>
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Tech Tags & Action Row -->
+                <div class="pt-4 border-t border-border/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <TagList size="sm" tags={project.stack} />
+
+                  <div class="flex items-center gap-3">
+                    <Button href={`/work/${project.slug}`} variant="ghost" size="sm">
+                      Read details →
+                    </Button>
+                    {project.liveUrl && (
+                      <Button href={project.liveUrl} target="_blank" rel="noopener noreferrer" variant="primary" size="sm">
+                        Live site ↗
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </Reveal>
+      ))}
+    </div>
+
+    <!-- More Projects (Compact Numbered Rows) -->
+    <div class="pt-10 space-y-6">
+      <div class="flex items-center justify-between border-b border-border pb-3">
+        <h4 class="font-mono text-xs uppercase tracking-wider text-text-muted">
+          Additional Commercial Work
+        </h4>
+        <span class="font-mono text-xs text-text-faint">Verified Deliveries</span>
+      </div>
+
+      <div class="divide-y divide-border border-y border-border">
+        {moreProjects.map((project, idx) => (
+          <Reveal delay={idx * 80}>
+            <div class="py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 group hover:bg-surface-2/40 px-2 rounded-lg transition-colors">
+              <div class="space-y-1">
+                <div class="flex items-center gap-3">
+                  <span class="font-mono text-xs text-text-faint">0{idx + 4}</span>
+                  <span class="font-bold text-text text-base sm:text-lg group-hover:text-text transition-colors">
+                    {project.title}
+                  </span>
+                  <span class="hidden sm:inline-block font-mono text-xs text-text-faint">
+                    ({project.category})
+                  </span>
+                </div>
+                <p class="text-xs text-text-muted max-w-xl pl-7 sm:pl-8">
+                  {project.summary}
+                </p>
+              </div>
+
+              <div class="flex items-center gap-3 pl-7 sm:pl-0">
+                <TagList size="sm" tags={project.stack.slice(0, 3)} />
+                {project.liveUrl ? (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="font-mono text-xs text-text hover:underline ml-2"
+                  >
+                    Visit ↗
+                  </a>
+                ) : (
+                  <span class="font-mono text-xs text-text-faint ml-2">Delivered</span>
+                )}
+              </div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

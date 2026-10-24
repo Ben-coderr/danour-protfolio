@@ -1,0 +1,232 @@
+---
+import SectionLabel from '../ui/SectionLabel.astro';
+import TagList from '../ui/TagList.astro';
+import Reveal from '../ui/Reveal.astro';
+
+const currentRoles = [
+  {
+    role: 'AI Team Member',
+    company: 'Tassili AI',
+    period: 'Current',
+    location: 'Algeria',
+    type: 'AI Team',
+    summary: 'Contribute to AI work around an Algerian large language model (LLM) initiative, focusing on locally relevant, culturally grounded AI systems.',
+    highlights: [
+      'Research and contribute to national Algerian LLM model pipelines.',
+      'Investigate Arabic and regional dialect nuances for generative language models.',
+      'Participate in architecture decisions for real-world enterprise AI adoption.',
+    ],
+    stack: ['Python', 'LLMs', 'Generative AI', 'Data Science', 'Machine Learning'],
+  },
+  {
+    role: 'AI Instructor ("Build with AI")',
+    company: 'Everest Academy',
+    period: '1 Month Intensive',
+    location: 'Mostaganem, Algeria',
+    type: 'Instruction',
+    summary: 'Designed and taught a one-month hands-on generative AI course guiding students from foundational concepts to shipping real-world AI applications.',
+    highlights: [
+      'Authored the complete 4-week generative AI curriculum and workshop exercises.',
+      'Mentored students through prompt design, API integration, and full-stack deployment.',
+      'Conducted live coding and architecture breakdown sessions.',
+    ],
+    stack: ['Generative AI', 'Python', 'Curriculum Design', 'Public Speaking'],
+  },
+  {
+    role: 'Tech Content Creator',
+    company: 'BenCoder',
+    period: 'Ongoing',
+    location: 'Online',
+    type: 'Community (102K+)',
+    summary: 'Create English-language software engineering and AI tutorials for an international audience of over 102,000 developers.',
+    highlights: [
+      'Explain complex topics in a clear, practical, beginner-friendly manner.',
+      'Cover modern web engineering, generative AI workflows, and computer science patterns.',
+      'Foster an active developer community centered around practical shipping.',
+    ],
+    stack: ['Content Creation', 'Web Dev', 'GenAI', 'Community Building'],
+  },
+  {
+    role: 'Programming Instructor',
+    company: 'Multiple Institutions',
+    period: 'Ongoing',
+    location: 'Algeria',
+    type: 'Training',
+    summary: 'Deliver technical workshops and hands-on coding sessions for universities and professional academies, including a specialized training in Tlemcen (May 2026).',
+    highlights: [
+      'Delivered intensive training session in Tlemcen (May 2026).',
+      'Instructed foundational algorithms, data structures, and web technologies.',
+      'Provided 1-on-1 code reviews and technical feedback.',
+    ],
+    stack: ['Algorithms', 'Python', 'Web Development', 'Mentorship'],
+  },
+];
+
+const pastRoles = [
+  {
+    role: 'Software Engineer Intern',
+    company: 'Sonatrach GP1Z',
+    period: 'Jun 3 – Jun 30, 2026',
+    location: 'Algeria',
+    type: 'Enterprise Internship',
+    summary: 'National petroleum enterprise. Worked on software engineering tasks involving digital systems and technical infrastructure.',
+    highlights: [
+      'Gained operational experience inside national industrial enterprise infrastructure.',
+      'Contributed to software engineering maintenance and internal systems analysis.',
+    ],
+    stack: ['Linux', 'Windows Server', 'Networks', 'IT Systems'],
+  },
+  {
+    role: 'Backend Developer Intern',
+    company: 'Sefrone',
+    period: 'Dec 2024 – Mar 2025',
+    location: 'Algeria',
+    type: 'Startup Internship',
+    summary: 'Developed and maintained backend services and APIs. Worked on database design and server-side logic in an agile team.',
+    highlights: [
+      'Built and maintained performant REST APIs for client-facing features.',
+      'Modeled relational database tables and optimized query executions.',
+      'Collaborated within an agile team with daily standups and sprint cycles.',
+    ],
+    stack: ['Node.js', 'REST APIs', 'PostgreSQL', 'Git / GitHub', 'Agile'],
+  },
+];
+---
+
+<section id="experience" class="py-20 md:py-28 scroll-mt-20">
+  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <!-- Header -->
+    <div class="border-b border-border pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div class="space-y-3">
+        <SectionLabel number="05" label="EXPERIENCE & EDUCATION" />
+        <h2 class="text-headline text-text">
+          Where I've <span class="font-accent">contributed</span> &amp; learned
+        </h2>
+        <p class="text-text-muted text-base max-w-xl leading-relaxed">
+          From national enterprise infrastructure to fast-moving AI startups and educational leadership.
+        </p>
+      </div>
+
+      <div class="font-mono text-xs text-text-faint">
+        Chronological Timeline
+      </div>
+    </div>
+
+    <!-- Group 1: Currently (Now) -->
+    <div class="space-y-6">
+      <div class="flex items-center gap-3">
+        <span class="w-2 h-2 rounded-full bg-status"></span>
+        <h3 class="font-mono text-xs uppercase tracking-widest text-text font-semibold">
+          ACTIVE POSITIONS // CURRENT
+        </h3>
+      </div>
+
+      <div class="space-y-4">
+        {currentRoles.map((item, idx) => (
+          <Reveal delay={idx * 75}>
+            <div class="p-6 sm:p-7 rounded-[14px] border border-border bg-surface hover:border-border-strong transition-all space-y-4">
+              <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+                <div>
+                  <h4 class="text-xl font-bold text-text">
+                    {item.role}
+                  </h4>
+                  <div class="font-mono text-xs text-text-muted mt-0.5">
+                    <span class="font-semibold text-text">{item.company}</span> · {item.location} · {item.type}
+                  </div>
+                </div>
+
+                <span class="font-mono text-xs text-text px-2.5 py-1 rounded-full border border-border bg-surface-2 self-start sm:self-auto">
+                  {item.period}
+                </span>
+              </div>
+
+              <p class="text-sm text-text-muted leading-relaxed">
+                {item.summary}
+              </p>
+
+              <!-- Highlights -->
+              <ul class="space-y-1 text-xs text-text-muted pt-2 border-t border-border/50">
+                {item.highlights.map((h) => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-text font-bold">›</span>
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div class="pt-2 border-t border-border/50">
+                <TagList size="sm" tags={item.stack} />
+              </div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+    </div>
+
+    <!-- Group 2: Previously -->
+    <div class="space-y-6 pt-4 border-t border-border">
+      <div class="flex items-center gap-3">
+        <span class="w-2 h-2 rounded-full bg-border-strong"></span>
+        <h3 class="font-mono text-xs uppercase tracking-widest text-text-muted font-semibold">
+          PREVIOUS INTERNSHIPS &amp; INDUSTRY EXPERIENCE
+        </h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {pastRoles.map((item, idx) => (
+          <Reveal delay={idx * 90}>
+            <div class="p-6 rounded-[14px] border border-border bg-surface space-y-3 h-full flex flex-col justify-between">
+              <div class="space-y-2">
+                <div class="flex items-start justify-between gap-2">
+                  <h4 class="text-lg font-bold text-text">
+                    {item.role}
+                  </h4>
+                  <span class="font-mono text-[11px] text-text-faint px-2 py-0.5 rounded border border-border">
+                    {item.period}
+                  </span>
+                </div>
+                <div class="font-mono text-xs text-text-muted">
+                  {item.company} · {item.location}
+                </div>
+                <p class="text-xs text-text-muted leading-relaxed pt-1">
+                  {item.summary}
+                </p>
+              </div>
+
+              <div class="pt-3 border-t border-border/50">
+                <TagList size="sm" tags={item.stack} />
+              </div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+    </div>
+
+    <!-- Group 3: Education Card -->
+    <div class="space-y-4 pt-4 border-t border-border">
+      <div class="font-mono text-xs uppercase tracking-widest text-text-faint font-semibold">
+        ACADEMIC BACKGROUND
+      </div>
+
+      <Reveal delay={100}>
+        <div class="p-6 sm:p-7 rounded-[14px] border border-border bg-surface flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="space-y-1">
+            <h4 class="text-lg font-bold text-text">
+              B.Sc. in Computer Engineering — Data Science
+            </h4>
+            <div class="font-mono text-xs text-text-muted">
+              Abdelhamid Ben Badis University, Mostaganem · 2024 – 2028
+            </div>
+            <p class="text-xs text-text-muted pt-1 max-w-xl">
+              Rigorous curriculum emphasizing algorithms, machine learning fundamentals, statistics, computer networks, and data systems engineering.
+            </p>
+          </div>
+
+          <div class="font-mono text-xs text-text px-3 py-1.5 rounded-full border border-border bg-surface-2 self-start sm:self-auto shrink-0">
+            In Progress (Graduating 2028)
+          </div>
+        </div>
+      </Reveal>
+    </div>
+  </div>
+</section>

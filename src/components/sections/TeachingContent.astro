@@ -1,0 +1,180 @@
+---
+import SectionLabel from '../ui/SectionLabel.astro';
+import Card from '../ui/Card.astro';
+import TagList from '../ui/TagList.astro';
+import Button from '../ui/Button.astro';
+import Reveal from '../ui/Reveal.astro';
+---
+
+<section id="teaching" class="py-20 md:py-28 bg-surface/30 border-y border-border scroll-mt-20">
+  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-border pb-8">
+      <div class="space-y-3">
+        <SectionLabel number="02" label="TEACHING & CONTENT" />
+        <h2 class="text-headline text-text">
+          Making AI <span class="font-accent">practical</span>, accessible &amp; affordable
+        </h2>
+        <p class="text-text-muted text-base max-w-xl leading-relaxed">
+          Beyond writing code, I teach generative AI curriculums and create educational content for a community of over 102,000 developers.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <Button href="/teaching" variant="secondary" size="md">
+          Curriculum &amp; Workshops →
+        </Button>
+      </div>
+    </div>
+
+    <!-- Main Grid: Left Teaching / Right Creator -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <!-- Left 7 cols: Teaching & Instruction -->
+      <div class="lg:col-span-7 space-y-6">
+        <!-- Card 1: Build with AI @ Everest Academy -->
+        <Reveal delay={0}>
+          <Card padding="lg" interactive={true} class="space-y-5 border-border-strong">
+            <div class="flex items-center justify-between pb-3 border-b border-border">
+              <span class="font-mono text-xs text-text-faint uppercase tracking-wider">
+                FLAGSHIP COURSE // EVEREST ACADEMY
+              </span>
+              <span class="text-xs font-mono px-2 py-0.5 rounded bg-surface-2 border border-border text-text">
+                1-Month Intensive
+              </span>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold text-text tracking-tight">
+                "Build with AI" — Generative AI Curriculum
+              </h3>
+              <p class="text-xs font-mono text-text-muted mt-1">
+                Everest Academy, Mostaganem · Course Designer &amp; Lead Instructor
+              </p>
+            </div>
+
+            <p class="text-sm sm:text-base text-text-muted leading-relaxed">
+              Designed and instructed a comprehensive 1-month hands-on generative AI course. Guided students through the entire lifecycle: from prompting fundamentals and prompt engineering to building and deploying functional AI-powered web applications.
+            </p>
+
+            <div class="space-y-2 pt-2 border-t border-border/60">
+              <div class="font-mono text-xs uppercase tracking-wider text-text-faint">Core Curricular Outcomes:</div>
+              <ul class="space-y-1.5 text-sm text-text-muted">
+                <li class="flex items-start gap-2">
+                  <span class="text-text font-bold select-none">•</span>
+                  <span>Foundation of Large Language Models (LLMs) and generative architectures</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-text font-bold select-none">•</span>
+                  <span>Hands-on application development integrating modern AI APIs and Python backend logic</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-text font-bold select-none">•</span>
+                  <span>Student project graduation: shipping functional prototypes ready for production</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-3 border-t border-border/60 flex flex-wrap items-center justify-between gap-3">
+              <TagList size="sm" tags={['Generative AI', 'Everest Academy', 'Hands-on Labs', 'Python']} />
+              <Button href="#contact" variant="ghost" size="sm">
+                Request syllabus details →
+              </Button>
+            </div>
+          </Card>
+        </Reveal>
+
+        <!-- Card 2: Programming Instructor -->
+        <Reveal delay={120}>
+          <Card padding="md" class="space-y-4">
+            <div class="flex items-center justify-between pb-2 border-b border-border/60">
+              <span class="font-mono text-xs text-text-faint uppercase tracking-wider">
+                WORKSHOPS &amp; SESSIONS // ONGOING
+              </span>
+              <span class="text-xs font-mono text-text-faint">May 2026 Session</span>
+            </div>
+
+            <div>
+              <h4 class="text-lg font-bold text-text">
+                Programming Instructor @ Multiple Institutions
+              </h4>
+              <p class="text-xs font-mono text-text-muted mt-0.5">
+                Technical training sessions across Algeria, including Tlemcen 2026
+              </p>
+            </div>
+
+            <p class="text-sm text-text-muted leading-relaxed">
+              Delivering modular programming sessions and practical engineering workshops to university students and early-career developers. Focused on demystifying complex concepts into clear, real-world mental models.
+            </p>
+
+            <TagList size="sm" tags={['Tlemcen Training', 'Workshops', 'Mentorship', 'Algorithms']} />
+          </Card>
+        </Reveal>
+      </div>
+
+      <!-- Right 5 cols: Creator Brand (BenCoder) -->
+      <div class="lg:col-span-5 space-y-6">
+        <Reveal delay={150}>
+          <Card padding="lg" class="space-y-6 bg-surface">
+            <div class="flex items-center justify-between pb-3 border-b border-border">
+              <span class="font-mono text-xs text-text-faint uppercase tracking-wider">
+                CONTENT BRAND // CREATOR
+              </span>
+              <span class="text-xs font-mono text-status font-medium">● 102K+ Community</span>
+            </div>
+
+            <div class="space-y-2">
+              <div class="text-3xl sm:text-4xl font-bold tracking-tight text-text">
+                BenCoder
+              </div>
+              <p class="text-xs font-mono text-text-muted">
+                English-language programming &amp; tech tutorials
+              </p>
+            </div>
+
+            <div class="p-5 rounded-xl border border-border bg-surface-2 space-y-2">
+              <div class="text-3xl sm:text-4xl font-extrabold text-text font-mono">
+                102,000+
+              </div>
+              <div class="text-xs font-mono text-text-muted">
+                Active followers across technical social platforms
+              </div>
+            </div>
+
+            <p class="text-sm text-text-muted leading-relaxed">
+              Explaining complex computer science, modern web engineering, and AI architecture in an accessible, zero-fluff format. Reaching thousands of developers worldwide with clear, visual breakdowns.
+            </p>
+
+            <!-- Content Focus Areas -->
+            <div class="space-y-2 pt-2 border-t border-border/60">
+              <div class="font-mono text-xs uppercase tracking-wider text-text-faint">What I Share:</div>
+              <ul class="space-y-1.5 text-xs font-mono text-text-muted">
+                <li class="flex items-center gap-2">
+                  <span class="text-text font-bold">›</span>
+                  <span>Practical Generative AI &amp; Prompt Engineering</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-text font-bold">›</span>
+                  <span>Full-Stack Web (React, Next.js, Node.js, Python)</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-text font-bold">›</span>
+                  <span>Software engineering principles &amp; project breakdowns</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Call to Action Box -->
+            <div class="pt-4 border-t border-border/60 space-y-3">
+              <Button href="#contact" variant="primary" size="md" class="w-full">
+                Invite me to teach or speak →
+              </Button>
+              <div class="text-[11px] font-mono text-text-faint text-center">
+                Available for academies, conferences &amp; university events
+              </div>
+            </div>
+          </Card>
+        </Reveal>
+      </div>
+    </div>
+  </div>
+</section>
