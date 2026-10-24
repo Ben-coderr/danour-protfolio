@@ -1,0 +1,87 @@
+---
+import '../styles/global.css';
+import { siteConfig } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
+}
+
+const {
+  title = `${siteConfig.name} — AI Instructor & Full-Stack Engineer`,
+  description = siteConfig.description,
+  ogImage = '/brand/logo-black.png',
+  canonicalUrl = Astro.url.href,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Theme Blocking Script for Zero FOUC -->
+    <script is:inline>
+      (function () {
+        try {
+          const stored = localStorage.getItem('theme');
+          const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+          
+          let theme = 'dark';
+          if (stored === 'light' || stored === 'dark') {
+            theme = stored;
+          } else if (prefersLight) {
+            theme = 'light';
+          } else {
+            theme = 'dark';
+          }
+          
+          document.documentElement.setAttribute('data-theme', theme);
+          document.documentElement.style.colorScheme = theme;
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0A0A0A" id="meta-theme-color" />
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site || 'https://bencoder.netlify.app').href} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site || 'https://bencoder.netlify.app').href} />
+  </head>
+  <body class="bg-bg text-text min-h-screen selection:bg-invert-bg selection:text-invert-text">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-invert-bg focus:text-invert-text focus:rounded-md focus:shadow-lg focus:outline-none"
+    >
+      Skip to content
+    </a>
+
+    <slot />
+  </body>
+</html>
