@@ -25,6 +25,7 @@ const jsonLdPerson = {
   '@type': 'Person',
   name: siteConfig.name,
   alternateName: siteConfig.brandName,
+  image: new URL('/brand/avatar.jpg', siteUrl).href,
   url: siteUrl,
   jobTitle: ['AI Instructor', 'Full-Stack Engineer', 'Content Creator'],
   sameAs: [
