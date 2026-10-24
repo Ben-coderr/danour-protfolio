@@ -143,7 +143,7 @@ export function ContactForm() {
         >
           <option value="teaching">AI Course / Workshop / Speaking</option>
           <option value="freelance">Freelance Web / Full-Stack Project</option>
-          <option value="job">AI Team Role / Internship Opportunity</option>
+          <option value="job">Engineering Role / Open to Work Opportunity</option>
           <option value="collab">BenCoder Tech Content Collaboration</option>
           <option value="other">General Inquiry / Other</option>
         </select>

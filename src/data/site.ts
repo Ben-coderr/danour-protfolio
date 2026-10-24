@@ -8,7 +8,7 @@ export const siteConfig = {
   email: 'benkorich.abdenour@gmail.com',
   location: 'Mostaganem, Algeria',
   timezone: 'UTC+1',
-  availability: 'Open to AI teaching, freelance & internships',
+  availability: 'Open to AI teaching, freelance & work',
   socials: {
     github: 'https://github.com/Ben-coderr',
     linkedin: 'https://linkedin.com/in/danour',
