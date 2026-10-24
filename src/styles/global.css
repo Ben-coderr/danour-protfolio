@@ -129,6 +129,38 @@
   background-size: 24px 24px;
 }
 
+/* Zero-flicker theme toggle icon animations */
+.theme-icon-sun,
+.theme-icon-moon {
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+html[data-theme='dark'] .theme-icon-sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+  pointer-events: auto;
+}
+
+html[data-theme='dark'] .theme-icon-moon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+  pointer-events: none;
+}
+
+html[data-theme='light'] .theme-icon-sun {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.6);
+  pointer-events: none;
+}
+
+html[data-theme='light'] .theme-icon-moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+  pointer-events: auto;
+}
+
 /* Reduced Motion Override */
 @media (prefers-reduced-motion: reduce) {
   *,

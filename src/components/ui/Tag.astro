@@ -40,7 +40,7 @@ const iconSizes = {
   )}
 >
   {iconName && (
-    <Icon name={iconName} class={clsx(iconSizes[size], 'shrink-0 text-text-muted group-hover:text-text')} aria-hidden="true" />
+    <Icon name={iconName} is:inline class={clsx(iconSizes[size], 'shrink-0 text-text-muted group-hover:text-text')} aria-hidden="true" />
   )}
   <span>{text ? text : <slot />}</span>
 </span>
