@@ -22,7 +22,7 @@ export function ContactForm() {
     }
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (formData._gotcha) {
       // Honeypot caught spam bot

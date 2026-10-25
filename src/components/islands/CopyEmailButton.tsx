@@ -13,18 +13,18 @@ export function CopyEmailButton({
 
   const handleCopy = async () => {
     try {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
+      if (navigator.clipboard?.writeText) {
         await navigator.clipboard.writeText(email);
       } else {
-        // Fallback for older browsers
         const textarea = document.createElement('textarea');
         textarea.value = email;
         textarea.style.position = 'fixed';
         textarea.style.opacity = '0';
         document.body.appendChild(textarea);
-        textarea.focus();
         textarea.select();
-        document.execCommand('copy');
+        if (typeof document.execCommand === 'function') {
+          document.execCommand('copy');
+        }
         document.body.removeChild(textarea);
       }
       setCopied(true);
