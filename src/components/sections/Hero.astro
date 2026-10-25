@@ -34,7 +34,24 @@ import { HeroConsole } from '../islands/HeroConsole';
 
         <Reveal delay={100}>
           <h1 class="text-display text-text">
-            I build with AI, <span class="font-accent">teach it</span>, and ship the products around it.
+            I build with AI, 
+            <span class="hero-selection-wrapper group" title="Click to replay selection" aria-label="teach it">
+              <span class="font-accent hero-selection-base">teach it</span>
+              <span class="hero-selection-highlight" aria-hidden="true">
+                <span class="font-accent hero-selection-text">teach it</span>
+              </span>
+              <span class="hero-sim-cursor" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M4 3L17 12.5L11 14.2L15.5 21L13 22.5L8.5 15.8L4 19.5V3Z"
+                    fill="#FFFFFF"
+                    stroke="#000000"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </span>, and ship the products around it.
           </h1>
         </Reveal>
 
@@ -73,3 +90,26 @@ import { HeroConsole } from '../islands/HeroConsole';
     </div>
   </div>
 </section>
+ 
+<script>
+  function initHeroSelection() {
+    const wrapper = document.querySelector('.hero-selection-wrapper');
+    if (!wrapper) return;
+
+    wrapper.addEventListener('click', () => {
+      const hl = wrapper.querySelector<HTMLElement>('.hero-selection-highlight');
+      const cur = wrapper.querySelector<HTMLElement>('.hero-sim-cursor');
+      if (hl && cur) {
+        hl.style.animation = 'none';
+        cur.style.animation = 'none';
+        void hl.offsetWidth;
+        void cur.offsetWidth;
+        hl.style.animation = '';
+        cur.style.animation = '';
+      }
+    });
+  }
+
+  initHeroSelection();
+  document.addEventListener('astro:page-load', initHeroSelection);
+</script>

@@ -109,6 +109,24 @@ const workshopTopics = [
               </div>
             </div>
 
+            <!-- Official Everest Certificate Preview -->
+            <div class="rounded-xl overflow-hidden border border-border bg-surface p-2 shadow-2xs group">
+              <div class="flex items-center justify-between px-2 py-1 text-[10px] font-mono text-text-faint pb-1.5 border-b border-border/50">
+                <span>OFFICIAL INSTRUCTOR CREDENTIAL</span>
+                <span class="text-status font-bold">● VERIFIED APPRECIATION</span>
+              </div>
+              <div class="mt-2 rounded-lg overflow-hidden border border-border/60">
+                <img
+                  src="/brand/everest-genai.jpg"
+                  alt="Certificate of Appreciation - Build with AI - Everest Academy - Benkorich Abdenour"
+                  class="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300"
+                  loading="lazy"
+                  width="1200"
+                  height="750"
+                />
+              </div>
+            </div>
+
             <Button href="#booking" variant="primary" size="md" class="w-full text-center">
               Book this curriculum for your institution →
             </Button>
@@ -212,15 +230,15 @@ const workshopTopics = [
         </div>
       </section>
 
-      <!-- Section 3: Robotics & Multi-City Workshops -->
+      <!-- Section 3: Robotics with DZDuino, Web Mentorship & Multi-City Workshops -->
       <section class="space-y-8 border-t border-border pt-12">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border pb-6">
           <div class="space-y-1">
             <span class="text-xs font-mono text-text-faint uppercase tracking-wider">
-              HANDS-ON MENTORSHIP &amp; REGIONAL OUTREACH
+              HANDS-ON HARDWARE &amp; REGIONAL OUTREACH
             </span>
             <h2 class="text-2xl sm:text-3xl font-bold text-text">
-              Robotics with DZDuino, Web Mentorship &amp; Workshops
+              Robotics with DZDuino, 1-on-1 Mentorship &amp; Workshops
             </h2>
           </div>
           <span class="text-xs font-mono text-text-muted">
@@ -228,109 +246,339 @@ const workshopTopics = [
           </span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <!-- Card 1: DZDuino Robotics -->
-          <div class="p-6 sm:p-7 rounded-2xl border border-border-strong bg-surface flex flex-col justify-between space-y-6 shadow-xs">
-            <div class="space-y-3">
-              <div class="flex items-center justify-between text-xs font-mono">
-                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-status font-bold">
-                  Active Partnership
-                </span>
-                <span class="text-text-faint">2 Months (1 Mo. Left)</span>
+        <!-- FEATURED SHOWCASE: DZDuino Robotics Collaboration -->
+        <div class="rounded-2xl border border-border-strong bg-surface p-6 sm:p-8 lg:p-10 space-y-8 shadow-xs relative overflow-hidden">
+          <!-- Subtle top gradient accent using DZDuino's brand quadrant palette (blue, orange, red, green) -->
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-amber-500 via-red-500 to-emerald-500 opacity-90"></div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <!-- Left 7 cols: Brand Hero, Partnership Info, Student Progress -->
+            <div class="lg:col-span-7 space-y-6">
+              <!-- Logo + Title block -->
+              <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+                <!-- Large, crisp DZDuino logo container with high-contrast white backdrop -->
+                <a
+                  href="https://dzduino.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group relative flex-shrink-0"
+                  aria-label="Visit dzduino.com official store"
+                >
+                  <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white p-3 border border-border-strong shadow-md flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg">
+                    <img
+                      src="/brand/dzduino-logo.png"
+                      alt="DZDuino Official Logo"
+                      class="w-full h-full object-contain"
+                      loading="eager"
+                      width="96"
+                      height="96"
+                    />
+                  </div>
+                  <span class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded bg-surface border border-border text-[10px] font-mono text-text-muted opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xs">
+                    dzduino.com ↗
+                  </span>
+                </a>
+
+                <div class="space-y-1.5">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <span class="px-2.5 py-1 rounded-md bg-status/10 border border-status/30 text-status text-xs font-mono font-bold flex items-center gap-1.5">
+                      <span class="w-2 h-2 rounded-full bg-status animate-pulse"></span>
+                      ACTIVE PARTNERSHIP
+                    </span>
+                    <span class="text-xs font-mono text-text-muted">
+                      Official Collaboration · dzduino.com
+                    </span>
+                  </div>
+                  <h3 class="text-2xl sm:text-3xl font-extrabold text-text font-sans">
+                    Robotics, Arduino &amp; Raspberry Pi
+                  </h3>
+                  <p class="text-xs sm:text-sm font-mono text-text-faint">
+                    Hardware Engineering Lab · 2 Dedicated Students · 2-Month Program (1 Month Active Remaining)
+                  </p>
+                </div>
               </div>
-              <h3 class="text-xl font-bold text-text font-sans">
-                Robotics, Arduino &amp; Raspberry Pi
-              </h3>
+
+              <!-- Detailed description -->
+              <div class="space-y-3 text-sm text-text-muted leading-relaxed">
+                <p>
+                  Organized in direct collaboration with <strong class="text-text font-semibold">dzduino.com</strong> — Algeria's premier maker, robotics, and open-source electronics hub. Mentoring two dedicated students through physical circuit architecture, microcontroller programming, and autonomous edge compute.
+                </p>
+                <p>
+                  The hands-on curriculum combines real breadboard assembly, PWM motor driver tuning (L298N/TB6612), multi-sensor telemetry (ultrasonic HC-SR04, 6-axis IMU MPU6050, infrared obstacle detection), and high-level decision processing on Raspberry Pi (Linux edge compute + Python GPIO integration).
+                </p>
+              </div>
+
+              <!-- Key Metrics / Stats Row -->
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
+                <div class="p-3.5 rounded-xl bg-surface-2 border border-border">
+                  <div class="text-2xl font-extrabold text-text font-mono">2</div>
+                  <div class="text-[11px] font-mono text-text-faint uppercase">Students Mentored</div>
+                </div>
+                <div class="p-3.5 rounded-xl bg-surface-2 border border-border">
+                  <div class="text-2xl font-extrabold text-text font-mono">2 Mo.</div>
+                  <div class="text-[11px] font-mono text-text-faint uppercase">Intensive Lab (1 Mo. Left)</div>
+                </div>
+                <div class="p-3.5 rounded-xl bg-surface-2 border border-border">
+                  <div class="text-2xl font-extrabold text-text font-mono">100%</div>
+                  <div class="text-[11px] font-mono text-text-faint uppercase">Physical Lab Wiring</div>
+                </div>
+                <div class="p-3.5 rounded-xl bg-surface-2 border border-border">
+                  <div class="text-2xl font-extrabold text-status font-mono">Live</div>
+                  <div class="text-[11px] font-mono text-text-faint uppercase">Active Partnership</div>
+                </div>
+              </div>
+
+              <!-- CTA Links -->
+              <div class="pt-2 flex flex-wrap items-center gap-3">
+                <a
+                  href="https://dzduino.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="px-4 py-2 rounded-xl bg-text text-surface font-mono text-xs font-bold hover:opacity-90 transition-opacity inline-flex items-center gap-2"
+                >
+                  <span>Explore Partner: dzduino.com</span>
+                  <span>↗</span>
+                </a>
+                <span class="text-xs font-mono text-text-faint">
+                  Components, kits &amp; boards sponsored via DZDuino ecosystem
+                </span>
+              </div>
+            </div>
+
+            <!-- Right 5 cols: Hardware Bench & Curriculum Breakdown -->
+            <div class="lg:col-span-5 space-y-4">
+              <!-- Embedded Bench Terminal -->
+              <div class="rounded-xl border border-border-strong bg-surface-2 p-5 space-y-4 font-mono">
+                <div class="flex items-center justify-between pb-3 border-b border-border text-xs text-text-faint">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+                    <span class="ml-1 text-text-muted font-bold text-[11px]">dzduino-lab // bench-v2.bin</span>
+                  </div>
+                  <span class="text-[11px] text-status font-semibold">ONLINE</span>
+                </div>
+
+                <div class="space-y-3 text-xs">
+                  <div>
+                    <span class="text-text-faint uppercase text-[10px] tracking-wider block mb-1">
+                      // CORE PROCESSORS
+                    </span>
+                    <div class="flex flex-wrap gap-1.5">
+                      <span class="px-2 py-0.5 rounded bg-surface border border-border text-text font-semibold">Arduino Uno (ATmega328P)</span>
+                      <span class="px-2 py-0.5 rounded bg-surface border border-border text-text font-semibold">Raspberry Pi 4 (Linux)</span>
+                      <span class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted">ESP32 (IoT Edge)</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <span class="text-text-faint uppercase text-[10px] tracking-wider block mb-1">
+                      // SENSORS &amp; TELEMETRY
+                    </span>
+                    <div class="flex flex-wrap gap-1.5">
+                      <span class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted">HC-SR04 Ultrasonic</span>
+                      <span class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted">MPU-6050 6-DOF IMU</span>
+                      <span class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted">Infrared Obstacle</span>
+                      <span class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted">Optical Encoders</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <span class="text-text-faint uppercase text-[10px] tracking-wider block mb-1">
+                      // ACTUATION &amp; POWER
+                    </span>
+                    <div class="flex flex-wrap gap-1.5">
+                      <span class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted">L298N Dual H-Bridge</span>
+                      <span class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted">DC Gear Motors (PWM)</span>
+                      <span class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted">SG90 Micro Servos</span>
+                      <span class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted">Li-Ion 2S Pack</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <span class="text-text-faint uppercase text-[10px] tracking-wider block mb-1">
+                      // PROTOCOLS &amp; LANGUAGES
+                    </span>
+                    <div class="flex flex-wrap gap-1.5">
+                      <span class="px-2 py-0.5 rounded bg-surface border border-border text-text font-semibold">Embedded C/C++</span>
+                      <span class="px-2 py-0.5 rounded bg-surface border border-border text-text font-semibold">Python (Edge Scripting)</span>
+                      <span class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted">UART Serial (115200)</span>
+                      <span class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted">I2C Bus</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pt-3 border-t border-border text-[11px] text-text-muted leading-relaxed">
+                  <span class="text-status font-bold">&gt; Telemetry:</span> 2-wheel differential chassis assembled · PID speed loop calibrated · UART edge-link between RPi4 &amp; Arduino operational.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MENTORSHIP & WORKSHOPS ROW (2 columns) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Card: 1-on-1 Summer Web Mentorship -->
+          <div class="p-6 sm:p-7 rounded-2xl border border-border-strong bg-surface flex flex-col justify-between space-y-6 shadow-xs">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between text-xs font-mono">
+                <span class="px-2.5 py-1 rounded bg-surface-2 border border-border text-text font-bold">
+                  1-on-1 Summer Intensive
+                </span>
+                <span class="text-text-faint">3 Months Dedicated</span>
+              </div>
+              <div class="space-y-1">
+                <h3 class="text-xl font-bold text-text font-sans">
+                  Full-Stack Web Dev Mentorship
+                </h3>
+                <p class="text-xs font-mono text-text-faint">
+                  Private Engineering Mentorship · Custom Curriculum
+                </p>
+              </div>
               <p class="text-xs sm:text-sm text-text-muted leading-relaxed">
-                Organized in official collaboration with <strong class="text-text font-semibold">dzduino.com</strong>. Mentoring 2 dedicated robotics students through hands-on circuit wiring, PWM motor drivers, sensor telemetry (ultrasonic, IMU, infrared), and Linux-based Raspberry Pi edge integration.
+                Delivered an intensive 3-month one-on-one software engineering mentorship program for an individual developer during the summer. Guided them from foundational HTML5, responsive modern CSS, and ES6+ JavaScript to full-stack project architecture, Git branch workflows, REST API integration, and automated cloud deployments.
               </p>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted">HTML5 &amp; Modern CSS</span>
+                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted">JavaScript ES6+</span>
+                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted">Git &amp; GitHub PRs</span>
+                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted">REST APIs</span>
+                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted">Production Deployment</span>
+              </div>
             </div>
             <div class="pt-4 border-t border-border font-mono text-xs text-text-muted flex items-center justify-between">
-              <span>Partner: dzduino.com</span>
-              <span class="text-status font-medium">● In Progress</span>
+              <span>Format: 1-on-1 Pair Programming</span>
+              <span class="text-status font-medium flex items-center gap-1">
+                <span>✓ Completed</span>
+              </span>
             </div>
           </div>
 
-          <!-- Card 2: 1-on-1 Summer Web Mentorship -->
+          <!-- Card: Multi-City University Workshops -->
           <div class="p-6 sm:p-7 rounded-2xl border border-border-strong bg-surface flex flex-col justify-between space-y-6 shadow-xs">
-            <div class="space-y-3">
+            <div class="space-y-4">
               <div class="flex items-center justify-between text-xs font-mono">
-                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-text font-bold">
-                  1-on-1 Intensive
-                </span>
-                <span class="text-text-faint">3 Months Summer</span>
-              </div>
-              <h3 class="text-xl font-bold text-text font-sans">
-                Full-Stack Web Dev Mentorship
-              </h3>
-              <p class="text-xs sm:text-sm text-text-muted leading-relaxed">
-                Delivered a private, 3-month comprehensive software mentorship program for an individual developer. Guided them through modern HTML5, responsive CSS, ES6+ JavaScript, Git version control, backend APIs, and deploying production web projects.
-              </p>
-            </div>
-            <div class="pt-4 border-t border-border font-mono text-xs text-text-muted flex items-center justify-between">
-              <span>Format: 1-on-1 Pair Coding</span>
-              <span class="text-text font-medium">Completed</span>
-            </div>
-          </div>
-
-          <!-- Card 3: Multi-City Workshops -->
-          <div class="p-6 sm:p-7 rounded-2xl border border-border-strong bg-surface flex flex-col justify-between space-y-6 shadow-xs">
-            <div class="space-y-3">
-              <div class="flex items-center justify-between text-xs font-mono">
-                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-text font-bold">
+                <span class="px-2.5 py-1 rounded bg-surface-2 border border-border text-text font-bold">
                   University &amp; Tech Hubs
                 </span>
-                <span class="text-text-faint">Algeria</span>
+                <span class="text-text-faint">Regional Outreach</span>
               </div>
-              <h3 class="text-xl font-bold text-text font-sans">
-                Workshops in Tlemcen, Algiers &amp; Oran
-              </h3>
+              <div class="space-y-1">
+                <h3 class="text-xl font-bold text-text font-sans">
+                  Workshops in Tlemcen, Algiers &amp; Oran
+                </h3>
+                <p class="text-xs font-mono text-text-faint">
+                  Engineering Hubs · In-Person Seminars &amp; Bootcamps
+                </p>
+              </div>
               <p class="text-xs sm:text-sm text-text-muted leading-relaxed">
-                Conducted high-impact in-person seminars, algorithmic workshops, and software engineering bootcamps for university students and developers across Tlemcen, Algiers, and Oran, focusing on modern web stacks, AI readiness, and technical interviews.
+                Conducted high-energy, in-person technical workshops and bootcamps for university students, developer communities, and student tech clubs across Algeria's major academic hubs: Tlemcen, Algiers, and Oran. Focused on practical coding, modern web frameworks, AI engineering tools, and software interview preparation.
               </p>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted">Tlemcen (Academic Hub)</span>
+                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted">Algiers (Capital Tech Scene)</span>
+                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted">Oran (Western Hub)</span>
+                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted">Live Code Demonstrations</span>
+              </div>
             </div>
             <div class="pt-4 border-t border-border font-mono text-xs text-text-muted flex items-center justify-between">
               <span>Locations: Tlemcen · Algiers · Oran</span>
-              <span class="text-text font-medium">On-Site</span>
+              <span class="text-text font-medium">On-Site &amp; Seminars</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Section 4: BenCoder Creator Platform (102K+) -->
+      <!-- Section 4: BenCoder Creator Platform (102K+) with Live Feed Showcase -->
       <section class="space-y-8 border-t border-border pt-12">
-        <div class="space-y-1">
-          <span class="text-xs font-mono text-text-faint uppercase tracking-wider">
-            GLOBAL CONTENT PLATFORM // BENCODER
-          </span>
-          <h2 class="text-2xl sm:text-3xl font-bold text-text">
-            102,000+ Developers Learning in English
-          </h2>
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border pb-6">
+          <div class="space-y-1">
+            <span class="text-xs font-mono text-text-faint uppercase tracking-wider">
+              GLOBAL CONTENT PLATFORM // BENCODER
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-text">
+              102,000+ Developers Learning with @ben.coderr
+            </h2>
+          </div>
+          <a
+            href="https://instagram.com/ben.coderr"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-xs font-mono px-3 py-1 rounded bg-surface-2 border border-border text-text hover:border-text transition-colors inline-flex items-center gap-1.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-status"></span>
+            Follow on Instagram (102K) ↗
+          </a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="p-6 rounded-2xl border border-border bg-surface space-y-2">
-            <div class="text-4xl font-extrabold text-text font-sans">102K+</div>
-            <div class="text-xs font-mono text-text-muted uppercase tracking-wider">Community Members</div>
-            <p class="text-xs text-text-muted pt-2 leading-relaxed">
-              Global audience across technical networks seeking clear, actionable software engineering breakdowns.
-            </p>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <!-- Left 7 cols: Real Instagram Profile & Post Screenshot Showcase -->
+          <div class="lg:col-span-7">
+            <div class="rounded-2xl border border-border-strong bg-surface overflow-hidden shadow-sm group">
+              <div class="px-4 py-2.5 bg-surface-2 border-b border-border flex items-center justify-between text-xs font-mono">
+                <div class="flex items-center gap-2">
+                  <span class="text-text font-bold">@ben.coderr</span>
+                  <span class="text-text-faint">·</span>
+                  <span class="text-status">102K Followers</span>
+                </div>
+                <span class="text-text-muted text-[11px]">Instagram Verified Profile</span>
+              </div>
+              <a
+                href="https://instagram.com/ben.coderr"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block overflow-hidden bg-bg"
+              >
+                <img
+                  src="/brand/bencoder-instagram.jpg"
+                  alt="BenCoder (@ben.coderr) Instagram Channel (102K+ Followers) and Coding Tutorials"
+                  class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-300"
+                  loading="lazy"
+                />
+              </a>
+            </div>
           </div>
 
-          <div class="p-6 rounded-2xl border border-border bg-surface space-y-2">
-            <div class="text-4xl font-extrabold text-text font-sans">45+</div>
-            <div class="text-xs font-mono text-text-muted uppercase tracking-wider">Produced Tutorials</div>
-            <p class="text-xs text-text-muted pt-2 leading-relaxed">
-              Covering Next.js 15, Python architectures, LLM tokenization, and modern full-stack workflows.
-            </p>
-          </div>
+          <!-- Right 5 cols: Creator Impact Stats & Value Proposition -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="p-6 rounded-2xl border border-border bg-surface space-y-3">
+              <div class="flex items-baseline justify-between">
+                <span class="text-4xl sm:text-5xl font-extrabold text-text font-sans">102K+</span>
+                <span class="text-xs font-mono text-status font-bold">● Active Audience</span>
+              </div>
+              <div class="text-xs font-mono text-text-muted uppercase tracking-wider">
+                Developers, Students &amp; Makers
+              </div>
+              <p class="text-sm text-text-muted leading-relaxed pt-2">
+                Producing bite-sized, high-retention architectural breakdowns, full-stack tips, and AI programming workflows in Arabic for an enthusiastic community of over 102,000 Arabic-speaking developers.
+              </p>
+            </div>
 
-          <div class="p-6 rounded-2xl border border-border bg-surface space-y-2">
-            <div class="text-4xl font-extrabold text-text font-sans">100%</div>
-            <div class="text-xs font-mono text-text-muted uppercase tracking-wider">Practical Focus</div>
-            <p class="text-xs text-text-muted pt-2 leading-relaxed">
-              Zero clickbait, zero superficial theory. Only real code and production architectures.
-            </p>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="p-5 rounded-xl border border-border bg-surface-2/60 space-y-1">
+                <div class="text-2xl font-bold text-text font-sans">45+</div>
+                <div class="text-xs font-mono text-text-muted uppercase">Guides Shipped</div>
+                <div class="text-[11px] text-text-faint pt-1">Next.js, Python &amp; GenAI</div>
+              </div>
+
+              <div class="p-5 rounded-xl border border-border bg-surface-2/60 space-y-1">
+                <div class="text-2xl font-bold text-text font-sans">300+</div>
+                <div class="text-xs font-mono text-text-muted uppercase">Course Enrollees</div>
+                <div class="text-[11px] text-text-faint pt-1">Udemy Python Academy</div>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-xl border border-border bg-surface space-y-3">
+              <div class="text-xs font-mono uppercase text-text-faint tracking-wider">
+                CONTENT &amp; SPONSORSHIP INQUIRIES:
+              </div>
+              <p class="text-xs text-text-muted leading-relaxed">
+                Open to developer tooling partnerships, technical webinar keynotes, and educational collaborations aligned with software craftsmanship.
+              </p>
+              <Button href="/#contact" variant="secondary" size="sm" class="w-full text-center">
+                Inquire about BenCoder sponsorship →
+              </Button>
+            </div>
           </div>
         </div>
       </section>

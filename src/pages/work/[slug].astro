@@ -68,7 +68,12 @@ const nextProject = projects[(currentIndex + 1) % projects.length];
               Visit Live Platform ↗
             </Button>
           )}
-          <Button href="/#contact" variant="secondary" size="md">
+          {project.repoUrl && (
+            <Button href={project.repoUrl} variant="secondary" size="md">
+              GitHub Repository ↗
+            </Button>
+          )}
+          <Button href="/#contact" variant="ghost" size="md">
             Inquire about this architecture
           </Button>
         </div>
@@ -178,11 +183,53 @@ const nextProject = projects[(currentIndex + 1) % projects.length];
           </Reveal>
         )}
 
+        <!-- Platform Screenshots & Visual Architecture Gallery -->
+        {project.screenshots && project.screenshots.length > 0 && (
+          <Reveal delay={220}>
+            <section class="space-y-6">
+              <h2 class="text-2xl font-bold tracking-tight text-text font-sans border-b border-border pb-3">
+                04 // Platform Screenshots &amp; Telemetry
+              </h2>
+              <div class="space-y-6">
+                {project.screenshots.map((s, sIdx) => (
+                  <div class="rounded-xl overflow-hidden border border-border-strong bg-surface shadow-sm">
+                    <div class="flex items-center justify-between px-4 py-2 border-b border-border bg-surface-2 text-xs font-mono text-text-faint">
+                      <div class="flex items-center gap-1.5" aria-hidden="true">
+                        <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block" />
+                        <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block" />
+                        <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block" />
+                      </div>
+                      <span class="text-text-muted text-[11px] font-mono truncate max-w-[280px]">
+                        {s.caption || `Screenshot ${sIdx + 1}`}
+                      </span>
+                      <span class="text-status text-[10px] font-bold">● VERIFIED ASSET</span>
+                    </div>
+                    <div class="w-full overflow-hidden bg-bg p-1 sm:p-2">
+                      <img
+                        src={s.url}
+                        alt={s.caption || `${project.title} screenshot ${sIdx + 1}`}
+                        class="w-full h-auto object-contain rounded-lg max-h-[750px] mx-auto border border-border/40"
+                        loading="lazy"
+                      />
+                    </div>
+                    {s.caption && (
+                      <div class="px-4 py-2.5 bg-surface-2/60 border-t border-border text-xs font-mono text-text-muted flex items-center gap-2">
+                        <span class="text-status font-bold">↳</span>
+                        <span>{s.caption}</span>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </section>
+          </Reveal>
+        )}
+
         <!-- Technology Stack Deep-Dive -->
         <Reveal delay={240}>
           <section class="space-y-4">
             <h2 class="text-2xl font-bold tracking-tight text-text font-sans border-b border-border pb-3">
-              04 // Technologies Deployed
+              {project.screenshots && project.screenshots.length > 0 ? '05' : '04'} // Technologies Deployed
             </h2>
             <div class="p-6 rounded-xl border border-border bg-surface-2/40 space-y-4">
               <p class="text-sm text-text-muted">

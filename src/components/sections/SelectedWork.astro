@@ -6,8 +6,8 @@ import Button from '../ui/Button.astro';
 import Reveal from '../ui/Reveal.astro';
 
 const flagshipProject = projects.find((p) => p.slug === 'jg-supply-net') || projects[0];
-const secondaryProjects = projects.filter((p) => p.slug === 'udemy-python-arabic' || p.slug === 'virexa' || p.slug === 'everest-genai' || p.slug === 'fiikra-studio');
-const clientProjects = projects.filter((p) => !p.featured || p.slug === 'perfecto-brew-crew');
+const secondaryProjects = projects.filter((p) => ['phytosense', 'vyro', 'new-way', 'virexa'].includes(p.slug));
+const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-genai', 'fiikra-studio', 'perfecto-brew-crew'].includes(p.slug));
 ---
 
 <section id="work" class="py-20 md:py-28 scroll-mt-20 relative">
@@ -20,7 +20,7 @@ const clientProjects = projects.filter((p) => !p.featured || p.slug === 'perfect
           Featured Projects &amp; <span class="font-accent">Architectures</span>
         </h2>
         <p class="text-text-muted text-base max-w-xl leading-relaxed">
-          Algeria's digital B2B procurement platform, published Udemy video course (300+ students), healthcare SaaS, and intensive AI formations.
+          Algeria's digital B2B procurement platform, resilient botanical AI, made-to-order manufacturing, and AI revenue forecasting SaaS.
         </p>
       </div>
 
@@ -270,6 +270,12 @@ const clientProjects = projects.filter((p) => !p.featured || p.slug === 'perfect
                     </span>
                   ))}
                 </div>
+                <a
+                  href={`/work/${p.slug}`}
+                  class="text-text hover:underline shrink-0 text-xs inline-flex items-center gap-1 font-mono"
+                >
+                  Deep dive →
+                </a>
                 {p.liveUrl ? (
                   <a
                     href={p.liveUrl}
@@ -278,6 +284,15 @@ const clientProjects = projects.filter((p) => !p.featured || p.slug === 'perfect
                     class="text-text font-bold hover:underline shrink-0 text-xs inline-flex items-center gap-1"
                   >
                     Visit ↗
+                  </a>
+                ) : p.repoUrl ? (
+                  <a
+                    href={p.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-text font-bold hover:underline shrink-0 text-xs inline-flex items-center gap-1"
+                  >
+                    GitHub ↗
                   </a>
                 ) : (
                   <span class="text-text-faint text-[11px]">Private Client</span>

@@ -12,6 +12,7 @@ export interface Project {
   type: 'platform' | 'client' | 'ai' | 'web';
   featured: boolean;
   image: string;
+  screenshots?: { url: string; caption?: string }[];
   liveUrl?: string;
   repoUrl?: string;
   stack: string[];
@@ -192,6 +193,117 @@ export const projects: Project[] = [
       'Designed appetizing, mobile-first layouts featuring menus, hours, and booking inquiries.',
       'Enhanced visitor engagement with high-contrast typography and clean photography layouts.',
       'Implemented zero-friction contact and location direction shortcuts.',
+    ],
+    status: 'live',
+  },
+  {
+    slug: 'phytosense',
+    title: 'PhytoSense — Resilient Botanical Intelligence & Phytotherapy Platform',
+    category: 'AI & Botanical Intelligence // PFE 2026',
+    summary: 'Fault-tolerant, multi-provider scientific decision engine for North African ethnobotany, phytotherapy, and precision agronomy.',
+    fullDescription:
+      'Developed as an academic State Engineering Master Thesis (PFE 2026) in Data Science & Computer Engineering at Université Abdelhamid Ibn Badis, PhytoSense v2 bridges traditional North African herbal ethnopharmacology with modern computational biochemistry. Grounded in a curated academic corpus of 156+ indigenous Algerian medicinal plants, the platform combines computer vision plant recognition with multi-tier LLM reasoning, bioclimatic suitability modeling, and phytopathological diagnostics.',
+    challenge:
+      'Single-cloud AI APIs suffer from frequent rate limits, network fragility in rural agricultural zones, and hallucination risks when prescribing herbal remedies. Field researchers also lack offline computational tools when inspecting wild flora without cellular connectivity.',
+    solution:
+      'Engineered a zero-downtime, multi-tier architecture featuring automatic vision failover (Pl@ntNet Tier 1 ➔ Kindwise Plant.id Tier 2) and deterministic-first pharmacology backed by multi-LLM cascading (Google Gemini 3.8 Flash ➔ Groq LPU ➔ OpenRouter ➔ Deterministic Rule Engine). Built a cross-platform mobile application (Expo SDK 57) equipped with embedded SQLite FTS5 for 100% offline taxonomic lookup in rural terroirs.',
+    metrics: [
+      { label: 'Flora Corpus', value: '156+ Algerian Taxa' },
+      { label: 'Vision & LLM SLA', value: 'Zero-Downtime Failover' },
+      { label: 'Languages', value: 'Trilingual (AR/FR/EN)' },
+    ],
+    role: 'AI & Full-Stack Architect (PFE Thesis)',
+    year: '2026',
+    type: 'ai',
+    featured: true,
+    image: '/brand/phytosense.jpg',
+    screenshots: [
+      { url: '/brand/phytosense-live.png', caption: 'Live Ethnobotany Platform & Taxon Scanner (https://phyto-sense-rose.vercel.app)' },
+      { url: '/brand/phytosense-hero.png', caption: 'Interactive Plant Species Identification & Zero-Downtime Multi-Tier Failover Engine' },
+    ],
+    liveUrl: 'https://phyto-sense-rose.vercel.app',
+    repoUrl: 'https://github.com/Ben-coderr/PhytoSense',
+    stack: ['Next.js 16', 'Expo SDK 57', 'React Native', 'FastAPI', 'Python', 'Gemini 3.8 Flash', 'Groq LPU', 'Pl@ntNet API', 'SQLite FTS5', 'Tailwind CSS'],
+    bullets: [
+      'Engineered multi-provider vision failover between Pl@ntNet and Kindwise Plant.id for instant plant species recognition.',
+      'Constructed deterministic pharmacology engine analyzing chemical compound matrices (alkaloids, flavonoids, terpenes) with Gemini & Groq fallback.',
+      'Integrated Open-Meteo micro-climate APIs and FAO-ECOCROP algorithms for territorial agricultural suitability across Algerian wilayas.',
+      'Shipped cross-platform Expo mobile APK with embedded SQLite FTS5 for full offline field diagnostics and GPS herbarium logging.',
+    ],
+    status: 'live',
+  },
+  {
+    slug: 'vyro',
+    title: 'VYRO — Made-to-Order Manufacturing & Digital E-Commerce',
+    category: 'Digital Manufacturing // E-Commerce & Console',
+    summary: 'Full-stack made-to-order manufacturing storefront and back-office console for 3D printing, laser cutting, engraving, and CNC fabrication in Algeria.',
+    fullDescription:
+      'VYRO ("Ideas. Made real.") is an end-to-end digital manufacturing platform unifying ready-made lifestyle products, real-time 3D product customization (custom names, engraving, materials), and bespoke CAD studio quotation pipelines. Engineered with Next.js 16 App Router, Turborepo, Prisma ORM, and PostgreSQL, the platform includes a dedicated role-gated /admin enterprise console managing production orders, quotation estimation, and multi-wilaya shipping logistics.',
+    challenge:
+      'Made-to-order manufacturing requires handling variable customer customizations, trilingual localization (Arabic with RTL, French, English), offline/online payment realities in Algeria (Chargily Pay for CIB/Edahabia plus dominant Cash on Delivery), and complex multi-stage workshop order states.',
+    solution:
+      'Architected an isolated dual-root-layout Next.js 16 application using Turborepo workspaces. Implemented real-time interactive customization preview interfaces, Chargily Pay gateway integration, automated DZD pricing calculators for CNC/3D print volume, and a unified PostgreSQL schema with Prisma ORM.',
+    metrics: [
+      { label: 'Manufacturing Lines', value: '3D, Laser, CNC, Studio' },
+      { label: 'Architecture', value: 'Turborepo + Next.js 16' },
+      { label: 'Payments', value: 'Chargily Pay + COD' },
+    ],
+    role: 'Lead Full-Stack Architect',
+    year: '2025 — 2026',
+    type: 'platform',
+    featured: true,
+    image: '/brand/vyro.jpg',
+    screenshots: [
+      { url: '/brand/vyro-live.png', caption: 'Live Storefront & Brand Portal (https://vyro-web-eight.vercel.app)' },
+      { url: '/brand/vyro-shop.png', caption: 'Digital Manufacturing Catalog & DZD Pricing Engine' },
+      { url: '/brand/vyro-studio.png', caption: 'Custom 3D / CNC Studio Quote Request Pipeline' },
+      { url: '/brand/vyro-hero.png', caption: 'Flagship 3D Manufactured Product & Physical Studio Spec' },
+    ],
+    liveUrl: 'https://vyro-web-eight.vercel.app',
+    repoUrl: 'https://github.com/Ben-coderr/vyro',
+    stack: ['Next.js 16', 'TypeScript', 'Turborepo', 'Prisma ORM', 'PostgreSQL', 'Tailwind CSS', 'Framer Motion', 'Chargily Pay', 'Auth.js'],
+    bullets: [
+      'Architected scalable monorepo storefront and /admin console supporting ready-made and custom-manufactured product lines.',
+      'Built real-time interactive product personalization engine for 3D printing and laser engraving.',
+      'Engineered custom quote submission workflow for bespoke CAD/CNC customer requests with file uploads.',
+      'Integrated Chargily Pay (Algerian Edahabia/CIB cards) and Yalidine/ZR Express multi-wilaya delivery pricing tables.',
+    ],
+    status: 'live',
+  },
+  {
+    slug: 'new-way',
+    title: 'New Way — AI Financial Intelligence & Revenue Forecasting',
+    category: 'AI SaaS // Data Analytics & Forecasting',
+    summary: 'Zero-cost AI data intelligence platform turning raw financial spreadsheets into automated executive dashboards, 30-day linear forecasts, and Gemini conversational insights.',
+    fullDescription:
+      'New Way is an AI-augmented Business Intelligence SaaS designed to eliminate manual spreadsheet analysis. Built with Next.js 16, React 19, and the Vercel AI SDK, users simply drag-and-drop raw CSV/Excel transaction datasets. The system automatically infers data schemas, renders interactive KPI cards, generates 30-day linear regression revenue forecasts, and deploys Google Gemini to analyze trends, explain hidden anomalies, and answer natural-language business questions in real time.',
+    challenge:
+      'Small businesses and financial operators often lack the budget for complex enterprise BI suites like Tableau or PowerBI, yet traditional spreadsheets cannot automatically explain underlying revenue drivers or forecast future trends without manual statistical modeling.',
+    solution:
+      'Constructed a serverless, ultra-fast analytics architecture utilizing PapaParse for client-side streaming dataset ingestion, Recharts for fluid data visualization, local linear regression engines for 30-day predictive forecasting, and Gemini Flash streaming endpoints for context-aware financial reasoning.',
+    metrics: [
+      { label: 'Predictive Window', value: '30-Day Regression' },
+      { label: 'AI Engine', value: 'Google Gemini Flash' },
+      { label: 'Infrastructure', value: '100% Serverless' },
+    ],
+    role: 'Creator & AI Engineer',
+    year: '2026',
+    type: 'ai',
+    featured: true,
+    image: '/brand/new-way.jpg',
+    screenshots: [
+      { url: '/brand/new-way-live.png', caption: 'Live SaaS Landing & Predictive Architecture (https://new-way-proj.vercel.app)' },
+      { url: '/brand/new-way-dashboard.png', caption: 'Interactive Financial Analytics Dashboard & Gemini Narrative Insights' },
+      { url: '/brand/new-way-upload.png', caption: 'Drag & Drop Dataset Upload Interface with Instant Schema Detection' },
+    ],
+    liveUrl: 'https://new-way-proj.vercel.app',
+    repoUrl: 'https://github.com/Ben-coderr/New-Way',
+    stack: ['Next.js 16', 'React 19', 'Tailwind CSS v4', 'Google Gemini', 'Vercel AI SDK', 'Recharts', 'PapaParse', 'TypeScript', 'Zod'],
+    bullets: [
+      'Built drag-and-drop CSV/Excel ingestion pipeline with automated column detection and data type inference.',
+      'Implemented dynamic interactive financial dashboard with automated KPI calculations and trend visualizations.',
+      'Engineered mathematical linear regression engine computing 30-day revenue and growth forecasts.',
+      'Integrated streaming Google Gemini chat interface allowing users to converse naturally with their raw dataset.',
     ],
     status: 'live',
   },

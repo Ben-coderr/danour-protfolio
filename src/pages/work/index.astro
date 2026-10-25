@@ -18,13 +18,13 @@ import Reveal from '../../components/ui/Reveal.astro';
         <div class="flex items-center gap-2">
           <SectionLabel number="01" label="ARCHIVE &amp; CASE STUDIES" />
           <span class="text-xs font-mono text-text-faint">·</span>
-          <span class="text-xs font-mono text-status font-medium">● 06 Shipped Systems</span>
+          <span class="text-xs font-mono text-status font-medium">● 09 Shipped Systems</span>
         </div>
         <h1 class="text-display text-text">
           Selected Work &amp; <span class="font-accent">Architectures</span>
         </h1>
         <p class="text-base sm:text-lg text-text-muted max-w-2xl leading-relaxed">
-          From industrial B2B procurement networks to generative AI curricula and top-rated online courses. Every project built with strict performance budgets and production reliability.
+          From resilient botanical intelligence platforms and digital manufacturing consoles to B2B procurement networks and top-rated engineering courses. Every project built with strict performance budgets and production reliability.
         </p>
 
         <!-- Breadcrumb back link -->
@@ -135,6 +135,16 @@ import Reveal from '../../components/ui/Reveal.astro';
                       class="text-text-muted hover:text-text underline-offset-4 hover:underline"
                     >
                       Visit ↗
+                    </a>
+                  )}
+                  {project.repoUrl && (
+                    <a
+                      href={project.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-text-muted hover:text-text underline-offset-4 hover:underline"
+                    >
+                      GitHub ↗
                     </a>
                   )}
                 </div>

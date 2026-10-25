@@ -12,6 +12,7 @@ export const siteConfig = {
   socials: {
     github: 'https://github.com/Ben-coderr',
     linkedin: 'https://linkedin.com/in/danour',
+    instagram: 'https://instagram.com/ben.coderr',
     site: 'https://danour-protfolio.vercel.app',
   },
   stats: [

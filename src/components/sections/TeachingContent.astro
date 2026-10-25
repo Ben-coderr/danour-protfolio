@@ -115,12 +115,41 @@ const tutorials = [
                 </span>
               </div>
               <div class="text-xs font-mono text-text-muted">
-                Engineers following BenCoder across technical channels
+                Engineers following BenCoder on Instagram &amp; technical channels
               </div>
             </div>
 
+            <!-- Instagram Visual Feed Card -->
+            <div class="rounded-xl border border-border bg-bg/90 overflow-hidden group shadow-2xs">
+              <a
+                href="https://instagram.com/ben.coderr"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block relative overflow-hidden"
+                title="Open @ben.coderr on Instagram"
+              >
+                <div class="px-3.5 py-2 border-b border-border bg-surface-2/90 flex items-center justify-between text-xs font-mono">
+                  <div class="flex items-center gap-1.5 text-text font-bold">
+                    <span class="w-2 h-2 rounded-full bg-status"></span>
+                    <span>@ben.coderr</span>
+                  </div>
+                  <span class="text-[11px] text-text-muted group-hover:text-text group-hover:underline">
+                    View Profile (102K) ↗
+                  </span>
+                </div>
+                <div class="aspect-16/10 overflow-hidden bg-bg">
+                  <img
+                    src="/brand/bencoder-instagram.jpg"
+                    alt="BenCoder Instagram Feed and Tutorials (102,000+ Followers)"
+                    class="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </div>
+              </a>
+            </div>
+
             <p class="text-sm text-text-muted leading-relaxed">
-              Explaining complex AI, web engineering, and software architectures through clear, zero-fluff English tutorials and practical demonstrations.
+              Explaining complex AI, web engineering, and software architectures in Arabic through practical demonstrations, code breakdowns, and real-world project walkthroughs for an audience of 102,000+ Arabic learners.
             </p>
 
             <!-- Featured Tutorials -->
@@ -258,24 +287,63 @@ const tutorials = [
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <!-- Card 1: Robotics with DZDuino -->
         <Reveal delay={100}>
-          <div class="p-6 rounded-2xl border border-border-strong bg-surface/70 space-y-4 h-full flex flex-col justify-between">
-            <div class="space-y-3">
-              <div class="flex items-center justify-between text-xs font-mono">
-                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-status font-bold">
-                  Active Partnership
-                </span>
-                <span class="text-text-faint">2 Months</span>
+          <div class="p-6 rounded-2xl border border-border-strong bg-surface/70 space-y-5 h-full flex flex-col justify-between relative overflow-hidden group">
+            <div class="space-y-4">
+              <!-- Top Row: Prominent Logo + Status Badge -->
+              <div class="flex items-start justify-between gap-3">
+                <a
+                  href="https://dzduino.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-14 h-14 rounded-xl bg-white p-2 border border-border-strong shadow-sm flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-105"
+                  aria-label="Visit dzduino.com"
+                >
+                  <img
+                    src="/brand/dzduino-logo.png"
+                    alt="DZDuino Official Logo"
+                    class="w-full h-full object-contain"
+                    loading="eager"
+                    width="56"
+                    height="56"
+                  />
+                </a>
+                <div class="text-right space-y-1">
+                  <span class="px-2 py-0.5 rounded bg-status/10 border border-status/30 text-status text-[11px] font-mono font-bold inline-flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-status animate-pulse"></span>
+                    Active Partnership
+                  </span>
+                  <div class="text-[11px] font-mono text-text-faint">2 Mo. (1 Mo. Left)</div>
+                </div>
               </div>
-              <h4 class="text-lg font-bold text-text font-sans">
-                Robotics, Arduino &amp; Raspberry Pi
-              </h4>
-              <p class="text-xs sm:text-sm text-text-muted leading-relaxed">
-                Hands-on hardware and embedded systems training in collaboration with <strong class="text-text font-semibold">dzduino.com</strong>. Mentoring 2 dedicated students through microcontroller architecture, sensor integration, motor controls, and Raspberry Pi edge compute.
-              </p>
+
+              <div class="space-y-1.5">
+                <h4 class="text-lg font-bold text-text font-sans">
+                  Robotics, Arduino &amp; Raspberry Pi
+                </h4>
+                <p class="text-xs sm:text-sm text-text-muted leading-relaxed">
+                  Hands-on hardware lab in direct collaboration with <strong class="text-text font-semibold">dzduino.com</strong>. Mentoring 2 dedicated students through circuit design, PWM motor drivers, sensor telemetry (IMU, ultrasonic), and Linux edge computing.
+                </p>
+              </div>
+
+              <!-- Hardware tags -->
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted">Arduino Uno</span>
+                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted">Raspberry Pi 4</span>
+                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted">Sensors &amp; PWM</span>
+                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted">C++ &amp; Python</span>
+              </div>
             </div>
-            <div class="pt-3 border-t border-border font-mono text-[11px] text-text-faint flex items-center justify-between">
-              <span>collab: dzduino.com</span>
-              <span class="text-status font-medium">1 Mo. Active</span>
+
+            <div class="pt-3 border-t border-border font-mono text-xs text-text-muted flex items-center justify-between">
+              <a
+                href="https://dzduino.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-text hover:underline flex items-center gap-1 font-semibold"
+              >
+                <span>Partner: dzduino.com ↗</span>
+              </a>
+              <span class="text-status font-medium">● 2 Students</span>
             </div>
           </div>
         </Reveal>

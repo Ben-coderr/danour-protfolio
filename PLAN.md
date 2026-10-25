@@ -223,7 +223,7 @@ Principles (draft): 01 *Practical over theoretical* · 02 *Teach what I build* �
 **05 Experience** (Now / Previously, expandable, mono dates):
 - **Now:** AI Team Member @ Tassili AI · AI Instructor @ Everest Academy (1 month) · Tech Content Creator @ BenCoder · Programming Instructor (ongoing)
 - **Previously:** Software Engineer Intern @ Sonatrach GP1Z (Jun 3–30, 2026) · Backend Developer Intern @ Sefrone (Dec 2024–Mar 2025)
-- **Education:** B.Sc. Computer Engineering – Data Science, Abdelhamid Ben Badis University (2024–2028)
+- **Education:** State Engineering Degree (Ingénieur d'État) — Computer Engineering & Data Science, Université Abdelhamid Ibn Badis (5-Year Program)
 
 **06 Contact**: big dark block, headline "Have a course to teach, a product to build, or a team that needs AI skills?", copy-email button, LinkedIn, GitHub, form link.
 

@@ -67,7 +67,7 @@ export const skillGroups: SkillGroup[] = [
   {
     name: 'Teaching & Communication',
     icon: 'lucide:presentation',
-    description: 'Curriculum creation, public speaking, and community education for over 102K engineers.',
+    description: 'Curriculum creation, public speaking, and community education for over 102K Arabic-speaking developers.',
     skills: [
       { name: 'AI Instruction' },
       { name: 'Public Speaking' },
