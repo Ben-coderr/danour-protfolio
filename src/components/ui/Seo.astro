@@ -7,11 +7,17 @@ interface Props {
   ogImage?: string;
   canonicalUrl?: string;
   type?: 'website' | 'article' | 'profile';
+  locale?: 'en' | 'ar';
 }
 
 const {
-  title = `${siteConfig.name} — AI Instructor & Full-Stack Engineer`,
-  description = siteConfig.description,
+  locale = Astro.url.pathname.startsWith('/ar') ? 'ar' : 'en',
+  title = locale === 'ar'
+    ? `${siteConfig.name} — مهندس برمجيات متكامل ومدرّب ذكاء اصطناعي`
+    : `${siteConfig.name} — AI Instructor & Full-Stack Engineer`,
+  description = locale === 'ar'
+    ? `ملف أعمال المهندس عبد النور بن قريش (BenCoder): كبير مدربي الذكاء الاصطناعي في Everest Academy، ومطور منصة JG SupplyNet، وصانع محتوى تقني لأكثر من 102,000 مطور عربي.`
+    : siteConfig.description,
   ogImage = '/brand/og-card.png',
   canonicalUrl = Astro.url.href,
   type = 'website',
@@ -19,6 +25,13 @@ const {
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') || siteConfig.url;
 const fullOgImageUrl = new URL(ogImage, siteUrl).href;
+
+const currentPath = Astro.url.pathname;
+const cleanPathEn = currentPath.replace(/^\/ar(\/|$)/, '/');
+const cleanPathAr = '/ar' + (cleanPathEn === '/' ? '' : cleanPathEn);
+
+const canonicalEn = new URL(cleanPathEn, siteUrl).href;
+const canonicalAr = new URL(cleanPathAr, siteUrl).href;
 
 const jsonLdPerson = {
   '@context': 'https://schema.org',
@@ -69,6 +82,9 @@ const jsonLdWebsite = {
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalUrl} />
+<link rel="alternate" hreflang="en" href={canonicalEn} />
+<link rel="alternate" hreflang="ar" href={canonicalAr} />
+<link rel="alternate" hreflang="x-default" href={canonicalEn} />
 
 <!-- Theme Color -->
 <meta name="theme-color" content="#0A0A0A" id="meta-theme-color" />

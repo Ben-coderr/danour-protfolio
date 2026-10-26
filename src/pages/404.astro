@@ -49,37 +49,40 @@ import Button from '../components/ui/Button.astro';
             href="/"
             class="p-3 rounded-lg border border-border bg-surface-2/60 hover:bg-surface-2 hover:border-text transition-colors flex items-center justify-between group"
           >
-            <span class="text-text font-bold">01 // Homepage</span>
+            <span class="text-text font-bold">01 // Homepage (EN)</span>
             <span class="text-text-faint group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+          <a
+            href="/ar"
+            class="p-3 rounded-lg border border-border bg-surface-2/60 hover:bg-surface-2 hover:border-text transition-colors flex items-center justify-between group"
+          >
+            <span class="text-text font-bold">02 // الرئيسية (العربية)</span>
+            <span class="text-text-faint group-hover:-translate-x-1 transition-transform">←</span>
           </a>
           <a
             href="/work"
             class="p-3 rounded-lg border border-border bg-surface-2/60 hover:bg-surface-2 hover:border-text transition-colors flex items-center justify-between group"
           >
-            <span class="text-text font-bold">02 // Project Archive</span>
+            <span class="text-text font-bold">03 // Project Archive</span>
             <span class="text-text-faint group-hover:translate-x-1 transition-transform">→</span>
           </a>
           <a
             href="/teaching"
             class="p-3 rounded-lg border border-border bg-surface-2/60 hover:bg-surface-2 hover:border-text transition-colors flex items-center justify-between group"
           >
-            <span class="text-text font-bold">03 // AI Teaching</span>
-            <span class="text-text-faint group-hover:translate-x-1 transition-transform">→</span>
-          </a>
-          <a
-            href="/about"
-            class="p-3 rounded-lg border border-border bg-surface-2/60 hover:bg-surface-2 hover:border-text transition-colors flex items-center justify-between group"
-          >
-            <span class="text-text font-bold">04 // Biography &amp; Setup</span>
+            <span class="text-text font-bold">04 // AI Teaching</span>
             <span class="text-text-faint group-hover:translate-x-1 transition-transform">→</span>
           </a>
         </div>
       </div>
 
       <!-- Main Action -->
-      <div class="pt-2">
-        <Button href="/" variant="primary" size="md" class="w-full text-center">
-          Return to portfolio home →
+      <div class="pt-2 flex flex-col sm:flex-row gap-3">
+        <Button href="/" variant="primary" size="md" class="flex-1 text-center">
+          Portfolio Home (EN) →
+        </Button>
+        <Button href="/ar" variant="secondary" size="md" class="flex-1 text-center">
+          الرئيسية (العربية) ←
         </Button>
       </div>
     </div>

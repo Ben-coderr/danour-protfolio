@@ -1,7 +1,49 @@
 ---
 import Reveal from '../ui/Reveal.astro';
+import type { Locale } from '../../i18n/ui';
 
-const statsData = [
+interface Props {
+  locale?: Locale;
+}
+
+const {
+  locale = (Astro.currentLocale as Locale) || (Astro.url.pathname.startsWith('/ar') ? 'ar' : 'en'),
+} = Astro.props;
+
+const statsData = locale === 'ar' ? [
+  {
+    num: '01',
+    label: 'المجتمع والوصول',
+    value: '102K+',
+    metric: 'متابع',
+    sub: 'مجتمع برمجي متفاعل وواسع عبر منصات وقنوات BenCoder',
+    badge: '102K+ مجتمع',
+  },
+  {
+    num: '02',
+    label: 'تدريب الذكاء الاصطناعي',
+    value: 'شهر 1',
+    metric: 'مكثف',
+    sub: 'برنامج "Build with AI" التدريبي في Everest Academy',
+    badge: 'كبير المدربين',
+  },
+  {
+    num: '03',
+    label: 'الأكاديمية الرقمية',
+    value: '300+',
+    metric: 'طالب',
+    sub: 'دورة بايثون للمبتدئين بالعربية على Udemy · تقييم متميز 4.8★',
+    badge: 'مدرب معتمد',
+  },
+  {
+    num: '04',
+    label: 'قاعدة الانطلاق',
+    value: 'UTC+1',
+    metric: 'مستغانم',
+    sub: 'هندسة الإعلام الآلي وعلوم البيانات · متاح للعمل عن بُعد دولياً',
+    badge: 'نشط ومتاح',
+  },
+] : [
   {
     num: '01',
     label: 'Community & Reach',
@@ -40,14 +82,14 @@ const statsData = [
 <section class="border-y border-border/80 bg-surface/30 backdrop-blur-xs relative overflow-hidden">
   <!-- Subtle corner crosshair decoration -->
   <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-border/70 border-x border-border/50">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x rtl:divide-x-reverse divide-border/70 border-x border-border/50">
       {statsData.map((stat, idx) => (
         <Reveal delay={idx * 75}>
           <div class="p-6 sm:p-7 lg:p-8 flex flex-col justify-between h-full group hover:bg-surface/60 transition-colors duration-200">
             <!-- Header Row: Index & Category -->
             <div class="flex items-center justify-between pb-3 text-xs font-mono">
               <span class="text-text-faint group-hover:text-text transition-colors">
-                {stat.num} // {stat.label}
+                <span class="bidi-tech">{stat.num}</span> // {stat.label}
               </span>
               <span class="text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-surface-2 border border-border text-text-muted group-hover:text-text group-hover:border-border-strong transition-colors">
                 {stat.badge}
@@ -57,7 +99,7 @@ const statsData = [
             <!-- Value Display -->
             <div class="my-4">
               <div class="flex items-baseline gap-2">
-                <span class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-text font-sans">
+                <span class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-text font-sans bidi-tech">
                   {stat.value}
                 </span>
                 <span class="text-xs font-mono text-text-faint uppercase tracking-wider">

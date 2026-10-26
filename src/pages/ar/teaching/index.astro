@@ -1,0 +1,474 @@
+---
+import Base from '../../../layouts/Base.astro';
+import SectionLabel from '../../../components/ui/SectionLabel.astro';
+import Button from '../../../components/ui/Button.astro';
+import TagList from '../../../components/ui/TagList.astro';
+import { CurriculumAccordion } from '../../../components/islands/CurriculumAccordion';
+
+const workshopTopics = [
+  {
+    title: 'الذكاء الاصطناعي التوليدي من الصفر حتى الإنتاج',
+    duration: 'معسكر تدريبي من 2 إلى 4 أيام',
+    audience: 'مهندسو البرمجيات والطلاب',
+    desc: 'انغماس تطبيقي مكثف في واجهات برمجة LLMs، واستدعاء الوظائف (Function Calling)، والتضمينات الشعاعية، وبناء تطبيقات ويب ذكية متكاملة ذات تدفق فوري.',
+    tags: ['Next.js 15', 'FastAPI', 'LangChain', 'Prompt Engineering'],
+  },
+  {
+    title: 'بناء أنظمة استرجاع المعرفة المؤسسية (RAG)',
+    duration: 'يوم كامل معمق',
+    audience: 'فرق الواجهات الخلفية وعلوم البيانات',
+    desc: 'هندسة خطوط معالجة واسترجاع المعرفة عالية الدقة على المستندات والبيانات الخاصة، مع استراتيجيات التقطيع، قواعد البيانات الشعاعية، وإعادة الترتيب (Re-ranking).',
+    tags: ['ChromaDB', 'PostgreSQL pgvector', 'Python', 'Embeddings'],
+  },
+  {
+    title: 'وكلاء الذكاء الاصطناعي المستقلة واستدعاء الأدوات',
+    duration: 'مختبر متقدم لمدة يوم واحد',
+    audience: 'كبار المطورين والمهندسين المعماريين',
+    desc: 'تجاوز الأوامر النصية البسيطة إلى حلقات اتخاذ القرار الذاتية (ReAct Loops)، ومخططات الأدوات، والتنفيذ الحتمي، والأنظمة الموزعة متعددة الوكلاء.',
+    tags: ['Tool Use', 'Function Calling', 'Pydantic', 'AsyncIO'],
+  },
+];
+---
+
+<Base
+  locale="ar"
+  title="التعليم والمناهج وورش العمل — عبد النور بن قريش"
+  description="استكشف منهاج الذكاء الاصطناعي التوليدي 'Build with AI'، ورش العمل الهندسية الحضورية، ومجتمع BenCoder التعليمي لأكثر من 102K مطوّر."
+>
+  <main id="main" class="py-16 sm:py-24 space-y-20">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <!-- Page Hero Header -->
+      <div class="border-b border-border pb-10 space-y-4">
+        <div class="flex items-center gap-2">
+          <SectionLabel number="02" label="التعليم في الذكاء الاصطناعي وصناعة المحتوى" />
+          <span class="text-xs font-mono text-text-faint">·</span>
+          <span class="text-xs font-mono text-status font-medium">● مجتمع 102K+</span>
+        </div>
+        <h1 class="text-display text-text">
+          جعل الذكاء الاصطناعي <span class="font-accent">عملياً</span>، متاحاً وجاهزاً للإنتاج
+        </h1>
+        <p class="text-base sm:text-lg text-text-muted max-w-2xl leading-relaxed">
+          أصمم مناهج تطبيقية، وأقود معسكرات برمجية مكثفة، وأصنع شروحات هندسية عملية لأكثر من 102,000 مطوّر حول العالم.
+        </p>
+
+        <!-- Breadcrumb link -->
+        <div class="pt-2">
+          <a
+            href="/ar"
+            class="text-xs font-mono text-text-muted hover:text-text inline-flex items-center gap-1.5 transition-colors"
+          >
+            → العودة إلى الصفحة الرئيسية
+          </a>
+        </div>
+      </div>
+
+      <!-- Section 1: Everest Academy Flagship "Build with AI" -->
+      <section class="space-y-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border pb-6">
+          <div class="space-y-1">
+            <span class="text-xs font-mono text-text-faint uppercase tracking-wider">
+              المنهاج التدريبي الرائد // EVEREST ACADEMY
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-text">
+              "Build with AI" — برنامج تدريبي مكثف لمدة شهر
+            </h2>
+          </div>
+          <span class="text-xs font-mono px-3 py-1 rounded bg-surface-2 border border-border text-text">
+            كبير المدربين ومصمم المنهاج
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <!-- Left: Narrative & Methodology -->
+          <div class="lg:col-span-5 space-y-6">
+            <p class="text-base text-text-muted leading-relaxed">
+              تغرق معظم دورات الذكاء الاصطناعي إما في رياضيات نظرية مجردة دون شحن أي تطبيق، أو تقتصر على أوامر نصية سطحية. يُبنى برنامج <strong class="text-text font-semibold">"Build with AI"</strong> في Everest Academy على أربعة أركان هندسية عملية: <strong class="text-text font-semibold">هندسة الأوامر المتقدمة (Prompt Engineering)</strong>، و<strong class="text-text font-semibold">البرمجة التفاعلية السريعة (Vibe Coding)</strong>، و<strong class="text-text font-semibold">توليد الفيديو الذكي</strong> (Runway، Kling، Luma)، و<strong class="text-text font-semibold">التصميم الجرافيكي الذكي</strong> (Midjourney، FLUX.1).
+            </p>
+            <p class="text-sm text-text-muted leading-relaxed">
+              يتقن الطلاب هندسة السياق، وأوامر النظام المتقدمة، وبناء النماذج الأولية بسرعة فائقة بمساعدة مساعدي الذكاء الاصطناعي، وإنتاج المواد الإعلانية والتجارية، وربط الواجهات الخلفية بـ Python و Next.js.
+            </p>
+
+            <div class="p-5 rounded-xl border border-border bg-surface-2 space-y-3 font-mono text-xs">
+              <div class="text-[11px] text-text-faint uppercase font-bold">نظرة عامة على البرنامج:</div>
+              <div class="divide-y divide-border/60">
+                <div class="py-2 flex justify-between">
+                  <span class="text-text-muted">المدة:</span>
+                  <span class="text-text font-bold">شهر 1 مكثف (أكثر من 60 ساعة)</span>
+                </div>
+                <div class="py-2 flex justify-between">
+                  <span class="text-text-muted">المسارات الأساسية:</span>
+                  <span class="text-text font-medium">Prompt Eng · Vibe Coding · Video · Design</span>
+                </div>
+                <div class="py-2 flex justify-between">
+                  <span class="text-text-muted">نسبة إنجاز المشاريع:</span>
+                  <span class="text-status font-bold">100% مشاريع مشحونة بنجاح</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Accordion -->
+          <div class="lg:col-span-7">
+            <CurriculumAccordion client:load />
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Online Course on Udemy (300+ Students) -->
+      <section class="space-y-8 border-t border-border pt-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border pb-6">
+          <div class="space-y-1">
+            <span class="text-xs font-mono text-text-faint uppercase tracking-wider">
+              دورة أونلاين // منصة UDEMY
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-text">
+              بايثون للمبتدئين بالعربية (300+ طالب مسجل)
+            </h2>
+          </div>
+          <span class="text-xs font-mono px-3 py-1 rounded bg-surface-2 border border-border text-status font-bold bidi-tech">
+            ★ 4.8 Top-Rated Course
+          </span>
+        </div>
+
+        <div class="rounded-2xl border border-border-strong bg-surface/80 overflow-hidden shadow-sm">
+          <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+            <!-- Course Banner Image -->
+            <div class="lg:col-span-5 relative bg-bg/90 border-b lg:border-b-0 lg:border-l rtl:lg:border-l-0 rtl:lg:border-r border-border p-6 flex items-center justify-center">
+              <img
+                src="/brand/udemy-python.jpg"
+                alt="تعلم البرمجة من الصفر بلغة بايثون | Python course [Arabic]"
+                class="w-full h-auto rounded-xl border border-border shadow-xs object-cover"
+                loading="lazy"
+              />
+              <div class="absolute top-4 left-4 rtl:left-auto rtl:right-4">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold bg-surface/90 text-text border border-border backdrop-blur-xs">
+                  <span class="w-2 h-2 rounded-full bg-status"></span>
+                  أول دورة أونلاين لي
+                </span>
+              </div>
+            </div>
+
+            <!-- Course Details -->
+            <div class="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-6">
+              <div class="space-y-4">
+                <div class="flex flex-wrap items-center gap-2 text-xs font-mono">
+                  <span class="px-2.5 py-0.5 rounded bg-surface-2 border border-border text-text font-bold">
+                    أكثر من 300 طالب نشط
+                  </span>
+                  <span class="text-text-faint">·</span>
+                  <span class="text-text-muted">اللغة العربية</span>
+                  <span class="text-text-faint">·</span>
+                  <span class="text-text-muted">وصول دائم مدى الحياة</span>
+                  <span class="text-text-faint">·</span>
+                  <span class="text-text-muted">شهادة إتمام معتمدة</span>
+                </div>
+
+                <h3 class="text-xl sm:text-2xl font-bold text-text tracking-tight font-sans">
+                  تعلم البرمجة من الصفر بلغة بايثون | Python course [Arabic]
+                </h3>
+
+                <p class="text-sm text-text-muted leading-relaxed">
+                  صُممت خصيصاً للطلاب والراغبين في التحول لمجال البرمجة والمبتدئين بالعالم العربي. تشرح الدورة التفكير الخوارزمي، وقواعد بايثون، وهياكل البيانات الأساسية، والدوال، وإدارة الأخطاء، ومعمارية البرمجيات مع تمارين برمجية تفاعلية حية.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs font-mono">
+                  <div class="p-3 rounded-lg bg-surface-2 border border-border space-y-1">
+                    <div class="font-bold text-text">01. الأساسيات</div>
+                    <div class="text-[11px] text-text-muted">المتغيرات، المعاملات، وجمل التحكم والتكرار</div>
+                  </div>
+                  <div class="p-3 rounded-lg bg-surface-2 border border-border space-y-1">
+                    <div class="font-bold text-text">02. هياكل البيانات</div>
+                    <div class="text-[11px] text-text-muted">القوائم، القواميس، والمجموعات وإدارة الذاكرة</div>
+                  </div>
+                  <div class="p-3 rounded-lg bg-surface-2 border border-border space-y-1">
+                    <div class="font-bold text-text">03. مشاريع عملية</div>
+                    <div class="text-[11px] text-text-muted">تطبيقات مصغرة، معالجة الملفات وأكواد حية</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-border">
+                <a
+                  href="https://www.udemy.com/course/bencoderr-python-course-arabic/?referralCode=A268F9C13E98A6D18163"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg bg-text text-bg hover:opacity-90 transition-all font-mono shadow-xs gap-2"
+                >
+                  الانضمام للدورة على Udemy (شروحات مرئية بالعربية) ↗
+                </a>
+                <span class="text-xs font-mono text-text-faint">
+                  ضمان استرجاع لمدة 30 يوماً · إجابة مستمرة على الأسئلة
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Robotics with DZDuino, Web Mentorship & Multi-City Workshops -->
+      <section class="space-y-8 border-t border-border pt-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border pb-6">
+          <div class="space-y-1">
+            <span class="text-xs font-mono text-text-faint uppercase tracking-wider">
+              العتاد العملي والتواصل الإقليمي
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-text">
+              الروبوتات مع DZDuino، التدريب الفردي وورش العمل
+            </h2>
+          </div>
+          <span class="text-xs font-mono text-text-muted">
+            تلمسان · الجزائر · وهران · مستغانم
+          </span>
+        </div>
+
+        <!-- FEATURED SHOWCASE: DZDuino Robotics Collaboration -->
+        <div class="rounded-2xl border border-border-strong bg-surface p-6 sm:p-8 lg:p-10 space-y-8 shadow-xs relative overflow-hidden">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-amber-500 via-red-500 to-emerald-500 opacity-90"></div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <!-- Left 7 cols -->
+            <div class="lg:col-span-7 space-y-6">
+              <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+                <a
+                  href="https://dzduino.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group relative flex-shrink-0"
+                  aria-label="Visit dzduino.com official store"
+                >
+                  <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white p-3 border border-border-strong shadow-md flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg">
+                    <img
+                      src="/brand/dzduino-logo.png"
+                      alt="DZDuino Official Logo"
+                      class="w-full h-full object-contain"
+                      loading="eager"
+                      width="96"
+                      height="96"
+                    />
+                  </div>
+                  <span class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded bg-surface border border-border text-[10px] font-mono text-text-muted opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xs bidi-tech">
+                    dzduino.com ↗
+                  </span>
+                </a>
+
+                <div class="space-y-1.5">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <span class="px-2.5 py-1 rounded-md bg-status/10 border border-status/30 text-status text-xs font-mono font-bold flex items-center gap-1.5">
+                      <span class="w-2 h-2 rounded-full bg-status animate-pulse"></span>
+                      شراكة نشطة
+                    </span>
+                    <span class="text-xs font-mono text-text-muted">
+                      تعاون رسمي · dzduino.com
+                    </span>
+                  </div>
+                  <h3 class="text-2xl sm:text-3xl font-extrabold text-text font-sans">
+                    الروبوتات، الأردوينو وراسبيري باي
+                  </h3>
+                  <p class="text-xs sm:text-sm font-mono text-text-faint">
+                    معمل هندسة العتاد · طالبان مخصصان · برنامج لمدة شهرين (شهر متبقٍ نشط)
+                  </p>
+                </div>
+              </div>
+
+              <div class="space-y-3 text-sm text-text-muted leading-relaxed">
+                <p>
+                  يُنظم البرنامج بالتعاون المباشر مع <strong class="text-text font-semibold">dzduino.com</strong> — المنصة الأولى في الجزائر للروبوتات والعتاد المفتوح المصدر والإلكترونيات. أقوم بالإشراف على طالبين عبر تصميم الدوائر المادية، وبرمجة المتحكمات الدقيقة، وحوسبة الحافة الذاتية.
+                </p>
+                <p>
+                  يجمع المنهاج العملي بين التركيب المباشر على لوحات التجارب (Breadboards)، وضبط محركات PWM، وقراءات الحساسات المتعددة (الألتراسونيك، حساسات التسارع IMU، وحساسات تتبع العوائق بالأشعة تحت الحمراء)، ومعالجة القرارات الذكية على Raspberry Pi.
+                </p>
+              </div>
+
+              <!-- Metrics -->
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
+                <div class="p-3.5 rounded-xl bg-surface-2 border border-border">
+                  <div class="text-2xl font-extrabold text-text font-mono">2</div>
+                  <div class="text-[11px] font-mono text-text-faint uppercase">طالبان تحت الإشراف</div>
+                </div>
+                <div class="p-3.5 rounded-xl bg-surface-2 border border-border">
+                  <div class="text-2xl font-extrabold text-text font-mono">شهران</div>
+                  <div class="text-[11px] font-mono text-text-faint uppercase">مختبر مكثف (شهر متبقٍ)</div>
+                </div>
+                <div class="p-3.5 rounded-xl bg-surface-2 border border-border">
+                  <div class="text-2xl font-extrabold text-text font-mono">10+</div>
+                  <div class="text-[11px] font-mono text-text-faint uppercase">دوائر ومحركات مدمجة</div>
+                </div>
+                <div class="p-3.5 rounded-xl bg-surface-2 border border-border">
+                  <div class="text-2xl font-extrabold text-text font-mono">100%</div>
+                  <div class="text-[11px] font-mono text-text-faint uppercase">تطبيق عملي مباشر</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right 5 cols -->
+            <div class="lg:col-span-5 space-y-4">
+              <div class="p-5 rounded-xl border border-border bg-surface-2/60 space-y-3 font-mono text-xs">
+                <div class="text-[11px] text-text-faint uppercase tracking-wider font-bold">
+                  حزمة العتاد والبرمجيات في المختبر:
+                </div>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2 py-0.5 rounded bg-surface border border-border text-text bidi-tech">Arduino Uno R3</span>
+                  <span class="px-2 py-0.5 rounded bg-surface border border-border text-text bidi-tech">Raspberry Pi 4</span>
+                  <span class="px-2 py-0.5 rounded bg-surface border border-border text-text bidi-tech">L298N Motor Driver</span>
+                  <span class="px-2 py-0.5 rounded bg-surface border border-border text-text bidi-tech">HC-SR04 Ultrasonic</span>
+                  <span class="px-2 py-0.5 rounded bg-surface border border-border text-text bidi-tech">MPU6050 6-Axis IMU</span>
+                  <span class="px-2 py-0.5 rounded bg-surface border border-border text-text bidi-tech">C / C++ Firmware</span>
+                  <span class="px-2 py-0.5 rounded bg-surface border border-border text-text bidi-tech">Python GPIO Edge</span>
+                  <span class="px-2 py-0.5 rounded bg-surface border border-border text-text">حساسات الأشعة تحت الحمراء</span>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-xl border border-border bg-surface-2/40 flex items-center justify-between text-xs font-mono">
+                <span class="text-text-muted">المنشأة والشريك:</span>
+                <a href="https://dzduino.com" target="_blank" rel="noopener noreferrer" class="text-text font-bold hover:underline bidi-tech">
+                  dzduino.com ↗
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: BenCoder Creator Platform (102K+) -->
+      <section class="space-y-8 border-t border-border pt-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border pb-6">
+          <div class="space-y-1">
+            <span class="text-xs font-mono text-text-faint uppercase tracking-wider">
+              المنصة التقنية // BENCODER
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-text">
+              أكثر من 102,000 مطوّر يتعلمون مع @ben.coderr
+            </h2>
+          </div>
+          <a
+            href="https://instagram.com/ben.coderr"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-xs font-mono px-3 py-1 rounded bg-surface-2 border border-border text-text hover:border-text transition-colors inline-flex items-center gap-1.5"
+          >
+            <span class="w-2 h-2 rounded-full bg-status"></span>
+            متابعة على إنستغرام (102K) ↗
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <!-- Left 7 cols -->
+          <div class="lg:col-span-7">
+            <div class="rounded-2xl border border-border-strong bg-surface overflow-hidden shadow-sm group">
+              <div class="px-4 py-2.5 bg-surface-2 border-b border-border flex items-center justify-between text-xs font-mono">
+                <div class="flex items-center gap-2">
+                  <span class="text-text font-bold bidi-tech">@ben.coderr</span>
+                  <span class="text-text-faint">·</span>
+                  <span class="text-status">102K متابع</span>
+                </div>
+                <span class="text-text-muted text-[11px]">الملف المعتمد على إنستغرام</span>
+              </div>
+              <a
+                href="https://instagram.com/ben.coderr"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block overflow-hidden bg-bg"
+              >
+                <img
+                  src="/brand/bencoder-instagram.jpg"
+                  alt="قناة BenCoder على إنستغرام والشروحات البرمجية"
+                  class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-300"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+          </div>
+
+          <!-- Right 5 cols -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="p-6 rounded-2xl border border-border bg-surface space-y-3">
+              <div class="flex items-baseline justify-between">
+                <span class="text-4xl sm:text-5xl font-extrabold text-text font-sans bidi-tech">102K+</span>
+                <span class="text-xs font-mono text-status font-bold">● جمهور نشط</span>
+              </div>
+              <div class="text-xs font-mono text-text-muted uppercase tracking-wider">
+                مطورون، طلاب ومهندسون
+              </div>
+              <p class="text-sm text-text-muted leading-relaxed pt-2">
+                إنتاج شروحات معمارية مركزة وسريعة الاستيعاب، ونصائح تقنية لتطبيقات الويب المتكاملة، ومسارات عمل الذكاء الاصطناعي بالعربية لمجتمع متحمس يضم أكثر من 102,000 مطوّر عربي.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div class="p-5 rounded-xl border border-border bg-surface-2/60 space-y-1">
+                <div class="text-2xl font-bold text-text font-sans bidi-tech">45+</div>
+                <div class="text-xs font-mono text-text-muted uppercase">دليلاً تقنياً مشحوناً</div>
+                <div class="text-[11px] text-text-faint pt-1">Next.js, Python & GenAI</div>
+              </div>
+
+              <div class="p-5 rounded-xl border border-border bg-surface-2/60 space-y-1">
+                <div class="text-2xl font-bold text-text font-sans bidi-tech">300+</div>
+                <div class="text-xs font-mono text-text-muted uppercase">طالباً مسجلاً</div>
+                <div class="text-[11px] text-text-faint pt-1">أكاديمية بايثون على Udemy</div>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-xl border border-border bg-surface space-y-3">
+              <div class="text-xs font-mono uppercase text-text-faint tracking-wider">
+                الرعاية والتعاون التقني:
+              </div>
+              <p class="text-xs text-text-muted leading-relaxed">
+                متاح للشراكات مع أدوات المطورين، والمحاضرات الرئيسية في المؤتمرات والندوات، والمشاريع التعليمية المتوافقة مع معايير الجودة البرمجية.
+              </p>
+              <Button href="/ar#contact" variant="secondary" size="sm" class="w-full text-center">
+                استفسار حول رعاية BenCoder ←
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Available Workshops Catalog -->
+      <section id="booking" class="space-y-8 border-t border-border pt-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div class="space-y-1">
+            <span class="text-xs font-mono text-text-faint uppercase tracking-wider">
+              جلسات حضورية وعن بُعد
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-text">
+              المعسكرات التدريبية والورش المكثفة المتاحة
+            </h2>
+          </div>
+          <p class="text-xs font-mono text-text-muted">
+            قابلة للتخصيص للجامعات والأكاديميات وفرق التطوير المؤسسية
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {workshopTopics.map((ws) => (
+            <div class="p-6 sm:p-7 rounded-2xl border border-border-strong bg-surface flex flex-col justify-between space-y-6 shadow-xs">
+              <div class="space-y-3">
+                <div class="flex items-center justify-between text-xs font-mono">
+                  <span class="text-text-faint uppercase">{ws.duration}</span>
+                  <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-text-muted">
+                    {ws.audience}
+                  </span>
+                </div>
+
+                <h3 class="text-xl font-bold text-text font-sans">
+                  {ws.title}
+                </h3>
+
+                <p class="text-xs sm:text-sm text-text-muted leading-relaxed">
+                  {ws.desc}
+                </p>
+              </div>
+
+              <div class="space-y-4 pt-4 border-t border-border">
+                <TagList size="sm" tags={ws.tags} />
+                <Button href="/ar#contact" variant="secondary" size="sm" class="w-full text-center">
+                  طلب حجز ورشة عمل ←
+                </Button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  </main>
+</Base>

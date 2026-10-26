@@ -3,8 +3,21 @@ import SectionLabel from '../ui/SectionLabel.astro';
 import Button from '../ui/Button.astro';
 import Reveal from '../ui/Reveal.astro';
 import { CurriculumAccordion } from '../islands/CurriculumAccordion';
+import { useTranslations, type Locale } from '../../i18n/ui';
 
-const tutorials = [
+interface Props {
+  locale?: Locale;
+}
+
+const {
+  locale = (Astro.currentLocale as Locale) || (Astro.url.pathname.startsWith('/ar') ? 'ar' : 'en'),
+} = Astro.props;
+
+const t = useTranslations(locale);
+const basePrefix = locale === 'ar' ? '/ar' : '';
+const homeUrl = locale === 'ar' ? '/ar' : '/';
+
+const tutorialsEn = [
   {
     title: 'Building a Full-Stack AI Chatbot with Next.js 15 & FastAPI',
     format: 'Video Breakdown',
@@ -24,6 +37,29 @@ const tutorials = [
     link: 'https://instagram.com/ben.coderr',
   },
 ];
+
+const tutorialsAr = [
+  {
+    title: 'بناء روبوت محادثة ذكي متكامل بـ Next.js 15 و FastAPI',
+    format: 'شرح مرئي تطبيقي',
+    topic: 'تطبيقات GenAI المتكاملة',
+    link: 'https://instagram.com/ben.coderr',
+  },
+  {
+    title: 'دليل الضبط الدقيق لنموذج Llama-3 على بيانات اللهجات المحلية',
+    format: 'دليل تقني معمق',
+    topic: 'نماذج LLMs التطبيقية',
+    link: 'https://instagram.com/ben.coderr',
+  },
+  {
+    title: 'مقارنة معمارية 2026: Django REST Framework في مقابل FastAPI',
+    format: 'تصميم الأنظمة',
+    topic: 'معمارية الواجهات الخلفية',
+    link: 'https://instagram.com/ben.coderr',
+  },
+];
+
+const tutorials = locale === 'ar' ? tutorialsAr : tutorialsEn;
 ---
 
 <section id="teaching" class="py-20 md:py-28 bg-surface/30 border-y border-border scroll-mt-20 relative">
@@ -31,18 +67,18 @@ const tutorials = [
     <!-- Header -->
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-border pb-8">
       <div class="space-y-3">
-        <SectionLabel number="02" label="TEACHING &amp; CONTENT" />
+        <SectionLabel number={t('section.02.num')} label={t('section.02.label')} />
         <h2 class="text-headline text-text">
-          Making AI <span class="font-accent">practical</span>, accessible &amp; affordable
+          {t('section.02.title')} <span class="font-accent">{t('section.02.titleAccent')}</span>{t('section.02.titleSuffix')}
         </h2>
         <p class="text-text-muted text-base max-w-xl leading-relaxed">
-          Lead Generative AI instructor at Everest Academy and creator behind <strong class="text-text font-semibold">BenCoder</strong> (102,000+ developers). Bridging cutting-edge research to production code.
+          {t('section.02.description')}
         </p>
       </div>
 
       <div class="flex items-center gap-3">
-        <Button href="/teaching" variant="secondary" size="md">
-          Explore full teaching portal →
+        <Button href={`${basePrefix}/teaching`} variant="secondary" size="md">
+          {t('section.02.portal')}
         </Button>
       </div>
     </div>
@@ -56,19 +92,21 @@ const tutorials = [
             <div class="flex items-center justify-between pb-4 border-b border-border">
               <div>
                 <span class="text-[10px] font-mono uppercase tracking-widest text-text-faint">
-                  FLAGSHIP ACADEMY CURRICULUM
+                  {locale === 'ar' ? 'المنهاج التدريبي الرائد' : 'FLAGSHIP ACADEMY CURRICULUM'}
                 </span>
                 <h3 class="text-xl sm:text-2xl font-bold text-text tracking-tight mt-0.5">
-                  "Build with AI" — 1-Month Intensive
+                  {locale === 'ar' ? '"Build with AI" — برنامج مكثف لمدة شهر' : '"Build with AI" — 1-Month Intensive'}
                 </h3>
               </div>
               <span class="text-xs font-mono px-2.5 py-1 rounded bg-surface-2 border border-border text-status font-medium">
-                Active Cohort
+                {locale === 'ar' ? 'الدفعة الحالية' : 'Active Cohort'}
               </span>
             </div>
 
             <p class="text-sm text-text-muted leading-relaxed my-4">
-              Designed from first principles to train engineers on the full generative AI lifecycle: from foundational prompting to deploying autonomous agent systems with streaming frontends.
+              {locale === 'ar'
+                ? 'صُمم المنهاج من المبادئ الأولى لتدريب المهندسين على دورة حياة الذكاء الاصطناعي التوليدي كاملة: من هندسة الأوامر الأساسية إلى بناء ونشر أنظمة الوكلاء المستقلة مع واجهات تفاعلية فورية التدفق.'
+                : 'Designed from first principles to train engineers on the full generative AI lifecycle: from foundational prompting to deploying autonomous agent systems with streaming frontends.'}
             </p>
 
             <!-- Embedded Interactive Accordion -->
@@ -76,14 +114,14 @@ const tutorials = [
 
             <!-- Action strip -->
             <div class="mt-6 pt-5 border-t border-border flex flex-wrap items-center justify-between gap-3">
-              <Button href="#contact" variant="primary" size="sm">
-                Request private or corporate workshop →
+              <Button href={`${homeUrl}#contact`} variant="primary" size="sm">
+                {locale === 'ar' ? 'طلب ورشة عمل خاصة أو تدريب مؤسسي ←' : 'Request private or corporate workshop →'}
               </Button>
               <a
-                href="/teaching"
+                href={`${basePrefix}/teaching`}
                 class="text-xs font-mono text-text-muted hover:text-text underline-offset-4 hover:underline"
               >
-                View student projects archive ↗
+                {locale === 'ar' ? 'تصفح أرشيف مشاريع الطلاب ↗' : 'View student projects archive ↗'}
               </a>
             </div>
           </div>
@@ -97,25 +135,27 @@ const tutorials = [
             <!-- Brand Eyebrow -->
             <div class="flex items-center justify-between pb-3 border-b border-border">
               <span class="font-mono text-xs text-text-faint uppercase tracking-wider">
-                CONTENT BRAND // BENCODER
+                {locale === 'ar' ? 'العلامة التقنية // BENCODER' : 'CONTENT BRAND // BENCODER'}
               </span>
               <span class="text-xs font-mono text-text px-2 py-0.5 rounded bg-surface-2 border border-border">
-                Global Audience
+                {locale === 'ar' ? 'جمهور عربي وعالمي' : 'Global Audience'}
               </span>
             </div>
 
             <!-- Big Stat Counter -->
             <div class="p-5 rounded-xl border border-border bg-bg/90 space-y-2">
               <div class="flex items-baseline justify-between">
-                <span class="text-4xl sm:text-5xl font-extrabold text-text font-sans tracking-tight">
+                <span class="text-4xl sm:text-5xl font-extrabold text-text font-sans tracking-tight bidi-tech">
                   102,000+
                 </span>
                 <span class="text-xs font-mono text-status font-semibold">
-                  ● Growing Daily
+                  {locale === 'ar' ? '● نمو يومي متواصل' : '● Growing Daily'}
                 </span>
               </div>
               <div class="text-xs font-mono text-text-muted">
-                Engineers following BenCoder on Instagram &amp; technical channels
+                {locale === 'ar'
+                  ? 'مهندسون ومطورون يتابعون محتوى BenCoder عبر إنستغرام والمنصات التقنية'
+                  : 'Engineers following BenCoder on Instagram & technical channels'}
               </div>
             </div>
 
@@ -131,10 +171,10 @@ const tutorials = [
                 <div class="px-3.5 py-2 border-b border-border bg-surface-2/90 flex items-center justify-between text-xs font-mono">
                   <div class="flex items-center gap-1.5 text-text font-bold">
                     <span class="w-2 h-2 rounded-full bg-status"></span>
-                    <span>@ben.coderr</span>
+                    <span class="bidi-tech">@ben.coderr</span>
                   </div>
                   <span class="text-[11px] text-text-muted group-hover:text-text group-hover:underline">
-                    View Profile (102K) ↗
+                    {locale === 'ar' ? 'زيارة الحساب (102K) ↗' : 'View Profile (102K) ↗'}
                   </span>
                 </div>
                 <div class="aspect-16/10 overflow-hidden bg-bg">
@@ -149,14 +189,16 @@ const tutorials = [
             </div>
 
             <p class="text-sm text-text-muted leading-relaxed">
-              Explaining complex AI, web engineering, and software architectures in Arabic through practical demonstrations, code breakdowns, and real-world project walkthroughs for an audience of 102,000+ Arabic learners.
+              {locale === 'ar'
+                ? 'تبسيط مفاهيم الذكاء الاصطناعي المعقدة، وهندسة الويب، ومعماريات النظم باللغة العربية عبر شروحات عملية، وتفكيك الأكواد البرمجية، وبناء مشاريع واقعية لأكثر من 102,000 متعلم عربي.'
+                : 'Explaining complex AI, web engineering, and software architectures in Arabic through practical demonstrations, code breakdowns, and real-world project walkthroughs for an audience of 102,000+ Arabic learners.'}
             </p>
 
             <!-- Arabic Community Callout (RTL) -->
             <div dir="rtl" class="p-3.5 rounded-xl border border-border/80 bg-surface-2/60 space-y-1 text-right">
               <div class="text-[11px] font-mono text-status font-bold flex items-center justify-between">
                 <span>مجتمع BenCoder البرمجي</span>
-                <span class="text-[10px] text-text-faint font-mono">102K+</span>
+                <span class="text-[10px] text-text-faint font-mono bidi-tech">102K+</span>
               </div>
               <p class="text-xs text-text-muted leading-relaxed font-sans">
                 "نبسّط هندسة البرمجيات والذكاء الاصطناعي بلغة واضحة وتطبيقات عملية جاهزة للإنتاج لأكثر من 102,000 مطوّر عربي."
@@ -166,7 +208,7 @@ const tutorials = [
             <!-- Featured Tutorials -->
             <div class="space-y-2.5 pt-2 border-t border-border/60">
               <div class="text-xs font-mono uppercase tracking-wider text-text-faint">
-                Popular Engineering Breakdowns:
+                {locale === 'ar' ? 'شروحات وتحليلات هندسية شائعة:' : 'Popular Engineering Breakdowns:'}
               </div>
               <div class="space-y-2">
                 {tutorials.map((tut) => (
@@ -192,21 +234,23 @@ const tutorials = [
             <div class="p-4 rounded-xl border border-border/70 bg-surface-2/40 space-y-2">
               <div class="flex items-center gap-2 text-[10px] font-mono uppercase tracking-wider text-text-faint font-semibold">
                 <span class="text-status">●</span>
-                <span>Everest Academy Endorsement</span>
+                <span>{locale === 'ar' ? 'تزكية Everest Academy' : 'Everest Academy Endorsement'}</span>
               </div>
               <p class="text-xs text-text-muted italic leading-relaxed">
-                "Abdenour cuts through generative AI hype with pure engineering depth. The 'Build with AI' syllabus equipped our engineers with immediately deployable production workflows."
+                {locale === 'ar'
+                  ? '"يتجاوز عبد النور الضجيج الدعائي المحيط بالذكاء الاصطناعي التوليدي بتركيز هندسي عميق. لقد زود منهاج Build with AI مهندسينا بأدوات ومسارات عمل قابلة للتطبيق الفوري في بيئات الإنتاج."'
+                  : '"Abdenour cuts through generative AI hype with pure engineering depth. The \'Build with AI\' syllabus equipped our engineers with immediately deployable production workflows."'}
               </p>
               <div class="text-[11px] font-mono text-text font-semibold flex items-center justify-between pt-1 border-t border-border/40">
-                <span>— Academic Formation Board</span>
-                <span class="text-text-faint">Everest Academy · Mostaganem</span>
+                <span>{locale === 'ar' ? '— المجلس الأكاديمي للتدريب' : '— Academic Formation Board'}</span>
+                <span class="text-text-faint">{locale === 'ar' ? 'Everest Academy · مستغانم' : 'Everest Academy · Mostaganem'}</span>
               </div>
             </div>
 
             <!-- CTA -->
             <div class="pt-2 border-t border-border/60">
-              <Button href="#contact" variant="primary" size="md" class="w-full text-center">
-                Invite Abdenour to teach or speak →
+              <Button href={`${homeUrl}#contact`} variant="primary" size="md" class="w-full text-center">
+                {locale === 'ar' ? 'دعوة عبد النور لتقديم تدريب أو محاضرة ←' : 'Invite Abdenour to teach or speak →'}
               </Button>
             </div>
           </div>
@@ -219,17 +263,17 @@ const tutorials = [
       <div class="rounded-2xl border border-border-strong bg-surface/90 overflow-hidden shadow-sm">
         <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
           <!-- Course Visual Banner -->
-          <div class="lg:col-span-5 relative bg-bg/80 border-b lg:border-b-0 lg:border-r border-border overflow-hidden min-h-[240px] flex items-center justify-center p-6">
+          <div class="lg:col-span-5 relative bg-bg/80 border-b lg:border-b-0 lg:border-r rtl:lg:border-r-0 rtl:lg:border-l border-border overflow-hidden min-h-[240px] flex items-center justify-center p-6">
             <img
               src="/brand/udemy-python.jpg"
               alt="Python for Beginners in Arabic - Udemy Course Banner"
               class="w-full h-full object-cover rounded-xl border border-border shadow-xs"
               loading="lazy"
             />
-            <div class="absolute top-4 left-4">
+            <div class="absolute top-4 left-4 rtl:left-auto rtl:right-4">
               <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold bg-surface/90 text-text border border-border backdrop-blur-xs">
                 <span class="w-2 h-2 rounded-full bg-status"></span>
-                Udemy Online Course
+                {locale === 'ar' ? 'دورة Udemy أونلاين' : 'Udemy Online Course'}
               </span>
             </div>
           </div>
@@ -239,13 +283,13 @@ const tutorials = [
             <div class="space-y-3">
               <div class="flex flex-wrap items-center gap-3 text-xs font-mono">
                 <span class="px-2.5 py-0.5 rounded bg-surface-2 border border-border text-status font-bold">
-                  300+ Students Enrolled
+                  {locale === 'ar' ? 'أكثر من 300 طالب مسجل' : '300+ Students Enrolled'}
                 </span>
-                <span class="text-text-muted">★ 4.8 Rating</span>
+                <span class="text-text-muted bidi-tech">★ 4.8 Rating</span>
                 <span class="text-text-faint">·</span>
                 <span class="text-text-muted">Arabic (بالعربية)</span>
                 <span class="text-text-faint">·</span>
-                <span class="text-text-muted">On-Demand Lifetime Access</span>
+                <span class="text-text-muted">{locale === 'ar' ? 'وصول دائم مدى الحياة' : 'On-Demand Lifetime Access'}</span>
               </div>
 
               <h3 class="text-2xl sm:text-3xl font-bold text-text tracking-tight font-sans">
@@ -253,21 +297,23 @@ const tutorials = [
               </h3>
 
               <p class="text-sm text-text-muted leading-relaxed">
-                My first comprehensive online course designed specifically for Arabic-speaking developers, students, and beginners. Taking learners step-by-step from zero computer science knowledge to writing clean Python algorithms, data structures, and practical software projects.
+                {locale === 'ar'
+                  ? 'دورتي الشاملة الأولى المصممة خصيصاً للمطورين والطلاب والمهتمين بالعالم العربي. تأخذ المتعلم خطوة بخطوة من الصفر ودون أي متطلبات سابقة إلى كتابة كود بايثون متقن، فهم الخوارزميات وهياكل البيانات، وبناء مشاريع برمجية حقيقية.'
+                  : 'My first comprehensive online course designed specifically for Arabic-speaking developers, students, and beginners. Taking learners step-by-step from zero computer science knowledge to writing clean Python algorithms, data structures, and practical software projects.'}
               </p>
 
               <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs font-mono text-text-muted">
                 <div class="p-2.5 rounded-lg bg-surface-2 border border-border">
-                  <div class="font-bold text-text">Beginner-Friendly</div>
-                  <div class="text-[11px] text-text-faint">Zero prerequisites</div>
+                  <div class="font-bold text-text">{locale === 'ar' ? 'مناسب للمبتدئين' : 'Beginner-Friendly'}</div>
+                  <div class="text-[11px] text-text-faint">{locale === 'ar' ? 'بدون أي متطلبات' : 'Zero prerequisites'}</div>
                 </div>
                 <div class="p-2.5 rounded-lg bg-surface-2 border border-border">
-                  <div class="font-bold text-text">Hands-On Code</div>
-                  <div class="text-[11px] text-text-faint">Real project builds</div>
+                  <div class="font-bold text-text">{locale === 'ar' ? 'تطبيق عملي' : 'Hands-On Code'}</div>
+                  <div class="text-[11px] text-text-faint">{locale === 'ar' ? 'مشاريع حقيقية' : 'Real project builds'}</div>
                 </div>
                 <div class="p-2.5 rounded-lg bg-surface-2 border border-border">
-                  <div class="font-bold text-text">Direct Mentorship</div>
-                  <div class="text-[11px] text-text-faint">Q&A support</div>
+                  <div class="font-bold text-text">{locale === 'ar' ? 'إشراف مباشر' : 'Direct Mentorship'}</div>
+                  <div class="text-[11px] text-text-faint">{locale === 'ar' ? 'إجابة على التساؤلات' : 'Q&A support'}</div>
                 </div>
               </div>
             </div>
@@ -279,10 +325,10 @@ const tutorials = [
                 rel="noopener noreferrer"
                 class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg bg-text text-bg hover:opacity-90 transition-all font-mono shadow-xs gap-2"
               >
-                Enroll on Udemy (Arabic Video Course) ↗
+                {locale === 'ar' ? 'التسجيل في دورة Udemy (شروحات مرئية بالعربية) ↗' : 'Enroll on Udemy (Arabic Video Course) ↗'}
               </a>
               <span class="text-xs font-mono text-text-faint">
-                Instant access · 40+ lessons · Certificate of completion
+                {locale === 'ar' ? 'وصول فوري · أكثر من 40 درساً · شهادة إتمام' : 'Instant access · 40+ lessons · Certificate of completion'}
               </span>
             </div>
           </div>
@@ -294,9 +340,9 @@ const tutorials = [
     <div class="pt-4 border-t border-border/80 space-y-6">
       <div class="flex items-center justify-between">
         <span class="text-xs font-mono uppercase tracking-wider text-text-faint">
-          // HANDS-ON MENTORSHIP &amp; WORKSHOPS
+          {locale === 'ar' ? '// التدريب العملي، الروبوتات وورش العمل' : '// HANDS-ON MENTORSHIP & WORKSHOPS'}
         </span>
-        <span class="text-xs font-mono text-text-muted">In-Person &amp; 1-on-1</span>
+        <span class="text-xs font-mono text-text-muted">{locale === 'ar' ? 'حضوري وتدريب فردي' : 'In-Person & 1-on-1'}</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -322,30 +368,34 @@ const tutorials = [
                     height="56"
                   />
                 </a>
-                <div class="text-right space-y-1">
+                <div class="text-right rtl:text-left space-y-1">
                   <span class="px-2 py-0.5 rounded bg-status/10 border border-status/30 text-status text-[11px] font-mono font-bold inline-flex items-center gap-1">
                     <span class="w-1.5 h-1.5 rounded-full bg-status animate-pulse"></span>
-                    Active Partnership
+                    {locale === 'ar' ? 'شراكة نشطة' : 'Active Partnership'}
                   </span>
-                  <div class="text-[11px] font-mono text-text-faint">2 Mo. (1 Mo. Left)</div>
+                  <div class="text-[11px] font-mono text-text-faint">
+                    {locale === 'ar' ? 'شهران (متبقي شهر)' : '2 Mo. (1 Mo. Left)'}
+                  </div>
                 </div>
               </div>
 
               <div class="space-y-1.5">
                 <h4 class="text-lg font-bold text-text font-sans">
-                  Robotics, Arduino &amp; Raspberry Pi
+                  {locale === 'ar' ? 'الروبوتات، الأردوينو وراسبيري باي' : 'Robotics, Arduino & Raspberry Pi'}
                 </h4>
                 <p class="text-xs sm:text-sm text-text-muted leading-relaxed">
-                  Hands-on hardware lab in direct collaboration with <strong class="text-text font-semibold">dzduino.com</strong>. Mentoring 2 dedicated students through circuit design, PWM motor drivers, sensor telemetry (IMU, ultrasonic), and Linux edge computing.
+                  {locale === 'ar'
+                    ? 'معمل تطبيقي في العتاد الإلكتروني بالتعاون المباشر مع dzduino.com. إشراف على طالبين عبر تصميم الدوائر، ومحركات PWM، وقراءات الحساسات الحية، وحوسبة الحافة بنظام لينكس.'
+                    : 'Hands-on hardware lab in direct collaboration with dzduino.com. Mentoring 2 dedicated students through circuit design, PWM motor drivers, sensor telemetry (IMU, ultrasonic), and Linux edge computing.'}
                 </p>
               </div>
 
               <!-- Hardware tags -->
               <div class="flex flex-wrap gap-1.5 pt-1">
-                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted">Arduino Uno</span>
-                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted">Raspberry Pi 4</span>
-                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted">Sensors &amp; PWM</span>
-                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted">C++ &amp; Python</span>
+                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted bidi-tech">Arduino Uno</span>
+                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted bidi-tech">Raspberry Pi 4</span>
+                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted">{locale === 'ar' ? 'حساسات ومحركات PWM' : 'Sensors & PWM'}</span>
+                <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted bidi-tech">C++ & Python</span>
               </div>
             </div>
 
@@ -354,11 +404,13 @@ const tutorials = [
                 href="https://dzduino.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="hover:text-text hover:underline flex items-center gap-1 font-semibold"
+                class="hover:text-text hover:underline flex items-center gap-1 font-semibold bidi-tech"
               >
                 <span>Partner: dzduino.com ↗</span>
               </a>
-              <span class="text-status font-medium">● 2 Students</span>
+              <span class="text-status font-medium">
+                {locale === 'ar' ? '● طالبان' : '● 2 Students'}
+              </span>
             </div>
           </div>
         </Reveal>
@@ -369,20 +421,22 @@ const tutorials = [
             <div class="space-y-3">
               <div class="flex items-center justify-between text-xs font-mono">
                 <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-text font-bold">
-                  1-on-1 Intensive
+                  {locale === 'ar' ? 'تدريب فردي مكثف' : '1-on-1 Intensive'}
                 </span>
-                <span class="text-text-faint">Summer Program</span>
+                <span class="text-text-faint">{locale === 'ar' ? 'برنامج صيفي' : 'Summer Program'}</span>
               </div>
               <h4 class="text-lg font-bold text-text font-sans">
-                3-Month Web Engineering Mentorship
+                {locale === 'ar' ? 'إشراف هندسة الويب لمدة 3 أشهر' : '3-Month Web Engineering Mentorship'}
               </h4>
               <p class="text-xs sm:text-sm text-text-muted leading-relaxed">
-                Private 3-month comprehensive mentorship taking an individual from baseline programming fundamentals to architecting and shipping responsive, modern full-stack web applications with Git workflows and clean code.
+                {locale === 'ar'
+                  ? 'إشراف فردي خاص ومكثف لمدة 3 أشهر نقل متعلماً من الأساسيات إلى هندسة وإطلاق تطبيقات ويب كاملة ومتجاوبة وفق معايير Git والأكواد النظيفة.'
+                  : 'Private 3-month comprehensive mentorship taking an individual from baseline programming fundamentals to architecting and shipping responsive, modern full-stack web applications with Git workflows and clean code.'}
               </p>
             </div>
             <div class="pt-3 border-t border-border font-mono text-[11px] text-text-faint flex items-center justify-between">
-              <span>Tailored Syllabus</span>
-              <span class="text-text font-medium">Completed</span>
+              <span>{locale === 'ar' ? 'منهاج مخصص' : 'Tailored Syllabus'}</span>
+              <span class="text-text font-medium">{locale === 'ar' ? 'مكتمل بنجاح' : 'Completed'}</span>
             </div>
           </div>
         </Reveal>
@@ -393,20 +447,22 @@ const tutorials = [
             <div class="space-y-3">
               <div class="flex items-center justify-between text-xs font-mono">
                 <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-text font-bold">
-                  Multi-City Speaking
+                  {locale === 'ar' ? 'محاضرات في عدة مدن' : 'Multi-City Speaking'}
                 </span>
-                <span class="text-text-faint">Algeria</span>
+                <span class="text-text-faint">{locale === 'ar' ? 'الجزائر' : 'Algeria'}</span>
               </div>
               <h4 class="text-lg font-bold text-text font-sans">
-                Workshops in Tlemcen, Algiers &amp; Oran
+                {locale === 'ar' ? 'ورش عمل في تلمسان، الجزائر ووهران' : 'Workshops in Tlemcen, Algiers & Oran'}
               </h4>
               <p class="text-xs sm:text-sm text-text-muted leading-relaxed">
-                Delivered technical bootcamps, algorithmic seminars, and developer sessions across key university hubs including Tlemcen, Algiers, and Oran, mentoring engineering students on career readiness and applied AI.
+                {locale === 'ar'
+                  ? 'تقديم معسكرات تدريبية وندوات خوارزمية وجلسات برمجية عبر المراكز الجامعية في تلمسان والجزائر ووهران، مع توجيه الطلاب نحو الجاهزية المهنية وتطبيقات الذكاء الاصطناعي.'
+                  : 'Delivered technical bootcamps, algorithmic seminars, and developer sessions across key university hubs including Tlemcen, Algiers, and Oran, mentoring engineering students on career readiness and applied AI.'}
               </p>
             </div>
             <div class="pt-3 border-t border-border font-mono text-[11px] text-text-faint flex items-center justify-between">
-              <span>Tlemcen · Algiers · Oran</span>
-              <span class="text-text font-medium">On-Site</span>
+              <span>{locale === 'ar' ? 'تلمسان · الجزائر · وهران' : 'Tlemcen · Algiers · Oran'}</span>
+              <span class="text-text font-medium">{locale === 'ar' ? 'حضوري' : 'On-Site'}</span>
             </div>
           </div>
         </Reveal>

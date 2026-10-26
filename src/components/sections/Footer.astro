@@ -1,8 +1,27 @@
 ---
 import { siteConfig } from '../../data/site';
 import { ThemeToggle } from '../islands/ThemeToggle';
+import { useTranslations, type Locale } from '../../i18n/ui';
 
+interface Props {
+  locale?: Locale;
+}
+
+const {
+  locale = (Astro.currentLocale as Locale) || (Astro.url.pathname.startsWith('/ar') ? 'ar' : 'en'),
+} = Astro.props;
+
+const t = useTranslations(locale);
+const basePrefix = locale === 'ar' ? '/ar' : '';
+const homeUrl = locale === 'ar' ? '/ar' : '/';
 const currentYear = new Date().getFullYear();
+
+const navItems = [
+  { label: t('nav.work'), href: `${basePrefix}/work` },
+  { label: t('nav.teaching'), href: `${basePrefix}/teaching` },
+  { label: t('nav.about'), href: `${basePrefix}/about` },
+  { label: t('nav.experience'), href: `${homeUrl}#experience` },
+];
 ---
 
 <footer class="w-full border-t border-border bg-bg text-text pt-16 pb-12 mt-24">
@@ -10,7 +29,7 @@ const currentYear = new Date().getFullYear();
     <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-border">
       <!-- Col 1: Brand & Bio -->
       <div class="md:col-span-5 space-y-4">
-        <a href="/" class="inline-flex items-center gap-3 text-text group" aria-label="BenCoder Home">
+        <a href={homeUrl} class="inline-flex items-center gap-3 text-text group" aria-label="BenCoder Home">
           <div class="w-10 h-7 text-text transition-transform duration-200 group-hover:scale-105">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -27,15 +46,19 @@ const currentYear = new Date().getFullYear();
           <span class="text-base font-semibold tracking-tight">{siteConfig.name}</span>
         </a>
         <p class="text-sm text-text-muted leading-relaxed max-w-sm">
-          AI Instructor, Full-Stack Engineer, and Creator behind BenCoder. Building with AI, teaching it, and shipping products in Mostaganem, Algeria.
+          {locale === 'ar'
+            ? 'مهندس برمجيات، مدرب ذكاء اصطناعي، ومؤسس منصة BenCoder. نبني بالذكاء الاصطناعي، نعلّمه، ونشحن المنتجات البرمجية من مستغانم، الجزائر.'
+            : 'AI Instructor, Full-Stack Engineer, and Creator behind BenCoder. Building with AI, teaching it, and shipping products in Mostaganem, Algeria.'}
         </p>
       </div>
 
       <!-- Col 2: Navigation -->
       <div class="md:col-span-3 space-y-3">
-        <div class="font-mono text-xs uppercase tracking-wider text-text-faint">Navigation</div>
+        <div class="font-mono text-xs uppercase tracking-wider text-text-faint">
+          {locale === 'ar' ? 'التنقل' : 'Navigation'}
+        </div>
         <ul class="space-y-2 text-sm">
-          {siteConfig.nav.map((item) => (
+          {navItems.map((item) => (
             <li>
               <a
                 href={item.href}
@@ -50,7 +73,9 @@ const currentYear = new Date().getFullYear();
 
       <!-- Col 3: Social & Links -->
       <div class="md:col-span-4 space-y-3">
-        <div class="font-mono text-xs uppercase tracking-wider text-text-faint">Connect</div>
+        <div class="font-mono text-xs uppercase tracking-wider text-text-faint">
+          {locale === 'ar' ? 'التواصل' : 'Connect'}
+        </div>
         <ul class="space-y-2 text-sm">
           <li>
             <a
@@ -92,7 +117,7 @@ const currentYear = new Date().getFullYear();
               rel="noopener noreferrer"
               class="text-text-muted hover:text-text transition-colors duration-150 inline-flex items-center gap-1.5"
             >
-              <span>Download CV (PDF)</span>
+              <span>{locale === 'ar' ? 'تحميل السيرة الذاتية (PDF)' : 'Download CV (PDF)'}</span>
               <span class="text-xs text-text-faint font-mono">↗</span>
             </a>
           </li>
@@ -103,7 +128,7 @@ const currentYear = new Date().getFullYear();
     <!-- Bottom Bar -->
     <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-text-faint">
       <div>
-        &copy; {currentYear} {siteConfig.name}. Minimal, high-contrast engineering.
+        &copy; {currentYear} {siteConfig.name}. {t('footer.tagline')}
       </div>
 
       <div class="flex items-center gap-3">
@@ -113,9 +138,9 @@ const currentYear = new Date().getFullYear();
           id="back-to-top"
           type="button"
           class="inline-flex items-center gap-1.5 text-text-muted hover:text-text transition-colors cursor-pointer select-none py-1.5 px-2.5 rounded-lg border border-border bg-surface hover:border-border-strong"
-          aria-label="Scroll back to top of page"
+          aria-label={locale === 'ar' ? 'العودة إلى أعلى الصفحة' : 'Scroll back to top of page'}
         >
-          <span>Back to top</span>
+          <span>{locale === 'ar' ? 'العودة للأعلى' : 'Back to top'}</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="m18 15-6-6-6 6"></path>
           </svg>

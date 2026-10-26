@@ -1,0 +1,53 @@
+---
+import type { Locale } from '../../i18n/ui';
+
+interface Props {
+  locale?: Locale;
+  class?: string;
+}
+
+const {
+  locale = (Astro.currentLocale as Locale) || (Astro.url.pathname.startsWith('/ar') ? 'ar' : 'en'),
+  class: className = '',
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+const cleanPathEn = currentPath.replace(/^\/ar(\/|$)/, '/') || '/';
+const cleanPathAr = '/ar' + (cleanPathEn === '/' ? '' : cleanPathEn);
+
+const enUrl = cleanPathEn;
+const arUrl = cleanPathAr;
+---
+
+<div
+  class={`inline-flex items-center rounded-lg border border-border bg-surface text-xs font-mono p-0.5 select-none ${className}`}
+  role="group"
+  aria-label="Language selection"
+>
+  <a
+    href={enUrl}
+    class={`px-2 py-1 rounded-md text-[11px] transition-all duration-150 ${
+      locale === 'en'
+        ? 'bg-invert-bg text-invert-text font-bold shadow-2xs'
+        : 'text-text-muted hover:text-text hover:bg-surface-2'
+    }`}
+    aria-current={locale === 'en' ? 'page' : undefined}
+    title="Switch to English"
+  >
+    EN
+  </a>
+  <span class="text-border/80 px-0.5 text-[10px]" aria-hidden="true">/</span>
+  <a
+    href={arUrl}
+    class={`px-2 py-1 rounded-md text-[11px] font-medium transition-all duration-150 ${
+      locale === 'ar'
+        ? 'bg-invert-bg text-invert-text font-bold shadow-2xs font-sans'
+        : 'text-text-muted hover:text-text hover:bg-surface-2 font-sans'
+    }`}
+    aria-current={locale === 'ar' ? 'page' : undefined}
+    title="التبديل إلى العربية"
+    lang="ar"
+  >
+    العربية
+  </a>
+</div>

@@ -1,13 +1,27 @@
 ---
-import { projects } from '../../data/projects';
+import { projects as rawProjects } from '../../data/projects';
+import { getLocalizedProject } from '../../i18n/projects.ar';
+import { useTranslations, type Locale } from '../../i18n/ui';
 import SectionLabel from '../ui/SectionLabel.astro';
 import TagList from '../ui/TagList.astro';
 import Button from '../ui/Button.astro';
 import Reveal from '../ui/Reveal.astro';
 
-const flagshipProject = projects.find((p) => p.slug === 'jg-supply-net') || projects[0];
-const secondaryProjects = projects.filter((p) => ['phytosense', 'vyro', 'new-way', 'virexa'].includes(p.slug));
-const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-genai', 'fiikra-studio', 'perfecto-brew-crew'].includes(p.slug));
+interface Props {
+  locale?: Locale;
+}
+
+const {
+  locale = (Astro.currentLocale as Locale) || (Astro.url.pathname.startsWith('/ar') ? 'ar' : 'en'),
+} = Astro.props;
+
+const t = useTranslations(locale);
+const basePrefix = locale === 'ar' ? '/ar' : '';
+
+const localizedProjects = rawProjects.map((p) => getLocalizedProject(p, locale));
+const flagshipProject = localizedProjects.find((p) => p.slug === 'jg-supply-net') || localizedProjects[0];
+const secondaryProjects = localizedProjects.filter((p) => ['phytosense', 'vyro', 'new-way', 'virexa'].includes(p.slug));
+const clientProjects = localizedProjects.filter((p) => ['udemy-python-arabic', 'everest-genai', 'fiikra-studio', 'perfecto-brew-crew'].includes(p.slug));
 ---
 
 <section id="work" class="py-20 md:py-28 scroll-mt-20 relative">
@@ -15,17 +29,17 @@ const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-g
     <!-- Section Header -->
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-border pb-8">
       <div class="space-y-3">
-        <SectionLabel number="01" label="SELECTED WORK" />
+        <SectionLabel number={t('section.01.num')} label={t('section.01.label')} />
         <h2 class="text-headline text-text">
-          Featured Projects &amp; <span class="font-accent">Architectures</span>
+          {t('section.01.title')} <span class="font-accent">{t('section.01.titleAccent')}</span>
         </h2>
         <p class="text-text-muted text-base max-w-xl leading-relaxed">
-          Algeria's digital B2B procurement platform, resilient botanical AI, made-to-order manufacturing, and AI revenue forecasting SaaS.
+          {t('section.01.description')}
         </p>
       </div>
 
-      <Button href="/work" variant="secondary" size="md">
-        View all projects archive →
+      <Button href={`${basePrefix}/work`} variant="secondary" size="md">
+        {t('section.01.archive')}
       </Button>
     </div>
 
@@ -40,10 +54,10 @@ const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-g
                 <div class="flex items-center gap-2">
                   <span class="w-2 h-2 rounded-full bg-status animate-pulse"></span>
                   <span class="font-mono text-xs uppercase tracking-wider text-text font-bold">
-                    LATEST PRODUCTION WORK // B2B MARKETPLACE
+                    {locale === 'ar' ? 'أحدث عمل إنتاجي // سوق التوريد الرقمي B2B' : 'LATEST PRODUCTION WORK // B2B MARKETPLACE'}
                   </span>
                 </div>
-                <span class="text-xs font-mono text-text px-2 py-0.5 rounded bg-surface-2 border border-border">
+                <span class="text-xs font-mono text-text px-2 py-0.5 rounded bg-surface-2 border border-border bidi-tech">
                   2025 — 2026
                 </span>
               </div>
@@ -53,22 +67,22 @@ const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-g
               </h3>
 
               <p class="text-sm sm:text-base text-text-muted leading-relaxed">
-                Architected Algeria's modern digital B2B procurement platform for Jamael Group. Enables institutions, commercial buyers, and verified suppliers to publish purchase requests, explore technical catalogs, and streamline quotation pipelines.
+                {flagshipProject.summary}
               </p>
 
               <!-- Technical HUD Readouts -->
               <div class="grid grid-cols-3 gap-3 py-3 border-y border-border/70 text-xs font-mono">
                 <div>
-                  <div class="text-[10px] text-text-faint uppercase">Platform Model</div>
-                  <div class="text-text font-bold mt-0.5">B2B Sourcing Hub</div>
+                  <div class="text-[10px] text-text-faint uppercase">{locale === 'ar' ? 'نموذج المنصة' : 'Platform Model'}</div>
+                  <div class="text-text font-bold mt-0.5">{locale === 'ar' ? 'سوق توريد B2B' : 'B2B Sourcing Hub'}</div>
                 </div>
                 <div>
-                  <div class="text-[10px] text-text-faint uppercase">Localization</div>
-                  <div class="text-text font-bold mt-0.5">EN · FR · AR</div>
+                  <div class="text-[10px] text-text-faint uppercase">{locale === 'ar' ? 'اللغات' : 'Localization'}</div>
+                  <div class="text-text font-bold mt-0.5 bidi-tech">EN · FR · AR</div>
                 </div>
                 <div>
-                  <div class="text-[10px] text-text-faint uppercase">Role</div>
-                  <div class="text-status font-bold mt-0.5">Lead Full-Stack</div>
+                  <div class="text-[10px] text-text-faint uppercase">{locale === 'ar' ? 'الدور الهندسي' : 'Role'}</div>
+                  <div class="text-status font-bold mt-0.5">{locale === 'ar' ? 'المهندس المعماري الرئيسي' : 'Lead Full-Stack'}</div>
                 </div>
               </div>
 
@@ -98,9 +112,13 @@ const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-g
                     type="button"
                     class="project-bullets-toggle inline-flex items-center gap-1.5 text-xs font-mono text-text-muted hover:text-text transition-colors cursor-pointer pt-1"
                     aria-expanded="false"
+                    data-show-more={locale === 'ar' ? `عرض المزيد من النتائج (${flagshipProject.bullets.length - 3} نتائج إضافية)` : `See more outcomes (${flagshipProject.bullets.length - 3} more)`}
+                    data-show-less={t('btn.showLessDetails')}
                   >
                     <span class="toggle-icon text-status text-[11px]">↓</span>
-                    <span class="toggle-text">See more outcomes ({flagshipProject.bullets.length - 3} more)</span>
+                    <span class="toggle-text">
+                      {locale === 'ar' ? `عرض المزيد من النتائج (${flagshipProject.bullets.length - 3} نتائج إضافية)` : `See more outcomes (${flagshipProject.bullets.length - 3} more)`}
+                    </span>
                   </button>
                 )}
               </div>
@@ -116,22 +134,24 @@ const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-g
                     rel="noopener noreferrer"
                     class="text-xs font-mono text-text font-bold hover:underline inline-flex items-center gap-1"
                   >
-                    Visit Live Site ↗
+                    {t('btn.visitLive')}
                   </a>
                 )}
-                <Button href={`/work/${flagshipProject.slug}`} variant="ghost" size="sm">
-                  Case study →
+                <Button href={`${basePrefix}/work/${flagshipProject.slug}`} variant="ghost" size="sm">
+                  {t('btn.caseStudy')}
                 </Button>
               </div>
             </div>
           </div>
 
           <!-- Right: Live Platform Screen Preview & Telemetry -->
-          <div class="lg:col-span-5 bg-surface-2 p-6 sm:p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-border relative">
+          <div class="lg:col-span-5 bg-surface-2 p-6 sm:p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l rtl:lg:border-l-0 rtl:lg:border-r border-border relative">
             <div class="space-y-4 font-mono text-xs">
               <div class="flex items-center justify-between pb-3 border-b border-border/70 text-text-faint">
-                <span class="text-[11px]">// B2B SOURCING ENGINE</span>
-                <span class="text-[10px] px-2 py-0.5 rounded bg-bg text-status border border-border font-bold">● PRODUCTION LIVE</span>
+                <span class="text-[11px]">{locale === 'ar' ? '// محرك التوريد الرقمي B2B' : '// B2B SOURCING ENGINE'}</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-bg text-status border border-border font-bold">
+                  {locale === 'ar' ? '● بيئة الإنتاج الحية' : '● PRODUCTION LIVE'}
+                </span>
               </div>
 
               <!-- Real Platform Screenshot Preview in Browser Mockup Frame -->
@@ -142,13 +162,13 @@ const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-g
                     <span class="w-2 h-2 rounded-full bg-border-strong"></span>
                     <span class="w-2 h-2 rounded-full bg-border-strong"></span>
                   </div>
-                  <span class="text-[10px] text-text-muted">jgsupplynet.com/en</span>
-                  <span class="text-[9px] text-status font-bold">LIVE VERCEL</span>
+                  <span class="text-[10px] text-text-muted bidi-tech">jgsupplynet.com/en</span>
+                  <span class="text-[9px] text-status font-bold bidi-tech">LIVE VERCEL</span>
                 </div>
                 <a href={flagshipProject.liveUrl} target="_blank" rel="noopener noreferrer" class="block aspect-[16/10] overflow-hidden bg-surface-2">
                   <img
                     src={flagshipProject.image}
-                    alt="JG SupplyNet Live Platform"
+                    alt={flagshipProject.title}
                     class="w-full h-full object-cover group-hover/preview:scale-[1.02] transition-transform duration-300"
                     loading="eager"
                     width="1280"
@@ -159,20 +179,28 @@ const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-g
 
               <!-- Key Value Proposition Preview -->
               <div class="p-3.5 rounded-xl border border-border bg-bg/60 space-y-2">
-                <div class="text-[10px] text-text-faint uppercase tracking-wider">PLATFORM SCOPE</div>
+                <div class="text-[10px] text-text-faint uppercase tracking-wider">
+                  {locale === 'ar' ? 'نطاق وتأثير المنصة' : 'PLATFORM SCOPE'}
+                </div>
                 <div class="flex items-baseline justify-between">
-                  <span class="text-lg font-bold text-text font-sans">Connecting Organizations</span>
-                  <span class="text-xs font-mono text-status font-semibold">with Trusted Suppliers</span>
+                  <span class="text-base sm:text-lg font-bold text-text font-sans">
+                    {locale === 'ar' ? 'ربط المنشآت الصناعية' : 'Connecting Organizations'}
+                  </span>
+                  <span class="text-xs font-mono text-status font-semibold">
+                    {locale === 'ar' ? 'بالمورّدين المعتمدين' : 'with Trusted Suppliers'}
+                  </span>
                 </div>
                 <p class="text-[11px] text-text-muted font-sans leading-normal">
-                  One platform to manage procurement, discover qualified suppliers, and streamline B2B sourcing across Algeria.
+                  {locale === 'ar'
+                    ? 'منصة موحدة لإدارة طلبات عروض الأسعار، وتصفح الكتالوجات التقنية، وتبسيط التوريد المؤسسي في الجزائر.'
+                    : 'One platform to manage procurement, discover qualified suppliers, and streamline B2B sourcing across Algeria.'}
                 </p>
               </div>
             </div>
 
             <div class="pt-4 text-center">
               <span class="text-[11px] font-mono text-text-faint">
-                Developed for Jamael Group · Shipped 2025/2026
+                {locale === 'ar' ? 'صُممت ونُفذت لمجموعة جامايل · إطلاق 2025/2026' : 'Developed for Jamael Group · Shipped 2025/2026'}
               </span>
             </div>
           </div>
@@ -180,7 +208,7 @@ const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-g
       </div>
     </Reveal>
 
-    <!-- 2-Column Paired Featured Projects (Virexa & Fiikra) -->
+    <!-- 2-Column Paired Featured Projects (PhytoSense, VYRO, New Way, Virexa) -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       {secondaryProjects.map((project, idx) => (
         <Reveal delay={120 + idx * 80}>
@@ -194,12 +222,14 @@ const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-g
                     <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block"></span>
                     <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block"></span>
                   </div>
-                  <span class="truncate max-w-[180px] text-[10px] text-text-muted font-mono">{project.liveUrl?.replace('https://', '')}</span>
+                  <span class="truncate max-w-[180px] text-[10px] text-text-muted font-mono bidi-tech">{project.liveUrl?.replace('https://', '')}</span>
                   {project.status === 'live' && (
-                    <span class="text-status text-[10px] font-medium">● LIVE</span>
+                    <span class="text-status text-[10px] font-medium">
+                      {locale === 'ar' ? '● مباشر' : '● LIVE'}
+                    </span>
                   )}
                 </div>
-                <a href={project.liveUrl || `/work/${project.slug}`} class="block overflow-hidden aspect-[16/10] bg-surface-2">
+                <a href={project.liveUrl || `${basePrefix}/work/${project.slug}`} class="block overflow-hidden aspect-[16/10] bg-surface-2">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -214,7 +244,7 @@ const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-g
               <!-- Title & Category -->
               <div>
                 <span class="text-[11px] font-mono uppercase tracking-wider text-text-faint">
-                  {project.role} // {project.year}
+                  {project.role} // <span class="bidi-tech">{project.year}</span>
                 </span>
                 <h3 class="text-xl sm:text-2xl font-bold text-text tracking-tight font-sans mt-0.5 group-hover:text-text transition-colors">
                   {project.title}
@@ -251,9 +281,13 @@ const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-g
                     type="button"
                     class="project-bullets-toggle inline-flex items-center gap-1.5 text-[11px] font-mono text-text-muted hover:text-text transition-colors cursor-pointer pt-1"
                     aria-expanded="false"
+                    data-show-more={locale === 'ar' ? `عرض تفاصيل إضافية (${project.bullets.length - 2} نقاط)` : `See more details (${project.bullets.length - 2} more)`}
+                    data-show-less={t('btn.showLessDetails')}
                   >
                     <span class="toggle-icon text-status text-[10px]">↓</span>
-                    <span class="toggle-text">See more details ({project.bullets.length - 2} more)</span>
+                    <span class="toggle-text">
+                      {locale === 'ar' ? `عرض تفاصيل إضافية (${project.bullets.length - 2} نقاط)` : `See more details (${project.bullets.length - 2} more)`}
+                    </span>
                   </button>
                 )}
               </div>
@@ -262,31 +296,36 @@ const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-g
             <!-- Footer Stack & Visit Link -->
             <div class="pt-4 border-t border-border flex flex-wrap items-center justify-between gap-3">
               <TagList size="sm" tags={project.stack} />
-              {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-xs font-mono text-text font-bold hover:underline inline-flex items-center gap-1"
-                >
-                  Visit Live Site ↗
-                </a>
-              )}
+              <div class="flex items-center gap-3">
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-xs font-mono text-text font-bold hover:underline inline-flex items-center gap-1"
+                  >
+                    {t('btn.visitLive')}
+                  </a>
+                )}
+                <Button href={`${basePrefix}/work/${project.slug}`} variant="ghost" size="sm">
+                  {t('btn.caseStudy')}
+                </Button>
+              </div>
             </div>
           </div>
         </Reveal>
       ))}
     </div>
 
-    <!-- Commercial & Client Deployments Data Strip (No Boxy Cards) -->
+    <!-- Commercial & Client Deployments Data Strip -->
     <Reveal delay={240}>
       <div class="border-t border-border pt-10 space-y-6">
         <div class="flex items-center justify-between">
           <span class="font-mono text-xs uppercase tracking-wider text-text-faint">
-            // MORE COMMERCIAL &amp; CLIENT DEPLOYMENTS
+            {locale === 'ar' ? '// مشاريع تجارية واستشارية إضافية' : '// MORE COMMERCIAL & CLIENT DEPLOYMENTS'}
           </span>
-          <a href="/work" class="text-xs font-mono text-text hover:underline">
-            Browse complete catalog →
+          <a href={`${basePrefix}/work`} class="text-xs font-mono text-text hover:underline">
+            {locale === 'ar' ? 'تصفح الفهرس الكامل ←' : 'Browse complete catalog →'}
           </a>
         </div>
 
@@ -304,23 +343,25 @@ const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-g
                 </div>
                 <div class="space-y-0.5 min-w-0">
                   <div class="text-sm font-bold text-text font-sans truncate">{p.title}</div>
-                  <div class="text-[11px] text-text-muted truncate">{p.category} · {p.role} ({p.year})</div>
+                  <div class="text-[11px] text-text-muted truncate">
+                    {p.category} · {p.role} (<span class="bidi-tech">{p.year}</span>)
+                  </div>
                 </div>
               </div>
 
               <div class="flex items-center gap-3">
                 <div class="hidden md:flex items-center gap-1.5">
                   {p.stack.slice(0, 3).map((st) => (
-                    <span class="text-[10px] px-2 py-0.5 rounded bg-surface-2 border border-border text-text-muted">
+                    <span class="text-[10px] px-2 py-0.5 rounded bg-surface-2 border border-border text-text-muted bidi-tech">
                       {st}
                     </span>
                   ))}
                 </div>
                 <a
-                  href={`/work/${p.slug}`}
+                  href={`${basePrefix}/work/${p.slug}`}
                   class="text-text hover:underline shrink-0 text-xs inline-flex items-center gap-1 font-mono"
                 >
-                  Deep dive →
+                  {t('btn.deepDive')}
                 </a>
                 {p.liveUrl ? (
                   <a
@@ -329,7 +370,7 @@ const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-g
                     rel="noopener noreferrer"
                     class="text-text font-bold hover:underline shrink-0 text-xs inline-flex items-center gap-1"
                   >
-                    Visit ↗
+                    {t('btn.visitLive')}
                   </a>
                 ) : p.repoUrl ? (
                   <a
@@ -341,7 +382,7 @@ const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-g
                     GitHub ↗
                   </a>
                 ) : (
-                  <span class="text-text-faint text-[11px]">Private Client</span>
+                  <span class="text-text-faint text-[11px]">{locale === 'ar' ? 'مشروع خاص' : 'Private Client'}</span>
                 )}
               </div>
             </div>
@@ -355,7 +396,6 @@ const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-g
 <script>
   function setupProjectBulletsToggle() {
     document.querySelectorAll<HTMLButtonElement>('.project-bullets-toggle').forEach((btn) => {
-      // Avoid attaching duplicate event listeners
       if (btn.dataset.initialized === 'true') return;
       btn.dataset.initialized = 'true';
 
@@ -371,13 +411,12 @@ const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-g
         if (isHidden) {
           extra.classList.remove('hidden');
           btn.setAttribute('aria-expanded', 'true');
-          textSpan.textContent = 'Show less details';
+          textSpan.textContent = btn.dataset.showLess || 'Show less details';
           iconSpan.textContent = '↑';
         } else {
           extra.classList.add('hidden');
           btn.setAttribute('aria-expanded', 'false');
-          const count = extra.querySelectorAll('li').length;
-          textSpan.textContent = `See more details (${count} more)`;
+          textSpan.textContent = btn.dataset.showMore || 'See more details';
           iconSpan.textContent = '↓';
         }
       });

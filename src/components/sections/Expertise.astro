@@ -2,6 +2,17 @@
 import SectionLabel from '../ui/SectionLabel.astro';
 import Reveal from '../ui/Reveal.astro';
 import { SkillsMatrix } from '../islands/SkillsMatrix';
+import { useTranslations, type Locale } from '../../i18n/ui';
+
+interface Props {
+  locale?: Locale;
+}
+
+const {
+  locale = (Astro.currentLocale as Locale) || (Astro.url.pathname.startsWith('/ar') ? 'ar' : 'en'),
+} = Astro.props;
+
+const t = useTranslations(locale);
 ---
 
 <section id="expertise" class="py-20 md:py-28 bg-surface/20 border-y border-border scroll-mt-20">
@@ -9,18 +20,18 @@ import { SkillsMatrix } from '../islands/SkillsMatrix';
     <!-- Header -->
     <div class="border-b border-border pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
       <div class="space-y-3">
-        <SectionLabel number="04" label="EXPERTISE &amp; TOOLS" />
+        <SectionLabel number={t('section.04.num')} label={t('section.04.label')} />
         <h2 class="text-headline text-text mt-3">
-          Where tools sit <span class="font-accent">in production</span>
+          {t('section.04.title')} <span class="font-accent">{t('section.04.titleAccent')}</span>
         </h2>
         <p class="text-text-muted text-base max-w-xl leading-relaxed">
-          Structured by architectural domain. Each competency is demonstrated through production codebases, live system deployments, or hands-on academy instruction.
+          {t('section.04.description')}
         </p>
       </div>
 
       <div class="flex items-center gap-2 font-mono text-xs text-text-faint">
         <span class="w-2 h-2 rounded-full bg-status"></span>
-        <span>14 Core Competencies</span>
+        <span>{locale === 'ar' ? '14 كفاءة أساسية مُثبتة' : '14 Core Competencies'}</span>
       </div>
     </div>
 
