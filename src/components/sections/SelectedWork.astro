@@ -72,15 +72,38 @@ const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-g
                 </div>
               </div>
 
-              <!-- Outcomes -->
-              <ul class="space-y-1.5 text-xs sm:text-sm text-text-muted font-mono pt-1">
-                {flagshipProject.bullets.map((bullet) => (
-                  <li class="flex items-start gap-2">
-                    <span class="text-status font-bold select-none">›</span>
-                    <span class="leading-relaxed">{bullet}</span>
-                  </li>
-                ))}
-              </ul>
+              <!-- Outcomes with progressive disclosure -->
+              <div class="space-y-1.5 pt-1">
+                <ul class="space-y-1.5 text-xs sm:text-sm text-text-muted font-mono">
+                  {flagshipProject.bullets.slice(0, 3).map((bullet) => (
+                    <li class="flex items-start gap-2">
+                      <span class="text-status font-bold select-none">›</span>
+                      <span class="leading-relaxed">{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {flagshipProject.bullets.length > 3 && (
+                  <div class="project-extra-bullets hidden space-y-1.5 pt-1">
+                    <ul class="space-y-1.5 text-xs sm:text-sm text-text-muted font-mono">
+                      {flagshipProject.bullets.slice(3).map((bullet) => (
+                        <li class="flex items-start gap-2">
+                          <span class="text-status font-bold select-none">›</span>
+                          <span class="leading-relaxed">{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <button
+                    type="button"
+                    class="project-bullets-toggle inline-flex items-center gap-1.5 text-xs font-mono text-text-muted hover:text-text transition-colors cursor-pointer pt-1"
+                    aria-expanded="false"
+                  >
+                    <span class="toggle-icon text-status text-[11px]">↓</span>
+                    <span class="toggle-text">See more outcomes ({flagshipProject.bullets.length - 3} more)</span>
+                  </button>
+                )}
+              </div>
             </div>
 
             <div class="pt-4 border-t border-border flex flex-wrap items-center justify-between gap-4">
@@ -202,15 +225,38 @@ const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-g
                 {project.summary}
               </p>
 
-              <!-- Bullets -->
-              <ul class="space-y-1.5 text-xs text-text-muted font-mono pt-1">
-                {project.bullets.map((b) => (
-                  <li class="flex items-start gap-2">
-                    <span class="text-text font-bold">›</span>
-                    <span class="leading-relaxed">{b}</span>
-                  </li>
-                ))}
-              </ul>
+              <!-- Bullets with progressive disclosure -->
+              <div class="space-y-1.5 pt-1">
+                <ul class="space-y-1.5 text-xs text-text-muted font-mono">
+                  {project.bullets.slice(0, 2).map((b) => (
+                    <li class="flex items-start gap-2">
+                      <span class="text-text font-bold">›</span>
+                      <span class="leading-relaxed">{b}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {project.bullets.length > 2 && (
+                  <div class="project-extra-bullets hidden space-y-1.5 pt-1">
+                    <ul class="space-y-1.5 text-xs text-text-muted font-mono">
+                      {project.bullets.slice(2).map((b) => (
+                        <li class="flex items-start gap-2">
+                          <span class="text-text font-bold">›</span>
+                          <span class="leading-relaxed">{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <button
+                    type="button"
+                    class="project-bullets-toggle inline-flex items-center gap-1.5 text-[11px] font-mono text-text-muted hover:text-text transition-colors cursor-pointer pt-1"
+                    aria-expanded="false"
+                  >
+                    <span class="toggle-icon text-status text-[10px]">↓</span>
+                    <span class="toggle-text">See more details ({project.bullets.length - 2} more)</span>
+                  </button>
+                )}
+              </div>
             </div>
 
             <!-- Footer Stack & Visit Link -->
@@ -305,3 +351,39 @@ const clientProjects = projects.filter((p) => ['udemy-python-arabic', 'everest-g
     </Reveal>
   </div>
 </section>
+
+<script>
+  function setupProjectBulletsToggle() {
+    document.querySelectorAll<HTMLButtonElement>('.project-bullets-toggle').forEach((btn) => {
+      // Avoid attaching duplicate event listeners
+      if (btn.dataset.initialized === 'true') return;
+      btn.dataset.initialized = 'true';
+
+      btn.addEventListener('click', () => {
+        const parent = btn.closest('div');
+        if (!parent) return;
+        const extra = parent.querySelector('.project-extra-bullets');
+        const textSpan = btn.querySelector('.toggle-text');
+        const iconSpan = btn.querySelector('.toggle-icon');
+        if (!extra || !textSpan || !iconSpan) return;
+
+        const isHidden = extra.classList.contains('hidden');
+        if (isHidden) {
+          extra.classList.remove('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+          textSpan.textContent = 'Show less details';
+          iconSpan.textContent = '↑';
+        } else {
+          extra.classList.add('hidden');
+          btn.setAttribute('aria-expanded', 'false');
+          const count = extra.querySelectorAll('li').length;
+          textSpan.textContent = `See more details (${count} more)`;
+          iconSpan.textContent = '↓';
+        }
+      });
+    });
+  }
+
+  setupProjectBulletsToggle();
+  document.addEventListener('astro:page-load', setupProjectBulletsToggle);
+</script>

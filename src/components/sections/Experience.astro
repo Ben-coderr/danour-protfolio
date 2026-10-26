@@ -148,7 +148,7 @@ const timeline = [
 
     <!-- Git-Commit Spine Timeline (No Boxy Card Repetition) -->
     <div class="relative pl-6 sm:pl-8 ml-3 sm:ml-4 border-l-2 border-border/80 space-y-12">
-      {timeline.map((item, idx) => (
+      {timeline.slice(0, 4).map((item, idx) => (
         <Reveal delay={idx * 60}>
           <div class="relative group">
             {/* Git node marker */}
@@ -216,6 +216,76 @@ const timeline = [
           </div>
         </Reveal>
       ))}
+
+      <!-- Expandable Earlier Experiences (Progressive Disclosure) -->
+      <div id="extra-experience-section" class="hidden space-y-12 pt-12 border-t border-border/50">
+        {timeline.slice(4).map((item) => (
+          <div class="relative group">
+            {/* Git node marker */}
+            <div
+              class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full border-2 border-bg ring-4 ring-bg flex items-center justify-center bg-border-strong group-hover:bg-text transition-colors"
+              aria-hidden="true"
+            />
+
+            <!-- Content Container -->
+            <div class="space-y-3">
+              <!-- Meta line: Period, Status, Category -->
+              <div class="flex flex-wrap items-center gap-2 text-xs font-mono">
+                <span class="font-bold text-text bg-surface-2 px-2.5 py-0.5 rounded border border-border">
+                  {item.period}
+                </span>
+                <span class="text-text-faint">·</span>
+                <span class="text-text-muted font-medium">{item.category}</span>
+                <span class="text-text-faint">·</span>
+                <span class="text-text-faint">{item.location}</span>
+              </div>
+
+              <!-- Role & Company -->
+              <div class="flex flex-wrap items-baseline gap-2">
+                <h3 class="text-xl sm:text-2xl font-bold text-text tracking-tight font-sans">
+                  {item.role}
+                </h3>
+                <span class="text-base text-text-muted font-medium font-sans">
+                  @ <strong class="text-text font-semibold">{item.company}</strong>
+                </span>
+              </div>
+
+              <!-- Summary -->
+              <p class="text-sm text-text-muted leading-relaxed max-w-3xl">
+                {item.summary}
+              </p>
+
+              <!-- Achievements list -->
+              <ul class="space-y-1.5 text-xs text-text-muted font-mono pt-1 max-w-3xl">
+                {item.achievements.map((ach) => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-status select-none">›</span>
+                    <span class="leading-relaxed">{ach}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <!-- Stack Tags -->
+              <div class="pt-2">
+                <TagList size="sm" tags={item.stack} />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- See More Experience Button -->
+      <div class="pt-2">
+        <button
+          id="toggle-experience-btn"
+          type="button"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-border bg-surface hover:bg-surface-2 hover:border-border-strong text-xs font-mono font-medium text-text transition-all duration-200 cursor-pointer shadow-2xs group"
+          aria-expanded="false"
+        >
+          <span class="exp-icon text-status transition-transform duration-200">↓</span>
+          <span class="exp-text">See more experience (4 earlier roles &amp; internships)</span>
+        </button>
+      </div>
     </div>
 
     <!-- Education & Academic Foundation (Architectural Credential Banner) -->
@@ -264,3 +334,34 @@ const timeline = [
     </Reveal>
   </div>
 </section>
+
+<script>
+  function setupExperienceToggle() {
+    const btn = document.getElementById('toggle-experience-btn');
+    const extra = document.getElementById('extra-experience-section');
+    if (!btn || !extra) return;
+
+    btn.addEventListener('click', () => {
+      const isHidden = extra.classList.contains('hidden');
+      if (isHidden) {
+        extra.classList.remove('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+        const textSpan = btn.querySelector('.exp-text');
+        const iconSpan = btn.querySelector('.exp-icon');
+        if (textSpan) textSpan.textContent = 'Show less experience';
+        if (iconSpan) iconSpan.textContent = '↑';
+      } else {
+        extra.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+        const textSpan = btn.querySelector('.exp-text');
+        const iconSpan = btn.querySelector('.exp-icon');
+        if (textSpan) textSpan.textContent = 'See more experience (4 earlier roles & internships)';
+        if (iconSpan) iconSpan.textContent = '↓';
+        btn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  }
+
+  setupExperienceToggle();
+  document.addEventListener('astro:page-load', setupExperienceToggle);
+</script>

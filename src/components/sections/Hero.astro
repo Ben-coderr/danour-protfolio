@@ -35,9 +35,11 @@ import { HeroConsole } from '../islands/HeroConsole';
         <Reveal delay={100}>
           <h1 class="text-display text-text">
             I build with AI, 
-            <span class="hero-selection-wrapper group" title="Click to replay selection">
-              <span class="font-accent hero-selection-single-text">teach it</span>
-              <span class="hero-selection-highlight" aria-hidden="true" />
+            <span class="hero-selection-wrapper group" title="Click to replay selection" aria-label="teach it">
+              <span class="font-accent hero-selection-base">teach it</span>
+              <span class="hero-selection-highlight" aria-hidden="true">
+                <span class="font-accent hero-selection-text">teach it</span>
+              </span>
               <span class="hero-sim-cursor" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                   <path
