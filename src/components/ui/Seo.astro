@@ -12,12 +12,12 @@ interface Props {
 const {
   title = `${siteConfig.name} — AI Instructor & Full-Stack Engineer`,
   description = siteConfig.description,
-  ogImage = '/brand/logo-black.png',
+  ogImage = '/brand/og-card.png',
   canonicalUrl = Astro.url.href,
   type = 'website',
 } = Astro.props;
 
-const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://bencoder.netlify.app';
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || siteConfig.url;
 const fullOgImageUrl = new URL(ogImage, siteUrl).href;
 
 const jsonLdPerson = {

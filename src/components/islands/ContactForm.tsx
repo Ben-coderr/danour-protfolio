@@ -66,7 +66,7 @@ export function ContactForm() {
         </div>
         <h3 className="text-xl font-bold text-text">Message Received</h3>
         <p className="text-sm text-text-muted max-w-md mx-auto leading-relaxed">
-          Thank you for reaching out. I've received your note and will reply directly to your email within 48 hours.
+          Thank you for reaching out. I've received your note and will reply directly to your email within 24 hours.
         </p>
         <button
           type="button"
@@ -185,7 +185,7 @@ export function ContactForm() {
       </button>
 
       <p className="text-[11px] font-mono text-text-faint text-center">
-        No spam or tracking. Standard response time is within 48 hours.
+        No spam or tracking. Standard response time is within 24 hours.
       </p>
     </form>
   );

@@ -79,9 +79,9 @@ const pillars: Pillar[] = [
       prefix: 'engine-spec',
       lines: [
         { text: 'const flagship = "JG SupplyNet (Algeria B2B Portal)";', highlight: true },
-        { text: 'const stack = ["Next.js 15 (App Router)", "TypeScript", "Tailwind v4"];' },
-        { text: 'const clients = ["Virexa Health SaaS", "Fiikra Creative Studio"];' },
-        { text: 'const telemetry = { latency: "<300ms", uptime: "99.9%" };' },
+        { text: 'const stack = ["Next.js 15 (App Router)", "TypeScript", "Tailwind CSS"];' },
+        { text: 'const database = "PostgreSQL schema with Prisma ORM";' },
+        { text: 'const deployment = "Vercel Global Edge & Serverless Compute";' },
       ],
     },
   },
@@ -115,6 +115,13 @@ export function HeroConsole() {
   const [autoPlay, setAutoPlay] = useState<boolean>(true);
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) {
+        setAutoPlay(false);
+        return;
+      }
+    }
     if (!autoPlay) return;
     const interval = setInterval(() => {
       setActiveTab((prev) => (prev + 1) % pillars.length);
@@ -139,15 +146,24 @@ export function HeroConsole() {
             <span className="w-2.5 h-2.5 rounded-full bg-border-strong border border-border inline-block" />
           </div>
           <span className="text-text-muted text-[11px] ml-1">
-            bencoder-runtime <span className="text-text-faint">v2.4.0</span>
+            portfolio-overview <span className="text-text-faint">// interactive</span>
           </span>
         </div>
-        <div className="flex items-center gap-2">
-          <span className="relative flex h-2 w-2" aria-hidden="true">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-status opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-status" />
-          </span>
-          <span className="text-[10px] text-text-muted tracking-wider uppercase">Active Mode</span>
+        <div className="flex items-center gap-2.5">
+          <button
+            type="button"
+            onClick={() => setAutoPlay((prev) => !prev)}
+            aria-label={autoPlay ? 'Pause auto-rotation' : 'Play auto-rotation'}
+            className="text-[10px] text-text-muted hover:text-text px-2 py-0.5 rounded border border-border bg-surface hover:bg-surface-2 cursor-pointer transition-colors"
+          >
+            {autoPlay ? '⏸ Pause' : '▶ Play'}
+          </button>
+          <div className="flex items-center gap-1.5">
+            <span className="relative flex h-2 w-2" aria-hidden="true">
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-status" />
+            </span>
+            <span className="text-[10px] text-text-muted tracking-wider uppercase hidden sm:inline">Active</span>
+          </div>
         </div>
       </div>
 

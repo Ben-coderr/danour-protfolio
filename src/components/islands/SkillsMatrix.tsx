@@ -10,53 +10,120 @@ export interface SkillItem {
 }
 
 export const allSkills: SkillItem[] = [
-  // AI & Data
-  { name: 'Generative AI & LLMs', category: 'ai', level: 'Production', context: 'Everest Academy & AI Formation', iconType: 'brain' },
-  { name: 'Prompt Engineering', category: 'ai', level: 'Instruction', context: 'Advanced prompting & context engineering', iconType: 'terminal' },
-  { name: 'Vibe Coding & AI Tools', category: 'ai', level: 'Mastery', context: 'Rapid AI-assisted full-stack development', iconType: 'zap' },
-  { name: 'AI Video & Graphic Design', category: 'ai', level: 'Instruction', context: 'Runway, Kling, Midjourney, FLUX.1', iconType: 'video' },
-  { name: 'Python', category: 'ai', level: 'Core Stack', context: 'Data pipelines & Udemy 300+ students', iconType: 'python' },
-  { name: 'RAG & Vector DBs', category: 'ai', level: 'Core Stack', context: 'ChromaDB, Pinecone retrieval', iconType: 'database' },
-  { name: 'Machine Learning', category: 'ai', level: 'Academic', context: 'Univ. Mostaganem Data Science', iconType: 'network' },
-  { name: 'Data Security', category: 'ai', level: 'Production', context: 'Enterprise IT & Sonatrach', iconType: 'shield' },
+  // AI & Large Language Models
+  {
+    name: 'Applied LLMs & Prompt Architecture',
+    category: 'ai',
+    level: 'Production',
+    context: 'Google Gemini Flash & Vercel AI SDK (New Way & PhytoSense)',
+    iconType: 'brain',
+  },
+  {
+    name: 'Multi-Provider Failover Cascading',
+    category: 'ai',
+    level: 'Architecture',
+    context: 'Pl@ntNet ➔ Kindwise vision failover (PhytoSense)',
+    iconType: 'network',
+  },
+  {
+    name: 'AI Pedagogy & Vibe Coding',
+    category: 'ai',
+    level: 'Instruction',
+    context: 'Everest Academy flagship "Build with AI" curriculum',
+    iconType: 'teach',
+  },
 
-  // Frontend
-  { name: 'Next.js 15 (App Router)', category: 'frontend', level: 'Core Stack', context: 'Production Web Platforms (JG SupplyNet)', iconType: 'next' },
-  { name: 'React', category: 'frontend', level: 'Core Stack', context: 'SPAs & Streaming AI interfaces', iconType: 'react' },
-  { name: 'TypeScript', category: 'frontend', level: 'Core Stack', context: 'End-to-end type safety', iconType: 'typescript' },
-  { name: 'Tailwind CSS', category: 'frontend', level: 'Core Stack', context: 'Design systems & responsive UI', iconType: 'tailwind' },
-  { name: 'UI/UX & Figma', category: 'frontend', level: 'Design', context: 'Prototyping & user journeys', iconType: 'figma' },
+  // Frontend & User Interfaces
+  {
+    name: 'Next.js (App Router & SSR)',
+    category: 'frontend',
+    level: 'Core Stack',
+    context: 'JG SupplyNet, VYRO, PhytoSense & New Way',
+    iconType: 'next',
+  },
+  {
+    name: 'TypeScript',
+    category: 'frontend',
+    level: 'Core Stack',
+    context: 'Strict end-to-end type safety across all repositories',
+    iconType: 'typescript',
+  },
+  {
+    name: 'React 19 & Fluid UI',
+    category: 'frontend',
+    level: 'Core Stack',
+    context: 'Interactive dashboards & streaming client components',
+    iconType: 'react',
+  },
+  {
+    name: 'Tailwind CSS & Design Systems',
+    category: 'frontend',
+    level: 'Core Stack',
+    context: 'Responsive WCAG AA accessible component systems',
+    iconType: 'tailwind',
+  },
 
-  // Backend & Data
-  { name: 'Node.js', category: 'backend', level: 'Core Stack', context: 'REST APIs & microservices', iconType: 'node' },
-  { name: 'Django / REST Framework', category: 'backend', level: 'Core Stack', context: 'Enterprise backends & auth', iconType: 'django' },
-  { name: 'PostgreSQL', category: 'backend', level: 'Core Stack', context: 'Relational data modeling', iconType: 'postgres' },
-  { name: 'MongoDB', category: 'backend', level: 'Production', context: 'Document storage & caches', iconType: 'mongo' },
-  { name: 'FastAPI', category: 'backend', level: 'Production', context: 'High-speed Python AI APIs', iconType: 'fastapi' },
+  // Backend & Data Storage
+  {
+    name: 'Python & FastAPI',
+    category: 'backend',
+    level: 'Core Stack',
+    context: 'PhytoSense decision engine & Udemy Python Course',
+    iconType: 'python',
+  },
+  {
+    name: 'PostgreSQL & Prisma ORM',
+    category: 'backend',
+    level: 'Core Stack',
+    context: 'VYRO manufacturing database schema & Sefrone APIs',
+    iconType: 'postgres',
+  },
+  {
+    name: 'Offline Full-Text Search (SQLite FTS5)',
+    category: 'backend',
+    level: 'Mobile Edge',
+    context: 'PhytoSense offline Android APK botanical search',
+    iconType: 'database',
+  },
 
-  // Tools & Systems
-  { name: 'Robotics & Hardware', category: 'tools', level: 'Instruction', context: 'Arduino & Raspberry Pi with DZDuino', iconType: 'bot' },
-  { name: 'Git & GitHub', category: 'tools', level: 'Workflow', context: 'CI/CD & team version control', iconType: 'github' },
-  { name: 'Linux / POSIX', category: 'tools', level: 'System', context: 'Server administration & bash', iconType: 'linux' },
-  { name: 'Docker', category: 'tools', level: 'DevOps', context: 'Containerized deployments', iconType: 'docker' },
-  { name: 'VS Code & Tooling', category: 'tools', level: 'Workflow', context: 'Custom extensions & profiling', iconType: 'vscode' },
-  { name: 'Windows Server', category: 'tools', level: 'Enterprise', context: 'Sonatrach enterprise infrastructure', iconType: 'server' },
-
-  // Teaching & Communication
-  { name: 'AI Instruction', category: 'teaching', level: 'Lead Instructor', context: 'Everest Academy flagship formation', iconType: 'teach' },
-  { name: 'Online Teaching (Udemy)', category: 'teaching', level: 'Instructor', context: 'Python for Beginners (300+ students)', iconType: 'book' },
-  { name: 'Content Creation (102K+)', category: 'teaching', level: 'BenCoder', context: 'Global developer audience', iconType: 'play' },
-  { name: 'Public Speaking & Workshops', category: 'teaching', level: 'Speaker', context: 'Tlemcen, Algiers & Oran sessions', iconType: 'mic' },
-  { name: '1-on-1 Mentorship', category: 'teaching', level: 'Mentor', context: '3-Month Web Dev Intensive & Robotics', iconType: 'users' },
+  // Systems & Regional Integrations
+  {
+    name: 'Turborepo Monorepo Architecture',
+    category: 'tools',
+    level: 'Workflow',
+    context: 'Storefront + /admin workspace isolation in VYRO',
+    iconType: 'terminal',
+  },
+  {
+    name: 'Regional Payments & Logistics',
+    category: 'tools',
+    level: 'Integration',
+    context: 'Chargily Pay (CIB/Edahabia) & Yalidine shipping tables in VYRO',
+    iconType: 'zap',
+  },
+  {
+    name: 'Microcontrollers & Linux Edge (C/C++)',
+    category: 'tools',
+    level: 'Embedded',
+    context: 'Arduino Uno & Raspberry Pi 4 edge robotics with DZDuino',
+    iconType: 'bot',
+  },
+  {
+    name: 'Online Pedagogy & Community',
+    category: 'teaching',
+    level: 'Platform',
+    context: '300+ Udemy students & 102K+ BenCoder developer community',
+    iconType: 'play',
+  },
 ];
 
 const categories = [
-  { id: 'all', label: 'All Capabilities', count: allSkills.length, icon: 'layers' },
-  { id: 'ai', label: 'AI & Machine Learning', count: allSkills.filter((s) => s.category === 'ai').length, icon: 'brain' },
+  { id: 'all', label: 'All Core Skills', count: allSkills.length, icon: 'layers' },
+  { id: 'ai', label: 'Applied AI & LLMs', count: allSkills.filter((s) => s.category === 'ai').length, icon: 'brain' },
   { id: 'frontend', label: 'Frontend & UI', count: allSkills.filter((s) => s.category === 'frontend').length, icon: 'layout' },
   { id: 'backend', label: 'Backend & Data', count: allSkills.filter((s) => s.category === 'backend').length, icon: 'server' },
-  { id: 'tools', label: 'Systems & DevOps', count: allSkills.filter((s) => s.category === 'tools').length, icon: 'terminal' },
-  { id: 'teaching', label: 'Instruction & EdTech', count: allSkills.filter((s) => s.category === 'teaching').length, icon: 'teach' },
+  { id: 'tools', label: 'Systems & Integrations', count: allSkills.filter((s) => s.category === 'tools').length, icon: 'terminal' },
+  { id: 'teaching', label: 'Teaching & Community', count: allSkills.filter((s) => s.category === 'teaching').length, icon: 'teach' },
 ];
 
 export function SkillsMatrix() {
@@ -148,12 +215,12 @@ export function SkillsMatrix() {
           )}
           <span className="truncate">
             {hoveredSkill
-              ? `Inspecting: ${hoveredSkill.name} (${hoveredSkill.level}) — ${hoveredSkill.context}`
-              : `Showing ${filtered.length} verified technical competencies. Hover any skill for verified context.`}
+              ? `Demonstrated in: ${hoveredSkill.name} — ${hoveredSkill.context}`
+              : `Showing ${filtered.length} core engineering capabilities. Hover any skill for production evidence.`}
           </span>
         </div>
         <span className="text-[10px] text-text-faint uppercase hidden md:inline shrink-0">
-          Zero arbitrary fluff · 100% verified
+          Backed by shipped production code
         </span>
       </div>
     </div>

@@ -183,12 +183,62 @@ const nextProject = projects[(currentIndex + 1) % projects.length];
           </Reveal>
         )}
 
+        <!-- Architectural Decisions & Engineering Trade-Offs -->
+        {project.architecturalDecisions && project.architecturalDecisions.length > 0 && (
+          <Reveal delay={210}>
+            <section class="space-y-6">
+              <div class="border-b border-border pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h2 class="text-2xl font-bold tracking-tight text-text font-sans">
+                  04 // Architectural Decisions &amp; Engineering Trade-Offs
+                </h2>
+                <span class="text-xs font-mono text-text-faint">
+                  Problem → Decision → Trade-off → Result
+                </span>
+              </div>
+
+              <div class="space-y-4">
+                {project.architecturalDecisions.map((dec, dIdx) => (
+                  <div class="p-5 sm:p-6 rounded-xl border border-border bg-surface-2/40 hover:bg-surface-2/70 transition-all space-y-4">
+                    <div class="flex flex-wrap items-center gap-2 text-xs font-mono text-status font-semibold">
+                      <span>DECISION 0{dIdx + 1}</span>
+                      <span class="text-text-faint">/</span>
+                      <span class="text-text font-sans text-base font-bold">{dec.title}</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 text-xs font-mono">
+                      <div class="p-3.5 rounded-lg border border-border bg-surface space-y-1">
+                        <div class="text-[10px] uppercase tracking-wider text-text-faint font-bold">The Problem:</div>
+                        <div class="text-text-muted leading-relaxed font-sans text-xs">{dec.problem}</div>
+                      </div>
+
+                      <div class="p-3.5 rounded-lg border border-border bg-surface space-y-1">
+                        <div class="text-[10px] uppercase tracking-wider text-text-faint font-bold">Architecture Decision:</div>
+                        <div class="text-text leading-relaxed font-sans text-xs">{dec.decision}</div>
+                      </div>
+
+                      <div class="p-3.5 rounded-lg border border-border bg-surface space-y-1">
+                        <div class="text-[10px] uppercase tracking-wider text-text-faint font-bold">Engineering Trade-Off:</div>
+                        <div class="text-text-muted leading-relaxed font-sans text-xs">{dec.tradeOff}</div>
+                      </div>
+
+                      <div class="p-3.5 rounded-lg border border-status/40 bg-status/5 space-y-1">
+                        <div class="text-[10px] uppercase tracking-wider text-status font-bold">Measured Result:</div>
+                        <div class="text-text leading-relaxed font-sans text-xs font-medium">{dec.result}</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </Reveal>
+        )}
+
         <!-- Platform Screenshots & Visual Architecture Gallery -->
         {project.screenshots && project.screenshots.length > 0 && (
           <Reveal delay={220}>
             <section class="space-y-6">
               <h2 class="text-2xl font-bold tracking-tight text-text font-sans border-b border-border pb-3">
-                04 // Platform Screenshots &amp; Telemetry
+                {project.architecturalDecisions && project.architecturalDecisions.length > 0 ? '05' : '04'} // Platform Screenshots &amp; Telemetry
               </h2>
               <div class="space-y-6">
                 {project.screenshots.map((s, sIdx) => (
@@ -202,7 +252,7 @@ const nextProject = projects[(currentIndex + 1) % projects.length];
                       <span class="text-text-muted text-[11px] font-mono truncate max-w-[280px]">
                         {s.caption || `Screenshot ${sIdx + 1}`}
                       </span>
-                      <span class="text-status text-[10px] font-bold">● VERIFIED ASSET</span>
+                      <span class="text-status text-[10px] font-bold">● LIVE CAPTURE</span>
                     </div>
                     <div class="w-full overflow-hidden bg-bg p-1 sm:p-2">
                       <img
@@ -229,7 +279,9 @@ const nextProject = projects[(currentIndex + 1) % projects.length];
         <Reveal delay={240}>
           <section class="space-y-4">
             <h2 class="text-2xl font-bold tracking-tight text-text font-sans border-b border-border pb-3">
-              {project.screenshots && project.screenshots.length > 0 ? '05' : '04'} // Technologies Deployed
+              {project.architecturalDecisions && project.architecturalDecisions.length > 0 
+                ? (project.screenshots && project.screenshots.length > 0 ? '06' : '05')
+                : (project.screenshots && project.screenshots.length > 0 ? '05' : '04')} // Technologies Deployed
             </h2>
             <div class="p-6 rounded-xl border border-border bg-surface-2/40 space-y-4">
               <p class="text-sm text-text-muted">

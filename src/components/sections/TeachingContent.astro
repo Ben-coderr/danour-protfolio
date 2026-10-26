@@ -7,21 +7,21 @@ import { CurriculumAccordion } from '../islands/CurriculumAccordion';
 const tutorials = [
   {
     title: 'Building a Full-Stack AI Chatbot with Next.js 15 & FastAPI',
-    views: '42K views',
+    format: 'Video Breakdown',
     topic: 'Full-Stack GenAI',
-    link: 'https://linkedin.com/in/danour',
+    link: 'https://instagram.com/ben.coderr',
   },
   {
     title: 'Fine-Tuning Llama-3 on Custom Dialect Datasets: Complete Guide',
-    views: '35K views',
+    format: 'Technical Guide',
     topic: 'Applied LLMs',
-    link: 'https://linkedin.com/in/danour',
+    link: 'https://instagram.com/ben.coderr',
   },
   {
     title: 'Django REST Framework vs FastAPI in 2026: Production Architecture',
-    views: '28K views',
+    format: 'System Design',
     topic: 'Backend Architecture',
-    link: 'https://linkedin.com/in/danour',
+    link: 'https://instagram.com/ben.coderr',
   },
 ];
 ---
@@ -152,6 +152,17 @@ const tutorials = [
               Explaining complex AI, web engineering, and software architectures in Arabic through practical demonstrations, code breakdowns, and real-world project walkthroughs for an audience of 102,000+ Arabic learners.
             </p>
 
+            <!-- Arabic Community Callout (RTL) -->
+            <div dir="rtl" class="p-3.5 rounded-xl border border-border/80 bg-surface-2/60 space-y-1 text-right">
+              <div class="text-[11px] font-mono text-status font-bold flex items-center justify-between">
+                <span>مجتمع BenCoder البرمجي</span>
+                <span class="text-[10px] text-text-faint font-mono">102K+</span>
+              </div>
+              <p class="text-xs text-text-muted leading-relaxed font-sans">
+                "نبسّط هندسة البرمجيات والذكاء الاصطناعي بلغة واضحة وتطبيقات عملية جاهزة للإنتاج لأكثر من 102,000 مطوّر عربي."
+              </p>
+            </div>
+
             <!-- Featured Tutorials -->
             <div class="space-y-2.5 pt-2 border-t border-border/60">
               <div class="text-xs font-mono uppercase tracking-wider text-text-faint">
@@ -167,7 +178,7 @@ const tutorials = [
                   >
                     <div class="flex items-center justify-between text-[11px] font-mono text-text-faint pb-1">
                       <span>{tut.topic}</span>
-                      <span class="text-text-muted">{tut.views}</span>
+                      <span class="text-text-muted">{tut.format}</span>
                     </div>
                     <div class="text-xs font-bold text-text group-hover:underline leading-snug">
                       {tut.title}
@@ -179,12 +190,16 @@ const tutorials = [
 
             <!-- Testimonial Quote -->
             <div class="p-4 rounded-xl border border-border/70 bg-surface-2/40 space-y-2">
+              <div class="flex items-center gap-2 text-[10px] font-mono uppercase tracking-wider text-text-faint font-semibold">
+                <span class="text-status">●</span>
+                <span>Everest Academy Endorsement</span>
+              </div>
               <p class="text-xs text-text-muted italic leading-relaxed">
-                "Abdenour cuts through the generative AI hype with crystal-clear engineering depth. The Everest Academy syllabus gave our students practical production skills immediately."
+                "Abdenour cuts through generative AI hype with pure engineering depth. The 'Build with AI' syllabus equipped our engineers with immediately deployable production workflows."
               </p>
-              <div class="text-[11px] font-mono text-text font-semibold flex items-center justify-between">
-                <span>— Everest Academy Leadership</span>
-                <span class="text-text-faint">Mostaganem</span>
+              <div class="text-[11px] font-mono text-text font-semibold flex items-center justify-between pt-1 border-t border-border/40">
+                <span>— Academic Formation Board</span>
+                <span class="text-text-faint">Everest Academy · Mostaganem</span>
               </div>
             </div>
 
@@ -259,15 +274,15 @@ const tutorials = [
 
             <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-border">
               <a
-                href="https://www.udemy.com/course/bencoderr-python-course-arabic/?referralCode=A268F9C13E98A6D18163&couponCode=26BBPFEO2MXTRMT"
+                href="https://www.udemy.com/course/bencoderr-python-course-arabic/?referralCode=A268F9C13E98A6D18163"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg bg-text text-bg hover:opacity-90 transition-all font-mono shadow-xs gap-2"
               >
-                Enroll on Udemy (Discount Code Applied) ↗
+                Enroll on Udemy (Arabic Video Course) ↗
               </a>
               <span class="text-xs font-mono text-text-faint">
-                Instant access · Certificate of completion included
+                Instant access · 40+ lessons · Certificate of completion
               </span>
             </div>
           </div>

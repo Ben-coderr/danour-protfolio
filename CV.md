@@ -7,7 +7,7 @@
 - **LinkedIn:** [linkedin.com/in/danour](https://linkedin.com/in/danour)
 - **GitHub:** [github.com/Ben-coderr](https://github.com/Ben-coderr)
 - **Instagram / Community:** [@ben.coderr](https://instagram.com/ben.coderr) (102K+ followers)
-- **Portfolio:** [danour-protfolio.vercel.app](https://danour-protfolio.vercel.app) (also [bencoder.netlify.app](https://bencoder.netlify.app))
+- **Portfolio:** [danour-protfolio.vercel.app](https://danour-protfolio.vercel.app)
 
 ---
 
