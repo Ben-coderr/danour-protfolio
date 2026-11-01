@@ -1,0 +1,42 @@
+name: Bug Report
+description: Report a broken layout, error, or styling bug
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to report an issue!
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Page URL
+      description: Where did this occur? (e.g. /work/phytosense or /ar/teaching)
+      placeholder: https://bencoder.site/...
+    validations:
+      required: false
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce the behavior?
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Device & Browser
+      description: OS version, browser name, screen size, dark/light theme.
+      placeholder: macOS 15, Chrome 130, Dark Theme
+    validations:
+      required: false
