@@ -80,7 +80,7 @@ export const timelineEn: TimelineEntry[] = [
   {
     role: 'Technical Creator & Founder',
     company: 'BenCoder',
-    period: '2024 — Present',
+    period: '2022 — Present',
     status: 'active',
     location: 'Global (Online)',
     category: '102K+ Community',
@@ -96,8 +96,8 @@ export const timelineEn: TimelineEntry[] = [
   {
     role: 'Technical Speaker & Workshop Instructor',
     company: 'University & Tech Hubs',
-    period: '2025 — 2026',
-    status: 'milestone',
+    period: '2023 — Present',
+    status: 'active',
     location: 'Tlemcen, Algiers & Oran, Algeria',
     category: 'Multi-City Workshops',
     summary:
@@ -210,7 +210,7 @@ export const timelineAr: TimelineEntry[] = [
   {
     role: 'صانع محتوى تقني ومؤسس',
     company: 'BenCoder',
-    period: '2024 — حتى الآن',
+    period: '2022 — حتى الآن',
     status: 'active',
     location: 'عالمياً (عبر الإنترنت)',
     category: 'مجتمع 102K+',
@@ -226,8 +226,8 @@ export const timelineAr: TimelineEntry[] = [
   {
     role: 'محاضر تقني ومقدم ورشات برمجية',
     company: 'الجامعات ونوادي الابتكار التقني',
-    period: '2025 — 2026',
-    status: 'milestone',
+    period: '2023 — حتى الآن',
+    status: 'active',
     location: 'تلمسان، الجزائر العاصمة ووهران',
     category: 'ورشات عمل وطنية',
     summary:

@@ -103,7 +103,7 @@ Proven engineering record architecting and deploying scalable web, mobile, and A
 ### Founder & Technical Content Creator
 
 **BenCoder** — _Online / Global_  
-`2024 — Present` · _102,000+ Developer Audience_
+`2022 — Present` · _102,000+ Developer Audience_
 
 - Established and scaled an educational tech brand reaching over 102,000 followers on Instagram ([@ben.coderr](https://instagram.com/ben.coderr)) and developer platforms.
 - Scripted, recorded, and published 45+ practical video tutorials and architectural guides covering Next.js, Python, generative AI workflows, and software development practices.
@@ -120,7 +120,7 @@ Proven engineering record architecting and deploying scalable web, mobile, and A
 ### Technical Speaker & Workshop Instructor
 
 **University & Regional Tech Hubs** — _Tlemcen, Algiers & Oran, Algeria_  
-`2025 — 2026` · _Workshops & Academic Outreach_
+`2023 — Present` · _Workshops & Academic Outreach_
 
 - Conducted interactive software development bootcamps and algorithmic seminars across university student clubs and engineering incubators in Tlemcen, Algiers, and Oran.
 - Delivered an intensive 3-month one-on-one summer web development mentorship, guiding a developer from basic HTML/CSS/JS to full-stack proficiency, Git workflows, and production deployment.
