@@ -16,7 +16,7 @@ import Reveal from '../../components/ui/Reveal.astro';
       <!-- Page Header -->
       <div class="border-b border-border pb-10 space-y-4">
         <div class="flex items-center gap-2">
-          <SectionLabel number="01" label="ARCHIVE &amp; CASE STUDIES" />
+          <SectionLabel number="01" label="ARCHIVE & CASE STUDIES" />
           <span class="text-xs font-mono text-text-faint">·</span>
           <span class="text-xs font-mono text-status font-medium">● 09 Shipped Systems</span>
         </div>
@@ -24,7 +24,9 @@ import Reveal from '../../components/ui/Reveal.astro';
           Selected Work &amp; <span class="font-accent">Architectures</span>
         </h1>
         <p class="text-base sm:text-lg text-text-muted max-w-2xl leading-relaxed">
-          From resilient botanical intelligence platforms and digital manufacturing consoles to B2B procurement networks and top-rated engineering courses. Every project built with strict performance budgets and production reliability.
+          From resilient botanical intelligence platforms and digital manufacturing consoles to B2B
+          procurement networks and top-rated engineering courses. Every project built with strict
+          performance budgets and production reliability.
         </p>
 
         <!-- Breadcrumb back link -->
@@ -40,129 +42,137 @@ import Reveal from '../../components/ui/Reveal.astro';
 
       <!-- Projects Catalog Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-        {projects.map((project, idx) => (
-          <Reveal delay={idx * 80}>
-            <div class="rounded-2xl border border-border-strong bg-surface p-6 sm:p-8 flex flex-col justify-between space-y-6 hover:border-text transition-all duration-200 group h-full shadow-xs">
-              <div class="space-y-5">
-                <!-- Project Preview Image with Browser Bar -->
-                <div class="rounded-xl overflow-hidden border border-border bg-bg/90 group-hover:border-border-strong transition-colors shadow-2xs">
-                  <div class="flex items-center justify-between px-3 py-1.5 border-b border-border bg-surface-2/70 text-[10px] font-mono text-text-faint">
-                    <div class="flex items-center gap-1.5" aria-hidden="true">
-                      <span class="w-2 h-2 rounded-full bg-border-strong"></span>
-                      <span class="w-2 h-2 rounded-full bg-border-strong"></span>
-                      <span class="w-2 h-2 rounded-full bg-border-strong"></span>
-                    </div>
-                    <span class="truncate max-w-[180px] text-text-muted">{project.liveUrl ? project.liveUrl.replace('https://', '') : `${project.slug}.internal`}</span>
-                    <span class="text-status">{project.status === 'live' ? '● LIVE' : '● ACTIVE'}</span>
-                  </div>
-                  <a href={`/work/${project.slug}`} class="block overflow-hidden aspect-[16/9] bg-surface-2">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-300"
-                      loading="lazy"
-                      width="1280"
-                      height="720"
-                    />
-                  </a>
-                </div>
-
-                <!-- Top Meta Bar -->
-                <div class="flex items-center justify-between pb-3 border-b border-border text-xs font-mono">
-                  <span class="text-text-faint uppercase tracking-wider">
-                    {project.category} // {project.year}
-                  </span>
-                  <span class="text-xs font-mono px-2 py-0.5 rounded bg-surface-2 border border-border text-text">
-                    {project.status === 'live' ? '● Live' : 'Research'}
-                  </span>
-                </div>
-
-                <!-- Title & Role -->
-                <div>
-                  <div class="text-xs font-mono text-text-muted uppercase tracking-wider">
-                    Role: {project.role}
-                  </div>
-                  <h2 class="text-2xl font-bold text-text tracking-tight font-sans mt-0.5 group-hover:underline">
-                    <a href={`/work/${project.slug}`}>
-                      {project.title}
-                    </a>
-                  </h2>
-                </div>
-
-                <p class="text-sm text-text-muted leading-relaxed">
-                  {project.summary}
-                </p>
-
-                <!-- Metrics if available -->
-                {project.metrics && (
-                  <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 py-3 border-y border-border/60 text-xs font-mono">
-                    {project.metrics.slice(0, 2).map((m) => (
-                      <div>
-                        <div class="text-[10px] text-text-faint uppercase">{m.label}</div>
-                        <div class="text-text font-bold text-xs mt-0.5 truncate">{m.value}</div>
+        {
+          projects.map((project, idx) => (
+            <Reveal delay={idx * 80}>
+              <div class="rounded-2xl border border-border-strong bg-surface p-6 sm:p-8 flex flex-col justify-between space-y-6 hover:border-text transition-all duration-200 group h-full shadow-xs">
+                <div class="space-y-5">
+                  {/* Project Preview Image with Browser Bar */}
+                  <div class="rounded-xl overflow-hidden border border-border bg-bg/90 group-hover:border-border-strong transition-colors shadow-2xs">
+                    <div class="flex items-center justify-between px-3 py-1.5 border-b border-border bg-surface-2/70 text-[10px] font-mono text-text-faint">
+                      <div class="flex items-center gap-1.5" aria-hidden="true">
+                        <span class="w-2 h-2 rounded-full bg-border-strong" />
+                        <span class="w-2 h-2 rounded-full bg-border-strong" />
+                        <span class="w-2 h-2 rounded-full bg-border-strong" />
                       </div>
-                    ))}
+                      <span class="truncate max-w-[180px] text-text-muted">
+                        {project.liveUrl
+                          ? project.liveUrl.replace('https://', '')
+                          : `${project.slug}.internal`}
+                      </span>
+                      <span class="text-status">
+                        {project.status === 'live' ? '● LIVE' : '● ACTIVE'}
+                      </span>
+                    </div>
+                    <a
+                      href={`/work/${project.slug}`}
+                      class="block overflow-hidden aspect-[16/9] bg-surface-2"
+                    >
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-300"
+                        loading="lazy"
+                        width="1280"
+                        height="720"
+                      />
+                    </a>
                   </div>
-                )}
 
-                <!-- Bullets -->
-                <ul class="space-y-1.5 text-xs text-text-muted font-mono pt-1">
-                  {project.bullets.slice(0, 2).map((b) => (
-                    <li class="flex items-start gap-2">
-                      <span class="text-status font-bold">›</span>
-                      <span class="leading-relaxed">{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                  {/* Top Meta Bar */}
+                  <div class="flex items-center justify-between pb-3 border-b border-border text-xs font-mono">
+                    <span class="text-text-faint uppercase tracking-wider">
+                      {project.category} // {project.year}
+                    </span>
+                    <span class="text-xs font-mono px-2 py-0.5 rounded bg-surface-2 border border-border text-text">
+                      {project.status === 'live' ? '● Live' : 'Research'}
+                    </span>
+                  </div>
 
-              <!-- Footer with Stack & Action Links -->
-              <div class="pt-4 border-t border-border flex flex-wrap items-center justify-between gap-3">
-                <TagList size="sm" tags={project.stack.slice(0, 3)} />
+                  {/* Title & Role */}
+                  <div>
+                    <div class="text-xs font-mono text-text-muted uppercase tracking-wider">
+                      Role: {project.role}
+                    </div>
+                    <h2 class="text-2xl font-bold text-text tracking-tight font-sans mt-0.5 group-hover:underline">
+                      <a href={`/work/${project.slug}`}>{project.title}</a>
+                    </h2>
+                  </div>
 
-                <div class="flex items-center gap-3 text-xs font-mono">
-                  <a
-                    href={`/work/${project.slug}`}
-                    class="text-text font-bold hover:underline inline-flex items-center gap-1"
-                  >
-                    Deep Dive →
-                  </a>
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-text-muted hover:text-text underline-offset-4 hover:underline"
-                    >
-                      Visit ↗
-                    </a>
+                  <p class="text-sm text-text-muted leading-relaxed">{project.summary}</p>
+
+                  {/* Metrics if available */}
+                  {project.metrics && (
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 py-3 border-y border-border/60 text-xs font-mono">
+                      {project.metrics.slice(0, 2).map((m) => (
+                        <div>
+                          <div class="text-[10px] text-text-faint uppercase">{m.label}</div>
+                          <div class="text-text font-bold text-xs mt-0.5 truncate">{m.value}</div>
+                        </div>
+                      ))}
+                    </div>
                   )}
-                  {project.repoUrl && (
+
+                  {/* Bullets */}
+                  <ul class="space-y-1.5 text-xs text-text-muted font-mono pt-1">
+                    {project.bullets.slice(0, 2).map((b) => (
+                      <li class="flex items-start gap-2">
+                        <span class="text-status font-bold">›</span>
+                        <span class="leading-relaxed">{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Footer with Stack & Action Links */}
+                <div class="pt-4 border-t border-border flex flex-wrap items-center justify-between gap-3">
+                  <TagList size="sm" tags={project.stack.slice(0, 3)} />
+
+                  <div class="flex items-center gap-3 text-xs font-mono">
                     <a
-                      href={project.repoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-text-muted hover:text-text underline-offset-4 hover:underline"
+                      href={`/work/${project.slug}`}
+                      class="text-text font-bold hover:underline inline-flex items-center gap-1"
                     >
-                      GitHub ↗
+                      Deep Dive →
                     </a>
-                  )}
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-text-muted hover:text-text underline-offset-4 hover:underline"
+                      >
+                        Visit ↗
+                      </a>
+                    )}
+                    {project.repoUrl && (
+                      <a
+                        href={project.repoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-text-muted hover:text-text underline-offset-4 hover:underline"
+                      >
+                        GitHub ↗
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          </Reveal>
-        ))}
+            </Reveal>
+          ))
+        }
       </div>
 
       <!-- Bottom Inbound Work CTA -->
       <div class="border-t border-border pt-12">
-        <div class="p-8 rounded-2xl border border-border-strong bg-surface-2 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div
+          class="p-8 rounded-2xl border border-border-strong bg-surface-2 flex flex-col md:flex-row md:items-center justify-between gap-6"
+        >
           <div class="space-y-2">
-            <h3 class="text-2xl font-bold text-text">
-              Have a product or architecture to build?
-            </h3>
+            <h3 class="text-2xl font-bold text-text">Have a product or architecture to build?</h3>
             <p class="text-sm text-text-muted max-w-xl">
-              I partner with founders, engineering teams, and institutions on full-stack web platforms and generative AI integrations.
+              I partner with founders, engineering teams, and institutions on full-stack web
+              platforms and generative AI integrations.
             </p>
           </div>
           <Button href="/#contact" variant="primary" size="lg" class="shrink-0">

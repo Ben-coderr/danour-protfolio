@@ -22,8 +22,10 @@ export function CopyEmailButton({
         textarea.style.opacity = '0';
         document.body.appendChild(textarea);
         textarea.select();
-        if (typeof document.execCommand === 'function') {
-          document.execCommand('copy');
+        // Fallback for environments without modern Clipboard API
+        const legacyDoc = document as unknown as { execCommand?: (command: string) => boolean };
+        if (typeof legacyDoc.execCommand === 'function') {
+          legacyDoc.execCommand('copy');
         }
         document.body.removeChild(textarea);
       }
