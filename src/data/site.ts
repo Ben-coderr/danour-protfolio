@@ -4,7 +4,7 @@ export const siteConfig = {
   title: 'AI Instructor | Full-Stack Engineer | Data Science | Tech Content Creator',
   description:
     'Portfolio of Abdenour Benkorich (BenCoder): AI Instructor at Everest Academy, creator of Udemy Python Course (300+ students), full-stack engineer and tech creator with 102K+ followers.',
-  url: 'https://danour-protfolio.vercel.app',
+  url: 'https://bencoder.site',
   email: 'benkorich.abdenour@gmail.com',
   location: 'Mostaganem, Algeria',
   timezone: 'UTC+1',
@@ -13,12 +13,16 @@ export const siteConfig = {
     github: 'https://github.com/Ben-coderr',
     linkedin: 'https://linkedin.com/in/danour',
     instagram: 'https://instagram.com/ben.coderr',
-    site: 'https://danour-protfolio.vercel.app',
+    site: 'https://bencoder.site',
   },
   stats: [
     { value: '102K+', label: 'Audience', sub: 'BenCoder community' },
     { value: '300+ Students', label: 'Udemy Course', sub: 'Python for Beginners (Arabic)' },
-    { value: 'Lead Instructor', label: 'Everest Academy', sub: 'Prompt Eng, Vibe Coding & AI Media' },
+    {
+      value: 'Lead Instructor',
+      label: 'Everest Academy',
+      sub: 'Prompt Eng, Vibe Coding & AI Media',
+    },
     { value: 'Mostaganem, DZ', label: 'Based in', sub: 'UTC+1 · available worldwide' },
   ],
   nav: [

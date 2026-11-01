@@ -1,4 +1,5 @@
 # Abdenour Benkorich (BenCoder)
+
 **AI Instructor | Full-Stack Software Engineer | Data Science | Tech Content Creator**
 
 - **Location:** Mostaganem, Algeria (UTC+1, open to worldwide remote & on-site engagements)
@@ -7,17 +8,18 @@
 - **LinkedIn:** [linkedin.com/in/danour](https://linkedin.com/in/danour)
 - **GitHub:** [github.com/Ben-coderr](https://github.com/Ben-coderr)
 - **Instagram / Community:** [@ben.coderr](https://instagram.com/ben.coderr) (102K+ followers)
-- **Portfolio:** [danour-protfolio.vercel.app](https://danour-protfolio.vercel.app)
+- **Portfolio:** [bencoder.site](https://bencoder.site)
 
 ---
 
 ## Professional Summary
 
-Versatile AI Instructor, Full-Stack Software Engineer, and Tech Content Creator pursuing an Algerian State Engineering Degree (*Diplôme d'Ingénieur d'État*, 5-year integrated program) in Computer Engineering & Data Science at Université Abdelhamid Ibn Badis. 
+Versatile AI Instructor, Full-Stack Software Engineer, and Tech Content Creator pursuing an Algerian State Engineering Degree (_Diplôme d'Ingénieur d'État_, 5-year integrated program) in Computer Engineering & Data Science at Université Abdelhamid Ibn Badis.
 
-Combines production software craftsmanship with cutting-edge applied artificial intelligence and technical pedagogy. Lead AI Instructor at **Everest Academy** spearheading the intensive *"Build with AI"* formation; creator behind **BenCoder**, an Arabic technical educational platform reaching an engaged community of over 102,000 developers; and author of a top-rated Udemy Python course with 300+ students (4.8★ rating). 
+Combines production software craftsmanship with cutting-edge applied artificial intelligence and technical pedagogy. Lead AI Instructor at **Everest Academy** spearheading the intensive _"Build with AI"_ formation; creator behind **BenCoder**, an Arabic technical educational platform reaching an engaged community of over 102,000 developers; and author of a top-rated Udemy Python course with 300+ students (4.8★ rating).
 
 Proven engineering record architecting and deploying scalable web, mobile, and AI architectures including:
+
 - **JG SupplyNet:** Algeria's premier digital B2B procurement network and multi-lingual RFQ platform.
 - **PhytoSense:** Resilient North African ethnobotany intelligence platform (State Engineering Thesis PFE 2026) with zero-downtime dual-vision failover (Pl@ntNet + Kindwise Plant.id), multi-tier LLM pharmacology, and offline SQLite FTS5 mobile engine.
 - **VYRO:** Monorepo made-to-order manufacturing storefront and back-office console with Turborepo, Chargily Pay (CIB/Edahabia), and 3D / CNC custom CAD pipeline.
@@ -30,7 +32,7 @@ Proven engineering record architecting and deploying scalable web, mobile, and A
 
 - **102,000+** Developers & students reached via the BenCoder educational platform.
 - **9** Shipped production systems, enterprise platforms, and open-source architectures.
-- **300+** Enrolled learners in *Python for Beginners in Arabic* on Udemy (4.8★ rating).
+- **300+** Enrolled learners in _Python for Beginners in Arabic_ on Udemy (4.8★ rating).
 - **100%** Live prototype completion rate for graduates of the Everest Academy AI Bootcamp.
 - **156+** Curated Algerian botanical taxa in the PhytoSense scientific pharmacology database.
 - **Zero-Downtime** Dual-vision (Pl@ntNet ➔ Kindwise) and multi-LLM cascading architecture (Gemini Flash ➔ Groq LPU).
@@ -41,85 +43,103 @@ Proven engineering record architecting and deploying scalable web, mobile, and A
 
 ## Core Technical Skills
 
-| Domain | Technologies & Competencies |
-| :--- | :--- |
-| **Artificial Intelligence & LLMs** | Large Language Models (LLMs), Google Gemini 3.8 Flash, Groq LPU, Vercel AI SDK, Prompt Engineering & System Personas, Context Architecture, Multi-Provider Failover Cascading, Vibe Coding Methodology, Local LLM Inference & Quantization (Ollama), Vector Embeddings & Similarity Search (ChromaDB, pgvector), PyTorch, Hugging Face Transformers |
-| **Full-Stack & Mobile Development** | TypeScript, JavaScript (ES6+), React 19, Next.js 16 (App Router, Server Actions), React Native, Expo SDK 57, Astro 5, HTML5, CSS3, Tailwind CSS (v3 & v4), Turborepo Monorepo Architecture, UI/UX Design, Figma, Responsive Layouts, WCAG AA Accessibility, Core Web Vitals Optimization |
-| **Backend, Data & APIs** | Node.js, Express, Python 3, FastAPI, Django, Django REST Framework, RESTful APIs, PostgreSQL, SQLite FTS5 (Full-Text Search), MongoDB, Prisma ORM, PapaParse, Recharts, Mathematical Linear Regression Forecasting, Data Pipeline Design |
-| **Payments & Integrations** | Chargily Pay (Algerian Edahabia & CIB Cards), Cash on Delivery (COD) State Machines, Yalidine & ZR Express Logistics Tables, Pl@ntNet API, Kindwise Plant.id API, Open-Meteo Weather APIs, FAO-ECOCROP Suitability Algorithms |
-| **Robotics & Embedded Systems** | Microcontroller Firmware, Arduino Uno (ATmega328P), Raspberry Pi 4 (Linux Edge Compute), ESP32, Embedded C/C++, Python GPIO, Sensor Telemetry (Ultrasonic HC-SR04, MPU-6050 6-DOF IMU, Infrared), Actuation & PWM (L298N Dual H-Bridge), Communication Protocols (UART Serial, I2C, SPI), PID Tuning |
-| **DevOps, Tooling & Systems** | Git, GitHub (PR Workflows, Actions), Docker, VS Code, Neovim, Linux (Debian/Ubuntu), Windows Server Administration, Vercel, Netlify, TablePlus, Network Diagnostics |
-| **AI Creative & Media Synthesis** | Runway Gen-3, Kling AI, Luma Dream Machine, Midjourney v6, FLUX.1, ElevenLabs (Voice Cloning & Lip-sync), Adobe Photoshop Firefly, CapCut |
-| **Pedagogy & Communication** | Curriculum Architecture, In-Person Bootcamp Instruction, 1-on-1 Mentorship, Technical Seminars & Keynotes, Bilingual Technical Delivery (Arabic / English / French) |
+| Domain                              | Technologies & Competencies                                                                                                                                                                                                                                                                                                                         |
+| :---------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Artificial Intelligence & LLMs**  | Large Language Models (LLMs), Google Gemini 3.8 Flash, Groq LPU, Vercel AI SDK, Prompt Engineering & System Personas, Context Architecture, Multi-Provider Failover Cascading, Vibe Coding Methodology, Local LLM Inference & Quantization (Ollama), Vector Embeddings & Similarity Search (ChromaDB, pgvector), PyTorch, Hugging Face Transformers |
+| **Full-Stack & Mobile Development** | TypeScript, JavaScript (ES6+), React 19, Next.js 16 (App Router, Server Actions), React Native, Expo SDK 57, Astro 5, HTML5, CSS3, Tailwind CSS (v3 & v4), Turborepo Monorepo Architecture, UI/UX Design, Figma, Responsive Layouts, WCAG AA Accessibility, Core Web Vitals Optimization                                                            |
+| **Backend, Data & APIs**            | Node.js, Express, Python 3, FastAPI, Django, Django REST Framework, RESTful APIs, PostgreSQL, SQLite FTS5 (Full-Text Search), MongoDB, Prisma ORM, PapaParse, Recharts, Mathematical Linear Regression Forecasting, Data Pipeline Design                                                                                                            |
+| **Payments & Integrations**         | Chargily Pay (Algerian Edahabia & CIB Cards), Cash on Delivery (COD) State Machines, Yalidine & ZR Express Logistics Tables, Pl@ntNet API, Kindwise Plant.id API, Open-Meteo Weather APIs, FAO-ECOCROP Suitability Algorithms                                                                                                                       |
+| **Robotics & Embedded Systems**     | Microcontroller Firmware, Arduino Uno (ATmega328P), Raspberry Pi 4 (Linux Edge Compute), ESP32, Embedded C/C++, Python GPIO, Sensor Telemetry (Ultrasonic HC-SR04, MPU-6050 6-DOF IMU, Infrared), Actuation & PWM (L298N Dual H-Bridge), Communication Protocols (UART Serial, I2C, SPI), PID Tuning                                                |
+| **DevOps, Tooling & Systems**       | Git, GitHub (PR Workflows, Actions), Docker, VS Code, Neovim, Linux (Debian/Ubuntu), Windows Server Administration, Vercel, Netlify, TablePlus, Network Diagnostics                                                                                                                                                                                 |
+| **AI Creative & Media Synthesis**   | Runway Gen-3, Kling AI, Luma Dream Machine, Midjourney v6, FLUX.1, ElevenLabs (Voice Cloning & Lip-sync), Adobe Photoshop Firefly, CapCut                                                                                                                                                                                                           |
+| **Pedagogy & Communication**        | Curriculum Architecture, In-Person Bootcamp Instruction, 1-on-1 Mentorship, Technical Seminars & Keynotes, Bilingual Technical Delivery (Arabic / English / French)                                                                                                                                                                                 |
 
 ---
 
 ## Professional Experience
 
 ### Lead Full-Stack Architect
-**JG SupplyNet (Jamael Group)** — *Algeria*  
-`2025 — 2026` · *B2B Digital Platform & Marketplace*
+
+**JG SupplyNet (Jamael Group)** — _Algeria_  
+`2025 — 2026` · _B2B Digital Platform & Marketplace_
+
 - Architected and delivered Algeria’s premier B2B digital sourcing and procurement network ([jgsupplynet.com](https://jgsupplynet.com)), connecting verified industrial manufacturers, commercial suppliers, and institutional buyers.
 - Engineered a modular, resilient full-stack web application leveraging **Next.js 15 App Router**, **React**, **TypeScript**, and **Tailwind CSS**, hosted on high-availability serverless infrastructure.
 - Implemented trilingual localization (**English, French, Arabic**) with dynamic RTL layouts and automated multi-currency Request-for-Quote (RFQ) generation pipelines.
 - Built a multi-step quotation routing engine and an enterprise supplier catalog with instant faceted search, ensuring low-latency navigation across mobile cellular networks.
 
 ### Lead Generative AI Instructor ("Build with AI")
-**Everest Academy** — *Mostaganem, Algeria*  
-`2026` · *GenAI Intensive Bootcamp (60+ Hours)*
+
+**Everest Academy** — _Mostaganem, Algeria_  
+`2026` · _GenAI Intensive Bootcamp (60+ Hours)_
+
 - Designed from first principles and instructed an intensive 1-month hands-on generative AI formation for engineering students and working professionals.
 - Structured a 4-pillar curriculum:
-  1. *Prompt Engineering & Context Architecture:* System personas, token economics, zero/few-shot reasoning, chain-of-thought patterns, prompt injection defense, and structured JSON outputs.
-  2. *Vibe Coding & Rapid Prototyping:* AI-assisted full-stack development using Cursor and Claude Code to scaffold, debug, and ship production web applications from specification to URL in hours.
-  3. *AI Video & Motion Synthesis:* Camera motion prompting, diffusion video pipelines (Runway Gen-3, Kling AI, Luma Dream Machine), ElevenLabs voice synthesis, and commercial video creation.
-  4. *AI Graphic Design & Brand Assets:* Diffusion models (Midjourney v6, FLUX.1), precision inpainting/outpainting, consistency control, and client-ready brand identity kits.
+  1. _Prompt Engineering & Context Architecture:_ System personas, token economics, zero/few-shot reasoning, chain-of-thought patterns, prompt injection defense, and structured JSON outputs.
+  2. _Vibe Coding & Rapid Prototyping:_ AI-assisted full-stack development using Cursor and Claude Code to scaffold, debug, and ship production web applications from specification to URL in hours.
+  3. _AI Video & Motion Synthesis:_ Camera motion prompting, diffusion video pipelines (Runway Gen-3, Kling AI, Luma Dream Machine), ElevenLabs voice synthesis, and commercial video creation.
+  4. _AI Graphic Design & Brand Assets:_ Diffusion models (Midjourney v6, FLUX.1), precision inpainting/outpainting, consistency control, and client-ready brand identity kits.
 - Mentored students through practical laboratory challenges, achieving a 100% live project delivery rate for demo day graduation.
 
 ### Embedded Systems & Robotics Mentor
-**DZDuino Collaboration** — *Algeria*  
-`2026 — Present` · *Hardware Engineering Lab*
+
+**DZDuino Collaboration** — _Algeria_  
+`2026 — Present` · _Hardware Engineering Lab_
+
 - Established an official hardware training collaboration with [dzduino.com](https://dzduino.com), Algeria's leading maker, robotics, and open-source electronics hub.
 - Mentoring dedicated students through a comprehensive 2-month physical computing curriculum combining breadboard assembly, microcontroller firmware, and autonomous edge compute.
 - Taught real-time **C/C++** microcontroller programming on **Arduino Uno (ATmega328P)**, sensor telemetry integration (ultrasonic, 6-axis IMU, infrared), and PWM motor driver tuning (L298N dual H-bridge).
 - Integrated **Raspberry Pi 4 (Linux)** edge compute running Python scripts communicating with microcontrollers over UART serial (115200 baud) and I2C buses for high-level robotics decision-making.
 
 ### Online Course Creator & Instructor
-**Udemy (BenCoder)** — *Global / Online*  
-`2024 — Present` · *300+ Enrolled Students*
-- Authored and produced *"Python for Beginners in Arabic"* ([تعلم البرمجة من الصفر بلغة بايثون](https://www.udemy.com/course/bencoderr-python-course-arabic/)), maintaining a top-rated **4.8★** student satisfaction score.
+
+**Udemy (BenCoder)** — _Global / Online_  
+`2024 — Present` · _300+ Enrolled Students_
+
+- Authored and produced _"Python for Beginners in Arabic"_ ([تعلم البرمجة من الصفر بلغة بايثون](https://www.udemy.com/course/bencoderr-python-course-arabic/)), maintaining a top-rated **4.8★** student satisfaction score.
 - Structured 40+ modular video lessons covering algorithmic problem solving, syntax fundamentals, core data structures (lists, tuples, dictionaries, sets), functions, error handling, file I/O, and hands-on projects.
 - Built an engaged learning forum providing code reviews, technical Q&A, and algorithmic guidance for aspiring Arabic-speaking developers.
 
 ### Founder & Technical Content Creator
-**BenCoder** — *Online / Global*  
-`2024 — Present` · *102,000+ Developer Audience*
+
+**BenCoder** — _Online / Global_  
+`2024 — Present` · _102,000+ Developer Audience_
+
 - Established and scaled an educational tech brand reaching over 102,000 followers on Instagram ([@ben.coderr](https://instagram.com/ben.coderr)) and developer platforms.
 - Scripted, recorded, and published 45+ practical video tutorials and architectural guides covering Next.js, Python, generative AI workflows, and software development practices.
 - Hosted interactive technical Q&A sessions, mentoring developers on tech career transitions, portfolio construction, and engineering best practices.
 
 ### AI Team Member
-**Tassili AI** — *Algeria*  
-`Ongoing` · *Algerian Large Language Model (LLM) Initiative*
+
+**Tassili AI** — _Algeria_  
+`Ongoing` · _Algerian Large Language Model (LLM) Initiative_
+
 - Collaborate with the core technical team on an Algerian sovereign AI and Large Language Model project.
 - Contribute to applied research, regional dialect dataset evaluation, and practical AI implementations tailored to local and national requirements.
 
 ### Technical Speaker & Workshop Instructor
-**University & Regional Tech Hubs** — *Tlemcen, Algiers & Oran, Algeria*  
-`2025 — 2026` · *Workshops & Academic Outreach*
+
+**University & Regional Tech Hubs** — _Tlemcen, Algiers & Oran, Algeria_  
+`2025 — 2026` · _Workshops & Academic Outreach_
+
 - Conducted interactive software development bootcamps and algorithmic seminars across university student clubs and engineering incubators in Tlemcen, Algiers, and Oran.
 - Delivered an intensive 3-month one-on-one summer web development mentorship, guiding a developer from basic HTML/CSS/JS to full-stack proficiency, Git workflows, and production deployment.
 - Led hands-on coding demonstrations on modern JavaScript/TypeScript, RESTful API design, and AI tooling.
 
 ### Software Engineer Intern
-**Sonatrach GP1Z** — *Algeria*  
-`June 3 – June 30, 2026` · *National Petroleum Enterprise*
+
+**Sonatrach GP1Z** — _Algeria_  
+`June 3 – June 30, 2026` · _National Petroleum Enterprise_
+
 - Conducted technical software engineering tasks within a mission-critical industrial operational facility.
 - Analyzed enterprise server maintenance procedures, network monitoring configurations, and internal digital systems.
 - Gained hands-on exposure to high-security enterprise IT infrastructure, Linux/Windows Server environments, and industrial standards.
 
 ### Backend Developer Intern
-**Sefrone** — *Algeria*  
-`December 2024 – March 2025` · *Agile Software Startup*
+
+**Sefrone** — _Algeria_  
+`December 2024 – March 2025` · _Agile Software Startup_
+
 - Developed and maintained scalable backend REST APIs using **Node.js** and **PostgreSQL** in an agile software delivery team.
 - Participated in database schema architecture, query indexing, and latency optimization.
 - Collaborated in daily standups, code reviews, and Git feature-branch workflows.
@@ -129,6 +149,7 @@ Proven engineering record architecting and deploying scalable web, mobile, and A
 ## Selected Shipped Systems & Platforms
 
 ### 1. PhytoSense — Resilient Botanical Intelligence & Phytotherapy Platform
+
 - **Live Deployment:** [phyto-sense-rose.vercel.app](https://phyto-sense-rose.vercel.app)
 - **Source Code:** [github.com/Ben-coderr/PhytoSense](https://github.com/Ben-coderr/PhytoSense)
 - **Role:** AI & Full-Stack Architect (State Engineering Thesis PFE 2026)
@@ -141,6 +162,7 @@ Proven engineering record architecting and deploying scalable web, mobile, and A
   - Shipped cross-platform Expo mobile APK with embedded SQLite FTS5 for 100% offline field diagnostics and GPS herbarium logging in remote terroirs.
 
 ### 2. VYRO — Made-to-Order Manufacturing & Digital E-Commerce Monorepo
+
 - **Live Deployment:** [vyro-web-eight.vercel.app](https://vyro-web-eight.vercel.app)
 - **Source Code:** [github.com/Ben-coderr/vyro](https://github.com/Ben-coderr/vyro)
 - **Role:** Lead Full-Stack Architect
@@ -153,6 +175,7 @@ Proven engineering record architecting and deploying scalable web, mobile, and A
   - Integrated Chargily Pay gateway (Edahabia & CIB cards) alongside Cash on Delivery (COD) and Yalidine/ZR Express multi-wilaya shipping logistics tables in a role-gated `/admin` console.
 
 ### 3. New Way — AI Financial Intelligence & Revenue Forecasting SaaS
+
 - **Live Deployment:** [new-way-proj.vercel.app](https://new-way-proj.vercel.app)
 - **Source Code:** [github.com/Ben-coderr/New-Way](https://github.com/Ben-coderr/New-Way)
 - **Role:** Creator & AI Engineer
@@ -165,6 +188,7 @@ Proven engineering record architecting and deploying scalable web, mobile, and A
   - Built streaming Google Gemini conversational assistant empowering non-technical stakeholders to query raw transactions in natural language.
 
 ### 4. JG SupplyNet — Algeria Digital Procurement Platform
+
 - **Live Deployment:** [jgsupplynet.com](https://jgsupplynet.com)
 - **Role:** Lead Full-Stack Architect
 - **Year:** 2025 — 2026
@@ -175,6 +199,7 @@ Proven engineering record architecting and deploying scalable web, mobile, and A
   - Delivered trilingual localization (EN/FR/AR) with dynamic RTL layouts and sub-300ms page load times on mobile connections.
 
 ### 5. Everest Academy — AI Formation Curriculum & Platform
+
 - **Role:** Lead AI Instructor & Curriculum Architect
 - **Year:** 2026
 - **Stack:** Prompt Engineering, Vibe Coding (Cursor/Claude Code), Runway Gen-3, Kling AI, Midjourney v6, FLUX.1, ElevenLabs, Python
@@ -183,6 +208,7 @@ Proven engineering record architecting and deploying scalable web, mobile, and A
   - Maintained a 100% capstone project delivery rate for all graduating engineering cohorts.
 
 ### 6. Python for Beginners in Arabic — Udemy Official Course
+
 - **Platform:** [Udemy (Course Link)](https://www.udemy.com/course/bencoderr-python-course-arabic/?referralCode=A268F9C13E98A6D18163&couponCode=26BBPFEO2MXTRMT)
 - **Role:** Course Author & Instructor
 - **Year:** 2024 — Present
@@ -192,6 +218,7 @@ Proven engineering record architecting and deploying scalable web, mobile, and A
   - Attracted 300+ students with a 4.8★ student satisfaction rating and active technical forum support.
 
 ### 7. Virexa — Healthcare Technology Startup Platform
+
 - **Live Deployment:** [virexa-eta.vercel.app](https://virexa-eta.vercel.app)
 - **Role:** Full-Stack Developer
 - **Year:** 2025
@@ -201,6 +228,7 @@ Proven engineering record architecting and deploying scalable web, mobile, and A
   - Achieved a **99 Lighthouse performance score**, sub-450ms mobile load times, and full WCAG AA accessibility compliance.
 
 ### 8. Fiikra Studio — Digital Creative Agency Platform
+
 - **Live Deployment:** [fiikra-studio.vercel.app](https://fiikra-studio.vercel.app)
 - **Role:** Lead Frontend Engineer
 - **Year:** 2025
@@ -210,6 +238,7 @@ Proven engineering record architecting and deploying scalable web, mobile, and A
   - Generated a **+65% lift in client inquiries** with all green Core Web Vitals.
 
 ### 9. Perfecto Gastro & Brew Crew — Specialty Hospitality Storefront
+
 - **Role:** Freelance Web Developer
 - **Year:** 2025
 - **Stack:** React, Tailwind CSS, Mobile-First UI/UX
@@ -217,6 +246,7 @@ Proven engineering record architecting and deploying scalable web, mobile, and A
   - Mobile-first digital storefront for an artisanal coffee roastery and bistro with swipeable menu categories and one-tap location routing, driving a +42% foot-traffic increase.
 
 ### 10. DZDuino Hardware & Robotics Lab
+
 - **Partner Hub:** [dzduino.com](https://dzduino.com)
 - **Role:** Embedded Systems Mentor
 - **Year:** 2026 — Present
@@ -228,10 +258,12 @@ Proven engineering record architecting and deploying scalable web, mobile, and A
 
 ## Education
 
-### State Engineering Degree (*Diplôme d'Ingénieur d'État*)
+### State Engineering Degree (_Diplôme d'Ingénieur d'État_)
+
 **Field:** Computer Engineering & Data Science  
-**Institution:** Université Abdelhamid Ibn Badis — *Mostaganem, Algeria*  
-`2024 — 2028` *(4th Year Student)*
+**Institution:** Université Abdelhamid Ibn Badis — _Mostaganem, Algeria_  
+`2024 — 2028` _(4th Year Student)_
+
 - Rigorous 5-year Algerian national state engineering curriculum combining integrated preparatory engineering studies with advanced computer science and data systems.
 - **Key Coursework & Domains:** Algorithmic Complexity & Advanced Data Structures, Statistical Machine Learning, Relational & Distributed Database Internals, Operating Systems & Linux Architecture, Computer Networks & Protocols, Object-Oriented Software Engineering, Discrete Mathematics & Linear Algebra.
 
