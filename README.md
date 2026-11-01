@@ -4,7 +4,7 @@
 
 **AI Instructor · Full-Stack Software Engineer · Data Science · Tech Content Creator**
 
-[![Live Site](https://img.shields.io/badge/Live_Site-bencoder.site-0A0A0A?style=for-the-badge&logo=vercel&logoColor=white)](https://bencoder.site)
+[![Website](https://img.shields.io/badge/Website-bencoder.site-0A0A0A?style=for-the-badge&logo=googlechrome&logoColor=white)](https://bencoder.site)
 [![Astro 5](https://img.shields.io/badge/Astro-5.3+-BC52EE?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build)
 [![React 19](https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4.0-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
