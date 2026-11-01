@@ -9,18 +9,9 @@ interface BaseProps {
 }
 
 type Props = BaseProps &
-  (
-    | ({ href: string } & HTMLAttributes<'a'>)
-    | ({ href?: never } & HTMLAttributes<'div'>)
-  );
+  (({ href: string } & HTMLAttributes<'a'>) | ({ href?: never } & HTMLAttributes<'div'>));
 
-const {
-  interactive = false,
-  padding = 'md',
-  class: className,
-  href,
-  ...rest
-} = Astro.props;
+const { interactive = false, padding = 'md', class: className, href, ...rest } = Astro.props;
 
 const paddingStyles = {
   none: '',

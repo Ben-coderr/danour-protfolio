@@ -7,11 +7,7 @@ interface Props {
   class?: string;
 }
 
-const {
-  text = 'Open to AI teaching, freelance & work',
-  avatar,
-  class: className,
-} = Astro.props;
+const { text = 'Open to AI teaching, freelance & work', avatar, class: className } = Astro.props;
 ---
 
 <div
@@ -21,20 +17,23 @@ const {
     className
   )}
 >
-  {avatar && (
-    <div class="relative w-6 h-6 rounded-full overflow-hidden border border-border/80 bg-surface-2 shrink-0">
-      <img
-        src={avatar}
-        alt="Abdenour Benkorich"
-        class="w-full h-full object-cover"
-        width="24"
-        height="24"
-        loading="eager"
-      />
-    </div>
-  )}
+  {
+    avatar && (
+      <div class="relative w-6 h-6 rounded-full overflow-hidden border border-border/80 bg-surface-2 shrink-0">
+        <img
+          src={avatar}
+          alt="Abdenour Benkorich"
+          class="w-full h-full object-cover"
+          width="24"
+          height="24"
+          loading="eager"
+        />
+      </div>
+    )
+  }
   <span class="relative flex h-2 w-2 shrink-0" aria-hidden="true">
-    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-status opacity-75"></span>
+    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-status opacity-75"
+    ></span>
     <span class="relative inline-flex rounded-full h-2 w-2 bg-status"></span>
   </span>
   <span class="truncate min-w-0 leading-none">{text}</span>

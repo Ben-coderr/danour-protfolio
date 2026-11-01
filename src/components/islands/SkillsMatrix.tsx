@@ -119,11 +119,36 @@ export const allSkills: SkillItem[] = [
 
 const categories = [
   { id: 'all', label: 'All Core Skills', count: allSkills.length, icon: 'layers' },
-  { id: 'ai', label: 'Applied AI & LLMs', count: allSkills.filter((s) => s.category === 'ai').length, icon: 'brain' },
-  { id: 'frontend', label: 'Frontend & UI', count: allSkills.filter((s) => s.category === 'frontend').length, icon: 'layout' },
-  { id: 'backend', label: 'Backend & Data', count: allSkills.filter((s) => s.category === 'backend').length, icon: 'server' },
-  { id: 'tools', label: 'Systems & Integrations', count: allSkills.filter((s) => s.category === 'tools').length, icon: 'terminal' },
-  { id: 'teaching', label: 'Teaching & Community', count: allSkills.filter((s) => s.category === 'teaching').length, icon: 'teach' },
+  {
+    id: 'ai',
+    label: 'Applied AI & LLMs',
+    count: allSkills.filter((s) => s.category === 'ai').length,
+    icon: 'brain',
+  },
+  {
+    id: 'frontend',
+    label: 'Frontend & UI',
+    count: allSkills.filter((s) => s.category === 'frontend').length,
+    icon: 'layout',
+  },
+  {
+    id: 'backend',
+    label: 'Backend & Data',
+    count: allSkills.filter((s) => s.category === 'backend').length,
+    icon: 'server',
+  },
+  {
+    id: 'tools',
+    label: 'Systems & Integrations',
+    count: allSkills.filter((s) => s.category === 'tools').length,
+    icon: 'terminal',
+  },
+  {
+    id: 'teaching',
+    label: 'Teaching & Community',
+    count: allSkills.filter((s) => s.category === 'teaching').length,
+    icon: 'teach',
+  },
 ];
 
 export function SkillsMatrix() {

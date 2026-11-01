@@ -1,41 +1,41 @@
-@import "@fontsource-variable/geist";
-@import "@fontsource-variable/geist-mono";
-@import "@fontsource/instrument-serif/400-italic.css";
-@import "@fontsource/ibm-plex-sans-arabic/400.css";
-@import "@fontsource/ibm-plex-sans-arabic/500.css";
-@import "@fontsource/ibm-plex-sans-arabic/600.css";
-@import "@fontsource/ibm-plex-sans-arabic/700.css";
-@import "tailwindcss";
+@import '@fontsource-variable/geist';
+@import '@fontsource-variable/geist-mono';
+@import '@fontsource/instrument-serif/400-italic.css';
+@import '@fontsource/ibm-plex-sans-arabic/400.css';
+@import '@fontsource/ibm-plex-sans-arabic/500.css';
+@import '@fontsource/ibm-plex-sans-arabic/600.css';
+@import '@fontsource/ibm-plex-sans-arabic/700.css';
+@import 'tailwindcss';
 
 @layer base {
   :root,
-  [data-theme="dark"] {
-    --bg: #0A0A0A;
+  [data-theme='dark'] {
+    --bg: #0a0a0a;
     --surface: #111111;
     --surface-2: #171717;
     --border: #262626;
-    --border-strong: #3A3A3A;
-    --text: #F5F5F5;
-    --text-muted: #A3A3A3;
+    --border-strong: #3a3a3a;
+    --text: #f5f5f5;
+    --text-muted: #a3a3a3;
     --text-faint: #737373;
-    --invert-bg: #F5F5F5;
-    --invert-text: #0A0A0A;
-    --status: #3DDC84;
+    --invert-bg: #f5f5f5;
+    --invert-text: #0a0a0a;
+    --status: #3ddc84;
     color-scheme: dark;
   }
 
-  [data-theme="light"] {
-    --bg: #FAFAFA;
-    --surface: #FFFFFF;
-    --surface-2: #F2F2F2;
-    --border: #E5E5E5;
-    --border-strong: #CFCFCF;
-    --text: #0A0A0A;
+  [data-theme='light'] {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --surface-2: #f2f2f2;
+    --border: #e5e5e5;
+    --border-strong: #cfcfcf;
+    --text: #0a0a0a;
     --text-muted: #525252;
-    --text-faint: #8A8A8A;
-    --invert-bg: #0A0A0A;
-    --invert-text: #F5F5F5;
-    --status: #16A34A;
+    --text-faint: #8a8a8a;
+    --invert-bg: #0a0a0a;
+    --invert-text: #f5f5f5;
+    --status: #16a34a;
     color-scheme: light;
   }
 
@@ -78,30 +78,32 @@
   }
 
   /* Arabic Typography & Logical Direction Overrides */
-  [dir="rtl"] {
-    --font-sans: 'IBM Plex Sans Arabic', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  [dir='rtl'] {
+    --font-sans:
+      'IBM Plex Sans Arabic', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      sans-serif;
   }
 
-  [dir="rtl"] h1,
-  [dir="rtl"] h2,
-  [dir="rtl"] h3,
-  [dir="rtl"] h4,
-  [dir="rtl"] h5,
-  [dir="rtl"] h6,
-  [dir="rtl"] .text-display,
-  [dir="rtl"] .text-headline,
-  [dir="rtl"] .text-subheadline {
+  [dir='rtl'] h1,
+  [dir='rtl'] h2,
+  [dir='rtl'] h3,
+  [dir='rtl'] h4,
+  [dir='rtl'] h5,
+  [dir='rtl'] h6,
+  [dir='rtl'] .text-display,
+  [dir='rtl'] .text-headline,
+  [dir='rtl'] .text-subheadline {
     letter-spacing: 0 !important;
     line-height: 1.35;
   }
 
-  [dir="rtl"] body {
+  [dir='rtl'] body {
     line-height: 1.8;
   }
 
   /* Bi-directional Isolation for Tech Terms & Code */
   .bidi-tech,
-  [dir="rtl"] .bidi-tech {
+  [dir='rtl'] .bidi-tech {
     direction: ltr;
     unicode-bidi: isolate;
     display: inline-block;
@@ -171,8 +173,9 @@
 /* Zero-flicker theme toggle icon animations */
 .theme-icon-sun,
 .theme-icon-moon {
-  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -260,7 +263,7 @@ html[data-theme='light'] .theme-icon-moon {
   bottom: 2px;
   left: 0;
   overflow: hidden;
-  background-color: #2563EB;
+  background-color: #2563eb;
   border-radius: 4px;
   white-space: nowrap;
   pointer-events: none;
@@ -271,7 +274,7 @@ html[data-theme='light'] .theme-icon-moon {
 }
 
 .hero-selection-text {
-  color: #FFFFFF !important;
+  color: #ffffff !important;
   padding-left: 6px;
   user-select: none;
 }
@@ -300,11 +303,13 @@ html[data-theme='light'] .theme-icon-moon {
 }
 
 @keyframes heroSelectionSweep {
-  0%, 10% {
+  0%,
+  10% {
     width: 0%;
     opacity: 1;
   }
-  30%, 70% {
+  30%,
+  70% {
     width: 100%;
     opacity: 1;
   }
@@ -312,7 +317,8 @@ html[data-theme='light'] .theme-icon-moon {
     width: 100%;
     opacity: 0;
   }
-  77%, 100% {
+  77%,
+  100% {
     width: 0%;
     opacity: 0;
   }
@@ -344,7 +350,8 @@ html[data-theme='light'] .theme-icon-moon {
     opacity: 1;
     transform: translateY(-15%) scale(1);
   }
-  42%, 100% {
+  42%,
+  100% {
     left: calc(100% - 3px);
     opacity: 0;
     transform: translateY(-15%) scale(1);
@@ -352,29 +359,31 @@ html[data-theme='light'] .theme-icon-moon {
 }
 
 /* RTL Hero Selection Effect */
-[dir="rtl"] .hero-selection-highlight {
+[dir='rtl'] .hero-selection-highlight {
   left: auto;
   right: 0;
   animation-name: heroSelectionSweepRtl;
 }
 
-[dir="rtl"] .hero-selection-text {
+[dir='rtl'] .hero-selection-text {
   padding-left: 0;
   padding-right: 6px;
 }
 
-[dir="rtl"] .hero-sim-cursor {
+[dir='rtl'] .hero-sim-cursor {
   left: auto;
   right: -20px;
   animation-name: heroCursorDragRtl;
 }
 
 @keyframes heroSelectionSweepRtl {
-  0%, 10% {
+  0%,
+  10% {
     width: 0%;
     opacity: 1;
   }
-  30%, 70% {
+  30%,
+  70% {
     width: 100%;
     opacity: 1;
   }
@@ -382,7 +391,8 @@ html[data-theme='light'] .theme-icon-moon {
     width: 100%;
     opacity: 0;
   }
-  77%, 100% {
+  77%,
+  100% {
     width: 0%;
     opacity: 0;
   }
@@ -414,7 +424,8 @@ html[data-theme='light'] .theme-icon-moon {
     opacity: 1;
     transform: translateY(-15%) scale(1) scaleX(-1);
   }
-  42%, 100% {
+  42%,
+  100% {
     right: calc(100% - 3px);
     opacity: 0;
     transform: translateY(-15%) scale(1) scaleX(-1);

@@ -20,7 +20,8 @@ export function getTechIcon(name: string): string | undefined {
   if (normalized.includes('git')) return 'simple-icons:git';
   if (normalized.includes('linux')) return 'simple-icons:linux';
   if (normalized.includes('figma')) return 'simple-icons:figma';
-  if (normalized.includes('vs code') || normalized.includes('vscode')) return 'simple-icons:visualstudiocode';
+  if (normalized.includes('vs code') || normalized.includes('vscode'))
+    return 'simple-icons:visualstudiocode';
 
   // AI & Data Domains (Lucide)
   if (
@@ -30,13 +31,25 @@ export function getTechIcon(name: string): string | undefined {
   ) {
     return 'lucide:sparkles';
   }
-  if (normalized.includes('llm') || normalized.includes('language model') || normalized.includes('ai team')) {
+  if (
+    normalized.includes('llm') ||
+    normalized.includes('language model') ||
+    normalized.includes('ai team')
+  ) {
     return 'lucide:brain';
   }
-  if (normalized.includes('machine learning') || normalized.includes('data science') || normalized.includes('algorithms')) {
+  if (
+    normalized.includes('machine learning') ||
+    normalized.includes('data science') ||
+    normalized.includes('algorithms')
+  ) {
     return 'lucide:cpu';
   }
-  if (normalized.includes('data analysis') || normalized.includes('data layer') || normalized.includes('database')) {
+  if (
+    normalized.includes('data analysis') ||
+    normalized.includes('data layer') ||
+    normalized.includes('database')
+  ) {
     return 'lucide:database';
   }
   if (normalized.includes('security')) {

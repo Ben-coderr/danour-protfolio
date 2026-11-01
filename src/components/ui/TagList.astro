@@ -13,7 +13,5 @@ const { tags = [], size = 'sm', showIcon = true, class: className } = Astro.prop
 ---
 
 <div class={clsx('flex flex-wrap items-center gap-1.5', className)}>
-  {tags.length > 0
-    ? tags.map((t) => <Tag text={t} size={size} showIcon={showIcon} />)
-    : <slot />}
+  {tags.length > 0 ? tags.map((t) => <Tag text={t} size={size} showIcon={showIcon} />) : <slot />}
 </div>

@@ -83,7 +83,10 @@ export function ThemeToggle({
       <span className="sr-only">Toggle theme</span>
 
       {/* Stable icon container: always 16x16px, never shifts, never hidden */}
-      <span className="relative w-4 h-4 shrink-0 flex items-center justify-center" aria-hidden="true">
+      <span
+        className="relative w-4 h-4 shrink-0 flex items-center justify-center"
+        aria-hidden="true"
+      >
         {/* Sun icon (visible in dark mode) */}
         <svg
           xmlns="http://www.w3.org/2000/svg"

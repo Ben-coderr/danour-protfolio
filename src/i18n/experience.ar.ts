@@ -20,7 +20,8 @@ export const timelineEn: TimelineEntry[] = [
     status: 'active',
     location: 'Algeria',
     category: 'B2B Digital Platform',
-    summary: 'Architected and shipped Algeria’s premier B2B procurement network (jgsupplynet.com), connecting verified national manufacturers, industrial suppliers, and corporate buyers with RFQ workflows and multilingual interfaces.',
+    summary:
+      'Architected and shipped Algeria’s premier B2B procurement network (jgsupplynet.com), connecting verified national manufacturers, industrial suppliers, and corporate buyers with RFQ workflows and multilingual interfaces.',
     achievements: [
       'Engineered resilient full-stack architecture with Next.js 15 App Router, TypeScript, and high-performance serverless endpoints.',
       'Implemented trilingual localization (EN / FR / AR) with automated multi-currency industrial quote generation.',
@@ -35,7 +36,8 @@ export const timelineEn: TimelineEntry[] = [
     status: 'active',
     location: 'Mostaganem, Algeria',
     category: 'GenAI Intensive Formation',
-    summary: 'Designed and instructed intensive generative AI formation covering prompt engineering, vibe coding, AI video synthesis, and commercial AI graphic design for production-grade output.',
+    summary:
+      'Designed and instructed intensive generative AI formation covering prompt engineering, vibe coding, AI video synthesis, and commercial AI graphic design for production-grade output.',
     achievements: [
       'Taught advanced prompt engineering, context framing, and system prompt architectures.',
       'Pioneered Vibe Coding methodology to rapidly prototype and iterate full-stack web applications using AI copilots.',
@@ -51,7 +53,8 @@ export const timelineEn: TimelineEntry[] = [
     status: 'active',
     location: 'Algeria',
     category: 'Robotics & Hardware',
-    summary: 'Hands-on embedded systems training in collaboration with dzduino.com, mentoring robotics students on Arduino microcontrollers and Raspberry Pi single-board computers.',
+    summary:
+      'Hands-on embedded systems training in collaboration with dzduino.com, mentoring robotics students on Arduino microcontrollers and Raspberry Pi single-board computers.',
     achievements: [
       'Guiding 2 dedicated students through a rigorous 2-month embedded hardware and robotics program (1 month completed, 1 month active).',
       'Taught sensor interfacing, PWM motor actuation, I2C/SPI bus protocols, and real-time C/C++ firmware.',
@@ -66,7 +69,8 @@ export const timelineEn: TimelineEntry[] = [
     status: 'active',
     location: 'Online / Global',
     category: '300+ Students',
-    summary: 'Author of "Python for Beginners in Arabic" (تعلم البرمجة من الصفر بلغة بايثون), my premier online course with 300+ enrolled students building strong algorithmic and software foundations.',
+    summary:
+      'Author of "Python for Beginners in Arabic" (تعلم البرمجة من الصفر بلغة بايثون), my premier online course with 300+ enrolled students building strong algorithmic and software foundations.',
     achievements: [
       'Designed complete Arabic curriculum from zero programming knowledge to object-oriented programming and practical projects.',
       'Maintained outstanding student rating with active mentoring and code review in course forums.',
@@ -80,7 +84,8 @@ export const timelineEn: TimelineEntry[] = [
     status: 'active',
     location: 'Global (Online)',
     category: '102K+ Community',
-    summary: 'Create Arabic technical tutorials and AI guides breaking down modern web frameworks, agent architectures, and programming fundamentals for a 102,000+ Arabic-speaking developer community.',
+    summary:
+      'Create Arabic technical tutorials and AI guides breaking down modern web frameworks, agent architectures, and programming fundamentals for a 102,000+ Arabic-speaking developer community.',
     achievements: [
       'Produced 45+ video and practical engineering breakdowns in Arabic with zero fluff.',
       'Grew an engaged technical audience of over 102,000 Arabic developers across Algeria and the Arab region.',
@@ -95,7 +100,8 @@ export const timelineEn: TimelineEntry[] = [
     status: 'milestone',
     location: 'Tlemcen, Algiers & Oran, Algeria',
     category: 'Multi-City Workshops',
-    summary: 'Delivered hands-on software development bootcamps, algorithmic seminars, and web engineering workshops across university hubs in Tlemcen, Algiers, and Oran.',
+    summary:
+      'Delivered hands-on software development bootcamps, algorithmic seminars, and web engineering workshops across university hubs in Tlemcen, Algiers, and Oran.',
     achievements: [
       'Led intensive 3-month 1-on-1 Summer web development mentorship, advancing an individual from fundamentals to full-stack proficiency.',
       'Conducted algorithmic problem solving, modern JavaScript/TypeScript, and web architecture workshops.',
@@ -110,7 +116,8 @@ export const timelineEn: TimelineEntry[] = [
     status: 'internship',
     location: 'Algeria',
     category: 'Industrial Enterprise',
-    summary: 'National petroleum enterprise. Worked on internal software systems, technical documentation, and IT infrastructure operations within a critical national facility.',
+    summary:
+      'National petroleum enterprise. Worked on internal software systems, technical documentation, and IT infrastructure operations within a critical national facility.',
     achievements: [
       'Analyzed server maintenance workflows and network monitoring configurations.',
       'Supported internal enterprise system tasks in a high-security operational environment.',
@@ -124,7 +131,8 @@ export const timelineEn: TimelineEntry[] = [
     status: 'internship',
     location: 'Algeria',
     category: 'Startup Internship',
-    summary: 'Engineered REST APIs and relational database schemas for client web applications in an agile, fast-paced product team.',
+    summary:
+      'Engineered REST APIs and relational database schemas for client web applications in an agile, fast-paced product team.',
     achievements: [
       'Engineered scalable Node.js backend endpoints with PostgreSQL data persistence.',
       'Optimized query performance and reduced API response latencies.',
@@ -142,7 +150,8 @@ export const timelineAr: TimelineEntry[] = [
     status: 'active',
     location: 'الجزائر',
     category: 'منصة رقمية B2B',
-    summary: 'هندسة وإطلاق شبكة المشتريات والتوريد الرقمية B2B الرائدة في الجزائر (jgsupplynet.com)، لربط المصانع الوطنية والموردين المعتمدين والمشترين المؤسساتيين بنظام RFQ متكامل وواجهات ثلاثية اللغات.',
+    summary:
+      'هندسة وإطلاق شبكة المشتريات والتوريد الرقمية B2B الرائدة في الجزائر (jgsupplynet.com)، لربط المصانع الوطنية والموردين المعتمدين والمشترين المؤسساتيين بنظام RFQ متكامل وواجهات ثلاثية اللغات.',
     achievements: [
       'بناء معمارية برمجية متينة وموثوقة باستخدام Next.js 15 App Router، وTypeScript، ونقاط نهاية سحابية فائقة السرعة.',
       'تطبيق نظام ثلاثي اللغات (العربية، الإنجليزية، الفرنسية) مع توليد آلي لعروض الأسعار الصناعية.',
@@ -157,7 +166,8 @@ export const timelineAr: TimelineEntry[] = [
     status: 'active',
     location: 'مستغانم، الجزائر',
     category: 'تكوين مكثف في GenAI',
-    summary: 'تصميم وقيادة برنامج تكويني مكثف في الذكاء الاصطناعي التوليدي، يغطي هندسة الأوامر (Prompt Engineering)، وأسلوب Vibe Coding، وتوليد الفيديو بالذكاء الاصطناعي والتصميم الرقمي للإنتاج التجاري.',
+    summary:
+      'تصميم وقيادة برنامج تكويني مكثف في الذكاء الاصطناعي التوليدي، يغطي هندسة الأوامر (Prompt Engineering)، وأسلوب Vibe Coding، وتوليد الفيديو بالذكاء الاصطناعي والتصميم الرقمي للإنتاج التجاري.',
     achievements: [
       'تدريب المبرمجين على تقنيات هندسة الأوامر المتقدمة، وضبط السياق، ومعمارية System Prompts.',
       'ريادة منهجية Vibe Coding لتطوير وبناء تطبيقات ويب كاملة بسرعة فائقة بالاعتماد على أدوات الذكاء الاصطناعي.',
@@ -173,7 +183,8 @@ export const timelineAr: TimelineEntry[] = [
     status: 'active',
     location: 'الجزائر',
     category: 'روبوتات وبرمجة عتاد',
-    summary: 'تدريب تطبيقي على الأنظمة المدمجة بالتعاون مع dzduino.com، لتوجيه طلاب الروبوتات في برمجة وتطوير مشاريع تعتمد على Arduino وRaspberry Pi.',
+    summary:
+      'تدريب تطبيقي على الأنظمة المدمجة بالتعاون مع dzduino.com، لتوجيه طلاب الروبوتات في برمجة وتطوير مشاريع تعتمد على Arduino وRaspberry Pi.',
     achievements: [
       'توجيه طالبين متميزين في برنامج عملي مكثف لمدة شهرين في عتاد الأنظمة المدمجة والروبوتات.',
       'تدريب على ربط الحساسات، والتحكم في المحركات (PWM)، وبروتوكولات I2C/SPI، وبرمجة C/C++ في الوقت الفعلي.',
@@ -188,7 +199,8 @@ export const timelineAr: TimelineEntry[] = [
     status: 'active',
     location: 'عبر الإنترنت / عالمياً',
     category: '300+ طالب',
-    summary: 'مؤلف دورة "تعلم البرمجة من الصفر بلغة بايثون"، الدورة الرائدة التي سجل بها أكثر من 300 طالب لبناء أسس خوارزمية وهندسية متينة.',
+    summary:
+      'مؤلف دورة "تعلم البرمجة من الصفر بلغة بايثون"، الدورة الرائدة التي سجل بها أكثر من 300 طالب لبناء أسس خوارزمية وهندسية متينة.',
     achievements: [
       'تصميم منهج عربي متكامل ينطلق من الصفر إلى إتقان البرمجة كائنية التوجه (OOP) والمشاريع التطبيقية.',
       'المحافظة على تقييم طلابي ممتاز (4.8★) مع تقديم إرشاد مباشر ومراجعة أكواد الطلاب في منتدى الدورة.',
@@ -202,7 +214,8 @@ export const timelineAr: TimelineEntry[] = [
     status: 'active',
     location: 'عالمياً (عبر الإنترنت)',
     category: 'مجتمع 102K+',
-    summary: 'صناعة شروحات تقنية وأدلة تطبيقية باللغة العربية تشرح أطر الويب الحديثة، ومعمارية وكلاء الذكاء الاصطناعي (AI Agents) لمجتمع يضم أكثر من 102,000 مطوّر عربي.',
+    summary:
+      'صناعة شروحات تقنية وأدلة تطبيقية باللغة العربية تشرح أطر الويب الحديثة، ومعمارية وكلاء الذكاء الاصطناعي (AI Agents) لمجتمع يضم أكثر من 102,000 مطوّر عربي.',
     achievements: [
       'إنتاج 45+ درساً وشرحاً هندسياً معمقاً باللغة العربية خالياً من الحشو والنظريات غير المجدية.',
       'بناء مجتمع تقني متفاعل يضم أكثر من 102,000 مطور في الجزائر ومختلف أنحاء العالم العربي.',
@@ -217,7 +230,8 @@ export const timelineAr: TimelineEntry[] = [
     status: 'milestone',
     location: 'تلمسان، الجزائر العاصمة ووهران',
     category: 'ورشات عمل وطنية',
-    summary: 'تقديم معسكرات برمجية تطبيقية، وندوات خوارزمية، وورشات في هندسة الويب الحديثة عبر المراكز الجامعية في تلمسان، العاصمة، ووهران.',
+    summary:
+      'تقديم معسكرات برمجية تطبيقية، وندوات خوارزمية، وورشات في هندسة الويب الحديثة عبر المراكز الجامعية في تلمسان، العاصمة، ووهران.',
     achievements: [
       'قيادة برنامج إرشاد فردي مكثف (1-on-1) لمدة 3 أشهر في الصيف نقل المتدرب من الصفر إلى الاحتراف في تطوير الويب الكامل.',
       'تقديم ورشات متخصصة في حل المشكلات الخوارزمية، وتقنيات JavaScript/TypeScript، وتصميم معمارية الويب.',
@@ -232,7 +246,8 @@ export const timelineAr: TimelineEntry[] = [
     status: 'internship',
     location: 'الجزائر',
     category: 'منشأة صناعية وطنية كبرى',
-    summary: 'المؤسسة الوطنية للمحروقات. العمل على الأنظمة البرمجية الداخلية، التوثيق الهندسي، وإدارة البنية التحتية لتكنولوجيا المعلومات في منشأة حيوية وطنية.',
+    summary:
+      'المؤسسة الوطنية للمحروقات. العمل على الأنظمة البرمجية الداخلية، التوثيق الهندسي، وإدارة البنية التحتية لتكنولوجيا المعلومات في منشأة حيوية وطنية.',
     achievements: [
       'تحليل ومراجعة مسارات صيانة الخوادم وإعدادات مراقبة الشبكات الصناعية.',
       'دعم تشغيل الأنظمة المؤسسية الداخلية في بيئة عمل عملياتية عالية الأمان والسرية.',
@@ -246,7 +261,8 @@ export const timelineAr: TimelineEntry[] = [
     status: 'internship',
     location: 'الجزائر',
     category: 'شركة ناشئة',
-    summary: 'تطوير واجهات برمجة التطبيقات (REST APIs) وقواعد البيانات العلائقية لتطبيقات الويب ضمن فريق عمل مرن وسريع الإيقاع.',
+    summary:
+      'تطوير واجهات برمجة التطبيقات (REST APIs) وقواعد البيانات العلائقية لتطبيقات الويب ضمن فريق عمل مرن وسريع الإيقاع.',
     achievements: [
       'هندسة نقاط نهاية خلفية قابلة للتوسع باستخدام Node.js مع إدارة وحفظ البيانات في PostgreSQL.',
       'تحسين استعلامات قواعد البيانات وتقليل زمن استجابة الـ API بشكل ملموس.',

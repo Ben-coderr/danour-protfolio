@@ -22,7 +22,8 @@ export const ui = {
     'hero.title.prefix': 'I build with AI,',
     'hero.title.highlight': 'teach it',
     'hero.title.suffix': ', and ship the products around it.',
-    'hero.description': "I'm {name}: AI instructor, full-stack engineer and creator behind {brand} (102K+ community). Lead AI instructor at Everest Academy, author of a 4.8★ Arabic Python course on Udemy (300+ students), and full-stack architect behind platforms like JG SupplyNet.",
+    'hero.description':
+      "I'm {name}: AI instructor, full-stack engineer and creator behind {brand} (102K+ community). Lead AI instructor at Everest Academy, author of a 4.8★ Arabic Python course on Udemy (300+ students), and full-stack architect behind platforms like JG SupplyNet.",
     'hero.cta.work': 'View selected work ↓',
     'hero.cta.contact': 'Get in touch',
 
@@ -31,7 +32,8 @@ export const ui = {
     'section.01.label': 'SELECTED WORK',
     'section.01.title': 'Featured Projects &',
     'section.01.titleAccent': 'Architectures',
-    'section.01.description': "Algeria's digital B2B procurement platform, resilient botanical AI, made-to-order manufacturing, and AI revenue forecasting SaaS.",
+    'section.01.description':
+      "Algeria's digital B2B procurement platform, resilient botanical AI, made-to-order manufacturing, and AI revenue forecasting SaaS.",
     'section.01.archive': 'View all projects archive →',
 
     'section.02.num': '02',
@@ -39,7 +41,8 @@ export const ui = {
     'section.02.title': 'Making AI',
     'section.02.titleAccent': 'practical',
     'section.02.titleSuffix': ', accessible & affordable',
-    'section.02.description': 'Lead Generative AI instructor at Everest Academy and creator behind BenCoder (102,000+ developers). Bridging cutting-edge research to production code.',
+    'section.02.description':
+      'Lead Generative AI instructor at Everest Academy and creator behind BenCoder (102,000+ developers). Bridging cutting-edge research to production code.',
     'section.02.portal': 'Explore full teaching portal →',
 
     'section.03.num': '03',
@@ -53,20 +56,23 @@ export const ui = {
     'section.04.label': 'CORE COMPETENCIES',
     'section.04.title': 'Production-tested',
     'section.04.titleAccent': 'technology stack',
-    'section.04.description': '14 core technical competencies actively deployed across live production web apps, computer vision models, and enterprise platforms.',
+    'section.04.description':
+      '14 core technical competencies actively deployed across live production web apps, computer vision models, and enterprise platforms.',
 
     'section.05.num': '05',
     'section.05.label': 'EXPERIENCE & EDUCATION',
     'section.05.title': "Where I've",
     'section.05.titleAccent': 'contributed',
     'section.05.titleSuffix': '& learned',
-    'section.05.description': 'From national enterprise infrastructure to fast-moving AI research and technical education leadership.',
+    'section.05.description':
+      'From national enterprise infrastructure to fast-moving AI research and technical education leadership.',
 
     'section.06.num': '06',
     'section.06.label': 'CONTACT & INQUIRIES',
     'section.06.title': "Let's build something",
     'section.06.titleAccent': 'together',
-    'section.06.description': 'Open for AI curriculum development, corporate training, high-impact freelance engineering, and full-time technical leadership.',
+    'section.06.description':
+      'Open for AI curriculum development, corporate training, high-impact freelance engineering, and full-time technical leadership.',
 
     // Stats
     'stats.community.title': '01 // Community & Reach',
@@ -128,7 +134,8 @@ export const ui = {
     'hero.title.prefix': 'أبني بأنظمة الذكاء الاصطناعي،',
     'hero.title.highlight': 'أعلّمها',
     'hero.title.suffix': '، وأشحن المنتجات الرقمية حولها.',
-    'hero.description': 'أنا {name}: مهندس برمجيات متكامل ومدرب ذكاء اصطناعي ومؤسس منصة {brand} (مجتمع يضم أكثر من 102,000 مطوّر). كبير مدربي الذكاء الاصطناعي في Everest Academy، ومؤلف دورة بايثون العربية على Udemy بتقييم 4.8★ (300+ طالب)، والمهندس المعماري لمنصة JG SupplyNet الرقمية.',
+    'hero.description':
+      'أنا {name}: مهندس برمجيات متكامل ومدرب ذكاء اصطناعي ومؤسس منصة {brand} (مجتمع يضم أكثر من 102,000 مطوّر). كبير مدربي الذكاء الاصطناعي في Everest Academy، ومؤلف دورة بايثون العربية على Udemy بتقييم 4.8★ (300+ طالب)، والمهندس المعماري لمنصة JG SupplyNet الرقمية.',
     'hero.cta.work': 'استكشف أبرز الأعمال ↓',
     'hero.cta.contact': 'تواصل معي',
 
@@ -137,7 +144,8 @@ export const ui = {
     'section.01.label': 'المشاريع الهندسية',
     'section.01.title': 'المشاريع الرائدة و',
     'section.01.titleAccent': 'المعمارية البرمجية',
-    'section.01.description': 'منصة المشتريات والتوريد الرقمية B2B الأولى في الجزائر، أنظمة الذكاء الاصطناعي للرعاية النباتية، منصات التصنيع حسب الطلب، وحلول SaaS للتنبؤ المالي.',
+    'section.01.description':
+      'منصة المشتريات والتوريد الرقمية B2B الأولى في الجزائر، أنظمة الذكاء الاصطناعي للرعاية النباتية، منصات التصنيع حسب الطلب، وحلول SaaS للتنبؤ المالي.',
     'section.01.archive': 'تصفح أرشيف كافة المشاريع ←',
 
     'section.02.num': '02',
@@ -145,7 +153,8 @@ export const ui = {
     'section.02.title': 'جعل الذكاء الاصطناعي',
     'section.02.titleAccent': 'عملياً',
     'section.02.titleSuffix': '، متاحاً ومجدياً للإنتاج',
-    'section.02.description': 'كبير مدربي الذكاء الاصطناعي التوليدي في Everest Academy وصانع المحتوى وراء BenCoder (أكثر من 102,000 مطوّر). جسر بين أحدث الأبحاث والأنظمة الجاهزة للإنتاج.',
+    'section.02.description':
+      'كبير مدربي الذكاء الاصطناعي التوليدي في Everest Academy وصانع المحتوى وراء BenCoder (أكثر من 102,000 مطوّر). جسر بين أحدث الأبحاث والأنظمة الجاهزة للإنتاج.',
     'section.02.portal': 'استكشف منصة التعليم المتكاملة ←',
 
     'section.03.num': '03',
@@ -159,20 +168,23 @@ export const ui = {
     'section.04.label': 'الكفاءات التقنية',
     'section.04.title': 'الحزمة التقنية',
     'section.04.titleAccent': 'المُثبتة في بيئات الإنتاج',
-    'section.04.description': '14 كفاءة هندسية أساسية مُطبقة مباشرة في مواقع وتطبيقات حية، نماذج الرؤية الحاسوبية، والأنظمة الموزعة.',
+    'section.04.description':
+      '14 كفاءة هندسية أساسية مُطبقة مباشرة في مواقع وتطبيقات حية، نماذج الرؤية الحاسوبية، والأنظمة الموزعة.',
 
     'section.05.num': '05',
     'section.05.label': 'المسار المهني والأكاديمي',
     'section.05.title': 'حيث',
     'section.05.titleAccent': 'ساهمت',
     'section.05.titleSuffix': 'وتعلمت',
-    'section.05.description': 'من البنية التحتية في كبرى المنشآت الوطنية الصناعية إلى قيادة برامج الذكاء الاصطناعي والأبحاث المتسارعة.',
+    'section.05.description':
+      'من البنية التحتية في كبرى المنشآت الوطنية الصناعية إلى قيادة برامج الذكاء الاصطناعي والأبحاث المتسارعة.',
 
     'section.06.num': '06',
     'section.06.label': 'التواصل والتعاون',
     'section.06.title': 'لنقم ببناء مشروع',
     'section.06.titleAccent': 'متميز معاً',
-    'section.06.description': 'متاح لتطوير مناهج الذكاء الاصطناعي، التدريب المؤسسي للشركات، الاستشارات البرمجية عالية التأثير، والقيادة التقنية.',
+    'section.06.description':
+      'متاح لتطوير مناهج الذكاء الاصطناعي، التدريب المؤسسي للشركات، الاستشارات البرمجية عالية التأثير، والقيادة التقنية.',
 
     // Stats
     'stats.community.title': '01 // المجتمع والوصول',

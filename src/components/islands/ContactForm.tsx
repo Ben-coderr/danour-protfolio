@@ -66,7 +66,8 @@ export function ContactForm() {
         </div>
         <h3 className="text-xl font-bold text-text">Message Received</h3>
         <p className="text-sm text-text-muted max-w-md mx-auto leading-relaxed">
-          Thank you for reaching out. I've received your note and will reply directly to your email within 24 hours.
+          Thank you for reaching out. I've received your note and will reply directly to your email
+          within 24 hours.
         </p>
         <button
           type="button"
@@ -166,7 +167,10 @@ export function ContactForm() {
       </div>
 
       {status === 'error' && (
-        <div className="p-3 rounded-lg border border-border bg-surface-2 text-xs text-text-muted" role="alert">
+        <div
+          className="p-3 rounded-lg border border-border bg-surface-2 text-xs text-text-muted"
+          role="alert"
+        >
           Something went wrong. Please email directly at{' '}
           <a href="mailto:benkorich.abdenour@gmail.com" className="underline text-text">
             benkorich.abdenour@gmail.com

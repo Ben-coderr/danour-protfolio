@@ -35,7 +35,11 @@ const pillars: Pillar[] = [
         { text: '✓ Module 01: Prompt Engineering & Context Reasoning', status: 'done' },
         { text: '✓ Module 02: Vibe Coding (AI-Assisted Full-Stack)', status: 'done' },
         { text: '✓ Module 03: AI Video Generation & Motion Synthesis', status: 'done' },
-        { text: '✓ Module 04: AI Graphic Design & Visual Asset Workflows', status: 'active', highlight: true },
+        {
+          text: '✓ Module 04: AI Graphic Design & Visual Asset Workflows',
+          status: 'active',
+          highlight: true,
+        },
       ],
     },
   },
@@ -55,7 +59,10 @@ const pillars: Pillar[] = [
     snippet: {
       prefix: 'community-pulse',
       lines: [
-        { text: '• 300+ enrolled students in "Python for Beginners (Arabic)" on Udemy', highlight: true },
+        {
+          text: '• 300+ enrolled students in "Python for Beginners (Arabic)" on Udemy',
+          highlight: true,
+        },
         { text: '• 102,000+ Arabic-speaking developers learning full-stack & AI' },
         { text: '• Focused on pragmatic code: real architectures, zero fluff' },
         { text: '• Practical tutorials in Arabic covering Next.js, Python, & AI tooling' },
@@ -162,7 +169,9 @@ export function HeroConsole() {
             <span className="relative flex h-2 w-2" aria-hidden="true">
               <span className="relative inline-flex rounded-full h-2 w-2 bg-status" />
             </span>
-            <span className="text-[10px] text-text-muted tracking-wider uppercase hidden sm:inline">Active</span>
+            <span className="text-[10px] text-text-muted tracking-wider uppercase hidden sm:inline">
+              Active
+            </span>
           </div>
         </div>
       </div>
@@ -213,9 +222,7 @@ export function HeroConsole() {
                 setAutoPlay(false);
               }}
               className={`relative z-10 py-2.5 px-1 sm:px-3 text-center rounded-md transition-colors duration-200 cursor-pointer flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
-                isActive
-                  ? 'text-text font-bold'
-                  : 'text-text-muted hover:text-text'
+                isActive ? 'text-text font-bold' : 'text-text-muted hover:text-text'
               }`}
             >
               <span
@@ -301,8 +308,8 @@ export function HeroConsole() {
                           line.highlight
                             ? 'text-text font-semibold'
                             : line.status === 'done'
-                            ? 'text-text-muted'
-                            : 'text-text-faint'
+                              ? 'text-text-muted'
+                              : 'text-text-faint'
                         }`}
                       >
                         {line.text}
@@ -339,10 +346,10 @@ export function HeroConsole() {
             current.id === 'teach'
               ? '/#teaching'
               : current.id === 'create'
-              ? 'https://linkedin.com/in/danour'
-              : current.id === 'build'
-              ? '/#work'
-              : '/#about'
+                ? 'https://linkedin.com/in/danour'
+                : current.id === 'build'
+                  ? '/#work'
+                  : '/#about'
           }
           className="text-text hover:underline inline-flex items-center gap-1 transition-colors duration-200"
         >

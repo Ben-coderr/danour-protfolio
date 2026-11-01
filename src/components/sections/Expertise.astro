@@ -18,11 +18,14 @@ const t = useTranslations(locale);
 <section id="expertise" class="py-20 md:py-28 bg-surface/20 border-y border-border scroll-mt-20">
   <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
     <!-- Header -->
-    <div class="border-b border-border pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+    <div
+      class="border-b border-border pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6"
+    >
       <div class="space-y-3">
         <SectionLabel number={t('section.04.num')} label={t('section.04.label')} />
         <h2 class="text-headline text-text mt-3">
-          {t('section.04.title')} <span class="font-accent">{t('section.04.titleAccent')}</span>
+          {t('section.04.title')}
+          <span class="font-accent">{t('section.04.titleAccent')}</span>
         </h2>
         <p class="text-text-muted text-base max-w-xl leading-relaxed">
           {t('section.04.description')}

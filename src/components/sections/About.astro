@@ -70,11 +70,15 @@ const manifesto = locale === 'ar' ? manifestoAr : manifestoEn;
 <section id="about" class="py-20 md:py-28 scroll-mt-20 relative">
   <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
     <!-- Section Header -->
-    <div class="border-b border-border pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+    <div
+      class="border-b border-border pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6"
+    >
       <div class="space-y-3">
         <SectionLabel number={t('section.03.num')} label={t('section.03.label')} />
         <h2 class="text-headline text-text mt-3">
-          {t('section.03.title')} <span class="font-accent">{t('section.03.titleAccent')}</span> {t('section.03.titleSuffix')}
+          {t('section.03.title')}
+          <span class="font-accent">{t('section.03.titleAccent')}</span>
+          {t('section.03.titleSuffix')}
         </h2>
       </div>
       <Button href={`${basePrefix}/about`} variant="secondary" size="md">
@@ -89,12 +93,26 @@ const manifesto = locale === 'ar' ? manifestoAr : manifestoEn;
         <Reveal delay={0}>
           <!-- Portrait Container with Technical Corner Crosshairs -->
           <div class="relative group">
-            <span class="absolute -top-2 -left-2 text-text font-mono text-sm select-none z-20" aria-hidden="true">+</span>
-            <span class="absolute -top-2 -right-2 text-text font-mono text-sm select-none z-20" aria-hidden="true">+</span>
-            <span class="absolute -bottom-2 -left-2 text-text font-mono text-sm select-none z-20" aria-hidden="true">+</span>
-            <span class="absolute -bottom-2 -right-2 text-text font-mono text-sm select-none z-20" aria-hidden="true">+</span>
+            <span
+              class="absolute -top-2 -left-2 text-text font-mono text-sm select-none z-20"
+              aria-hidden="true">+</span
+            >
+            <span
+              class="absolute -top-2 -right-2 text-text font-mono text-sm select-none z-20"
+              aria-hidden="true">+</span
+            >
+            <span
+              class="absolute -bottom-2 -left-2 text-text font-mono text-sm select-none z-20"
+              aria-hidden="true">+</span
+            >
+            <span
+              class="absolute -bottom-2 -right-2 text-text font-mono text-sm select-none z-20"
+              aria-hidden="true">+</span
+            >
 
-            <div class="relative aspect-3/4 sm:aspect-4/5 rounded-2xl overflow-hidden border border-border-strong bg-surface-2 shadow-md">
+            <div
+              class="relative aspect-3/4 sm:aspect-4/5 rounded-2xl overflow-hidden border border-border-strong bg-surface-2 shadow-md"
+            >
               <Image
                 src={abdenourPortrait}
                 alt="Abdenour Benkorich - AI Instructor & Full-Stack Engineer"
@@ -105,20 +123,28 @@ const manifesto = locale === 'ar' ? manifestoAr : manifestoEn;
                 loading="lazy"
                 decoding="async"
               />
-              <div class="absolute bottom-0 inset-x-0 h-36 bg-linear-to-t from-bg/95 via-bg/40 to-transparent"></div>
-              
+              <div
+                class="absolute bottom-0 inset-x-0 h-36 bg-linear-to-t from-bg/95 via-bg/40 to-transparent"
+              >
+              </div>
+
               <!-- Bottom identity bar overlay -->
               <div class="absolute bottom-0 inset-x-0 p-5 flex items-end justify-between">
                 <div>
                   <div class="text-lg font-bold text-text">Abdenour Benkorich</div>
-                  <div class="text-xs font-mono text-text-muted mt-0.5">BenCoder · AI Instructor</div>
+                  <div class="text-xs font-mono text-text-muted mt-0.5">
+                    BenCoder · AI Instructor
+                  </div>
                 </div>
                 <div class="flex flex-col items-end gap-1">
-                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface/90 border border-border text-text backdrop-blur-xs flex items-center gap-1.5">
+                  <span
+                    class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface/90 border border-border text-text backdrop-blur-xs flex items-center gap-1.5"
+                  >
                     <span class="w-1.5 h-1.5 rounded-full bg-status"></span>
                     {locale === 'ar' ? 'مستغانم، الجزائر' : 'Mostaganem, DZ'}
                   </span>
-                  <span class="text-[10px] font-mono text-text-faint bidi-tech">UTC+1 · Active</span>
+                  <span class="text-[10px] font-mono text-text-faint bidi-tech">UTC+1 · Active</span
+                  >
                 </div>
               </div>
             </div>
@@ -129,20 +155,48 @@ const manifesto = locale === 'ar' ? manifestoAr : manifestoEn;
         <Reveal delay={100}>
           <div class="border-y border-border divide-y divide-border/60 text-xs font-mono">
             <div class="py-2.5 flex items-center justify-between">
-              <span class="text-text-muted">{locale === 'ar' ? 'المسار الأكاديمي' : 'Academic Track'}</span>
-              <span class="text-text font-medium">{locale === 'ar' ? 'مهندس دولة (برنامج 5 سنوات)' : 'Ingénieur d\'État (5-Year State Engineering)'}</span>
+              <span class="text-text-muted"
+                >{locale === 'ar' ? 'المسار الأكاديمي' : 'Academic Track'}</span
+              >
+              <span class="text-text font-medium"
+                >{
+                  locale === 'ar'
+                    ? 'مهندس دولة (برنامج 5 سنوات)'
+                    : "Ingénieur d'État (5-Year State Engineering)"
+                }</span
+              >
             </div>
             <div class="py-2.5 flex items-center justify-between">
               <span class="text-text-muted">{locale === 'ar' ? 'الجامعة' : 'Institution'}</span>
-              <span class="text-text font-medium">{locale === 'ar' ? 'جامعة عبد الحميد بن باديس' : 'Univ. Abdelhamid Ben Badis'}</span>
+              <span class="text-text font-medium"
+                >{
+                  locale === 'ar' ? 'جامعة عبد الحميد بن باديس' : 'Univ. Abdelhamid Ben Badis'
+                }</span
+              >
             </div>
             <div class="py-2.5 flex items-center justify-between">
-              <span class="text-text-muted">{locale === 'ar' ? 'المنصة والمجتمع' : 'Community Platform'}</span>
-              <span class="text-text font-medium">{locale === 'ar' ? 'BenCoder (أكثر من 102K متابع)' : 'BenCoder (102,000+ Followers)'}</span>
+              <span class="text-text-muted"
+                >{locale === 'ar' ? 'المنصة والمجتمع' : 'Community Platform'}</span
+              >
+              <span class="text-text font-medium"
+                >{
+                  locale === 'ar'
+                    ? 'BenCoder (أكثر من 102K متابع)'
+                    : 'BenCoder (102,000+ Followers)'
+                }</span
+              >
             </div>
             <div class="py-2.5 flex items-center justify-between">
-              <span class="text-text-muted">{locale === 'ar' ? 'لغات العمل' : 'Primary Languages'}</span>
-              <span class="text-text font-medium">{locale === 'ar' ? 'العربية (الأم)، الإنجليزية، الفرنسية' : 'Arabic (Native), English, French'}</span>
+              <span class="text-text-muted"
+                >{locale === 'ar' ? 'لغات العمل' : 'Primary Languages'}</span
+              >
+              <span class="text-text font-medium"
+                >{
+                  locale === 'ar'
+                    ? 'العربية (الأم)، الإنجليزية، الفرنسية'
+                    : 'Arabic (Native), English, French'
+                }</span
+              >
             </div>
           </div>
         </Reveal>
@@ -153,25 +207,48 @@ const manifesto = locale === 'ar' ? manifestoAr : manifestoEn;
         <!-- Editorial Bio -->
         <Reveal delay={120}>
           <div class="space-y-5 text-base sm:text-lg text-text-muted leading-relaxed">
-            {locale === 'ar' ? (
-              <>
-                <p>
-                  أنا مهندس برمجيات متخصص في الإعلام الآلي وعلوم البيانات ومدرب معتمد، مقيم في <strong class="text-text font-semibold">مستغانم، الجزائر</strong>. يرتكز عملي مباشرة عند نقطة التقاء هندسة البرمجيات الإنتاجية وأنظمة الذكاء الاصطناعي التطبيقية.
-                </p>
-                <p>
-                  بصفتي كبير مدربي الذكاء الاصطناعي في <strong class="text-text font-semibold">Everest Academy</strong> ومؤسس منصة <strong class="text-text font-semibold bidi-tech">BenCoder</strong>، دربت أكثر من 20 مهندساً حضورياً عبر معسكرات مكثفة، وأطلقت دورة بايثون بتقييم <span class="bidi-tech">4.8★</span> على Udemy تضم أكثر من <span class="bidi-tech">300</span> طالب، وبنيت مجتمعاً برمجياً يضم أكثر من <span class="bidi-tech">102,000</span> مطوّر. ومؤخراً، صممت وأطلقت منصة <strong class="text-text font-semibold bidi-tech">JG SupplyNet</strong>، شبكة المشتريات والتوريد الرقمية B2B الأولى في الجزائر.
-                </p>
-              </>
-            ) : (
-              <>
-                <p>
-                  I am a Computer Engineering &amp; Data Science practitioner and instructor based in <strong class="text-text font-semibold">Mostaganem, Algeria</strong>. My work sits directly at the intersection of production software engineering and applied artificial intelligence.
-                </p>
-                <p>
-                  As Lead AI Instructor at <strong class="text-text font-semibold">Everest Academy</strong> and creator of <strong class="text-text font-semibold">BenCoder</strong>, I have trained 20+ engineers in-person through intensive bootcamps, published a 4.8★ Python course on Udemy with 300+ students, and built an engaged audience of over 102,000 developers. Recently, I architected and shipped <strong class="text-text font-semibold">JG SupplyNet</strong>, Algeria's digital B2B sourcing platform.
-                </p>
-              </>
-            )}
+            {
+              locale === 'ar' ? (
+                <>
+                  <p>
+                    أنا مهندس برمجيات متخصص في الإعلام الآلي وعلوم البيانات ومدرب معتمد، مقيم في{' '}
+                    <strong class="text-text font-semibold">مستغانم، الجزائر</strong>. يرتكز عملي
+                    مباشرة عند نقطة التقاء هندسة البرمجيات الإنتاجية وأنظمة الذكاء الاصطناعي
+                    التطبيقية.
+                  </p>
+                  <p>
+                    بصفتي كبير مدربي الذكاء الاصطناعي في{' '}
+                    <strong class="text-text font-semibold">Everest Academy</strong> ومؤسس منصة{' '}
+                    <strong class="text-text font-semibold bidi-tech">BenCoder</strong>، دربت أكثر
+                    من 20 مهندساً حضورياً عبر معسكرات مكثفة، وأطلقت دورة بايثون بتقييم{' '}
+                    <span class="bidi-tech">4.8★</span> على Udemy تضم أكثر من{' '}
+                    <span class="bidi-tech">300</span> طالب، وبنيت مجتمعاً برمجياً يضم أكثر من{' '}
+                    <span class="bidi-tech">102,000</span> مطوّر. ومؤخراً، صممت وأطلقت منصة{' '}
+                    <strong class="text-text font-semibold bidi-tech">JG SupplyNet</strong>، شبكة
+                    المشتريات والتوريد الرقمية B2B الأولى في الجزائر.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p>
+                    I am a Computer Engineering &amp; Data Science practitioner and instructor based
+                    in <strong class="text-text font-semibold">Mostaganem, Algeria</strong>. My work
+                    sits directly at the intersection of production software engineering and applied
+                    artificial intelligence.
+                  </p>
+                  <p>
+                    As Lead AI Instructor at{' '}
+                    <strong class="text-text font-semibold">Everest Academy</strong> and creator of{' '}
+                    <strong class="text-text font-semibold">BenCoder</strong>, I have trained 20+
+                    engineers in-person through intensive bootcamps, published a 4.8★ Python course
+                    on Udemy with 300+ students, and built an engaged audience of over 102,000
+                    developers. Recently, I architected and shipped{' '}
+                    <strong class="text-text font-semibold">JG SupplyNet</strong>, Algeria's digital
+                    B2B sourcing platform.
+                  </p>
+                </>
+              )
+            }
           </div>
         </Reveal>
 
@@ -188,24 +265,8 @@ const manifesto = locale === 'ar' ? manifestoAr : manifestoEn;
             </div>
 
             <div class="divide-y divide-border/70 border-y border-border/70">
-              {manifesto.slice(0, 2).map((item) => (
-                <div class="py-5 space-y-2 group hover:bg-surface/40 transition-colors px-2 -mx-2 rounded-lg">
-                  <div class="flex items-baseline gap-3">
-                    <span class="font-mono text-sm font-bold text-text-faint group-hover:text-status transition-colors bidi-tech">
-                      {item.num}/
-                    </span>
-                    <h3 class="text-base sm:text-lg font-bold text-text font-sans tracking-tight">
-                      {item.title}
-                    </h3>
-                  </div>
-                  <p class="text-xs sm:text-sm text-text-muted leading-relaxed pl-7 rtl:pl-0 rtl:pr-7">
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
-
-              <div id="extra-manifesto-container" class="hidden divide-y divide-border/70 border-t border-border/70">
-                {manifesto.slice(2).map((item) => (
+              {
+                manifesto.slice(0, 2).map((item) => (
                   <div class="py-5 space-y-2 group hover:bg-surface/40 transition-colors px-2 -mx-2 rounded-lg">
                     <div class="flex items-baseline gap-3">
                       <span class="font-mono text-sm font-bold text-text-faint group-hover:text-status transition-colors bidi-tech">
@@ -219,7 +280,30 @@ const manifesto = locale === 'ar' ? manifestoAr : manifestoEn;
                       {item.desc}
                     </p>
                   </div>
-                ))}
+                ))
+              }
+
+              <div
+                id="extra-manifesto-container"
+                class="hidden divide-y divide-border/70 border-t border-border/70"
+              >
+                {
+                  manifesto.slice(2).map((item) => (
+                    <div class="py-5 space-y-2 group hover:bg-surface/40 transition-colors px-2 -mx-2 rounded-lg">
+                      <div class="flex items-baseline gap-3">
+                        <span class="font-mono text-sm font-bold text-text-faint group-hover:text-status transition-colors bidi-tech">
+                          {item.num}/
+                        </span>
+                        <h3 class="text-base sm:text-lg font-bold text-text font-sans tracking-tight">
+                          {item.title}
+                        </h3>
+                      </div>
+                      <p class="text-xs sm:text-sm text-text-muted leading-relaxed pl-7 rtl:pl-0 rtl:pr-7">
+                        {item.desc}
+                      </p>
+                    </div>
+                  ))
+                }
               </div>
             </div>
 
@@ -241,11 +325,15 @@ const manifesto = locale === 'ar' ? manifestoAr : manifestoEn;
 
         <!-- "Now" Living Status Callout -->
         <Reveal delay={220}>
-          <div class="p-5 rounded-xl border border-border bg-surface-2/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-xs">
+          <div
+            class="p-5 rounded-xl border border-border bg-surface-2/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-xs"
+          >
             <div class="space-y-1">
               <div class="flex items-center gap-2">
                 <span class="relative flex h-2 w-2" aria-hidden="true">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-status opacity-75"></span>
+                  <span
+                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-status opacity-75"
+                  ></span>
                   <span class="relative inline-flex rounded-full h-2 w-2 bg-status"></span>
                 </span>
                 <span class="font-bold text-text uppercase tracking-wider">
@@ -253,9 +341,11 @@ const manifesto = locale === 'ar' ? manifestoAr : manifestoEn;
                 </span>
               </div>
               <p class="text-text-muted text-[11px] font-sans">
-                {locale === 'ar'
-                  ? 'تدريب معسكر الذكاء الاصطناعي في Everest Academy · إشراف الروبوتات مع DZDuino · توسيع منهاج بايثون على Udemy'
-                  : 'Teaching Everest Academy AI Bootcamp · Mentoring Robotics with DZDuino · Expanding Udemy Python curriculum'}
+                {
+                  locale === 'ar'
+                    ? 'تدريب معسكر الذكاء الاصطناعي في Everest Academy · إشراف الروبوتات مع DZDuino · توسيع منهاج بايثون على Udemy'
+                    : 'Teaching Everest Academy AI Bootcamp · Mentoring Robotics with DZDuino · Expanding Udemy Python curriculum'
+                }
               </p>
             </div>
             <Button href={`${homeUrl}#contact`} variant="ghost" size="sm" class="shrink-0">

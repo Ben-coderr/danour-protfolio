@@ -87,9 +87,7 @@ export function CurriculumAccordion() {
         <span className="text-text-muted uppercase tracking-wider font-semibold">
           // 4-WEEK INTENSIVE SYLLABUS BREAKDOWN
         </span>
-        <span className="text-[11px] text-text-faint">
-          Everest Academy · Mostaganem
-        </span>
+        <span className="text-[11px] text-text-faint">Everest Academy · Mostaganem</span>
       </div>
 
       <div className="space-y-2.5">
@@ -153,9 +151,7 @@ export function CurriculumAccordion() {
               {/* Collapsible Content */}
               {isOpen && (
                 <div className="px-4 pb-5 sm:px-5 sm:pb-6 pt-1 border-t border-border/60 space-y-4 text-xs font-mono">
-                  <p className="text-text-muted font-sans text-sm leading-relaxed">
-                    {m.summary}
-                  </p>
+                  <p className="text-text-muted font-sans text-sm leading-relaxed">{m.summary}</p>
 
                   {/* Key Learning Objectives */}
                   <div className="space-y-1.5 bg-surface-2/60 p-3.5 rounded-lg border border-border/50">

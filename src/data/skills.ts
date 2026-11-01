@@ -56,7 +56,8 @@ export const skillGroups: SkillGroup[] = [
   {
     name: 'Teaching & Pedagogy',
     icon: 'lucide:presentation',
-    description: 'Hands-on bootcamp instruction and Arabic technical education for 102K+ developers.',
+    description:
+      'Hands-on bootcamp instruction and Arabic technical education for 102K+ developers.',
     skills: [
       { name: 'Bootcamp Instruction (Everest Academy)' },
       { name: 'Udemy Course Authoring (300+ Students)' },

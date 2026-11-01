@@ -11,13 +11,7 @@ interface Props {
   class?: string;
 }
 
-const {
-  text,
-  icon: explicitIcon,
-  showIcon = true,
-  size = 'sm',
-  class: className,
-} = Astro.props;
+const { text, icon: explicitIcon, showIcon = true, size = 'sm', class: className } = Astro.props;
 
 const iconName = explicitIcon || (text && showIcon ? getTechIcon(text) : undefined);
 
@@ -39,8 +33,15 @@ const iconSizes = {
     className
   )}
 >
-  {iconName && (
-    <Icon name={iconName} is:inline class={clsx(iconSizes[size], 'shrink-0 text-text-muted group-hover:text-text')} aria-hidden="true" />
-  )}
+  {
+    iconName && (
+      <Icon
+        name={iconName}
+        is:inline
+        class={clsx(iconSizes[size], 'shrink-0 text-text-muted group-hover:text-text')}
+        aria-hidden="true"
+      />
+    )
+  }
   <span>{text ? text : <slot />}</span>
 </span>
