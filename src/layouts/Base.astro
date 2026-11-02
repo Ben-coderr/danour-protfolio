@@ -33,12 +33,6 @@ const dir = locale === 'ar' ? 'rtl' : 'ltr';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://api.fontshare.com" />
-    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
-    <link
-      href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap"
-      rel="stylesheet"
-    />
     <Seo
       title={title}
       description={description}
@@ -72,11 +66,11 @@ const dir = locale === 'ar' ? 'rtl' : 'ltr';
     </script>
   </head>
   <body
-    class="bg-bg text-text min-h-[100dvh] selection:bg-invert-bg selection:text-invert-text flex flex-col antialiased"
+    class="bg-bg text-text min-h-screen selection:bg-invert-bg selection:text-invert-text flex flex-col antialiased"
   >
     <a
       href="#main"
-      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:start-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-invert-bg focus:text-invert-text focus:rounded-md focus:outline-none"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:start-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-invert-bg focus:text-invert-text focus:rounded-md focus:shadow-lg focus:outline-none"
     >
       {locale === 'ar' ? 'الانتقال إلى المحتوى الرئيسي' : 'Skip to content'}
     </a>
@@ -86,42 +80,5 @@ const dir = locale === 'ar' ? 'rtl' : 'ltr';
       <slot />
     </div>
     {showFooter && <Footer locale={locale} />}
-
-    <script>
-      function setupScrollMotion() {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          document.querySelectorAll('[data-reveal]').forEach((el) => {
-            const htmlEl = el as HTMLElement;
-            htmlEl.style.opacity = '1';
-            htmlEl.style.transform = 'none';
-            htmlEl.classList.add('is-revealed');
-          });
-          return;
-        }
-
-        const reveals = document.querySelectorAll('[data-reveal]');
-        if (!reveals.length) return;
-
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                const el = entry.target as HTMLElement;
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-                el.classList.add('is-revealed');
-                observer.unobserve(el);
-              }
-            });
-          },
-          { rootMargin: '0px 0px -40px 0px', threshold: 0.05 }
-        );
-
-        reveals.forEach((el) => observer.observe(el));
-      }
-
-      setupScrollMotion();
-      document.addEventListener('astro:page-load', setupScrollMotion);
-    </script>
   </body>
 </html>

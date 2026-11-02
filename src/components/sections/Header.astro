@@ -25,17 +25,21 @@ const navItems = [
 ];
 ---
 
-<header class="sticky top-0 z-40 w-full bg-bg/95 transition-colors duration-150">
+<header
+  class="sticky top-0 z-40 w-full border-b border-border/60 bg-bg/85 backdrop-blur-md transition-colors duration-200"
+>
   <div
-    class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 h-20 flex items-center justify-between gap-4"
+    class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3"
   >
-    <!-- Brand -->
+    <!-- Brand / Logo -->
     <a
       href={homeUrl}
-      class="flex items-center gap-3 text-text group focus-visible:outline-2 focus-visible:outline-text rounded shrink min-w-0"
+      class="flex items-center gap-2.5 sm:gap-3 text-text group focus-visible:outline-2 focus-visible:outline-text focus-visible:outline-offset-2 rounded-lg shrink min-w-0"
       aria-label={`${siteConfig.name} - Home`}
     >
-      <div class="w-8 h-8 flex items-center justify-center shrink-0">
+      <div
+        class="w-8 h-8 flex items-center justify-center transition-transform duration-200 group-hover:scale-105 shrink-0"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1367 914"
@@ -53,18 +57,21 @@ const navItems = [
         </svg>
       </div>
       <div class="flex flex-col min-w-0">
-        <span class="text-base font-semibold tracking-tight text-text leading-tight">{siteConfig.name}</span>
-        <span class="text-small text-text-muted leading-tight">{siteConfig.brandName}</span>
+        <span class="text-sm font-semibold tracking-tight text-text truncate">Abdenour</span>
+        <span
+          class="text-[10px] font-mono uppercase tracking-wider text-text-faint -mt-0.5 truncate"
+          >BenCoder</span
+        >
       </div>
     </a>
 
     <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center gap-8" aria-label="Main Navigation">
+    <nav class="hidden md:flex items-center gap-7" aria-label="Main Navigation">
       {
         navItems.map((item) => (
           <a
             href={item.href}
-            class="text-sm font-medium text-text-muted hover:text-text transition-colors duration-150 rounded"
+            class="text-sm font-medium text-text-muted hover:text-text transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-text focus-visible:outline-offset-2 rounded"
           >
             {item.label}
           </a>
@@ -73,7 +80,7 @@ const navItems = [
     </nav>
 
     <!-- Right Actions -->
-    <div class="flex items-center gap-3 shrink-0">
+    <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
       <LanguageSwitcher locale={locale} />
       <ThemeToggle client:load showLabel={true} />
 
@@ -85,9 +92,10 @@ const navItems = [
       <button
         id="mobile-menu-trigger"
         type="button"
-        class="md:hidden p-2.5 rounded-md bg-surface-2 text-text hover:bg-surface transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-text shrink-0"
-        aria-label="Toggle navigation menu"
+        class="md:hidden p-2 rounded-lg border border-border bg-surface text-text-muted hover:text-text hover:border-border-strong transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-text shrink-0"
+        aria-label="Open navigation menu"
         aria-expanded="false"
+        aria-controls="mobile-drawer"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -99,10 +107,26 @@ const navItems = [
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
+          class="hamburger-icon"
         >
           <line x1="4" y1="6" x2="20" y2="6"></line>
           <line x1="4" y1="12" x2="20" y2="12"></line>
           <line x1="4" y1="18" x2="20" y2="18"></line>
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="close-icon hidden"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
     </div>
@@ -111,17 +135,17 @@ const navItems = [
   <!-- Mobile Drawer -->
   <div
     id="mobile-drawer"
-    class="hidden md:hidden fixed inset-x-0 top-20 bottom-0 bg-bg p-6 flex flex-col justify-between z-30"
+    class="fixed inset-x-0 top-16 bottom-0 bg-bg/95 backdrop-blur-xl border-b border-border p-6 flex flex-col justify-between hidden md:hidden z-30 transition-all duration-300"
     role="dialog"
     aria-modal="true"
     aria-label="Mobile Navigation"
   >
-    <nav class="flex flex-col gap-5 pt-4" aria-label="Mobile Links">
+    <nav class="flex flex-col gap-4 pt-4" aria-label="Mobile Links">
       {
         navItems.map((item) => (
           <a
             href={item.href}
-            class="mobile-nav-link text-2xl font-semibold text-text hover:text-text-muted transition-colors py-2"
+            class="mobile-nav-link text-xl font-medium text-text hover:text-text-muted transition-colors py-2 border-b border-border/40"
           >
             {item.label}
           </a>
@@ -129,13 +153,20 @@ const navItems = [
       }
       <a
         href={`${homeUrl}#contact`}
-        class="mobile-nav-link text-2xl font-semibold text-text hover:text-text-muted transition-colors py-2"
+        class="mobile-nav-link text-xl font-medium text-text hover:text-text-muted transition-colors py-2 border-b border-border/40"
       >
         {t('nav.contact')}
       </a>
     </nav>
 
     <div class="flex flex-col gap-4 pb-8">
+      <div class="flex items-center justify-between py-3 border-b border-border/40">
+        <span class="text-sm font-mono text-text-muted"
+          >{locale === 'ar' ? 'المظهر' : 'Appearance'}</span
+        >
+        <ThemeToggle client:load showLabel={true} />
+      </div>
+
       <Button href={`${homeUrl}#contact`} variant="primary" size="lg" class="w-full text-center">
         {t('hero.cta.contact')}
       </Button>
@@ -143,7 +174,7 @@ const navItems = [
         href="/Abdenour_Benkorich_CV.pdf"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-sm text-center text-text-muted hover:text-text transition-colors py-2"
+        class="text-xs font-mono text-center text-text-faint hover:text-text transition-colors py-2"
       >
         {t('nav.downloadCv')}
       </a>
@@ -158,36 +189,46 @@ const navItems = [
 
     if (!trigger || !drawer) return;
 
-    const btn = trigger;
-    const panel = drawer;
+    const currentTrigger = trigger;
+    const currentDrawer = drawer;
+    const hamburgerIcon = currentTrigger.querySelector('.hamburger-icon');
+    const closeIcon = currentTrigger.querySelector('.close-icon');
+    const links = currentDrawer.querySelectorAll('.mobile-nav-link');
+
     let isOpen = false;
 
     function toggleMenu(open?: boolean) {
       isOpen = typeof open === 'boolean' ? open : !isOpen;
-      btn.setAttribute('aria-expanded', isOpen.toString());
+      currentTrigger.setAttribute('aria-expanded', isOpen.toString());
 
       if (isOpen) {
-        panel.classList.remove('hidden');
+        currentDrawer.classList.remove('hidden');
+        hamburgerIcon?.classList.add('hidden');
+        closeIcon?.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
       } else {
-        panel.classList.add('hidden');
+        currentDrawer.classList.add('hidden');
+        hamburgerIcon?.classList.remove('hidden');
+        closeIcon?.classList.add('hidden');
         document.body.style.overflow = '';
       }
     }
 
-    btn.addEventListener('click', () => toggleMenu());
+    trigger.addEventListener('click', () => toggleMenu());
 
-    panel.querySelectorAll('.mobile-nav-link').forEach((link) => {
+    links?.forEach((link) => {
       link.addEventListener('click', () => toggleMenu(false));
     });
 
+    // Close on Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && isOpen) {
         toggleMenu(false);
-        btn.focus();
+        trigger.focus();
       }
     });
 
+    // Close on resize to desktop
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 768 && isOpen) {
         toggleMenu(false);

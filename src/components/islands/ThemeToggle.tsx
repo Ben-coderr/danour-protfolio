@@ -31,6 +31,7 @@ export function ThemeToggle({
 
     window.addEventListener('theme-change', handleCustomChange);
 
+    // Sync across tabs
     const handleStorage = (e: StorageEvent) => {
       if (e.key === 'theme' && (e.newValue === 'dark' || e.newValue === 'light')) {
         setTheme(e.newValue);
@@ -63,7 +64,7 @@ export function ThemeToggle({
 
     const metaTheme = document.getElementById('meta-theme-color');
     if (metaTheme) {
-      metaTheme.setAttribute('content', nextTheme === 'dark' ? '#0A0A0A' : '#F8F8F8');
+      metaTheme.setAttribute('content', nextTheme === 'dark' ? '#0A0A0A' : '#FAFAFA');
     }
   };
 
@@ -74,17 +75,19 @@ export function ThemeToggle({
       aria-label="Toggle color theme"
       title="Toggle color theme"
       className={twMerge(
-        'relative inline-flex items-center justify-center rounded-md bg-surface-2 text-text hover:bg-surface transition-colors duration-150 cursor-pointer focus-visible:outline-2 focus-visible:outline-text select-none shrink-0 p-2 text-small font-medium',
-        showLabel ? 'sm:px-3 sm:py-1.5 sm:gap-2' : '',
+        'relative inline-flex items-center justify-center rounded-lg border border-border bg-surface text-text-muted hover:text-text hover:border-border-strong transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-text focus-visible:outline-offset-2 select-none shrink-0',
+        showLabel ? 'p-2 sm:px-3 sm:py-1.5 sm:gap-2 text-xs font-mono' : 'p-2',
         className
       )}
     >
       <span className="sr-only">Toggle theme</span>
 
+      {/* Stable icon container: always 16x16px, never shifts, never hidden */}
       <span
         className="relative w-4 h-4 shrink-0 flex items-center justify-center"
         aria-hidden="true"
       >
+        {/* Sun icon (visible in dark mode) */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -106,6 +109,7 @@ export function ThemeToggle({
           <path d="m19.07 4.93-1.41 1.41"></path>
         </svg>
 
+        {/* Moon icon (visible in light mode) */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -121,8 +125,8 @@ export function ThemeToggle({
       </span>
 
       {showLabel && (
-        <span className="hidden sm:inline capitalize">
-          {theme === 'dark' ? 'Light' : 'Dark'}
+        <span className="hidden sm:inline capitalize text-text font-medium">
+          {theme === 'dark' ? 'Dark' : 'Light'}
         </span>
       )}
     </button>

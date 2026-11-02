@@ -2,130 +2,244 @@
 import Base from '../../../layouts/Base.astro';
 import { Image } from 'astro:assets';
 import abdenourPortrait from '../../../assets/portrait/abdenour.jpg';
+import SectionLabel from '../../../components/ui/SectionLabel.astro';
 import Button from '../../../components/ui/Button.astro';
 
-const toolsAndSetupAr = [
+const toolsAndSetup = [
   {
-    category: 'العتاد وبيئة العمل الفيزيائية',
+    category: 'العتاد ومحطة العمل',
     items: [
-      'جهاز Apple Silicon Mac (M-Series) للهندسة البرمجية وتطوير النماذج',
-      'شاشات مزدوجة عالية الدقة مضبوطة لراحة العين وفحص الواجهات',
-      'لوحة مفاتيح ميكانيكية مخصصة لكتابة الأكواد والبرمجة الطويلة',
-      'ميكروفون Shure MV7 احترافي لتسجيل الدروس التقنية لمنصة BenCoder',
+      'جهاز Apple Silicon Mac (M-Series) للعمل الهندسي والبرمجي اليومي',
+      'شاشات مزدوجة عالية الدقة معايرة خصيصاً لهندسة الخطوط والأكواد',
+      'لوحة مفاتيح ميكانيكية مخصصة بمفاتيح لمسية سريعة الاستجابة',
+      'ميكروفون Shure MV7 للتسجيل الصوتي الاحترافي لشروحات BenCoder',
     ],
   },
   {
-    category: 'البرمجيات وبيئة التطوير',
+    category: 'بيئة التطوير والبرمجيات',
     items: [
-      'VS Code و Neovim مع تكوينات صارمة لفحص TypeScript وبايثون',
-      'Ghostty و iTerm2 مع zsh و tmux وإعدادات dotfiles مخصصة',
-      'Docker لحاويات قواعد البيانات المحلية واختبار الخدمات المصغرة',
-      'TablePlus لإدارة وفحص قواعد بيانات PostgreSQL وعلاقاتها',
+      'محررات VS Code و Neovim بتهيئة متقدمة وفحص صارم لـ TypeScript و Python',
+      'Ghostty و iTerm2 مع zsh و tmux ومجموعتي الخاصة من ملفات Dotfiles',
+      'Docker لتشغيل حاويات قواعد البيانات واختبار بيئات العمل المصغرة',
+      'TablePlus لفحص ومراقبة قواعد بيانات PostgreSQL واستعلامات Prisma',
     ],
   },
   {
-    category: 'أدوات الذكاء الاصطناعي وتعلم الآلة',
+    category: 'أدوات الذكاء الاصطناعي والتعلم الآلي',
     items: [
-      'Hugging Face Transformers و Datasets للترميز والتحليل المحلي',
-      'PyTorch مع تسريع MPS/CUDA لتدريب وضبط النماذج',
-      'ChromaDB و pgvector لتطبيقات البحث الدلالي وقواعد البيانات الموجهة',
-      'Ollama لتشغيل واختبار النماذج اللغوية محلياً بدون إرسال البيانات خارجياً',
+      'Hugging Face Transformers و Datasets للتجزئة والمعالجة اللغوية',
+      'PyTorch مع دعم تسريع MPS / CUDA لحلقات الضبط الدقيق (Fine-tuning)',
+      'ChromaDB و pgvector لاختبارات كفاءة البحث الدلالي والشعاعي',
+      'Ollama للتشغيل المحلي لنماذج LLMs والبرمجة مع حماية الخصوصية',
     ],
   },
 ];
 ---
 
 <Base
-  title="نبذة عن المهندس وفلسفة العمل — عبد النور بن قريش"
-  description="تعرف على مسار عبد النور بن قريش (BenCoder): خلفيته الأكاديمية في هندسة النظم وعلوم البيانات، فلسفته البرمجية، وبيئة عمله اليومية."
   locale="ar"
+  title="نبذة عني وفلسفة العمل — عبد النور بن قريش"
+  description="تعرف على عبد النور بن قريش (BenCoder): المسار المهني، الرحلة في عالم الذكاء الاصطناعي، الفلسفة الهندسية في بناء البرمجيات، وعتاد العمل اليومي."
 >
   <main id="main" class="py-16 sm:py-24 space-y-20">
-    <div class="max-w-5xl mx-auto px-6 sm:px-8 md:px-12 space-y-16">
+    <div class="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
       <!-- Breadcrumb navigation -->
-      <nav class="flex items-center gap-2 text-small text-text-muted" aria-label="Breadcrumb">
+      <div class="flex items-center gap-2 text-xs font-mono text-text-muted">
         <a href="/ar" class="hover:text-text transition-colors">الرئيسية</a>
         <span>/</span>
-        <span class="text-text font-semibold">من أنا</span>
-      </nav>
+        <span class="text-text font-bold">نبذة عني</span>
+      </div>
 
       <!-- Header -->
-      <div class="space-y-4 pb-6">
+      <div class="border-b border-border pb-10 space-y-4">
+        <div class="flex items-center gap-2">
+          <SectionLabel number="03" label="السيرة الذاتية والمبادئ الهندسية" />
+          <span class="text-xs font-mono text-text-faint">·</span>
+          <span class="text-xs font-mono text-status font-medium">● مستغانم، الجزائر</span>
+        </div>
         <h1 class="text-display text-text">
-          هندسة برمجية صارمة، وتعليم تقني واضح
+          الهندسة بدقة وانضباط، <span class="font-accent">والتعليم</span> بوضوح وعمق
         </h1>
-        <p class="text-lead text-text-muted max-prose">
-          القصة المهنية، القناعات الهندسية، وبيئة العمل اليومية لمدرب ذكاء اصطناعي ومهندس برمجيات متكامل في مستغانم، الجزائر.
+        <p class="text-base sm:text-lg text-text-muted max-w-2xl leading-relaxed">
+          القصة المهنية، القناعات التقنية الراسخة، ومحطة العمل اليومية لمهندس برمجيات متكامل ومدرب
+          ذكاء اصطناعي ومؤسس محتوى تقني.
         </p>
       </div>
 
       <!-- Section: Portrait & Long-Form Bio -->
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
-        <!-- Natural Color Portrait -->
-        <div class="md:col-span-5 space-y-4">
-          <div class="aspect-4/5 rounded-lg overflow-hidden bg-surface-2">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+        <!-- Natural Color Portrait with Corner Crosshairs -->
+        <div class="md:col-span-5 relative group">
+          <span
+            class="absolute -top-2 -left-2 text-text font-mono text-sm select-none z-20"
+            aria-hidden="true">+</span
+          >
+          <span
+            class="absolute -top-2 -right-2 text-text font-mono text-sm select-none z-20"
+            aria-hidden="true">+</span
+          >
+          <span
+            class="absolute -bottom-2 -left-2 text-text font-mono text-sm select-none z-20"
+            aria-hidden="true">+</span
+          >
+          <span
+            class="absolute -bottom-2 -right-2 text-text font-mono text-sm select-none z-20"
+            aria-hidden="true">+</span
+          >
+
+          <div
+            class="aspect-3/4 rounded-2xl overflow-hidden border border-border-strong bg-surface-2 shadow-md"
+          >
             <Image
               src={abdenourPortrait}
               alt="عبد النور بن قريش"
               class="w-full h-full object-cover"
               style="object-position: 42% 28%;"
-              width={800}
-              height={1000}
+              width={900}
+              height={1200}
             />
           </div>
-          <div class="space-y-1 text-small text-text-muted">
-            <div class="font-semibold text-text">عبد النور بن قريش (BenCoder)</div>
-            <div>مهندس دولة في الإعلام الآلي وعلوم البيانات (PFE 2026) · جامعة مستغانم</div>
-            <div>مستغانم، الجزائر (UTC+1)</div>
+
+          <div
+            class="p-4 rounded-xl border border-border bg-surface-2/60 mt-4 font-mono text-xs text-text-muted flex items-center gap-3.5"
+          >
+            <div
+              class="w-12 h-12 rounded-xl bg-white p-1.5 border border-border shrink-0 flex items-center justify-center shadow-xs overflow-hidden"
+            >
+              <img
+                src="/brand/univ-mostaganem-logo.png"
+                alt="شعار جامعة عبد الحميد بن باديس مستغانم"
+                class="w-full h-full object-contain"
+                loading="eager"
+                width="48"
+                height="48"
+              />
+            </div>
+            <div class="space-y-0.5 min-w-0">
+              <div class="font-bold text-text">عبد النور بن قريش</div>
+              <div class="truncate">شهادة مهندس دولة (Ingénieur d'État)</div>
+              <div class="text-[11px] text-text-faint truncate">
+                جامعة عبد الحميد بن باديس مستغانم (برنامج 5 سنوات)
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Long-Form Bio -->
-        <div class="md:col-span-7 space-y-6 text-body text-text-muted leading-relaxed max-prose">
-          <p class="text-xl font-medium text-text leading-relaxed">
-            أنا مهندس برمجيات، مدرب ذكاء اصطناعي، وصانع محتوى تقني. أجمع بين الانضباط الرياضي الأكاديمي والحرفية البرمجية لبناء أنظمة تصمد أمام متطلبات الإنتاج الحقيقي.
-          </p>
-
+        <!-- Long-Form Narrative -->
+        <div class="md:col-span-7 space-y-6 text-base text-text-muted leading-relaxed font-sans">
           <p>
-            بدأت رحلتي بالبرمجة منخفضة المستوى والروبوتات المدمجة مع Arduino و ESP32 في مخابر DZDuino Labs. علمتني تلك التجربة تقدير قيود الذاكرة، وزمن استجابة الحساسات، والاعتمادية الصارمة. وعندما انتقلت إلى تعلم الآلة والأنظمة السحابية الموزعة، استمرت تلك القناعة: يجب أن يكون الكود قابلاً للمراقبة، سريعاً، وعملياً.
+            رحلتي في علوم الحاسوب والبرمجة بدأت بشغف خوارزمي: كيف يتحول الكود الرياضي والمنطقي إلى
+            أداة ذات نفع حقيقي ملموس للمستخدمين؟ من خلال دراستي لبرنامج مهندس دولة (Ingénieur
+            d'État) في الإعلام الآلي وعلوم البيانات في مستغانم، اكتشفت سريعاً أن الفجوة التقليدية
+            بين البحث الأكاديمي النظري وتطوير البرمجيات للإنتاج غالباً ما تكون واسعة دون مبرر.
           </p>
-
           <p>
-            في عام 2022، أطلقت منصة <strong class="text-text font-semibold">BenCoder</strong> لسد فجوة جوهرية: تقديم محتوى عربي عالي المستوى في علوم الحاسوب وتطبيقات الذكاء الاصطناعي دون اختصارات شكلية. اليوم، تضم المنصة أكثر من <strong class="text-text font-semibold">102,000 مطوّر</strong> عبر الجزائر والمنطقة العربية.
+            يغرق الكثير من محتوى الذكاء الاصطناعي اليوم إما في ضجيج دعائي سطحي أو في نظريات معقدة
+            بعيدة عن الواقع. ينصب تركيزي على بناء وشحن برمجيات حقيقية — مثل تصميم وهندسة شبكة <strong
+              class="text-text font-semibold bidi-tech">JG SupplyNet</strong
+            > الرقمية للتوريد والمشتريات B2B في الجزائر، وتطوير تطبيقات الويب المتكاملة وأنظمة العتاد
+            المضمن والذكاء الاصطناعي عالية الأداء.
           </p>
-
           <p>
-            في <strong class="text-text font-semibold">Everest Academy</strong>، أتولى قيادة معسكر "Build with AI" المكثف، لتدريب المهندسين على الانتقال من مجرد استخدام الذكاء الاصطناعي إلى بناء أنظمة حقيقية وتطبيقات متكاملة.
+            بالتوازي مع الهندسة البرمجية، اكتشفت شغفي بنقل المعرفة والتدريب التقني. بصفتي كبير مدربي
+            الذكاء الاصطناعي في <strong class="text-text font-semibold">Everest Academy</strong>،
+            أقود البرنامج التدريبي الرائد "Build with AI"، حيث أدرّب المهندسين على الانتقال من
+            المبادئ الأولى إلى بناء تطبيقات ذكاء اصطناعي وظيفية وجاهزة للإنتاج.
           </p>
-
-          <div class="pt-4 flex flex-wrap gap-4">
-            <Button href="/ar/work" variant="primary" size="md">
-              استعراض المشاريع
-            </Button>
-            <Button href="/Abdenour_Benkorich_CV.pdf" variant="secondary" size="md" target="_blank" rel="noopener noreferrer">
-              تحميل السيرة الذاتية (PDF)
-            </Button>
-          </div>
+          <p>
+            ومنذ عام <span class="bidi-tech">2022</span>، أقدم عبر منصة{' '}
+            <strong class="text-text font-semibold bidi-tech">BenCoder</strong> دروساً برمجية باللغة العربية،
+            وأدلة معمارية للذكاء الاصطناعي، وشروحات لأنظمة الويب لمجتمع متفاعل يضم أكثر من <span
+              class="bidi-tech">102,000</span
+            > مطوّر عربي في الجزائر والوطن العربي. التدريس يفرض عليّ تبسيط المعماريات إلى حقائقها الجوهرية
+            — وشحن الأكواد في بيئات الإنتاج الحية يضمن ألا أعلّم نظريات جوفاء أبداً.
+          </p>
         </div>
       </div>
 
-      <!-- Section: Workstation & Tooling -->
-      <section class="space-y-8 pt-8">
-        <div class="space-y-2">
-          <h2 class="text-headline text-text">بيئة العمل والعتاد التقني</h2>
-          <p class="text-body text-text-muted max-prose">
-            الأدوات والبرمجيات التي أعتمد عليها يومياً في الهندسة وصناعة الدروس التقنية.
-          </p>
+      <!-- Section: Education & Academic Foundation -->
+      <section class="border-t border-border pt-12 space-y-6">
+        <div class="space-y-1">
+          <span class="text-xs font-mono text-text-faint uppercase tracking-wider">
+            المؤهلات الأكاديمية // المسار العلمي
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-text">التعليم والأساس العلمي المتين</h2>
         </div>
 
-        <div class="space-y-6">
+        <div
+          class="p-6 sm:p-8 rounded-2xl border border-border-strong bg-surface flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm"
+        >
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+            <div
+              class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white p-2 border border-border-strong flex items-center justify-center shrink-0 shadow-sm overflow-hidden"
+            >
+              <img
+                src="/brand/univ-mostaganem-logo.png"
+                alt="شعار جامعة عبد الحميد بن باديس مستغانم"
+                class="w-full h-full object-contain"
+                loading="eager"
+                width="80"
+                height="80"
+              />
+            </div>
+
+            <div class="space-y-2">
+              <div
+                class="flex items-center gap-2 text-xs font-mono text-text-faint uppercase tracking-wider"
+              >
+                <span class="bidi-tech">5-YEAR STATE ENGINEERING // INGÉNIEUR D'ÉTAT</span>
+                <span>·</span>
+                <span class="text-status font-semibold">برنامج 5 سنوات</span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-bold text-text tracking-tight">
+                شهادة مهندس دولة (Ingénieur d'État) — هندسة الإعلام الآلي وعلوم البيانات
+              </h3>
+              <div class="text-xs font-mono text-text-muted">
+                جامعة عبد الحميد بن باديس · مستغانم، الجزائر
+              </div>
+              <p class="text-xs sm:text-sm text-text-muted max-w-2xl leading-relaxed pt-1">
+                برنامج وطني جزائري صارم لمدة 5 سنوات للحصول على دبلوم مهندس دولة، يدمج بين السنتين
+                التحضيريتين المندمجتين، الخوارزميات المتقدمة، تعلّم الآلة الإحصائي، معماريات قواعد
+                البيانات العميقة والأنظمة البرمجية الموزعة.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-col items-start md:items-end gap-2 shrink-0 font-mono text-xs">
+            <span
+              class="px-3 py-1 rounded-full bg-surface-2 border border-border text-text font-medium"
+            >
+              طالب هندسة دولة
+            </span>
+            <span class="text-text-faint text-[11px]">برنامج الدولة 5 سنوات</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Workstation & Tooling -->
+      <section class="space-y-8 border-t border-border pt-12">
+        <div class="space-y-1">
+          <span class="text-xs font-mono text-text-faint uppercase tracking-wider">
+            محطة العمل // أدوات وحزمة الإنتاج
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-text">
+            العتاد، البرمجيات وحزمة الذكاء الاصطناعي
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {
-            toolsAndSetupAr.map((sec) => (
-              <div class="bg-surface rounded-lg p-6 sm:p-8 space-y-3">
-                <h3 class="text-xl font-bold text-text">{sec.category}</h3>
-                <ul class="space-y-2 text-small text-text-muted list-disc pr-4">
-                  {sec.items.map((item) => (
-                    <li class="leading-relaxed">{item}</li>
+            toolsAndSetup.map((sec) => (
+              <div class="p-6 rounded-2xl border border-border bg-surface space-y-4">
+                <h3 class="text-sm font-bold font-mono text-text uppercase tracking-wider border-b border-border pb-2">
+                  {sec.category}
+                </h3>
+                <ul class="space-y-2 text-xs font-mono text-text-muted">
+                  {sec.items.map((it) => (
+                    <li class="flex items-start gap-2">
+                      <span class="text-status font-bold">›</span>
+                      <span class="leading-relaxed">{it}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -133,6 +247,26 @@ const toolsAndSetupAr = [
           }
         </div>
       </section>
+
+      <!-- Section: Collaboration CTA -->
+      <div class="border-t border-border pt-12">
+        <div
+          class="p-8 rounded-2xl border border-border-strong bg-surface flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm"
+        >
+          <div class="space-y-2">
+            <h3 class="text-2xl font-bold text-text font-sans">
+              لنقم ببناء مشروع متميز ومستدام معاً
+            </h3>
+            <p class="text-sm text-text-muted max-w-xl">
+              متاح لتطوير مناهج الذكاء الاصطناعي التوليدي، ورش العمل الفنية، الاستشارات البرمجية،
+              وهندسة الأنظمة الكاملة.
+            </p>
+          </div>
+          <Button href="/ar#contact" variant="primary" size="lg" class="shrink-0">
+            تواصل معي ←
+          </Button>
+        </div>
+      </div>
     </div>
   </main>
 </Base>

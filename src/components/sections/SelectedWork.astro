@@ -2,7 +2,10 @@
 import { projects as rawProjects } from '../../data/projects';
 import { getLocalizedProject } from '../../i18n/projects.ar';
 import { useTranslations, type Locale } from '../../i18n/ui';
+import SectionLabel from '../ui/SectionLabel.astro';
+import TagList from '../ui/TagList.astro';
 import Button from '../ui/Button.astro';
+import Reveal from '../ui/Reveal.astro';
 
 interface Props {
   locale?: Locale;
@@ -16,25 +19,30 @@ const t = useTranslations(locale);
 const basePrefix = locale === 'ar' ? '/ar' : '';
 
 const localizedProjects = rawProjects.map((p) => getLocalizedProject(p, locale));
-const flagshipProjects = localizedProjects.filter((p) =>
-  ['jg-supply-net', 'phytosense', 'vyro', 'new-way'].includes(p.slug)
+const flagshipProject =
+  localizedProjects.find((p) => p.slug === 'jg-supply-net') || localizedProjects[0];
+const secondaryProjects = localizedProjects.filter((p) =>
+  ['phytosense', 'vyro', 'new-way', 'virexa'].includes(p.slug)
+);
+const clientProjects = localizedProjects.filter((p) =>
+  ['udemy-python-arabic', 'everest-genai', 'fiikra-studio', 'perfecto-brew-crew'].includes(p.slug)
 );
 ---
 
-<section id="work" class="py-20 md:py-28 scroll-mt-20">
-  <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 space-y-16">
+<section id="work" class="py-20 md:py-28 scroll-mt-20 relative">
+  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
     <!-- Section Header -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6">
+    <div
+      class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-border pb-8"
+    >
       <div class="space-y-3">
+        <SectionLabel number={t('section.01.num')} label={t('section.01.label')} />
         <h2 class="text-headline text-text">
-          {locale === 'ar' ? 'معماريات برمجية ومشاريع مختارة' : 'Selected Production Architectures'}
+          {t('section.01.title')}
+          <span class="font-accent">{t('section.01.titleAccent')}</span>
         </h2>
-        <p class="text-body text-text-muted max-prose">
-          {
-            locale === 'ar'
-              ? 'أنظمة برمجية مصممة للعمل في بيئات الإنتاج الحقيقية: معالجة زمن الاستجابة، بوابات الدفع الوطنية، وتطبيقات الذكاء الاصطناعي متعددة النماذج.'
-              : 'Production systems engineered for real-world resilience: low-latency edge compute, Algerian domestic payment pipelines, and multi-model AI architectures.'
-          }
+        <p class="text-text-muted text-base max-w-xl leading-relaxed">
+          {t('section.01.description')}
         </p>
       </div>
 
@@ -43,77 +51,472 @@ const flagshipProjects = localizedProjects.filter((p) =>
       </Button>
     </div>
 
-    <!-- Featured Projects Grid -->
-    <div class="space-y-20">
-      {
-        flagshipProjects.map((project, idx) => {
-          const [shortTitle, ...taglineParts] = project.title.split(' — ');
-          const projectTagline = taglineParts.join(' — ');
-          return (
-            <article class="bg-surface rounded-lg p-6 sm:p-8 lg:p-10 space-y-8" data-reveal>
-              <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                <!-- Left / Top: Project Details -->
-                <div class="lg:col-span-6 space-y-4">
-                  <h3 class="text-2xl sm:text-3xl font-bold text-text tracking-tight">
-                    {shortTitle}
-                  </h3>
+    <!-- Featured Project #1: Full-Bleed Cinematic Feature (JG SupplyNet - Latest Work) -->
+    <Reveal delay={0}>
+      <div
+        class="rounded-2xl border border-border-strong bg-surface overflow-hidden shadow-md group"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+          <!-- Left: Narrative & Engineering Highlights -->
+          <div class="lg:col-span-7 p-6 sm:p-8 lg:p-10 flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-status animate-pulse"></span>
+                  <span class="font-mono text-xs uppercase tracking-wider text-text font-bold">
+                    {
+                      locale === 'ar'
+                        ? 'أحدث عمل إنتاجي // سوق التوريد الرقمي B2B'
+                        : 'LATEST PRODUCTION WORK // B2B MARKETPLACE'
+                    }
+                  </span>
+                </div>
+                <span
+                  class="text-xs font-mono text-text px-2 py-0.5 rounded bg-surface-2 border border-border bidi-tech"
+                >
+                  2025 — 2026
+                </span>
+              </div>
 
-                  <div class="flex flex-wrap items-center gap-2.5 text-small text-text-muted">
-                    {projectTagline && (
-                      <>
-                        <span class="text-text font-medium">{projectTagline}</span>
-                        <span>·</span>
-                      </>
-                    )}
-                    <span class="text-text font-semibold">{project.year}</span>
-                    <span>·</span>
-                    <span>{project.role}</span>
+              <h3
+                class="text-2xl sm:text-3xl lg:text-4xl font-bold text-text tracking-tight font-sans"
+              >
+                {flagshipProject.title}
+              </h3>
+
+              <p class="text-sm sm:text-base text-text-muted leading-relaxed">
+                {flagshipProject.summary}
+              </p>
+
+              <!-- Technical HUD Readouts -->
+              <div class="grid grid-cols-3 gap-3 py-3 border-y border-border/70 text-xs font-mono">
+                <div>
+                  <div class="text-[10px] text-text-faint uppercase">
+                    {locale === 'ar' ? 'نموذج المنصة' : 'Platform Model'}
                   </div>
-
-                  <p class="text-body text-text-muted leading-relaxed max-prose">
-                    {project.summary}
-                  </p>
-
-                  <!-- Stack Pills -->
-                  <div class="flex flex-wrap gap-2 pt-1">
-                    {project.stack.slice(0, 5).map((tech) => (
-                      <span class="text-small px-3 py-1 rounded bg-surface-2 text-text">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <!-- Actions -->
-                  <div class="flex flex-wrap items-center gap-4 pt-3">
-                    <Button href={`${basePrefix}/work/${project.slug}`} variant="primary" size="md">
-                      {locale === 'ar' ? 'دراسة المعمارية الكاملة' : 'Read Architecture Case Study'}
-                    </Button>
-                    {project.liveUrl && (
-                      <Button href={project.liveUrl} variant="ghost" size="md" target="_blank" rel="noopener noreferrer">
-                        {locale === 'ar' ? 'معاينة المنصة الحية' : 'Visit Live Platform'}
-                      </Button>
-                    )}
+                  <div class="text-text font-bold mt-0.5">
+                    {locale === 'ar' ? 'سوق توريد B2B' : 'B2B Sourcing Hub'}
                   </div>
                 </div>
-
-                <!-- Right: Real Image Architecture View -->
-                <div class="lg:col-span-6">
-                  <div class="rounded-lg overflow-hidden bg-surface-2 aspect-16/10">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      class="w-full h-full object-cover transition-transform duration-300 hover:scale-[1.02]"
-                      loading={idx === 0 ? 'eager' : 'lazy'}
-                      width="800"
-                      height="500"
-                    />
+                <div>
+                  <div class="text-[10px] text-text-faint uppercase">
+                    {locale === 'ar' ? 'اللغات' : 'Localization'}
+                  </div>
+                  <div class="text-text font-bold mt-0.5 bidi-tech">EN · FR · AR</div>
+                </div>
+                <div>
+                  <div class="text-[10px] text-text-faint uppercase">
+                    {locale === 'ar' ? 'الدور الهندسي' : 'Role'}
+                  </div>
+                  <div class="text-status font-bold mt-0.5">
+                    {locale === 'ar' ? 'المهندس المعماري الرئيسي' : 'Lead Full-Stack'}
                   </div>
                 </div>
               </div>
-            </article>
-          );
-        })
+
+              <!-- Outcomes with progressive disclosure -->
+              <div class="space-y-1.5 pt-1">
+                <ul class="space-y-1.5 text-xs sm:text-sm text-text-muted font-mono">
+                  {
+                    flagshipProject.bullets.slice(0, 3).map((bullet) => (
+                      <li class="flex items-start gap-2">
+                        <span class="text-status font-bold select-none">›</span>
+                        <span class="leading-relaxed">{bullet}</span>
+                      </li>
+                    ))
+                  }
+                </ul>
+
+                {
+                  flagshipProject.bullets.length > 3 && (
+                    <>
+                      <div class="project-extra-bullets hidden space-y-1.5 pt-1">
+                        <ul class="space-y-1.5 text-xs sm:text-sm text-text-muted font-mono">
+                          {flagshipProject.bullets.slice(3).map((bullet) => (
+                            <li class="flex items-start gap-2">
+                              <span class="text-status font-bold select-none">›</span>
+                              <span class="leading-relaxed">{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <button
+                        type="button"
+                        class="project-bullets-toggle inline-flex items-center gap-1.5 text-xs font-mono text-text-muted hover:text-text transition-colors cursor-pointer pt-1"
+                        aria-expanded="false"
+                        data-show-more={
+                          locale === 'ar'
+                            ? `عرض المزيد من النتائج (${flagshipProject.bullets.length - 3} نتائج إضافية)`
+                            : `See more outcomes (${flagshipProject.bullets.length - 3} more)`
+                        }
+                        data-show-less={t('btn.showLessDetails')}
+                      >
+                        <span class="toggle-icon text-status text-[11px]">↓</span>
+                        <span class="toggle-text">
+                          {locale === 'ar'
+                            ? `عرض المزيد من النتائج (${flagshipProject.bullets.length - 3} نتائج إضافية)`
+                            : `See more outcomes (${flagshipProject.bullets.length - 3} more)`}
+                        </span>
+                      </button>
+                    </>
+                  )
+                }
+              </div>
+            </div>
+
+            <div
+              class="pt-4 border-t border-border flex flex-wrap items-center justify-between gap-4"
+            >
+              <TagList size="sm" tags={flagshipProject.stack} />
+              <div class="flex items-center gap-3">
+                {
+                  flagshipProject.liveUrl && (
+                    <a
+                      href={flagshipProject.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-xs font-mono text-text font-bold hover:underline inline-flex items-center gap-1"
+                    >
+                      {t('btn.visitLive')}
+                    </a>
+                  )
+                }
+                <Button
+                  href={`${basePrefix}/work/${flagshipProject.slug}`}
+                  variant="ghost"
+                  size="sm"
+                >
+                  {t('btn.caseStudy')}
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Live Platform Screen Preview & Telemetry -->
+          <div
+            class="lg:col-span-5 bg-surface-2 p-6 sm:p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l rtl:lg:border-l-0 rtl:lg:border-r border-border relative"
+          >
+            <div class="space-y-4 font-mono text-xs">
+              <div
+                class="flex items-center justify-between pb-3 border-b border-border/70 text-text-faint"
+              >
+                <span class="text-[11px]"
+                  >{locale === 'ar' ? '// محرك التوريد الرقمي B2B' : '// B2B SOURCING ENGINE'}</span
+                >
+                <span
+                  class="text-[10px] px-2 py-0.5 rounded bg-bg text-status border border-border font-bold"
+                >
+                  {locale === 'ar' ? '● بيئة الإنتاج الحية' : '● PRODUCTION LIVE'}
+                </span>
+              </div>
+
+              <!-- Real Platform Screenshot Preview in Browser Mockup Frame -->
+              <div
+                class="rounded-xl overflow-hidden border border-border bg-bg shadow-sm group/preview"
+              >
+                <div
+                  class="flex items-center justify-between px-3 py-2 border-b border-border/70 bg-surface/70 text-[10px] text-text-faint"
+                >
+                  <div class="flex items-center gap-1.5" aria-hidden="true">
+                    <span class="w-2 h-2 rounded-full bg-border-strong"></span>
+                    <span class="w-2 h-2 rounded-full bg-border-strong"></span>
+                    <span class="w-2 h-2 rounded-full bg-border-strong"></span>
+                  </div>
+                  <span class="text-[10px] text-text-muted bidi-tech">jgsupplynet.com/en</span>
+                  <span class="text-[9px] text-status font-bold bidi-tech">LIVE VERCEL</span>
+                </div>
+                <a
+                  href={flagshipProject.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="block aspect-[16/10] overflow-hidden bg-surface-2"
+                >
+                  <img
+                    src={flagshipProject.image}
+                    alt={flagshipProject.title}
+                    class="w-full h-full object-cover group-hover/preview:scale-[1.02] transition-transform duration-300"
+                    loading="eager"
+                    width="1280"
+                    height="720"
+                  />
+                </a>
+              </div>
+
+              <!-- Key Value Proposition Preview -->
+              <div class="p-3.5 rounded-xl border border-border bg-bg/60 space-y-2">
+                <div class="text-[10px] text-text-faint uppercase tracking-wider">
+                  {locale === 'ar' ? 'نطاق وتأثير المنصة' : 'PLATFORM SCOPE'}
+                </div>
+                <div class="flex items-baseline justify-between">
+                  <span class="text-base sm:text-lg font-bold text-text font-sans">
+                    {locale === 'ar' ? 'ربط المنشآت الصناعية' : 'Connecting Organizations'}
+                  </span>
+                  <span class="text-xs font-mono text-status font-semibold">
+                    {locale === 'ar' ? 'بالمورّدين المعتمدين' : 'with Trusted Suppliers'}
+                  </span>
+                </div>
+                <p class="text-[11px] text-text-muted font-sans leading-normal">
+                  {
+                    locale === 'ar'
+                      ? 'منصة موحدة لإدارة طلبات عروض الأسعار، وتصفح الكتالوجات التقنية، وتبسيط التوريد المؤسسي في الجزائر.'
+                      : 'One platform to manage procurement, discover qualified suppliers, and streamline B2B sourcing across Algeria.'
+                  }
+                </p>
+              </div>
+            </div>
+
+            <div class="pt-4 text-center">
+              <span class="text-[11px] font-mono text-text-faint">
+                {
+                  locale === 'ar'
+                    ? 'صُممت ونُفذت لمجموعة جامايل · إطلاق 2025/2026'
+                    : 'Developed for Jamael Group · Shipped 2025/2026'
+                }
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Reveal>
+
+    <!-- 2-Column Paired Featured Projects (PhytoSense, VYRO, New Way, Virexa) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {
+        secondaryProjects.map((project, idx) => (
+          <Reveal delay={120 + idx * 80}>
+            <div class="rounded-2xl border border-border bg-surface p-6 sm:p-8 flex flex-col justify-between space-y-6 hover:border-border-strong transition-all duration-200 group h-full shadow-xs">
+              <div class="space-y-5">
+                {/* Browser Mockup Window with Image Preview */}
+                <div class="rounded-xl overflow-hidden border border-border bg-bg/90 group-hover:border-border-strong transition-colors shadow-2xs">
+                  <div class="flex items-center justify-between px-3.5 py-2 border-b border-border bg-surface-2/70 text-xs font-mono text-text-faint">
+                    <div class="flex items-center gap-1.5" aria-hidden="true">
+                      <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block" />
+                      <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block" />
+                      <span class="w-2.5 h-2.5 rounded-full bg-border-strong inline-block" />
+                    </div>
+                    <span class="truncate max-w-[180px] text-[10px] text-text-muted font-mono bidi-tech">
+                      {project.liveUrl?.replace('https://', '')}
+                    </span>
+                    {project.status === 'live' && (
+                      <span class="text-status text-[10px] font-medium">
+                        {locale === 'ar' ? '● مباشر' : '● LIVE'}
+                      </span>
+                    )}
+                  </div>
+                  <a
+                    href={project.liveUrl || `${basePrefix}/work/${project.slug}`}
+                    class="block overflow-hidden aspect-[16/10] bg-surface-2"
+                  >
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-300"
+                      loading="lazy"
+                      width="1280"
+                      height="720"
+                    />
+                  </a>
+                </div>
+
+                {/* Title & Category */}
+                <div>
+                  <span class="text-[11px] font-mono uppercase tracking-wider text-text-faint">
+                    {project.role} // <span class="bidi-tech">{project.year}</span>
+                  </span>
+                  <h3 class="text-xl sm:text-2xl font-bold text-text tracking-tight font-sans mt-0.5 group-hover:text-text transition-colors">
+                    {project.title}
+                  </h3>
+                </div>
+
+                <p class="text-sm text-text-muted leading-relaxed">{project.summary}</p>
+
+                {/* Bullets with progressive disclosure */}
+                <div class="space-y-1.5 pt-1">
+                  <ul class="space-y-1.5 text-xs text-text-muted font-mono">
+                    {project.bullets.slice(0, 2).map((b) => (
+                      <li class="flex items-start gap-2">
+                        <span class="text-text font-bold">›</span>
+                        <span class="leading-relaxed">{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {project.bullets.length > 2 && (
+                    <>
+                      <div class="project-extra-bullets hidden space-y-1.5 pt-1">
+                        <ul class="space-y-1.5 text-xs text-text-muted font-mono">
+                          {project.bullets.slice(2).map((b) => (
+                            <li class="flex items-start gap-2">
+                              <span class="text-text font-bold">›</span>
+                              <span class="leading-relaxed">{b}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <button
+                        type="button"
+                        class="project-bullets-toggle inline-flex items-center gap-1.5 text-[11px] font-mono text-text-muted hover:text-text transition-colors cursor-pointer pt-1"
+                        aria-expanded="false"
+                        data-show-more={
+                          locale === 'ar'
+                            ? `عرض تفاصيل إضافية (${project.bullets.length - 2} نقاط)`
+                            : `See more details (${project.bullets.length - 2} more)`
+                        }
+                        data-show-less={t('btn.showLessDetails')}
+                      >
+                        <span class="toggle-icon text-status text-[10px]">↓</span>
+                        <span class="toggle-text">
+                          {locale === 'ar'
+                            ? `عرض تفاصيل إضافية (${project.bullets.length - 2} نقاط)`
+                            : `See more details (${project.bullets.length - 2} more)`}
+                        </span>
+                      </button>
+                    </>
+                  )}
+                </div>
+              </div>
+
+              {/* Footer Stack & Visit Link */}
+              <div class="pt-4 border-t border-border flex flex-wrap items-center justify-between gap-3">
+                <TagList size="sm" tags={project.stack} />
+                <div class="flex items-center gap-3">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-xs font-mono text-text font-bold hover:underline inline-flex items-center gap-1"
+                    >
+                      {t('btn.visitLive')}
+                    </a>
+                  )}
+                  <Button href={`${basePrefix}/work/${project.slug}`} variant="ghost" size="sm">
+                    {t('btn.caseStudy')}
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        ))
       }
     </div>
+
+    <!-- Commercial & Client Deployments Data Strip -->
+    <Reveal delay={240}>
+      <div class="border-t border-border pt-10 space-y-6">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-xs uppercase tracking-wider text-text-faint">
+            {
+              locale === 'ar'
+                ? '// مشاريع تجارية واستشارية إضافية'
+                : '// MORE COMMERCIAL & CLIENT DEPLOYMENTS'
+            }
+          </span>
+          <a href={`${basePrefix}/work`} class="text-xs font-mono text-text hover:underline">
+            {locale === 'ar' ? 'تصفح الفهرس الكامل ←' : 'Browse complete catalog →'}
+          </a>
+        </div>
+
+        <div
+          class="border border-border rounded-xl divide-y divide-border bg-surface/40 overflow-hidden text-xs font-mono"
+        >
+          {
+            clientProjects.map((p) => (
+              <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-surface transition-colors group/row">
+                <div class="flex items-center gap-4 min-w-0">
+                  <div class="w-16 h-11 rounded-lg overflow-hidden border border-border bg-surface-2 shrink-0 hidden sm:block">
+                    <img
+                      src={p.image}
+                      alt={p.title}
+                      class="w-full h-full object-cover group-hover/row:scale-105 transition-transform duration-200"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="space-y-0.5 min-w-0">
+                    <div class="text-sm font-bold text-text font-sans truncate">{p.title}</div>
+                    <div class="text-[11px] text-text-muted truncate">
+                      {p.category} · {p.role} (<span class="bidi-tech">{p.year}</span>)
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                  <div class="hidden md:flex items-center gap-1.5">
+                    {p.stack.slice(0, 3).map((st) => (
+                      <span class="text-[10px] px-2 py-0.5 rounded bg-surface-2 border border-border text-text-muted bidi-tech">
+                        {st}
+                      </span>
+                    ))}
+                  </div>
+                  <a
+                    href={`${basePrefix}/work/${p.slug}`}
+                    class="text-text hover:underline shrink-0 text-xs inline-flex items-center gap-1 font-mono"
+                  >
+                    {t('btn.deepDive')}
+                  </a>
+                  {p.liveUrl ? (
+                    <a
+                      href={p.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-text font-bold hover:underline shrink-0 text-xs inline-flex items-center gap-1"
+                    >
+                      {t('btn.visitLive')}
+                    </a>
+                  ) : p.repoUrl ? (
+                    <a
+                      href={p.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-text font-bold hover:underline shrink-0 text-xs inline-flex items-center gap-1"
+                    >
+                      GitHub ↗
+                    </a>
+                  ) : (
+                    <span class="text-text-faint text-[11px]">
+                      {locale === 'ar' ? 'مشروع خاص' : 'Private Client'}
+                    </span>
+                  )}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </Reveal>
   </div>
 </section>
+
+<script>
+  function setupProjectBulletsToggle() {
+    document.querySelectorAll<HTMLButtonElement>('.project-bullets-toggle').forEach((btn) => {
+      if (btn.dataset.initialized === 'true') return;
+      btn.dataset.initialized = 'true';
+
+      btn.addEventListener('click', () => {
+        const parent = btn.closest('div');
+        if (!parent) return;
+        const extra = parent.querySelector('.project-extra-bullets');
+        const textSpan = btn.querySelector('.toggle-text');
+        const iconSpan = btn.querySelector('.toggle-icon');
+        if (!extra || !textSpan || !iconSpan) return;
+
+        const isHidden = extra.classList.contains('hidden');
+        if (isHidden) {
+          extra.classList.remove('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+          textSpan.textContent = btn.dataset.showLess || 'Show less details';
+          iconSpan.textContent = '↑';
+        } else {
+          extra.classList.add('hidden');
+          btn.setAttribute('aria-expanded', 'false');
+          textSpan.textContent = btn.dataset.showMore || 'See more details';
+          iconSpan.textContent = '↓';
+        }
+      });
+    });
+  }
+
+  setupProjectBulletsToggle();
+  document.addEventListener('astro:page-load', setupProjectBulletsToggle);
+</script>
