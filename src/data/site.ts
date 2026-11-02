@@ -13,6 +13,7 @@ export const siteConfig = {
     github: 'https://github.com/Ben-coderr',
     linkedin: 'https://linkedin.com/in/danour',
     instagram: 'https://instagram.com/ben.coderr',
+    udemy: 'https://www.udemy.com/course/bencoderr-python-course-arabic/',
     site: 'https://bencoder.site',
   },
   stats: [

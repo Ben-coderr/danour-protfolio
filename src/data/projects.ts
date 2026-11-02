@@ -37,7 +37,7 @@ export const projects: Project[] = [
     summary:
       "Algeria's digital B2B procurement platform and supplier marketplace connecting organizations, industrial buyers, and verified suppliers.",
     fullDescription:
-      'JG SupplyNet (by Jamael Group) is a modern B2B digital procurement platform designed to streamline commercial sourcing across Algeria. Built with Next.js and Tailwind CSS, the platform empowers institutions and enterprises to publish purchase requests, discover certified industrial suppliers, and manage quotation pipelines through a unified, accessible portal.',
+      'JG SupplyNet (by Jamael Group) is a modern B2B digital procurement platform designed to coordinate commercial sourcing across Algeria. Built with Next.js and Tailwind CSS, the platform enables institutions and enterprises to publish purchase requests, discover certified industrial suppliers, and manage quotation pipelines through a unified, accessible portal.',
     challenge:
       'Bridging the gap between traditional industrial suppliers and institutional buyers with a fast, mobile-friendly marketplace supporting multi-language navigation (EN/FR/AR) and complex request-for-quote (RFQ) workflows.',
     solution:
@@ -70,7 +70,7 @@ export const projects: Project[] = [
         problem:
           'Industrial procurement requests require complex validations (drawings, quantities, Incoterms, timelines) across multiple supplier tiers.',
         decision:
-          'Constructed an idempotent PostgreSQL quotation schema with state transitions (Draft ➔ Published ➔ Bidding ➔ Awarded) with automated email notifications.',
+          'Constructed an idempotent PostgreSQL quotation schema with state transitions (Draft -> Published -> Bidding -> Awarded) with automated email notifications.',
         tradeOff: 'Relational schema migration rigor rather than schemaless flexibility.',
         result:
           'Complete auditability and zero dropped RFQs across national supplier transactions.',
@@ -97,7 +97,7 @@ export const projects: Project[] = [
       'Created 40+ focused, hands-on video modules with real-time coding walk-throughs, downloadable exercises, and step-by-step problem-solving challenges.',
     metrics: [
       { label: 'Enrolled Students', value: '300+ Learners' },
-      { label: 'Student Rating', value: '4.8 ★ / 5.0' },
+      { label: 'Student Rating', value: '4.8 / 5.0' },
       { label: 'Language', value: 'Arabic (العربية)' },
     ],
     role: 'Course Creator & Instructor',
@@ -247,7 +247,7 @@ export const projects: Project[] = [
     challenge:
       'Single-cloud AI APIs suffer from frequent rate limits, network fragility in rural agricultural zones, and hallucination risks when prescribing herbal remedies. Field researchers also lack offline computational tools when inspecting wild flora without cellular connectivity.',
     solution:
-      'Engineered a zero-downtime, multi-tier architecture featuring automatic vision failover (Pl@ntNet Tier 1 ➔ Kindwise Plant.id Tier 2) and deterministic-first pharmacology backed by multi-LLM cascading (Google Gemini 3.8 Flash ➔ Groq LPU ➔ OpenRouter ➔ Deterministic Rule Engine). Built a cross-platform mobile application (Expo SDK 57) equipped with embedded SQLite FTS5 for 100% offline taxonomic lookup in rural terroirs.',
+      'Engineered a zero-downtime, multi-tier architecture featuring automatic vision failover (Pl@ntNet Tier 1 -> Kindwise Plant.id Tier 2) and deterministic-first pharmacology backed by multi-LLM cascading (Google Gemini 3.8 Flash -> Groq LPU -> OpenRouter -> Deterministic Rule Engine). Built a cross-platform mobile application (Expo SDK 57) equipped with embedded SQLite FTS5 for 100% offline taxonomic lookup in rural terroirs.',
     metrics: [
       { label: 'Flora Corpus', value: '156+ Algerian Taxa' },
       { label: 'Vision & LLM SLA', value: 'Zero-Downtime Failover' },
@@ -285,7 +285,7 @@ export const projects: Project[] = [
     ],
     architecturalDecisions: [
       {
-        title: 'Zero-Downtime Dual-Vision Cascading (Pl@ntNet ➔ Kindwise Plant.id)',
+        title: 'Zero-Downtime Dual-Vision Cascading (Pl@ntNet -> Kindwise Plant.id)',
         problem:
           'Single-cloud vision APIs hit quota limits or fail in rural Algerian agricultural terroirs with unstable connectivity.',
         decision:
@@ -296,7 +296,7 @@ export const projects: Project[] = [
           '99.8% identification availability with sub-800ms failover resolution during field testing.',
       },
       {
-        title: 'Deterministic Pharmacology Cascading to LLMs (Gemini Flash ➔ Groq LPU)',
+        title: 'Deterministic Pharmacology Cascading to LLMs (Gemini Flash -> Groq LPU)',
         problem:
           'Generative LLMs hallucinate medical claims when querying herbal remedies, creating dangerous toxicity risks.',
         decision:
@@ -392,10 +392,10 @@ export const projects: Project[] = [
         problem:
           'Over 70% of Algerian e-commerce remains Cash on Delivery (COD), but customized B2B and 3D printing orders require upfront card verification via Edahabia/CIB.',
         decision:
-          'Engineered a resilient state machine supporting both Chargily Pay webhook verification and automated multi-stage COD status transitions (Created ➔ Confirmed ➔ Workshop Slicing ➔ Dispatch ➔ Delivered).',
+          'Engineered a resilient state machine supporting both Chargily Pay webhook verification and automated multi-stage COD status transitions (Created -> Confirmed -> Workshop Slicing -> Dispatch -> Delivered).',
         tradeOff:
           'Requires asynchronous webhook idempotency and manual courier reconciliation states.',
-        result: 'Zero dropped orders; seamless automated checkout across all 58 Algerian wilayas.',
+        result: 'Zero dropped orders; reliable automated checkout across all 58 Algerian wilayas.',
       },
     ],
     bullets: [

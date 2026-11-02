@@ -1,9 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import abdenourPortrait from '../../assets/portrait/abdenour.jpg';
-import SectionLabel from '../ui/SectionLabel.astro';
 import Button from '../ui/Button.astro';
-import Reveal from '../ui/Reveal.astro';
 import { useTranslations, type Locale } from '../../i18n/ui';
 
 interface Props {
@@ -16,374 +14,103 @@ const {
 
 const t = useTranslations(locale);
 const basePrefix = locale === 'ar' ? '/ar' : '';
-const homeUrl = locale === 'ar' ? '/ar' : '/';
-
-const manifestoEn = [
-  {
-    num: '01',
-    title: 'Practical Utility Over Speculative Hype',
-    desc: 'The best AI system is one that reliably performs real work at low latency and reasonable cost. I prioritize production-tested models, strict structured outputs, and observable pipelines over theoretical benchmarks.',
-  },
-  {
-    num: '02',
-    title: 'Teach What You Ship, Ship What You Teach',
-    desc: 'Every tutorial on BenCoder and every syllabus module at Everest Academy stems directly from code written and debugged in production environments. Teaching forces absolute architectural clarity.',
-  },
-  {
-    num: '03',
-    title: 'Practical, High-Impact Engineering',
-    desc: 'Empowering North African engineers through bilingual instruction, production-ready AI frameworks, and accessible technical mastery across platforms like Udemy and hands-on bootcamps.',
-  },
-  {
-    num: '04',
-    title: 'Tight Feedback Loops & High Cadence',
-    desc: 'Frequent deployments beat speculative roadmaps. Ship small, instrument thoroughly, gather user feedback, and iterate without ceremony.',
-  },
-];
-
-const manifestoAr = [
-  {
-    num: '01',
-    title: 'المنفعة العملية قبل البريق الدعائي',
-    desc: 'أفضل نظام ذكاء اصطناعي هو الذي يُنجز عملاً حقيقياً وموثوقاً بزمن استجابة سريع وتكلفة معقولة. أمنح الأولوية للنماذج المُثبتة في بيئات الإنتاج، والمخرجات الهيكلية الدقيقة، وخطوط المعالجة القابلة للمراقبة على حساب المقاييس النظرية.',
-  },
-  {
-    num: '02',
-    title: 'علّم ما تشحنه للإنتاج، واشحن ما تعلّمه',
-    desc: 'كل درس عملي على BenCoder وكل وحدة تدريبية في Everest Academy تنبع مباشرة من كود كُتب وحُلّت مشاكله في بيئات عمل حقيقية. التدريس يفرض وضوحاً معمارياً وهندسياً مطلقاً.',
-  },
-  {
-    num: '03',
-    title: 'هندسة عملية عالية التأثير للمنطقة',
-    desc: 'تمكين المطورين والمهندسين في الجزائر والعالم العربي من خلال محتوى تقني رصين، وأطر ذكاء اصطناعي جاهزة للاستخدام الفعلي، واكتساب الخبرة التطبيقية عبر دورات متخصصة ومعسكرات تدريب مكثفة.',
-  },
-  {
-    num: '04',
-    title: 'دورات تطوير سريعة وتحديثات مستمرة',
-    desc: 'الإطلاق المتكرر والمستمر يتفوق على الخطط النظرية الطويلة. انشر أجزاء صغيرة ومتقنة، راقب المقاييس بدقة، استمع لآراء المستخدمين، وطوّر دون تعقيدات شكلية.',
-  },
-];
-
-const manifesto = locale === 'ar' ? manifestoAr : manifestoEn;
 ---
 
-<section id="about" class="py-20 md:py-28 scroll-mt-20 relative">
-  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+<section id="about" class="py-20 md:py-28 scroll-mt-20">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 space-y-16">
     <!-- Section Header -->
-    <div
-      class="border-b border-border pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6"
-    >
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4">
       <div class="space-y-3">
-        <SectionLabel number={t('section.03.num')} label={t('section.03.label')} />
-        <h2 class="text-headline text-text mt-3">
-          {t('section.03.title')}
-          <span class="font-accent">{t('section.03.titleAccent')}</span>
-          {t('section.03.titleSuffix')}
+        <h2 class="text-headline text-text">
+          {locale === 'ar' ? 'حول المهندس والمدرب' : 'Engineering Stance & Background'}
         </h2>
+        <p class="text-body text-text-muted max-prose">
+          {
+            locale === 'ar'
+              ? 'الجمع بين النمذجة الرياضية الصارمة لعلوم البيانات والتطوير البرمجي السريع لشحن حلول حقيقية.'
+              : 'Combining mathematical rigor from data science with rapid software engineering to ship practical platforms.'
+          }
+        </p>
       </div>
+
       <Button href={`${basePrefix}/about`} variant="secondary" size="md">
         {t('section.03.readMore')}
       </Button>
     </div>
 
-    <!-- Main Editorial Layout -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
-      <!-- Left Column: Architectural Portrait Frame -->
-      <div class="lg:col-span-5 space-y-6">
-        <Reveal delay={0}>
-          <!-- Portrait Container with Technical Corner Crosshairs -->
-          <div class="relative group">
-            <span
-              class="absolute -top-2 -left-2 text-text font-mono text-sm select-none z-20"
-              aria-hidden="true">+</span
-            >
-            <span
-              class="absolute -top-2 -right-2 text-text font-mono text-sm select-none z-20"
-              aria-hidden="true">+</span
-            >
-            <span
-              class="absolute -bottom-2 -left-2 text-text font-mono text-sm select-none z-20"
-              aria-hidden="true">+</span
-            >
-            <span
-              class="absolute -bottom-2 -right-2 text-text font-mono text-sm select-none z-20"
-              aria-hidden="true">+</span
-            >
+    <!-- Editorial Spread: Left Facts & Portrait / Right Wide Paragraph -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <!-- Left Column: Portrait & Side Facts -->
+      <div class="lg:col-span-5 space-y-6" data-reveal>
+        <div class="rounded-lg overflow-hidden bg-surface-2 aspect-4/5 max-w-md">
+          <Image
+            src={abdenourPortrait}
+            alt="Abdenour Benkorich"
+            class="w-full h-full object-cover"
+            loading="lazy"
+            width={600}
+            height={750}
+          />
+        </div>
 
-            <div
-              class="relative aspect-3/4 sm:aspect-4/5 rounded-2xl overflow-hidden border border-border-strong bg-surface-2 shadow-md"
-            >
-              <Image
-                src={abdenourPortrait}
-                alt="Abdenour Benkorich - AI Instructor & Full-Stack Engineer"
-                class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
-                style="object-position: 42% 28%;"
-                width={900}
-                height={1200}
-                loading="lazy"
-                decoding="async"
-              />
-              <div
-                class="absolute bottom-0 inset-x-0 h-36 bg-linear-to-t from-bg/95 via-bg/40 to-transparent"
-              >
-              </div>
-
-              <!-- Bottom identity bar overlay -->
-              <div class="absolute bottom-0 inset-x-0 p-5 flex items-end justify-between">
-                <div>
-                  <div class="text-lg font-bold text-text">Abdenour Benkorich</div>
-                  <div class="text-xs font-mono text-text-muted mt-0.5">
-                    BenCoder · AI Instructor
-                  </div>
-                </div>
-                <div class="flex flex-col items-end gap-1">
-                  <span
-                    class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface/90 border border-border text-text backdrop-blur-xs flex items-center gap-1.5"
-                  >
-                    <span class="w-1.5 h-1.5 rounded-full bg-status"></span>
-                    {locale === 'ar' ? 'مستغانم، الجزائر' : 'Mostaganem, DZ'}
-                  </span>
-                  <span class="text-[10px] font-mono text-text-faint bidi-tech">UTC+1 · Active</span
-                  >
-                </div>
-              </div>
+        <div class="space-y-4 pt-2">
+          <div class="space-y-1">
+            <div class="text-small text-text font-semibold">Abdenour Benkorich (BenCoder)</div>
+            <div class="text-small text-text-muted">
+              {
+                locale === 'ar'
+                  ? 'مهندس دولة في الإعلام الآلي وعلوم البيانات (PFE 2026) · جامعة عبد الحميد بن باديس مستغانم'
+                  : 'State Engineering Degree in Computer Engineering & Data Science (PFE 2026) · Universite Abdelhamid Ibn Badis'
+              }
             </div>
           </div>
-        </Reveal>
 
-        <!-- Fast Specs Strip -->
-        <Reveal delay={100}>
-          <div class="border-y border-border divide-y divide-border/60 text-xs font-mono">
-            <div class="py-2.5 flex items-center justify-between">
-              <span class="text-text-muted"
-                >{locale === 'ar' ? 'المسار الأكاديمي' : 'Academic Track'}</span
-              >
-              <span class="text-text font-medium"
-                >{
-                  locale === 'ar'
-                    ? 'مهندس دولة (برنامج 5 سنوات)'
-                    : "Ingénieur d'État (5-Year State Engineering)"
-                }</span
-              >
-            </div>
-            <div class="py-2.5 flex items-center justify-between">
-              <span class="text-text-muted">{locale === 'ar' ? 'الجامعة' : 'Institution'}</span>
-              <span class="text-text font-medium"
-                >{
-                  locale === 'ar' ? 'جامعة عبد الحميد بن باديس' : 'Univ. Abdelhamid Ben Badis'
-                }</span
-              >
-            </div>
-            <div class="py-2.5 flex items-center justify-between">
-              <span class="text-text-muted"
-                >{locale === 'ar' ? 'المنصة والمجتمع' : 'Community Platform'}</span
-              >
-              <span class="text-text font-medium"
-                >{
-                  locale === 'ar'
-                    ? 'BenCoder (أكثر من 102K متابع)'
-                    : 'BenCoder (102,000+ Followers)'
-                }</span
-              >
-            </div>
-            <div class="py-2.5 flex items-center justify-between">
-              <span class="text-text-muted"
-                >{locale === 'ar' ? 'لغات العمل' : 'Primary Languages'}</span
-              >
-              <span class="text-text font-medium"
-                >{
-                  locale === 'ar'
-                    ? 'العربية (الأم)، الإنجليزية، الفرنسية'
-                    : 'Arabic (Native), English, French'
-                }</span
-              >
-            </div>
+          <div class="space-y-1">
+            <div class="text-small text-text font-semibold">Location & Timezone</div>
+            <div class="text-small text-text-muted">Mostaganem, Algeria · UTC+1 (Worldwide Remote)</div>
           </div>
-        </Reveal>
+
+          <div class="space-y-1">
+            <div class="text-small text-text font-semibold">Primary Teaching Role</div>
+            <div class="text-small text-text-muted">Lead AI Instructor @ Everest Academy</div>
+          </div>
+        </div>
       </div>
 
-      <!-- Right Column: Narrative & Operating Manifesto -->
-      <div class="lg:col-span-7 space-y-10">
-        <!-- Editorial Bio -->
-        <Reveal delay={120}>
-          <div class="space-y-5 text-base sm:text-lg text-text-muted leading-relaxed">
+      <!-- Right Column: Wide Confident Paragraphs -->
+      <div class="lg:col-span-7 space-y-8" data-reveal>
+        <p class="text-xl sm:text-2xl font-medium text-text leading-relaxed tracking-tight max-prose">
+          {
+            locale === 'ar'
+              ? 'المنفعة العملية تسبق البريق الدعائي. أفضل نظام ذكاء اصطناعي هو الذي ينجز عملاً حقيقياً وموثوقاً بزمن استجابة سريع وتكلفة منضبطة. أمنح الأولوية للنماذج المُثبتة في بيئات الإنتاج، والمخرجات الهيكلية الدقيقة، وخطوط المعالجة القابلة للمراقبة.'
+              : 'Practical utility over speculative hype. The best AI system is one that reliably performs real work at low latency and reasonable cost. I prioritize production-tested models, strict structured outputs, and observable pipelines over theoretical benchmarks.'
+          }
+        </p>
+
+        <div class="space-y-6 text-body text-text-muted leading-relaxed max-prose">
+          <p>
             {
-              locale === 'ar' ? (
-                <>
-                  <p>
-                    أنا مهندس برمجيات متخصص في الإعلام الآلي وعلوم البيانات ومدرب معتمد، مقيم في{' '}
-                    <strong class="text-text font-semibold">مستغانم، الجزائر</strong>. يرتكز عملي
-                    مباشرة عند نقطة التقاء هندسة البرمجيات الإنتاجية وأنظمة الذكاء الاصطناعي
-                    التطبيقية.
-                  </p>
-                  <p>
-                    بصفتي كبير مدربي الذكاء الاصطناعي في{' '}
-                    <strong class="text-text font-semibold">Everest Academy</strong> ومؤسس منصة{' '}
-                    <strong class="text-text font-semibold bidi-tech">BenCoder</strong>، دربت أكثر
-                    من 20 مهندساً حضورياً عبر معسكرات مكثفة، وأطلقت دورة بايثون بتقييم{' '}
-                    <span class="bidi-tech">4.8★</span> على Udemy تضم أكثر من{' '}
-                    <span class="bidi-tech">300</span> طالب، وبنيت مجتمعاً برمجياً يضم أكثر من{' '}
-                    <span class="bidi-tech">102,000</span> مطوّر. ومؤخراً، صممت وأطلقت منصة{' '}
-                    <strong class="text-text font-semibold bidi-tech">JG SupplyNet</strong>، شبكة
-                    المشتريات والتوريد الرقمية B2B الأولى في الجزائر.
-                  </p>
-                </>
-              ) : (
-                <>
-                  <p>
-                    I am a Computer Engineering &amp; Data Science practitioner and instructor based
-                    in <strong class="text-text font-semibold">Mostaganem, Algeria</strong>. My work
-                    sits directly at the intersection of production software engineering and applied
-                    artificial intelligence.
-                  </p>
-                  <p>
-                    As Lead AI Instructor at{' '}
-                    <strong class="text-text font-semibold">Everest Academy</strong> and creator of{' '}
-                    <strong class="text-text font-semibold">BenCoder</strong>, I have trained 20+
-                    engineers in-person through intensive bootcamps, published a 4.8★ Python course
-                    on Udemy with 300+ students, and built an engaged audience of over 102,000
-                    developers. Recently, I architected and shipped{' '}
-                    <strong class="text-text font-semibold">JG SupplyNet</strong>, Algeria's digital
-                    B2B sourcing platform.
-                  </p>
-                </>
-              )
+              locale === 'ar'
+                ? 'أعلّم ما أبنيه في الإنتاج، وأبني ما أعلّمه. كل ورشة عمل في Everest Academy وكل دليل تقني على منصة BenCoder ينبع مباشرة من كود كُتب وحُلّت مشاكله في بيئات عمل فعلية. التدريس يفرض وضوحاً هندسياً مطلقاً لا يقبل الافتراضات غير المختبرة.'
+                : 'Teach what you ship, ship what you teach. Every workshop module at Everest Academy and every technical tutorial on BenCoder stems directly from code written and debugged in production environments. Teaching forces absolute architectural clarity.'
             }
-          </div>
-        </Reveal>
+          </p>
 
-        <!-- Operating Manifesto -->
-        <Reveal delay={180}>
-          <div class="space-y-6 pt-4 border-t border-border">
-            <div class="flex items-center justify-between">
-              <span class="font-mono text-xs uppercase tracking-wider text-text-faint">
-                {locale === 'ar' ? '// ميثاق ومبادئ العمل الهندسية' : '// OPERATING MANIFESTO'}
-              </span>
-              <span class="text-xs font-mono text-text-muted">
-                {locale === 'ar' ? '04 مبادئ تشغيلية' : '04 Core Tenets'}
-              </span>
-            </div>
+          <p>
+            {
+              locale === 'ar'
+                ? 'دورات تطوير سريعة وتحديثات مستمرة: الشحن المستمر والمبكر يتفوق على الخطط النظرية الطويلة. أنشر أجزاء متقنة ومُراقبة جيداً، واجمع آراء المستخدمين، وطوّر المعمارية باستمرار دون تعقيدات شكلية.'
+                : 'Tight feedback loops beat speculative roadmaps. Ship small, instrument thoroughly, gather user feedback, and iterate the architecture with high cadence and zero ceremony.'
+            }
+          </p>
+        </div>
 
-            <div class="divide-y divide-border/70 border-y border-border/70">
-              {
-                manifesto.slice(0, 2).map((item) => (
-                  <div class="py-5 space-y-2 group hover:bg-surface/40 transition-colors px-2 -mx-2 rounded-lg">
-                    <div class="flex items-baseline gap-3">
-                      <span class="font-mono text-sm font-bold text-text-faint group-hover:text-status transition-colors bidi-tech">
-                        {item.num}/
-                      </span>
-                      <h3 class="text-base sm:text-lg font-bold text-text font-sans tracking-tight">
-                        {item.title}
-                      </h3>
-                    </div>
-                    <p class="text-xs sm:text-sm text-text-muted leading-relaxed pl-7 rtl:pl-0 rtl:pr-7">
-                      {item.desc}
-                    </p>
-                  </div>
-                ))
-              }
-
-              <div
-                id="extra-manifesto-container"
-                class="hidden divide-y divide-border/70 border-t border-border/70"
-              >
-                {
-                  manifesto.slice(2).map((item) => (
-                    <div class="py-5 space-y-2 group hover:bg-surface/40 transition-colors px-2 -mx-2 rounded-lg">
-                      <div class="flex items-baseline gap-3">
-                        <span class="font-mono text-sm font-bold text-text-faint group-hover:text-status transition-colors bidi-tech">
-                          {item.num}/
-                        </span>
-                        <h3 class="text-base sm:text-lg font-bold text-text font-sans tracking-tight">
-                          {item.title}
-                        </h3>
-                      </div>
-                      <p class="text-xs sm:text-sm text-text-muted leading-relaxed pl-7 rtl:pl-0 rtl:pr-7">
-                        {item.desc}
-                      </p>
-                    </div>
-                  ))
-                }
-              </div>
-            </div>
-
-            <div class="pt-1">
-              <button
-                id="toggle-manifesto-btn"
-                type="button"
-                class="inline-flex items-center gap-1.5 text-xs font-mono text-text-muted hover:text-text transition-colors cursor-pointer"
-                aria-expanded="false"
-                data-show-more={t('btn.seeAllTenets')}
-                data-show-less={t('btn.showLessTenets')}
-              >
-                <span class="man-icon text-status text-[11px]">↓</span>
-                <span class="man-text">{t('btn.seeAllTenets')}</span>
-              </button>
-            </div>
-          </div>
-        </Reveal>
-
-        <!-- "Now" Living Status Callout -->
-        <Reveal delay={220}>
-          <div
-            class="p-5 rounded-xl border border-border bg-surface-2/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-xs"
-          >
-            <div class="space-y-1">
-              <div class="flex items-center gap-2">
-                <span class="relative flex h-2 w-2" aria-hidden="true">
-                  <span
-                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-status opacity-75"
-                  ></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-status"></span>
-                </span>
-                <span class="font-bold text-text uppercase tracking-wider">
-                  {locale === 'ar' ? 'نشط في بيئات الإنتاج حالياً' : 'CURRENTLY IN PRODUCTION'}
-                </span>
-              </div>
-              <p class="text-text-muted text-[11px] font-sans">
-                {
-                  locale === 'ar'
-                    ? 'تدريب معسكر الذكاء الاصطناعي في Everest Academy · إشراف الروبوتات مع DZDuino · توسيع منهاج بايثون على Udemy'
-                    : 'Teaching Everest Academy AI Bootcamp · Mentoring Robotics with DZDuino · Expanding Udemy Python curriculum'
-                }
-              </p>
-            </div>
-            <Button href={`${homeUrl}#contact`} variant="ghost" size="sm" class="shrink-0">
-              {locale === 'ar' ? 'تواصل معي ←' : 'Get in touch →'}
-            </Button>
-          </div>
-        </Reveal>
+        <div class="pt-4">
+          <Button href="/Abdenour_Benkorich_CV.pdf" variant="secondary" size="md" target="_blank" rel="noopener noreferrer">
+            {t('nav.downloadCv')}
+          </Button>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
-<script>
-  function setupManifestoToggle() {
-    const btn = document.getElementById('toggle-manifesto-btn');
-    const extra = document.getElementById('extra-manifesto-container');
-    if (!btn || !extra) return;
-
-    btn.addEventListener('click', () => {
-      const isHidden = extra.classList.contains('hidden');
-      if (isHidden) {
-        extra.classList.remove('hidden');
-        btn.setAttribute('aria-expanded', 'true');
-        const textSpan = btn.querySelector('.man-text');
-        const iconSpan = btn.querySelector('.man-icon');
-        if (textSpan) textSpan.textContent = btn.dataset.showLess || 'Show less tenets';
-        if (iconSpan) iconSpan.textContent = '↑';
-      } else {
-        extra.classList.add('hidden');
-        btn.setAttribute('aria-expanded', 'false');
-        const textSpan = btn.querySelector('.man-text');
-        const iconSpan = btn.querySelector('.man-icon');
-        if (textSpan) textSpan.textContent = btn.dataset.showMore || 'See all 4 operating tenets';
-        if (iconSpan) iconSpan.textContent = '↓';
-      }
-    });
-  }
-
-  setupManifestoToggle();
-  document.addEventListener('astro:page-load', setupManifestoToggle);
-</script>

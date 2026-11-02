@@ -1,8 +1,5 @@
 ---
-import SectionLabel from '../ui/SectionLabel.astro';
-import Reveal from '../ui/Reveal.astro';
-import { SkillsMatrix } from '../islands/SkillsMatrix';
-import { useTranslations, type Locale } from '../../i18n/ui';
+import type { Locale } from '../../i18n/ui';
 
 interface Props {
   locale?: Locale;
@@ -12,35 +9,106 @@ const {
   locale = (Astro.currentLocale as Locale) || (Astro.url.pathname.startsWith('/ar') ? 'ar' : 'en'),
 } = Astro.props;
 
-const t = useTranslations(locale);
+const domains =
+  locale === 'ar'
+    ? [
+        {
+          title: 'الذكاء الاصطناعي ونماذج اللغة (LLMs)',
+          desc: 'هندسة السياق والموجهات، النماذج متعددة الوسائط (Gemini 3.8 Flash, Groq LPU)، المخرجات الهيكلية الصارمة (Structured Outputs)، وتكامل أطر Vercel AI SDK.',
+          skills: ['LLMs', 'Gemini API', 'Groq LPU', 'Vercel AI SDK', 'Context Engineering', 'Vector Embeddings'],
+        },
+        {
+          title: 'هندسة الويب المتكاملة وتطوير الواجهات',
+          desc: 'معماريات Next.js 15 و React 19 المتقدمة، Astro 5 للمواقع فائقة السرعة، نمذجة TypeScript الصارمة، والتصميم المتوافق مع معايير إمكانية الوصول الدولية WCAG.',
+          skills: ['TypeScript', 'Next.js 15', 'React 19', 'Astro 5', 'Tailwind CSS', 'Turborepo'],
+        },
+        {
+          title: 'الأنظمة الخلفية وقواعد البيانات الموزعة',
+          desc: 'بناء واجهات برمجية عالية الكفاءة بـ FastAPI و Python و Node.js، معالجة معاملات PostgreSQL و Redis للتخزين المؤقت، وتصميم هياكل بيانات دقيقة عبر Prisma ORM.',
+          skills: ['FastAPI', 'Python 3', 'Node.js', 'PostgreSQL', 'Redis', 'Prisma ORM'],
+        },
+        {
+          title: 'بوابات الدفع واللوجستيات الجزائرية',
+          desc: 'دمج بوابة Chargily Pay لدفع بطاقات الذهبية والبنكية (CIB)، آلات حالات الدفع عند الاستلام (COD)، وجداول تسعير الشحن لشركات التوصيل الوطنية (Yalidine, ZR Express).',
+          skills: ['Chargily Pay', 'CIB & Edahabia', 'COD State Machine', 'Yalidine Logistics', 'ZR Express'],
+        },
+        {
+          title: 'الأنظمة المدمجة والروبوتات',
+          desc: 'برمجة المتحكمات الدقيقة عبر لغات C/C++ وبايثون، منصات Arduino و ESP32 و Raspberry Pi 4، قراءة أجهزة الاستشعار والمحركات الحركية (بالتعاون مع مخابر DZDuino).',
+          skills: ['ESP32', 'Arduino', 'Raspberry Pi', 'Embedded C/C++', 'Sensor Telemetry', 'DZDuino Labs'],
+        },
+      ]
+    : [
+        {
+          title: 'Artificial Intelligence & LLMs',
+          desc: 'Prompt context architecture, multi-modal LLMs (Gemini 3.8 Flash, Groq LPU), schema-enforced structured outputs, multi-provider failover, and vector embeddings.',
+          skills: ['LLMs', 'Gemini API', 'Groq LPU', 'Vercel AI SDK', 'Context Engineering', 'Vector Embeddings'],
+        },
+        {
+          title: 'Full-Stack & Frontend Architecture',
+          desc: 'Production Next.js 15 and React 19 App Router systems, Astro 5 edge sites, strict TypeScript typing, Turborepo monorepos, and WCAG accessibility standards.',
+          skills: ['TypeScript', 'Next.js 15', 'React 19', 'Astro 5', 'Tailwind CSS', 'Turborepo'],
+        },
+        {
+          title: 'Distributed Backend & Data Systems',
+          desc: 'High-throughput RESTful APIs with FastAPI and Node.js, relational schema design on PostgreSQL, Redis in-memory caching, and automated data pipelines.',
+          skills: ['FastAPI', 'Python 3', 'Node.js', 'PostgreSQL', 'Redis', 'Prisma ORM'],
+        },
+        {
+          title: 'Algerian Fintech & Logistics Ecosystem',
+          desc: 'Chargily Pay integration for Algerian Edahabia and CIB card transactions, resilient Cash on Delivery (COD) state machines, and national logistics pricing tables.',
+          skills: ['Chargily Pay', 'CIB & Edahabia', 'COD State Machine', 'Yalidine Logistics', 'ZR Express'],
+        },
+        {
+          title: 'Embedded Systems & Robotics',
+          desc: 'Microcontroller firmware in Embedded C/C++ and Python, ESP32, Arduino Uno, Raspberry Pi 4 edge compute, and sensor telemetry in collaboration with DZDuino Labs.',
+          skills: ['ESP32', 'Arduino', 'Raspberry Pi', 'Embedded C/C++', 'Sensor Telemetry', 'DZDuino Labs'],
+        },
+      ];
 ---
 
-<section id="expertise" class="py-20 md:py-28 bg-surface/20 border-y border-border scroll-mt-20">
-  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+<section id="expertise" class="py-20 md:py-28 bg-surface-2 scroll-mt-20">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 space-y-16">
     <!-- Header -->
-    <div
-      class="border-b border-border pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6"
-    >
-      <div class="space-y-3">
-        <SectionLabel number={t('section.04.num')} label={t('section.04.label')} />
-        <h2 class="text-headline text-text mt-3">
-          {t('section.04.title')}
-          <span class="font-accent">{t('section.04.titleAccent')}</span>
-        </h2>
-        <p class="text-text-muted text-base max-w-xl leading-relaxed">
-          {t('section.04.description')}
-        </p>
-      </div>
-
-      <div class="flex items-center gap-2 font-mono text-xs text-text-faint">
-        <span class="w-2 h-2 rounded-full bg-status"></span>
-        <span>{locale === 'ar' ? '14 كفاءة أساسية مُثبتة' : '14 Core Competencies'}</span>
-      </div>
+    <div class="space-y-3 pb-4">
+      <h2 class="text-headline text-text">
+        {locale === 'ar' ? 'مجالات الكفاءة والترسانة التقنية' : 'Core Domains & Technical Arsenal'}
+      </h2>
+      <p class="text-body text-text-muted max-prose">
+        {
+          locale === 'ar'
+            ? 'ترسانة هندسية شاملة تُغطي كامل مسار التطوير: من أبحاث الذكاء الاصطناعي ومعالجة البيانات، إلى البنية التحتية الخلفية، وواجهات المستخدم المتجاوبة.'
+            : 'A comprehensive technical arsenal spanning applied machine intelligence, resilient backend architectures, and production-grade interface systems.'
+        }
+      </p>
     </div>
 
-    <!-- Dynamic Filterable Skills Matrix -->
-    <Reveal delay={100}>
-      <SkillsMatrix client:visible />
-    </Reveal>
+    <!-- Domain Architecture List (No icon cards, no 1px box clutter) -->
+    <div class="space-y-8">
+      {
+        domains.map((domain) => (
+          <article class="bg-surface rounded-lg p-6 sm:p-8 lg:p-10 space-y-4" data-reveal>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+              <div class="lg:col-span-5 space-y-2">
+                <h3 class="text-xl sm:text-2xl font-bold text-text tracking-tight">
+                  {domain.title}
+                </h3>
+                <p class="text-body text-text-muted leading-relaxed max-prose">
+                  {domain.desc}
+                </p>
+              </div>
+
+              <div class="lg:col-span-7 flex flex-wrap gap-2 pt-1">
+                {domain.skills.map((skill) => (
+                  <span class="text-small px-3.5 py-1.5 rounded bg-surface-2 text-text font-medium">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
   </div>
 </section>

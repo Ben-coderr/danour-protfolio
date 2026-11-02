@@ -21,11 +21,8 @@ const paddingStyles = {
 };
 
 const baseClasses = clsx(
-  'relative rounded-[14px] border border-border bg-surface text-text overflow-hidden',
-  // Subtle top highlight in dark mode
-  'before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-linear-to-r before:from-transparent before:via-white/10 before:to-transparent',
-  interactive &&
-    'transition-all duration-200 hover:-translate-y-0.5 hover:border-border-strong hover:shadow-xs cursor-pointer',
+  'relative rounded-lg bg-surface text-text overflow-hidden',
+  interactive && 'transition-colors duration-150 hover:bg-surface-2 cursor-pointer',
   paddingStyles[padding],
   className
 );

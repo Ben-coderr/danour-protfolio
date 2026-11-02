@@ -26,8 +26,8 @@ export function LocalClock() {
   }, []);
 
   return (
-    <span className="font-mono text-xs font-semibold text-text">
-      {timeStr || '18:15:00'} <span className="text-text-faint font-normal">UTC+1</span>
+    <span className="text-small font-semibold text-text tabular-nums">
+      {timeStr || '18:15:00'} <span className="text-text-muted font-normal">UTC+1</span>
     </span>
   );
 }

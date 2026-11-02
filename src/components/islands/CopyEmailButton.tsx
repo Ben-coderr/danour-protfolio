@@ -22,7 +22,6 @@ export function CopyEmailButton({
         textarea.style.opacity = '0';
         document.body.appendChild(textarea);
         textarea.select();
-        // Fallback for environments without modern Clipboard API
         const legacyDoc = document as unknown as { execCommand?: (command: string) => boolean };
         if (typeof legacyDoc.execCommand === 'function') {
           legacyDoc.execCommand('copy');
@@ -32,7 +31,6 @@ export function CopyEmailButton({
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     } catch {
-      // In case of permission errors, redirect to mailto
       window.location.href = `mailto:${email}`;
     }
   };
@@ -43,14 +41,14 @@ export function CopyEmailButton({
         type="button"
         onClick={handleCopy}
         aria-label="Copy email address"
-        className={`inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-border bg-surface text-text hover:border-border-strong hover:bg-surface-2 transition-all duration-200 cursor-pointer font-mono text-xs select-none focus-visible:outline-2 focus-visible:outline-text focus-visible:outline-offset-2 ${className}`}
+        className={`inline-flex items-center justify-center gap-2 h-10 px-4 rounded-md bg-surface-2 text-text hover:bg-surface transition-colors duration-150 cursor-pointer text-sm font-medium select-none focus-visible:outline-2 focus-visible:outline-text ${className}`}
       >
         {copied ? (
           <>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -58,38 +56,31 @@ export function CopyEmailButton({
               strokeLinecap="round"
               strokeLinejoin="round"
               className="text-status"
-              aria-hidden="true"
             >
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
-            <span className="font-sans font-medium text-text">Copied to clipboard!</span>
+            <span className="text-status font-semibold">Email Copied!</span>
           </>
         ) : (
           <>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="2"
+              strokeWidth="1.75"
               strokeLinecap="round"
               strokeLinejoin="round"
-              aria-hidden="true"
             >
-              <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
-              <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
             </svg>
-            <span>{email}</span>
+            <span>Copy Address</span>
           </>
         )}
       </button>
-
-      {/* Screen reader announcement */}
-      <span className="sr-only" aria-live="polite">
-        {copied ? 'Email address copied to clipboard' : ''}
-      </span>
     </div>
   );
 }

@@ -1,0 +1,26 @@
+[
+ {
+  "file": "public/brand/mediterranean-night.webm",
+  "media": "video",
+  "poster": "public/brand/mediterranean-night-poster.jpg",
+  "ref": "commons:17104681",
+  "title": "Night views over the Mediterranean Sea",
+  "creator": "ISS Expedition 29 crew",
+  "creatorUrl": null,
+  "date": "2011-10-06",
+  "license": "public domain",
+  "licenseCode": "pd",
+  "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+  "creditRequired": false,
+  "page": "https://commons.wikimedia.org/wiki/File:Night_views_over_the_Mediterranean_Sea.ogv",
+  "via": "Wikimedia Commons",
+  "video": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f5/Night_views_over_the_Mediterranean_Sea.ogv/Night_views_over_the_Mediterranean_Sea.ogv.480p.vp9.webm",
+  "width": 720,
+  "height": 480,
+  "duration": 22.5,
+  "bytes": 1992171,
+  "credit": "\"Night views over the Mediterranean Sea\" by ISS Expedition 29 crew, public domain, via Wikimedia Commons",
+  "notes": [],
+  "saved": "2026-11-02T20:05:57.349Z"
+ }
+]

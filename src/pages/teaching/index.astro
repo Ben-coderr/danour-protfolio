@@ -1,22 +1,20 @@
 ---
 import Base from '../../layouts/Base.astro';
-import SectionLabel from '../../components/ui/SectionLabel.astro';
 import Button from '../../components/ui/Button.astro';
-import TagList from '../../components/ui/TagList.astro';
 import { CurriculumAccordion } from '../../components/islands/CurriculumAccordion';
 
 const workshopTopics = [
   {
     title: 'Generative AI from Zero to Production',
     duration: '2 to 4 Days Bootcamp',
-    audience: 'Software Engineers & Students',
+    audience: 'Software Engineers and Students',
     desc: 'Intensive immersion into LLM APIs, function calling, vector embeddings, and building real AI web apps with streaming frontends.',
-    tags: ['Next.js 15', 'FastAPI', 'LangChain', 'Prompt Engineering'],
+    tags: ['Next.js 15', 'FastAPI', 'Vercel AI SDK', 'Prompt Engineering'],
   },
   {
     title: 'Building Enterprise RAG Systems',
     duration: 'Full-Day Deep Dive',
-    audience: 'Backend & Data Teams',
+    audience: 'Backend and Data Teams',
     desc: 'Architecting high-accuracy knowledge retrieval pipelines over private documents with chunking strategies, vector databases, and re-ranking.',
     tags: ['ChromaDB', 'PostgreSQL pgvector', 'Python', 'Embeddings'],
   },
@@ -25,7 +23,7 @@ const workshopTopics = [
     duration: '1-Day Advanced Lab',
     audience: 'Senior Developers',
     desc: 'Moving beyond simple prompts to autonomous ReAct decision loops, tool schemas, deterministic execution, and stateful multi-agent systems.',
-    tags: ['Tool Use', 'Function Calling', 'Pydantic', 'AsyncIO'],
+    tags: ['Tool Calling', 'Pydantic', 'AsyncIO', 'Agent Workflows'],
   },
 ];
 ---
@@ -34,775 +32,183 @@ const workshopTopics = [
   title="Teaching, Curriculums & Workshops — Abdenour Benkorich"
   description="Explore the 'Build with AI' generative AI curriculum, in-person engineering workshops, and the 102K+ BenCoder developer education community."
 >
-  <main id="main" class="py-16 sm:py-24 space-y-20">
-    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-      <!-- Page Hero Header -->
-      <div class="border-b border-border pb-10 space-y-4">
-        <div class="flex items-center gap-2">
-          <SectionLabel number="02" label="AI EDUCATION & CONTENT" />
-          <span class="text-xs font-mono text-text-faint">·</span>
-          <span class="text-xs font-mono text-status font-medium">● 102K+ Community</span>
-        </div>
-        <h1 class="text-display text-text">
-          Making AI <span class="font-accent">practical</span>, accessible &amp; production-ready
-        </h1>
-        <p class="text-base sm:text-lg text-text-muted max-w-2xl leading-relaxed">
-          I design hands-on curricula, conduct intensive bootcamps, and create practical software
-          engineering tutorials for over 102,000 developers worldwide.
-        </p>
+  <main id="main" class="py-16 sm:py-24 space-y-24">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 space-y-20">
+      <!-- Breadcrumb navigation -->
+      <nav class="flex items-center gap-2 text-small text-text-muted" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-text transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-text font-semibold">Teaching</span>
+      </nav>
 
-        <!-- Breadcrumb link -->
-        <div class="pt-2">
-          <a
-            href="/"
-            class="text-xs font-mono text-text-muted hover:text-text inline-flex items-center gap-1.5 transition-colors"
-          >
-            ← Return to Homepage Overview
-          </a>
-        </div>
+      <!-- Hero Header -->
+      <div class="space-y-4 pb-4">
+        <h1 class="text-display text-text">
+          Making AI Practical, Accessible and Production-Ready
+        </h1>
+        <p class="text-lead text-text-muted max-prose">
+          I design hands-on curricula, conduct intensive bootcamps, and create practical software engineering tutorials for over 102,000 developers worldwide.
+        </p>
       </div>
 
-      <!-- Section 1: Everest Academy Flagship "Build with AI" -->
-      <section class="space-y-8">
-        <div
-          class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border pb-6"
-        >
-          <div class="space-y-1">
-            <span class="text-xs font-mono text-text-faint uppercase tracking-wider">
-              FLAGSHIP COURSE // EVEREST ACADEMY
-            </span>
-            <h2 class="text-2xl sm:text-3xl font-bold text-text">
-              "Build with AI" — 1-Month Intensive Curriculum
-            </h2>
-          </div>
-          <span
-            class="text-xs font-mono px-3 py-1 rounded bg-surface-2 border border-border text-text"
-          >
-            Lead Instructor &amp; Course Architect
-          </span>
+      <!-- Section 1: Everest Academy "Build with AI" -->
+      <section class="space-y-10">
+        <div class="space-y-2">
+          <div class="text-small font-semibold text-text">Everest Academy · Mostaganem</div>
+          <h2 class="text-headline text-text">
+            "Build with AI" — One-Month Intensive Curriculum
+          </h2>
+          <p class="text-body text-text-muted max-prose">
+            Lead Generative AI Instructor and Course Architect. Taking students from fundamental prompt engineering and context reasoning to shipping full-stack applications and commercial visual assets.
+          </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          <!-- Left: Narrative & Methodology -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <!-- Left: Methodology & Visuals -->
           <div class="lg:col-span-5 space-y-6">
-            <p class="text-base text-text-muted leading-relaxed">
-              Most AI formations either dwell in abstract mathematics without shipping software, or
-              stop at trivial chat prompts. The <strong class="text-text font-semibold"
-                >"Build with AI"</strong
-              > formation at Everest Academy is built on four practical, industry-grade pillars: <strong
-                class="text-text font-semibold">Prompt Engineering</strong
-              >, <strong class="text-text font-semibold">Vibe Coding</strong> (AI-assisted rapid full-stack
-              delivery), <strong class="text-text font-semibold">AI Video Generation</strong> (Runway,
-              Kling, Luma), and <strong class="text-text font-semibold">AI Graphic Design</strong> (Midjourney,
-              FLUX.1).
-            </p>
-            <p class="text-sm text-text-muted leading-relaxed">
-              Students master context architecture, system prompts, rapid prototype scaffolding
-              using AI copilots, generating commercial multimedia assets, and orchestrating
-              Python/Next.js backends.
-            </p>
-
-            <div
-              class="p-5 rounded-xl border border-border bg-surface-2 space-y-3 font-mono text-xs"
-            >
-              <div class="text-[11px] text-text-faint uppercase font-bold">
-                FORMATION AT A GLANCE:
-              </div>
-              <div class="divide-y divide-border/60">
-                <div class="py-2 flex justify-between">
-                  <span class="text-text-muted">Duration:</span>
-                  <span class="text-text font-bold">1 Month Intensive (60+ Hours)</span>
-                </div>
-                <div class="py-2 flex justify-between">
-                  <span class="text-text-muted">Core Tracks:</span>
-                  <span class="text-text font-medium"
-                    >Prompt Eng · Vibe Coding · Video · Design</span
-                  >
-                </div>
-                <div class="py-2 flex justify-between">
-                  <span class="text-text-muted">Location:</span>
-                  <span class="text-text">Everest Academy · Mostaganem, DZ</span>
-                </div>
-                <div class="py-2 flex justify-between">
-                  <span class="text-text-muted">Graduation Rate:</span>
-                  <span class="text-status font-bold">100% Shipped Live AI Demos</span>
-                </div>
-              </div>
+            <div class="rounded-lg overflow-hidden bg-surface-2 aspect-16/10">
+              <img
+                src="/brand/everest-genai.jpg"
+                alt="Everest Academy Build with AI Classroom"
+                class="w-full h-full object-cover"
+                loading="eager"
+                width="800"
+                height="500"
+              />
             </div>
 
-            <!-- Official Everest Certificate Preview -->
-            <div
-              class="rounded-xl overflow-hidden border border-border bg-surface p-2 shadow-2xs group"
-            >
-              <div
-                class="flex items-center justify-between px-2 py-1 text-[10px] font-mono text-text-faint pb-1.5 border-b border-border/50"
-              >
-                <span>OFFICIAL INSTRUCTOR CREDENTIAL</span>
-                <span class="text-status font-bold">● CERTIFICATE OF APPRECIATION</span>
-              </div>
-              <div class="mt-2 rounded-lg overflow-hidden border border-border/60">
-                <img
-                  src="/brand/everest-genai.jpg"
-                  alt="Certificate of Appreciation - Build with AI - Everest Academy - Benkorich Abdenour"
-                  class="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300"
-                  loading="lazy"
-                  width="1200"
-                  height="750"
-                />
-              </div>
+            <div class="bg-surface rounded-lg p-6 space-y-3">
+              <h3 class="text-lg font-bold text-text">Course Architecture</h3>
+              <p class="text-small text-text-muted leading-relaxed">
+                Four hands-on modules designed for modern engineers: Prompt Context Engineering, Vibe Coding with AI pair programming, Diffusion Video Synthesis (Runway Gen-3, Kling), and Generative Commercial Assets (Midjourney, FLUX.1).
+              </p>
             </div>
-
-            <Button href="#booking" variant="primary" size="md" class="w-full text-center">
-              Book this curriculum for your institution →
-            </Button>
           </div>
 
-          <!-- Right: Interactive Accordion -->
+          <!-- Right: Interactive Syllabus -->
           <div class="lg:col-span-7">
             <CurriculumAccordion client:load />
           </div>
         </div>
       </section>
 
-      <!-- Section 2: Online Course on Udemy (300+ Students) -->
-      <section class="space-y-8 border-t border-border pt-12">
-        <div
-          class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border pb-6"
-        >
-          <div class="space-y-1">
-            <span class="text-xs font-mono text-text-faint uppercase tracking-wider">
-              ONLINE COURSE // UDEMY PLATFORM
-            </span>
-            <h2 class="text-2xl sm:text-3xl font-bold text-text">
-              Python for Beginners in Arabic (300+ Students)
-            </h2>
-          </div>
-          <span
-            class="text-xs font-mono px-3 py-1 rounded bg-surface-2 border border-border text-status font-bold"
-          >
-            ★ 4.8 Top-Rated Course
-          </span>
+      <!-- Section 2: Udemy Course -->
+      <section class="space-y-8 pt-8">
+        <div class="space-y-2">
+          <div class="text-small font-semibold text-text">Udemy Online Course</div>
+          <h2 class="text-headline text-text">
+            Python for Beginners in Arabic
+          </h2>
+          <p class="text-body text-text-muted max-prose">
+            My foundational programming course with over 300 students and a 4.8 rating. Translating core computational concepts into accessible Arabic instruction.
+          </p>
         </div>
 
-        <div
-          class="rounded-2xl border border-border-strong bg-surface/80 overflow-hidden shadow-sm"
-        >
-          <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
-            <!-- Course Banner Image -->
-            <div
-              class="lg:col-span-5 relative bg-bg/90 border-b lg:border-b-0 lg:border-r border-border p-6 flex items-center justify-center"
-            >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-surface rounded-lg p-8 sm:p-10">
+          <div class="lg:col-span-5">
+            <div class="rounded-lg overflow-hidden bg-surface-2 aspect-16/10">
               <img
                 src="/brand/udemy-python.jpg"
-                alt="تعلم البرمجة من الصفر بلغة بايثون | Python course [Arabic]"
-                class="w-full h-auto rounded-xl border border-border shadow-xs object-cover"
+                alt="Udemy Python Course Cover"
+                class="w-full h-full object-cover"
                 loading="lazy"
+                width="800"
+                height="500"
               />
-              <div class="absolute top-4 left-4">
-                <span
-                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold bg-surface/90 text-text border border-border backdrop-blur-xs"
-                >
-                  <span class="w-2 h-2 rounded-full bg-status"></span>
-                  My 1st Online Course
-                </span>
-              </div>
-            </div>
-
-            <!-- Course Details -->
-            <div class="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-6">
-              <div class="space-y-4">
-                <div class="flex flex-wrap items-center gap-2 text-xs font-mono">
-                  <span
-                    class="px-2.5 py-0.5 rounded bg-surface-2 border border-border text-text font-bold"
-                  >
-                    300+ Active Learners
-                  </span>
-                  <span class="text-text-faint">·</span>
-                  <span class="text-text-muted">Arabic Language</span>
-                  <span class="text-text-faint">·</span>
-                  <span class="text-text-muted">Lifetime Access</span>
-                  <span class="text-text-faint">·</span>
-                  <span class="text-text-muted">Certificate of Completion</span>
-                </div>
-
-                <h3 class="text-xl sm:text-2xl font-bold text-text tracking-tight font-sans">
-                  تعلم البرمجة من الصفر بلغة بايثون | Python course [Arabic]
-                </h3>
-
-                <p class="text-sm text-text-muted leading-relaxed">
-                  Engineered specifically for Arabic-speaking students, career switchers, and
-                  aspiring programmers. The course breaks down algorithmic problem solving, Python
-                  syntax, core data structures (lists, dictionaries, sets), functions, error
-                  handling, and modular software architecture with real interactive coding
-                  exercises.
-                </p>
-
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs font-mono">
-                  <div class="p-3 rounded-lg bg-surface-2 border border-border space-y-1">
-                    <div class="font-bold text-text">01. Foundations</div>
-                    <div class="text-[11px] text-text-muted">
-                      Variables, operators, control flow &amp; loops
-                    </div>
-                  </div>
-                  <div class="p-3 rounded-lg bg-surface-2 border border-border space-y-1">
-                    <div class="font-bold text-text">02. Data Structures</div>
-                    <div class="text-[11px] text-text-muted">
-                      Lists, dicts, tuples &amp; memory models
-                    </div>
-                  </div>
-                  <div class="p-3 rounded-lg bg-surface-2 border border-border space-y-1">
-                    <div class="font-bold text-text">03. Real Projects</div>
-                    <div class="text-[11px] text-text-muted">
-                      Mini-apps, file I/O &amp; practical code
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-border">
-                <a
-                  href="https://www.udemy.com/course/bencoderr-python-course-arabic/?referralCode=A268F9C13E98A6D18163"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg bg-text text-bg hover:opacity-90 transition-all font-mono shadow-xs gap-2"
-                >
-                  Join Course on Udemy (Arabic Video Course) ↗
-                </a>
-                <span class="text-xs font-mono text-text-faint">
-                  30-day money-back guarantee · Q&amp;A support
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section 3: Robotics with DZDuino, Web Mentorship & Multi-City Workshops -->
-      <section class="space-y-8 border-t border-border pt-12">
-        <div
-          class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border pb-6"
-        >
-          <div class="space-y-1">
-            <span class="text-xs font-mono text-text-faint uppercase tracking-wider">
-              HANDS-ON HARDWARE &amp; REGIONAL OUTREACH
-            </span>
-            <h2 class="text-2xl sm:text-3xl font-bold text-text">
-              Robotics with DZDuino, 1-on-1 Mentorship &amp; Workshops
-            </h2>
-          </div>
-          <span class="text-xs font-mono text-text-muted">
-            Tlemcen · Algiers · Oran · Mostaganem
-          </span>
-        </div>
-
-        <!-- FEATURED SHOWCASE: DZDuino Robotics Collaboration -->
-        <div
-          class="rounded-2xl border border-border-strong bg-surface p-6 sm:p-8 lg:p-10 space-y-8 shadow-xs relative overflow-hidden"
-        >
-          <!-- Subtle top gradient accent using DZDuino's brand quadrant palette (blue, orange, red, green) -->
-          <div
-            class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-amber-500 via-red-500 to-emerald-500 opacity-90"
-          >
-          </div>
-
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <!-- Left 7 cols: Brand Hero, Partnership Info, Student Progress -->
-            <div class="lg:col-span-7 space-y-6">
-              <!-- Logo + Title block -->
-              <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-                <!-- Large, crisp DZDuino logo container with high-contrast white backdrop -->
-                <a
-                  href="https://dzduino.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="group relative flex-shrink-0"
-                  aria-label="Visit dzduino.com official store"
-                >
-                  <div
-                    class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white p-3 border border-border-strong shadow-md flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg"
-                  >
-                    <img
-                      src="/brand/dzduino-logo.png"
-                      alt="DZDuino Official Logo"
-                      class="w-full h-full object-contain"
-                      loading="eager"
-                      width="96"
-                      height="96"
-                    />
-                  </div>
-                  <span
-                    class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded bg-surface border border-border text-[10px] font-mono text-text-muted opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xs"
-                  >
-                    dzduino.com ↗
-                  </span>
-                </a>
-
-                <div class="space-y-1.5">
-                  <div class="flex flex-wrap items-center gap-2">
-                    <span
-                      class="px-2.5 py-1 rounded-md bg-status/10 border border-status/30 text-status text-xs font-mono font-bold flex items-center gap-1.5"
-                    >
-                      <span class="w-2 h-2 rounded-full bg-status animate-pulse"></span>
-                      ACTIVE PARTNERSHIP
-                    </span>
-                    <span class="text-xs font-mono text-text-muted">
-                      Official Collaboration · dzduino.com
-                    </span>
-                  </div>
-                  <h3 class="text-2xl sm:text-3xl font-extrabold text-text font-sans">
-                    Robotics, Arduino &amp; Raspberry Pi
-                  </h3>
-                  <p class="text-xs sm:text-sm font-mono text-text-faint">
-                    Hardware Engineering Lab · 2 Dedicated Students · 2-Month Program (1 Month
-                    Active Remaining)
-                  </p>
-                </div>
-              </div>
-
-              <!-- Detailed description -->
-              <div class="space-y-3 text-sm text-text-muted leading-relaxed">
-                <p>
-                  Organized in direct collaboration with <strong class="text-text font-semibold"
-                    >dzduino.com</strong
-                  > — Algeria's premier maker, robotics, and open-source electronics hub. Mentoring two
-                  dedicated students through physical circuit architecture, microcontroller programming,
-                  and autonomous edge compute.
-                </p>
-                <p>
-                  The hands-on curriculum combines real breadboard assembly, PWM motor driver tuning
-                  (L298N/TB6612), multi-sensor telemetry (ultrasonic HC-SR04, 6-axis IMU MPU6050,
-                  infrared obstacle detection), and high-level decision processing on Raspberry Pi
-                  (Linux edge compute + Python GPIO integration).
-                </p>
-              </div>
-
-              <!-- Key Metrics / Stats Row -->
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
-                <div class="p-3.5 rounded-xl bg-surface-2 border border-border">
-                  <div class="text-2xl font-extrabold text-text font-mono">2</div>
-                  <div class="text-[11px] font-mono text-text-faint uppercase">
-                    Students Mentored
-                  </div>
-                </div>
-                <div class="p-3.5 rounded-xl bg-surface-2 border border-border">
-                  <div class="text-2xl font-extrabold text-text font-mono">2 Mo.</div>
-                  <div class="text-[11px] font-mono text-text-faint uppercase">
-                    Intensive Lab (1 Mo. Left)
-                  </div>
-                </div>
-                <div class="p-3.5 rounded-xl bg-surface-2 border border-border">
-                  <div class="text-2xl font-extrabold text-text font-mono">100%</div>
-                  <div class="text-[11px] font-mono text-text-faint uppercase">
-                    Physical Lab Wiring
-                  </div>
-                </div>
-                <div class="p-3.5 rounded-xl bg-surface-2 border border-border">
-                  <div class="text-2xl font-extrabold text-status font-mono">Live</div>
-                  <div class="text-[11px] font-mono text-text-faint uppercase">
-                    Active Partnership
-                  </div>
-                </div>
-              </div>
-
-              <!-- CTA Links -->
-              <div class="pt-2 flex flex-wrap items-center gap-3">
-                <a
-                  href="https://dzduino.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="px-4 py-2 rounded-xl bg-text text-surface font-mono text-xs font-bold hover:opacity-90 transition-opacity inline-flex items-center gap-2"
-                >
-                  <span>Explore Partner: dzduino.com</span>
-                  <span>↗</span>
-                </a>
-                <span class="text-xs font-mono text-text-faint">
-                  Components, kits &amp; boards sponsored via DZDuino ecosystem
-                </span>
-              </div>
-            </div>
-
-            <!-- Right 5 cols: Hardware Bench & Curriculum Breakdown -->
-            <div class="lg:col-span-5 space-y-4">
-              <!-- Embedded Bench Terminal -->
-              <div
-                class="rounded-xl border border-border-strong bg-surface-2 p-5 space-y-4 font-mono"
-              >
-                <div
-                  class="flex items-center justify-between pb-3 border-b border-border text-xs text-text-faint"
-                >
-                  <div class="flex items-center gap-2">
-                    <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
-                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
-                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
-                    <span class="ml-1 text-text-muted font-bold text-[11px]"
-                      >dzduino-lab // bench-v2.bin</span
-                    >
-                  </div>
-                  <span class="text-[11px] text-status font-semibold">ONLINE</span>
-                </div>
-
-                <div class="space-y-3 text-xs">
-                  <div>
-                    <span class="text-text-faint uppercase text-[10px] tracking-wider block mb-1">
-                      // CORE PROCESSORS
-                    </span>
-                    <div class="flex flex-wrap gap-1.5">
-                      <span
-                        class="px-2 py-0.5 rounded bg-surface border border-border text-text font-semibold"
-                        >Arduino Uno (ATmega328P)</span
-                      >
-                      <span
-                        class="px-2 py-0.5 rounded bg-surface border border-border text-text font-semibold"
-                        >Raspberry Pi 4 (Linux)</span
-                      >
-                      <span
-                        class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted"
-                        >ESP32 (IoT Edge)</span
-                      >
-                    </div>
-                  </div>
-
-                  <div>
-                    <span class="text-text-faint uppercase text-[10px] tracking-wider block mb-1">
-                      // SENSORS &amp; TELEMETRY
-                    </span>
-                    <div class="flex flex-wrap gap-1.5">
-                      <span
-                        class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted"
-                        >HC-SR04 Ultrasonic</span
-                      >
-                      <span
-                        class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted"
-                        >MPU-6050 6-DOF IMU</span
-                      >
-                      <span
-                        class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted"
-                        >Infrared Obstacle</span
-                      >
-                      <span
-                        class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted"
-                        >Optical Encoders</span
-                      >
-                    </div>
-                  </div>
-
-                  <div>
-                    <span class="text-text-faint uppercase text-[10px] tracking-wider block mb-1">
-                      // ACTUATION &amp; POWER
-                    </span>
-                    <div class="flex flex-wrap gap-1.5">
-                      <span
-                        class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted"
-                        >L298N Dual H-Bridge</span
-                      >
-                      <span
-                        class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted"
-                        >DC Gear Motors (PWM)</span
-                      >
-                      <span
-                        class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted"
-                        >SG90 Micro Servos</span
-                      >
-                      <span
-                        class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted"
-                        >Li-Ion 2S Pack</span
-                      >
-                    </div>
-                  </div>
-
-                  <div>
-                    <span class="text-text-faint uppercase text-[10px] tracking-wider block mb-1">
-                      // PROTOCOLS &amp; LANGUAGES
-                    </span>
-                    <div class="flex flex-wrap gap-1.5">
-                      <span
-                        class="px-2 py-0.5 rounded bg-surface border border-border text-text font-semibold"
-                        >Embedded C/C++</span
-                      >
-                      <span
-                        class="px-2 py-0.5 rounded bg-surface border border-border text-text font-semibold"
-                        >Python (Edge Scripting)</span
-                      >
-                      <span
-                        class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted"
-                        >UART Serial (115200)</span
-                      >
-                      <span
-                        class="px-2 py-0.5 rounded bg-surface border border-border text-text-muted"
-                        >I2C Bus</span
-                      >
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  class="pt-3 border-t border-border text-[11px] text-text-muted leading-relaxed"
-                >
-                  <span class="text-status font-bold">&gt; Telemetry:</span> 2-wheel differential chassis
-                  assembled · PID speed loop calibrated · UART edge-link between RPi4 &amp; Arduino operational.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- MENTORSHIP & WORKSHOPS ROW (2 columns) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- Card: 1-on-1 Summer Web Mentorship -->
-          <div
-            class="p-6 sm:p-7 rounded-2xl border border-border-strong bg-surface flex flex-col justify-between space-y-6 shadow-xs"
-          >
-            <div class="space-y-4">
-              <div class="flex items-center justify-between text-xs font-mono">
-                <span
-                  class="px-2.5 py-1 rounded bg-surface-2 border border-border text-text font-bold"
-                >
-                  1-on-1 Summer Intensive
-                </span>
-                <span class="text-text-faint">3 Months Dedicated</span>
-              </div>
-              <div class="space-y-1">
-                <h3 class="text-xl font-bold text-text font-sans">Full-Stack Web Dev Mentorship</h3>
-                <p class="text-xs font-mono text-text-faint">
-                  Private Engineering Mentorship · Custom Curriculum
-                </p>
-              </div>
-              <p class="text-xs sm:text-sm text-text-muted leading-relaxed">
-                Delivered an intensive 3-month one-on-one software engineering mentorship program
-                for an individual developer during the summer. Guided them from foundational HTML5,
-                responsive modern CSS, and ES6+ JavaScript to full-stack project architecture, Git
-                branch workflows, REST API integration, and automated cloud deployments.
-              </p>
-              <div class="flex flex-wrap gap-1.5 pt-1">
-                <span
-                  class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted"
-                  >HTML5 &amp; Modern CSS</span
-                >
-                <span
-                  class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted"
-                  >JavaScript ES6+</span
-                >
-                <span
-                  class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted"
-                  >Git &amp; GitHub PRs</span
-                >
-                <span
-                  class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted"
-                  >REST APIs</span
-                >
-                <span
-                  class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted"
-                  >Production Deployment</span
-                >
-              </div>
-            </div>
-            <div
-              class="pt-4 border-t border-border font-mono text-xs text-text-muted flex items-center justify-between"
-            >
-              <span>Format: 1-on-1 Pair Programming</span>
-              <span class="text-status font-medium flex items-center gap-1">
-                <span>✓ Completed</span>
-              </span>
             </div>
           </div>
 
-          <!-- Card: Multi-City University Workshops -->
-          <div
-            class="p-6 sm:p-7 rounded-2xl border border-border-strong bg-surface flex flex-col justify-between space-y-6 shadow-xs"
-          >
-            <div class="space-y-4">
-              <div class="flex items-center justify-between text-xs font-mono">
-                <span
-                  class="px-2.5 py-1 rounded bg-surface-2 border border-border text-text font-bold"
-                >
-                  University &amp; Tech Hubs
-                </span>
-                <span class="text-text-faint">Regional Outreach</span>
-              </div>
-              <div class="space-y-1">
-                <h3 class="text-xl font-bold text-text font-sans">
-                  Workshops in Tlemcen, Algiers &amp; Oran
-                </h3>
-                <p class="text-xs font-mono text-text-faint">
-                  Engineering Hubs · In-Person Seminars &amp; Bootcamps
-                </p>
-              </div>
-              <p class="text-xs sm:text-sm text-text-muted leading-relaxed">
-                Conducted high-energy, in-person technical workshops and bootcamps for university
-                students, developer communities, and student tech clubs across Algeria's major
-                academic hubs: Tlemcen, Algiers, and Oran. Focused on practical coding, modern web
-                frameworks, AI engineering tools, and software interview preparation.
-              </p>
-              <div class="flex flex-wrap gap-1.5 pt-1">
-                <span
-                  class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted"
-                  >Tlemcen (Academic Hub)</span
-                >
-                <span
-                  class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted"
-                  >Algiers (Capital Tech Scene)</span
-                >
-                <span
-                  class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted"
-                  >Oran (Western Hub)</span
-                >
-                <span
-                  class="px-2 py-0.5 rounded bg-surface-2 border border-border text-[11px] font-mono text-text-muted"
-                  >Live Code Demonstrations</span
-                >
-              </div>
-            </div>
-            <div
-              class="pt-4 border-t border-border font-mono text-xs text-text-muted flex items-center justify-between"
-            >
-              <span>Locations: Tlemcen · Algiers · Oran</span>
-              <span class="text-text font-medium">On-Site &amp; Seminars</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section 4: BenCoder Creator Platform (102K+) with Live Feed Showcase -->
-      <section class="space-y-8 border-t border-border pt-12">
-        <div
-          class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border pb-6"
-        >
-          <div class="space-y-1">
-            <span class="text-xs font-mono text-text-faint uppercase tracking-wider">
-              GLOBAL CONTENT PLATFORM // BENCODER
-            </span>
-            <h2 class="text-2xl sm:text-3xl font-bold text-text">
-              102,000+ Developers Learning with @ben.coderr
-            </h2>
-          </div>
-          <a
-            href="https://instagram.com/ben.coderr"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-xs font-mono px-3 py-1 rounded bg-surface-2 border border-border text-text hover:border-text transition-colors inline-flex items-center gap-1.5"
-          >
-            <span class="w-2 h-2 rounded-full bg-status"></span>
-            Follow on Instagram (102K) ↗
-          </a>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <!-- Left 7 cols: Real Instagram Profile & Post Screenshot Showcase -->
-          <div class="lg:col-span-7">
-            <div
-              class="rounded-2xl border border-border-strong bg-surface overflow-hidden shadow-sm group"
-            >
-              <div
-                class="px-4 py-2.5 bg-surface-2 border-b border-border flex items-center justify-between text-xs font-mono"
-              >
-                <div class="flex items-center gap-2">
-                  <span class="text-text font-bold">@ben.coderr</span>
-                  <span class="text-text-faint">·</span>
-                  <span class="text-status">102K Followers</span>
-                </div>
-                <span class="text-text-muted text-[11px]">Instagram Verified Profile</span>
-              </div>
-              <a
-                href="https://instagram.com/ben.coderr"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="block overflow-hidden bg-bg"
-              >
-                <img
-                  src="/brand/bencoder-instagram.jpg"
-                  alt="BenCoder (@ben.coderr) Instagram Channel (102K+ Followers) and Coding Tutorials"
-                  class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-300"
-                  loading="lazy"
-                />
-              </a>
-            </div>
-          </div>
-
-          <!-- Right 5 cols: Creator Impact Stats & Value Proposition -->
-          <div class="lg:col-span-5 space-y-6">
-            <div class="p-6 rounded-2xl border border-border bg-surface space-y-3">
-              <div class="flex items-baseline justify-between">
-                <span class="text-4xl sm:text-5xl font-extrabold text-text font-sans">102K+</span>
-                <span class="text-xs font-mono text-status font-bold">● Active Audience</span>
-              </div>
-              <div class="text-xs font-mono text-text-muted uppercase tracking-wider">
-                Developers, Students &amp; Makers
-              </div>
-              <p class="text-sm text-text-muted leading-relaxed pt-2">
-                Producing bite-sized, high-retention architectural breakdowns, full-stack tips, and
-                AI programming workflows in Arabic for an enthusiastic community of over 102,000
-                Arabic-speaking developers.
-              </p>
+          <div class="lg:col-span-7 space-y-5">
+            <div class="flex flex-wrap items-center gap-3 text-small text-text-muted">
+              <span class="text-text font-bold">300+ Students</span>
+              <span>·</span>
+              <span class="text-status font-semibold">4.8 / 5.0 Rating</span>
+              <span>·</span>
+              <span>Arabic Instruction</span>
             </div>
 
-            <div class="grid grid-cols-2 gap-4">
-              <div class="p-5 rounded-xl border border-border bg-surface-2/60 space-y-1">
-                <div class="text-2xl font-bold text-text font-sans">45+</div>
-                <div class="text-xs font-mono text-text-muted uppercase">Guides Shipped</div>
-                <div class="text-[11px] text-text-faint pt-1">Next.js, Python &amp; GenAI</div>
-              </div>
+            <p class="text-body text-text-muted leading-relaxed max-prose">
+              Designed for newcomers and university students seeking pragmatic mastery of Python without theoretical fluff. Covers variables, control flow, functions, modular architecture, algorithmic problem solving, and object-oriented programming.
+            </p>
 
-              <div class="p-5 rounded-xl border border-border bg-surface-2/60 space-y-1">
-                <div class="text-2xl font-bold text-text font-sans">300+</div>
-                <div class="text-xs font-mono text-text-muted uppercase">Course Enrollees</div>
-                <div class="text-[11px] text-text-faint pt-1">Udemy Python Academy</div>
-              </div>
-            </div>
-
-            <div class="p-5 rounded-xl border border-border bg-surface space-y-3">
-              <div class="text-xs font-mono uppercase text-text-faint tracking-wider">
-                CONTENT &amp; SPONSORSHIP INQUIRIES:
-              </div>
-              <p class="text-xs text-text-muted leading-relaxed">
-                Open to developer tooling partnerships, technical webinar keynotes, and educational
-                collaborations aligned with software craftsmanship.
-              </p>
-              <Button href="/#contact" variant="secondary" size="sm" class="w-full text-center">
-                Inquire about BenCoder sponsorship →
+            <div class="pt-2">
+              <Button href="https://www.udemy.com/course/bencoderr-python-course-arabic/" variant="primary" size="lg" target="_blank" rel="noopener noreferrer">
+                Enroll on Udemy
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Section 3: Available Workshops Catalog -->
-      <section id="booking" class="space-y-8 border-t border-border pt-12">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div class="space-y-1">
-            <span class="text-xs font-mono text-text-faint uppercase tracking-wider">
-              ON-SITE &amp; REMOTE SESSIONS
-            </span>
-            <h2 class="text-2xl sm:text-3xl font-bold text-text">
-              Available Bootcamps &amp; Intensive Workshops
-            </h2>
+      <!-- Section 3: BenCoder Community Platform -->
+      <section class="space-y-8 pt-8">
+        <div class="space-y-2">
+          <div class="text-small font-semibold text-text">Developer Media (est. 2022)</div>
+          <h2 class="text-headline text-text">
+            BenCoder — 102,000+ Arabic Tech Community
+          </h2>
+          <p class="text-body text-text-muted max-prose">
+            Publishing practical software architecture breakdowns, AI agent tutorials, and career roadmaps across Instagram and YouTube.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-surface rounded-lg p-8 sm:p-10">
+          <div class="lg:col-span-7 space-y-5">
+            <div class="text-small font-semibold text-text">
+              102K+ Engineers, Students & Founders
+            </div>
+            <p class="text-body text-text-muted leading-relaxed max-prose">
+              BenCoder was established in 2022 to deliver high-quality, jargon-free computer science and AI education natively in Arabic. Over 45 video guides cover full-stack engineering with Next.js, API design with FastAPI, and production deployment.
+            </p>
+            <div class="pt-2">
+              <Button href="https://instagram.com/ben.coderr" variant="secondary" size="md" target="_blank" rel="noopener noreferrer">
+                Visit @ben.coderr on Instagram
+              </Button>
+            </div>
           </div>
-          <p class="text-xs font-mono text-text-muted">
-            Customizable for universities, academies &amp; enterprise engineering teams
+
+          <div class="lg:col-span-5">
+            <div class="rounded-lg overflow-hidden bg-surface-2 aspect-16/10">
+              <img
+                src="/brand/bencoder-instagram.jpg"
+                alt="BenCoder Community Platform"
+                class="w-full h-full object-cover"
+                loading="lazy"
+                width="800"
+                height="500"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Technical Workshops & University Seminars -->
+      <section class="space-y-8 pt-8">
+        <div class="space-y-2">
+          <div class="text-small font-semibold text-text">In-Person Instruction (since 2023)</div>
+          <h2 class="text-headline text-text">
+            Technical Workshops & University Seminars
+          </h2>
+          <p class="text-body text-text-muted max-prose">
+            Delivering hands-on bootcamps and algorithmic seminars across university clubs and tech hubs in Tlemcen, Algiers, and Oran.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {
-            workshopTopics.map((ws) => (
-              <div class="p-6 sm:p-7 rounded-2xl border border-border-strong bg-surface flex flex-col justify-between space-y-6 shadow-xs">
-                <div class="space-y-3">
-                  <div class="flex items-center justify-between text-xs font-mono">
-                    <span class="text-text-faint uppercase">{ws.duration}</span>
-                    <span class="px-2 py-0.5 rounded bg-surface-2 border border-border text-text-muted">
-                      {ws.audience}
-                    </span>
-                  </div>
-
-                  <h3 class="text-xl font-bold text-text font-sans">{ws.title}</h3>
-
-                  <p class="text-xs sm:text-sm text-text-muted leading-relaxed">{ws.desc}</p>
+            workshopTopics.map((item) => (
+              <div class="bg-surface rounded-lg p-6 sm:p-8 space-y-4 flex flex-col justify-between">
+                <div class="space-y-2">
+                  <h3 class="text-xl font-bold text-text">{item.title}</h3>
+                  <div class="text-small text-text-muted font-medium">{item.duration}</div>
+                  <p class="text-body text-text-muted leading-relaxed">{item.desc}</p>
                 </div>
-
-                <div class="space-y-4 pt-4 border-t border-border">
-                  <TagList size="sm" tags={ws.tags} />
-                  <Button href="/#contact" variant="secondary" size="sm" class="w-full text-center">
-                    Request session booking →
-                  </Button>
+                <div class="flex flex-wrap gap-1.5 pt-2">
+                  {item.tags.map((tag) => (
+                    <span class="text-small px-2.5 py-1 rounded bg-surface-2 text-text font-medium">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             ))
