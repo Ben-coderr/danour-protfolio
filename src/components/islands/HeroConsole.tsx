@@ -22,15 +22,15 @@ const pillars: Pillar[] = [
     label: 'AI Teaching',
     title: 'Lead Generative AI Instructor',
     entity: 'Everest Academy · Practical Formation',
-    command: 'run curriculum --course="Build with AI" --target=prod',
+    command: 'pnpm run curriculum --course="build-with-ai"',
     metrics: [
       { label: 'Format', value: '1-Mo Intensive' },
       { label: 'Level', value: 'Hands-on Labs' },
       { label: 'Graduates', value: '20+ Engineers' },
     ],
-    tags: ['Prompt Eng', 'Vibe Coding', 'AI Video', 'AI Graphic Design'],
+    tags: ['Prompt Engineering', 'Vibe Coding', 'AI Video', 'Visual Assets'],
     snippet: {
-      prefix: 'everest-curriculum',
+      prefix: 'everest-curriculum.ts',
       lines: [
         { text: '✓ Module 01: Prompt Engineering & Context Reasoning', status: 'done' },
         { text: '✓ Module 02: Vibe Coding (AI-Assisted Full-Stack)', status: 'done' },
@@ -49,7 +49,7 @@ const pillars: Pillar[] = [
     label: 'Udemy & Community',
     title: 'Tech Educator & Course Creator',
     entity: 'BenCoder Arabic Community · 102K+',
-    command: 'fetch audience --channel=@BenCoder --realtime',
+    command: 'npx bencoder --community --stats',
     metrics: [
       { label: 'Audience', value: '102K+ Devs' },
       { label: 'Udemy', value: '300+ Students' },
@@ -57,15 +57,15 @@ const pillars: Pillar[] = [
     ],
     tags: ['Udemy', 'Python Arabic', 'Arabic EdTech', 'Community'],
     snippet: {
-      prefix: 'community-pulse',
+      prefix: 'community-pulse.json',
       lines: [
         {
           text: '• 300+ enrolled students in "Python for Beginners (Arabic)" on Udemy',
           highlight: true,
         },
         { text: '• 102,000+ Arabic-speaking developers learning full-stack & AI' },
-        { text: '• Focused on pragmatic code: real architectures, zero fluff' },
-        { text: '• Practical tutorials in Arabic covering Next.js, Python, & AI tooling' },
+        { text: '• Practical architecture, clean engineering, zero fluff' },
+        { text: '• In-depth video breakdowns covering Next.js, Python, & AI tooling' },
       ],
     },
   },
@@ -75,15 +75,15 @@ const pillars: Pillar[] = [
     label: 'Build',
     title: 'Full-Stack Software Architecture',
     entity: 'JG SupplyNet & Production Web Systems',
-    command: 'stack inspect --runtime=node22 --type-check=strict',
+    command: 'pnpm build --filter=@apps/jg-supply-net',
     metrics: [
       { label: 'Latest Work', value: 'JG SupplyNet' },
       { label: 'Frontend', value: 'Next.js · React' },
       { label: 'Backend', value: 'Node · API REST' },
     ],
-    tags: ['JG SupplyNet', 'Next.js', 'React', 'Tailwind', 'Vercel'],
+    tags: ['JG SupplyNet', 'Next.js 15', 'TypeScript', 'PostgreSQL', 'Tailwind'],
     snippet: {
-      prefix: 'engine-spec',
+      prefix: 'platform-spec.ts',
       lines: [
         { text: 'const flagship = "JG SupplyNet (Algeria B2B Portal)";', highlight: true },
         { text: 'const stack = ["Next.js 15 (App Router)", "TypeScript", "Tailwind CSS"];' },
@@ -98,7 +98,7 @@ const pillars: Pillar[] = [
     label: 'Robotics & Mentorship',
     title: 'Robotics, Embedded Systems & Mentorship',
     entity: 'DZDuino Collaboration & 1-on-1 Labs',
-    command: 'embed flash --board=arduino-uno --soc=raspberry-pi-4',
+    command: 'make -C firmware flash BOARD=arduino-uno',
     metrics: [
       { label: 'Partnership', value: 'DZDuino.com' },
       { label: 'Hardware', value: 'Arduino · RPi' },
@@ -106,7 +106,7 @@ const pillars: Pillar[] = [
     ],
     tags: ['Arduino', 'Raspberry Pi', 'Robotics', 'DZDuino', 'Mentorship'],
     snippet: {
-      prefix: 'hardware-controller',
+      prefix: 'controller.cpp',
       lines: [
         { text: '[DZDuino Collaboration] Robotics & Embedded Systems Cohort', highlight: true },
         { text: '[Lab] Arduino Uno & Raspberry Pi 4 sensor integration & C++' },
@@ -153,26 +153,14 @@ export function HeroConsole() {
             <span className="w-2.5 h-2.5 rounded-full bg-border-strong border border-border inline-block" />
           </div>
           <span className="text-text-muted text-[11px] ml-1">
-            portfolio-overview <span className="text-text-faint">// interactive</span>
+            terminal ~ bencoder.sh
           </span>
         </div>
-        <div className="flex items-center gap-2.5">
-          <button
-            type="button"
-            onClick={() => setAutoPlay((prev) => !prev)}
-            aria-label={autoPlay ? 'Pause auto-rotation' : 'Play auto-rotation'}
-            className="text-[10px] text-text-muted hover:text-text px-2 py-0.5 rounded border border-border bg-surface hover:bg-surface-2 cursor-pointer transition-colors"
-          >
-            {autoPlay ? '⏸ Pause' : '▶ Play'}
-          </button>
-          <div className="flex items-center gap-1.5">
-            <span className="relative flex h-2 w-2" aria-hidden="true">
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-status" />
-            </span>
-            <span className="text-[10px] text-text-muted tracking-wider uppercase hidden sm:inline">
-              Active
-            </span>
-          </div>
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-status inline-block" />
+          <span className="text-[10px] text-text-muted tracking-wider uppercase font-mono">
+            Active
+          </span>
         </div>
       </div>
 
@@ -270,7 +258,7 @@ export function HeroConsole() {
                 {/* Title & Entity */}
                 <div className="space-y-1">
                   <div className="text-xs font-mono uppercase tracking-wider text-text-faint flex items-center gap-2">
-                    <span>ROLE // {pillar.entity}</span>
+                    <span>{pillar.entity}</span>
                   </div>
                   <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-text font-sans">
                     {pillar.title}
@@ -291,14 +279,11 @@ export function HeroConsole() {
                   ))}
                 </div>
 
-                {/* Output Box / Log View with Live Stream Indicator */}
+                {/* Output Box / Log View */}
                 <div className="bg-bg/90 rounded-xl p-4 border border-border text-xs font-mono space-y-2 overflow-x-auto shadow-inner">
                   <div className="text-[10px] text-text-faint pb-1.5 border-b border-border/50 uppercase tracking-widest flex items-center justify-between">
-                    <span>Terminal Output [{pillar.snippet.prefix}]</span>
-                    <span className="text-status text-[9px] font-semibold flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-status animate-ping" />
-                      LIVE STREAM
-                    </span>
+                    <span>Output [{pillar.snippet.prefix}]</span>
+                    <span className="text-text-muted text-[10px] font-mono">Exit 0 · OK</span>
                   </div>
                   <div className="space-y-1.5 min-h-[96px]">
                     {pillar.snippet.lines.map((line, lIdx) => (
@@ -325,7 +310,7 @@ export function HeroConsole() {
                       key={tag}
                       className="text-[11px] font-mono px-2 py-0.5 rounded bg-surface-2 border border-border text-text-muted hover:text-text transition-colors"
                     >
-                      #{tag}
+                      {tag}
                     </span>
                   ))}
                 </div>
@@ -335,11 +320,11 @@ export function HeroConsole() {
         </div>
       </div>
 
-      {/* Auto-play status footer bar */}
-      <div className="px-4 py-2 bg-surface-2/60 border-t border-border flex items-center justify-between text-[11px] font-mono text-text-faint">
+      {/* Console Footer Bar */}
+      <div className="px-4 py-2.5 bg-surface-2/60 border-t border-border flex items-center justify-between text-[11px] font-mono text-text-muted">
         <div className="flex items-center gap-1.5">
-          <span>Click any tab to freeze</span>
-          {autoPlay && <span className="animate-pulse">· auto-rotating</span>}
+          <span className="w-1.5 h-1.5 rounded-full bg-status/80" />
+          <span>Mostaganem, DZ · UTC+1</span>
         </div>
         <a
           href={
@@ -353,7 +338,7 @@ export function HeroConsole() {
           }
           className="text-text hover:underline inline-flex items-center gap-1 transition-colors duration-200"
         >
-          Explore pillar →
+          Explore {current.label} →
         </a>
       </div>
     </div>

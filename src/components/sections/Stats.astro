@@ -19,15 +19,15 @@ const statsData =
           value: '102K+',
           metric: 'متابع',
           sub: 'مجتمع برمجي متفاعل وواسع عبر منصات وقنوات BenCoder',
-          badge: '102K+ مجتمع',
+          badge: 'مجتمع 102K+',
         },
         {
           num: '02',
-          label: 'تدريب الذكاء الاصطناعي',
-          value: 'شهر 1',
-          metric: 'مكثف',
-          sub: 'برنامج "Build with AI" التدريبي في Everest Academy',
-          badge: 'كبير المدربين',
+          label: 'معسكر الذكاء الاصطناعي',
+          value: '20+',
+          metric: 'مهندس',
+          sub: 'خريجون تدربوا تطبيقياً في معسكر "Build with AI" المكثف',
+          badge: 'Everest Academy',
         },
         {
           num: '03',
@@ -35,15 +35,15 @@ const statsData =
           value: '300+',
           metric: 'طالب',
           sub: 'دورة بايثون للمبتدئين بالعربية على Udemy · تقييم متميز 4.8★',
-          badge: 'مدرب معتمد',
+          badge: 'Udemy 4.8★',
         },
         {
           num: '04',
-          label: 'قاعدة الانطلاق',
-          value: 'UTC+1',
-          metric: 'مستغانم',
-          sub: 'هندسة الإعلام الآلي وعلوم البيانات · متاح للعمل عن بُعد دولياً',
-          badge: 'نشط ومتاح',
+          label: 'المحتوى التطبيقي',
+          value: '45+',
+          metric: 'شرح',
+          sub: 'شروحات عملية مرئية باللغة العربية في الذكاء الاصطناعي وهندسة الويب',
+          badge: 'منصة BenCoder',
         },
       ]
     : [
@@ -53,15 +53,15 @@ const statsData =
           value: '102K+',
           metric: 'Followers',
           sub: 'Engaged developer community across BenCoder platforms',
-          badge: '102K+ Community',
+          badge: '102K+ Devs',
         },
         {
           num: '02',
-          label: 'AI Instruction',
-          value: '1 Mo.',
-          metric: 'Intensive',
-          sub: '"Build with AI" flagship curriculum at Everest Academy',
-          badge: 'Lead Instructor',
+          label: 'AI Bootcamp',
+          value: '20+',
+          metric: 'Engineers',
+          sub: 'Graduates trained hands-on in "Build with AI" intensive bootcamp',
+          badge: 'Everest Academy',
         },
         {
           num: '03',
@@ -69,21 +69,20 @@ const statsData =
           value: '300+',
           metric: 'Students',
           sub: 'Python for Beginners in Arabic on Udemy · 4.8★ student rating',
-          badge: 'Udemy Instructor',
+          badge: 'Udemy 4.8★',
         },
         {
           num: '04',
-          label: 'Engineering Base',
-          value: 'UTC+1',
-          metric: 'Mostaganem',
-          sub: 'Computer Engineering & Data Science · Remote-friendly',
-          badge: 'Active & Open',
+          label: 'Technical Content',
+          value: '45+',
+          metric: 'Tutorials',
+          sub: 'Hands-on Arabic video breakdowns in applied AI & web architecture',
+          badge: 'BenCoder Media',
         },
       ];
 ---
 
 <section class="border-y border-border/80 bg-surface/30 backdrop-blur-xs relative overflow-hidden">
-  <!-- Subtle corner crosshair decoration -->
   <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
     <div
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x rtl:divide-x-reverse divide-border/70 border-x border-border/50"
@@ -94,8 +93,10 @@ const statsData =
             <div class="p-6 sm:p-7 lg:p-8 flex flex-col justify-between h-full group hover:bg-surface/60 transition-colors duration-200">
               {/* Header Row: Index & Category */}
               <div class="flex items-center justify-between pb-3 text-xs font-mono">
-                <span class="text-text-faint group-hover:text-text transition-colors">
-                  <span class="bidi-tech">{stat.num}</span> // {stat.label}
+                <span class="text-text-faint group-hover:text-text transition-colors flex items-center gap-1.5">
+                  <span class="bidi-tech font-bold text-text-faint">{stat.num}</span>
+                  <span class="text-border-strong">·</span>
+                  <span class="text-text-muted">{stat.label}</span>
                 </span>
                 <span class="text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-surface-2 border border-border text-text-muted group-hover:text-text group-hover:border-border-strong transition-colors">
                   {stat.badge}

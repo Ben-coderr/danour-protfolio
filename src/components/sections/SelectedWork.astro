@@ -66,8 +66,8 @@ const clientProjects = localizedProjects.filter((p) =>
                   <span class="font-mono text-xs uppercase tracking-wider text-text font-bold">
                     {
                       locale === 'ar'
-                        ? 'أحدث عمل إنتاجي // سوق التوريد الرقمي B2B'
-                        : 'LATEST PRODUCTION WORK // B2B MARKETPLACE'
+                        ? 'أحدث عمل إنتاجي · سوق التوريد الرقمي B2B'
+                        : 'Latest Production Work · B2B Sourcing Platform'
                     }
                   </span>
                 </div>
@@ -120,7 +120,7 @@ const clientProjects = localizedProjects.filter((p) =>
                   {
                     flagshipProject.bullets.slice(0, 3).map((bullet) => (
                       <li class="flex items-start gap-2">
-                        <span class="text-status font-bold select-none">›</span>
+                        <span class="text-text-faint select-none font-bold">—</span>
                         <span class="leading-relaxed">{bullet}</span>
                       </li>
                     ))
@@ -134,7 +134,7 @@ const clientProjects = localizedProjects.filter((p) =>
                         <ul class="space-y-1.5 text-xs sm:text-sm text-text-muted font-mono">
                           {flagshipProject.bullets.slice(3).map((bullet) => (
                             <li class="flex items-start gap-2">
-                              <span class="text-status font-bold select-none">›</span>
+                              <span class="text-text-faint select-none font-bold">—</span>
                               <span class="leading-relaxed">{bullet}</span>
                             </li>
                           ))}
@@ -201,12 +201,12 @@ const clientProjects = localizedProjects.filter((p) =>
                 class="flex items-center justify-between pb-3 border-b border-border/70 text-text-faint"
               >
                 <span class="text-[11px]"
-                  >{locale === 'ar' ? '// محرك التوريد الرقمي B2B' : '// B2B SOURCING ENGINE'}</span
+                  >{locale === 'ar' ? 'محرك التوريد الرقمي B2B' : 'B2B Sourcing Platform'}</span
                 >
                 <span
                   class="text-[10px] px-2 py-0.5 rounded bg-bg text-status border border-border font-bold"
                 >
-                  {locale === 'ar' ? '● بيئة الإنتاج الحية' : '● PRODUCTION LIVE'}
+                  {locale === 'ar' ? '● بيئة الإنتاج الحية' : '● Production Live'}
                 </span>
               </div>
 
@@ -223,7 +223,7 @@ const clientProjects = localizedProjects.filter((p) =>
                     <span class="w-2 h-2 rounded-full bg-border-strong"></span>
                   </div>
                   <span class="text-[10px] text-text-muted bidi-tech">jgsupplynet.com/en</span>
-                  <span class="text-[9px] text-status font-bold bidi-tech">LIVE VERCEL</span>
+                  <span class="text-[9px] text-status font-bold bidi-tech">Live</span>
                 </div>
                 <a
                   href={flagshipProject.liveUrl}
@@ -408,8 +408,8 @@ const clientProjects = localizedProjects.filter((p) =>
           <span class="font-mono text-xs uppercase tracking-wider text-text-faint">
             {
               locale === 'ar'
-                ? '// مشاريع تجارية واستشارية إضافية'
-                : '// MORE COMMERCIAL & CLIENT DEPLOYMENTS'
+                ? 'مشاريع تجارية واستشارية إضافية'
+                : 'Commercial & Client Deployments'
             }
           </span>
           <a href={`${basePrefix}/work`} class="text-xs font-mono text-text hover:underline">

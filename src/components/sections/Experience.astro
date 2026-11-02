@@ -100,7 +100,7 @@ const timeline = getTimeline(locale);
                 <ul class="space-y-1.5 text-xs text-text-muted font-mono pt-1 max-w-3xl">
                   {item.achievements.map((ach) => (
                     <li class="flex items-start gap-2">
-                      <span class="text-status select-none">›</span>
+                      <span class="text-text-faint select-none font-bold">—</span>
                       <span class="leading-relaxed">{ach}</span>
                     </li>
                   ))}
@@ -157,7 +157,7 @@ const timeline = getTimeline(locale);
                 <ul class="space-y-1.5 text-xs text-text-muted font-mono pt-1 max-w-3xl">
                   {item.achievements.map((ach) => (
                     <li class="flex items-start gap-2">
-                      <span class="text-status select-none">›</span>
+                      <span class="text-text-faint select-none font-bold">—</span>
                       <span class="leading-relaxed">{ach}</span>
                     </li>
                   ))}
@@ -214,7 +214,7 @@ const timeline = getTimeline(locale);
               <div
                 class="flex items-center gap-2 text-xs font-mono text-text-faint uppercase tracking-wider"
               >
-                <span class="bidi-tech">5-YEAR STATE ENGINEERING // INGÉNIEUR D'ÉTAT</span>
+                <span class="bidi-tech">5-YEAR STATE ENGINEERING · INGÉNIEUR D'ÉTAT</span>
                 <span>·</span>
                 <span class="text-status font-semibold"
                   >{locale === 'ar' ? 'مسار 5 سنوات' : '5-Year Curriculum'}</span

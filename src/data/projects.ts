@@ -33,7 +33,7 @@ export const projects: Project[] = [
   {
     slug: 'jg-supply-net',
     title: 'JG SupplyNet — Algeria Digital Procurement Platform',
-    category: 'Latest Work // B2B Marketplace',
+    category: 'Latest Work · B2B Marketplace',
     summary:
       "Algeria's digital B2B procurement platform and supplier marketplace connecting organizations, industrial buyers, and verified suppliers.",
     fullDescription:
@@ -239,7 +239,7 @@ export const projects: Project[] = [
   {
     slug: 'phytosense',
     title: 'PhytoSense — Resilient Botanical Intelligence & Phytotherapy Platform',
-    category: 'AI & Botanical Intelligence // PFE 2026',
+    category: 'AI & Botanical Intelligence · PFE 2026',
     summary:
       'Fault-tolerant, multi-provider scientific decision engine for North African ethnobotany, phytotherapy, and precision agronomy.',
     fullDescription:
@@ -328,7 +328,7 @@ export const projects: Project[] = [
   {
     slug: 'vyro',
     title: 'VYRO — Made-to-Order Manufacturing & Digital E-Commerce',
-    category: 'Digital Manufacturing // E-Commerce & Console',
+    category: 'Digital Manufacturing · E-Commerce & Console',
     summary:
       'Full-stack made-to-order manufacturing storefront and back-office console for 3D printing, laser cutting, engraving, and CNC fabrication in Algeria.',
     fullDescription:
@@ -409,7 +409,7 @@ export const projects: Project[] = [
   {
     slug: 'new-way',
     title: 'New Way — AI Financial Intelligence & Revenue Forecasting',
-    category: 'AI SaaS // Data Analytics & Forecasting',
+    category: 'AI SaaS · Data Analytics & Forecasting',
     summary:
       'Zero-cost AI data intelligence platform turning raw financial spreadsheets into automated executive dashboards, 30-day linear forecasts, and Gemini conversational insights.',
     fullDescription:

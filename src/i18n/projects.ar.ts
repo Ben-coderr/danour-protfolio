@@ -17,7 +17,7 @@ export interface LocalizedProjectFields {
 export const projectsAr: Record<string, LocalizedProjectFields> = {
   'jg-supply-net': {
     title: 'JG SupplyNet — منصة المشتريات والتوريد الرقمية الجزائرية',
-    category: 'أحدث المشاريع // سوق رقمي B2B',
+    category: 'أحدث المشاريع · سوق رقمي B2B',
     summary:
       'المنصة الرقمية الأولى في الجزائر لربط المؤسسات والمصانع بالموردين المعتمدين، وإدارة طلبات عروض الأسعار (RFQ) وتصفح الكتالوجات الصناعية.',
     fullDescription:
@@ -63,7 +63,7 @@ export const projectsAr: Record<string, LocalizedProjectFields> = {
   },
   phytosense: {
     title: 'PhytoSense — نظام الذكاء الاصطناعي لتشخيص أمراض النباتات',
-    category: 'رؤية حاسوبية // ذكاء اصطناعي ميداني',
+    category: 'رؤية حاسوبية · ذكاء اصطناعي ميداني',
     summary:
       'نظام تشخيص ميداني هجين يعمل دون إنترنت (Offline-First) يدمج نماذج Pl@ntNet وKindwise مع محرك FastSAM لفحص أوراق المحاصيل وتشخيص الآفات بدقة عالية.',
     fullDescription:
@@ -107,7 +107,7 @@ export const projectsAr: Record<string, LocalizedProjectFields> = {
   },
   vyro: {
     title: 'VYRO — منصة التصنيع وتخصيص الأزياء حسب الطلب',
-    category: 'تصنيع حسب الطلب // استوديو ثلاثي الأبعاد',
+    category: 'تصنيع حسب الطلب · استوديو ثلاثي الأبعاد',
     summary:
       'منصة متكاملة لتخصيص الأزياء حسب الطلب تضم متجراً سريعاً للعملاء واستوديو تصميم حي بـ WebGL وCanvas متصل بنظام أوتوماتيكي لتجهيز ملفات الطباعة الصناعية.',
     fullDescription:
@@ -143,7 +143,7 @@ export const projectsAr: Record<string, LocalizedProjectFields> = {
   },
   'new-way': {
     title: 'New Way — منصة الأرشفة الطبية ومعالجة الوصفات بالـ OCR',
-    category: 'القطاع الصحي // استخراج البيانات الذكي',
+    category: 'القطاع الصحي · استخراج البيانات الذكي',
     summary:
       'منصة رقمية سحابية لإدارة الوصفات والملفات الطبية تعتمد على محركات OCR المتقدمة لتحويل الوصفات الخطية إلى سجلات منظمة قابلة للبحث الفوري.',
     fullDescription:
@@ -167,7 +167,7 @@ export const projectsAr: Record<string, LocalizedProjectFields> = {
   },
   virexa: {
     title: 'Virexa — منصة SaaS للتحليلات التنبؤية بالذكاء الاصطناعي',
-    category: 'ذكاء اصطناعي مالي // برمجيات كخدمة SaaS',
+    category: 'ذكاء اصطناعي مالي · برمجيات كخدمة SaaS',
     summary:
       'منصة برمجيات كخدمة (SaaS) للتنبؤ بالإيرادات والتدفقات المالية باستخدام خوارزميات الاستدلال البايزي والنماذج الإحصائية للشركات الناشئة.',
     fullDescription:
@@ -190,7 +190,7 @@ export const projectsAr: Record<string, LocalizedProjectFields> = {
   },
   'udemy-python-arabic': {
     title: 'دورة بايثون للمبتدئين بالعربية — Udemy',
-    category: 'تعليم تقني // دورة رقمية',
+    category: 'تعليم تقني · دورة رقمية',
     summary:
       'الدورة التعليمية الأولى للمبتدئين باللغة العربية لنقل المتعلمين من الصفر إلى إتقان التفكير الخوارزمي وهندسة البرمجيات العملية ببايثون (300+ طالب، تقييم 4.8 من 5.0).',
     role: 'مؤلف الدورة والمدرب الرئيسي',
@@ -202,7 +202,7 @@ export const projectsAr: Record<string, LocalizedProjectFields> = {
   },
   'everest-genai': {
     title: 'معسكر "Build with AI" — Everest Academy',
-    category: 'تدريب احترافي // ذكاء اصطناعي توليدي',
+    category: 'تدريب احترافي · ذكاء اصطناعي توليدي',
     summary:
       'معسكر تدريبي مكثف حضوري لتأهيل مهندسي البرمجيات في بناء وتطبيق حلول الذكاء الاصطناعي التوليدي والأنظمة المستقلة الجاهزة للإنتاج.',
     role: 'كبير مدرّبي الذكاء الاصطناعي',
@@ -214,7 +214,7 @@ export const projectsAr: Record<string, LocalizedProjectFields> = {
   },
   'fiikra-studio': {
     title: 'Fiikra Studio — منصة الوكالات الإبداعية الرقمية',
-    category: 'واجهات مستخدم // موقع شركة',
+    category: 'واجهات مستخدم · موقع شركة',
     summary:
       'منصة رقمية حديثة عالية التباين والأناقة البصرية مصممة لشركات الإنتاج الإبداعي والوكالات الرقمية.',
     role: 'مهندس الواجهات وتجربة المستخدم',
@@ -225,7 +225,7 @@ export const projectsAr: Record<string, LocalizedProjectFields> = {
   },
   'perfecto-brew-crew': {
     title: 'Perfecto Brew Crew — منصة متجر القهوة المختصة',
-    category: 'تجارة إلكترونية // علامة تجارية',
+    category: 'تجارة إلكترونية · علامة تجارية',
     summary:
       'متجر تجارة إلكترونية ذو طابع بصري فريد للقهوة المختصة مع مسار دفع سريع وتصميم فائق التجاوب.',
     role: 'مهندس برمجيات الويب',
